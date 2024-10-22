@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn433xv65wx5u"]
+
+[ext_resource type="Texture2D" uid="uid://d2m11orl3dop6" path="res://assets/outdoor.png" id="1_vv1es"]
+[ext_resource type="PackedScene" uid="uid://bsd7ynav7k5v6" path="res://scenes/player.tscn" id="2_m8srq"]
+
+[node name="Scene_1" type="Node2D"]
+
+[node name="Outdoor" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_vv1es")
+
+[node name="Player" parent="." instance=ExtResource("2_m8srq")]
+position = Vector2(28, 389)
+limited_vision = false
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-10, -22)
+rotation = -3.14159
+scale = Vector2(0.5, 0.5)
+zoom = Vector2(1.6, 1.6)
+limit_left = -360
+limit_right = 360

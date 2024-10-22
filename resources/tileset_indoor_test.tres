@@ -1,0 +1,211 @@
+[gd_resource type="TileSet" load_steps=15 format=3 uid="uid://cmbjnum3wtge3"]
+
+[ext_resource type="Texture2D" uid="uid://cyc5obhrrjrnd" path="res://assets/top-down-indoor.jpg" id="1_h675h"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_rl8ra"]
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_bm2eu"]
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_2pom8"]
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_x3ky3"]
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_py4fk"]
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0hxcj"]
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_2nra4"]
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_4f7db"]
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_xxlbv"]
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_icrhs"]
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_wqspr"]
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_7d571"]
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kqi8a"]
+texture = ExtResource("1_h675h")
+texture_region_size = Vector2i(24, 24)
+3:1/0 = 0
+3:1/0/metadata/_better_terrain = {
+0: [0],
+3: [0],
+4: [0],
+7: [0],
+8: [0],
+11: [0],
+12: [0],
+15: [0],
+"type": 0
+}
+0:4/next_alternative_id = 4
+0:4/0 = 0
+0:4/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_x3ky3")
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+0:4/0/metadata/_better_terrain = {
+0: [0],
+12: [0],
+15: [0],
+"type": 0
+}
+1:4/next_alternative_id = 3
+1:4/0 = 0
+1:4/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_0hxcj")
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+1:4/0/metadata/_better_terrain = {
+0: [0],
+8: [0],
+11: [0],
+12: [0],
+15: [0],
+"type": 0
+}
+2:4/0 = 0
+2:4/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_icrhs")
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+2:4/0/metadata/_better_terrain = {
+8: [0],
+11: [0],
+12: [0],
+"type": 0
+}
+0:1/next_alternative_id = 2
+0:1/0 = 0
+0:1/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_rl8ra")
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+0:1/0/metadata/_better_terrain = {
+0: [0],
+3: [0],
+4: [0],
+"type": 0
+}
+0:1/1 = 1
+0:1/1/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_bm2eu")
+0:1/1/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+0:1/1/metadata/_better_terrain = {
+0: [0],
+4: [0],
+7: [0],
+8: [0],
+11: [0],
+12: [0],
+15: [0],
+"type": 0
+}
+1:1/0 = 0
+1:1/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_py4fk")
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+1:1/0/metadata/_better_terrain = {
+0: [0],
+3: [0],
+4: [0],
+7: [0],
+8: [0],
+"type": 0
+}
+2:1/next_alternative_id = 2
+2:1/0 = 0
+2:1/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_2nra4")
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+2:1/0/metadata/_better_terrain = {
+4: [0],
+7: [0],
+8: [0],
+"type": 0
+}
+2:1/1 = 1
+2:1/1/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_4f7db")
+2:1/1/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+2:1/1/metadata/_better_terrain = {
+0: [0],
+3: [0],
+4: [0],
+8: [0],
+11: [0],
+12: [0],
+15: [0],
+"type": 0
+}
+0:2/0 = 0
+0:2/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_2pom8")
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+0:2/0/metadata/_better_terrain = {
+0: [0],
+3: [0],
+4: [0],
+12: [0],
+15: [0],
+"type": 0
+}
+2:2/0 = 0
+2:2/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_xxlbv")
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+2:2/0/metadata/_better_terrain = {
+4: [0],
+7: [0],
+8: [0],
+11: [0],
+12: [0],
+"type": 0
+}
+3:2/0 = 0
+3:2/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_wqspr")
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+3:2/0/metadata/_better_terrain = {
+0: [0],
+3: [0],
+4: [0],
+7: [0],
+8: [0],
+11: [0],
+12: [0],
+"type": 0
+}
+4:2/0 = 0
+4:2/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_7d571")
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+4:2/0/metadata/_better_terrain = {
+0: [0],
+3: [0],
+4: [0],
+7: [0],
+8: [0],
+12: [0],
+15: [0],
+"type": 0
+}
+1:2/size_in_atlas = Vector2i(1, 2)
+1:2/0 = 0
+1:2/0/texture_origin = Vector2i(0, 12)
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-11.8044, -36.4155, 12.0271, -35.97, 12, 12, -12, 12)
+
+[resource]
+tile_size = Vector2i(24, 24)
+occlusion_layer_0/light_mask = 1
+physics_layer_0/collision_layer = 1
+navigation_layer_0/layers = 1
+sources/1 = SubResource("TileSetAtlasSource_kqi8a")
+metadata/_better_terrain = {
+"decoration": ["Decoration", Color(0.411765, 0.411765, 0.411765, 1), 3, [], {
+"path": "res://addons/better-terrain/icons/Decoration.svg"
+}],
+"terrains": [["New terrain", Color(0.387011, 0.845317, 0.888685, 1), 0, [], {
+"path": ""
+}]],
+"version": "0.2"
+}
