@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cyc5obhrrjrnd"
-path="res://.godot/imported/top-down-indoor.jpg-fd6db89ebfd3795825420fb2061a423f.ctex"
+path="res://.godot/imported/top-down-indoor.jpg-210228c28453046d187f562b8cc91458.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/top-down-indoor.jpg"
-dest_files=["res://.godot/imported/top-down-indoor.jpg-fd6db89ebfd3795825420fb2061a423f.ctex"]
+source_file="res://assets/images/top-down-indoor.jpg"
+dest_files=["res://.godot/imported/top-down-indoor.jpg-210228c28453046d187f562b8cc91458.ctex"]
 
 [params]
 
