@@ -50,7 +50,6 @@ func _process(delta):
 		%Animation.pause()
 		$Animation.frame = 0
 
-
 func _on_area_2d_body_entered(body: TileMapLayer):
 	if body.is_in_group('wall'):
 		body.modulate = Color(1, 1, 1, .2)
