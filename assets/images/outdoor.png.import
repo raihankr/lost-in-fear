@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://833okvhy5q3w"
-path="res://.godot/imported/Light.png-469780eafe5f73a115be91ab7ce512f3.ctex"
+uid="uid://d2m11orl3dop6"
+path="res://.godot/imported/outdoor.png-42dfe8783c84207a02c77fd988fe3242.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Light.png"
-dest_files=["res://.godot/imported/Light.png-469780eafe5f73a115be91ab7ce512f3.ctex"]
+source_file="res://assets/images/outdoor.png"
+dest_files=["res://.godot/imported/outdoor.png-42dfe8783c84207a02c77fd988fe3242.ctex"]
 
 [params]
 

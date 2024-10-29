@@ -2,26 +2,26 @@ extends TouchScreenButton
 
 @export var remember_rotation = true
 
-var max_distance = shape.radius
-var center = texture_normal.get_size() / 2
+var max_distance := 32
+var center := Vector2(32, 32)
 var joystick_angle := 0.0
+var touched := false
 
 func _ready():
 	pass
 
-func _input(event: InputEvent):
+func _unhandled_input(event: InputEvent):
 	if event is InputEventScreenTouch:
-		if event.pressed:
+		if event.pressed and touched:
 			_update_joystick(event.position)
 		else:
 			%Tip.position = center
 			if not remember_rotation:
 				joystick_angle = 0
-	elif event is InputEventScreenDrag:
+	elif event is InputEventScreenDrag and touched:
 		_update_joystick(event.position)
 
 func _process(delta):
-	#print(get_joystick_angle())
 	pass
 	
 func _update_joystick(position: Vector2):
@@ -32,3 +32,9 @@ func _update_joystick(position: Vector2):
 func get_joystick_dir() -> Vector2:
 	var dir = %Tip.position - center
 	return dir.normalized()
+
+func _on_pressed():
+	touched = true
+
+func _on_released():
+	touched = false
