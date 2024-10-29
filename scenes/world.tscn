@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bsd7ynav7k5v6" path="res://scenes/player.tscn" id="2_dt4h5"]
 [ext_resource type="Script" path="res://scripts/tile_map_layer.gd" id="3_5pgxm"]
 [ext_resource type="Texture2D" uid="uid://cyc5obhrrjrnd" path="res://assets/top-down-indoor.jpg" id="3_6slfe"]
-[ext_resource type="PackedScene" uid="uid://6onope3m1r2f" path="res://scenes/mobile_controls.tscn" id="6_iaayv"]
+[ext_resource type="PackedScene" path="res://scenes/mobile_controls.tscn" id="6_iaayv"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_u3qqm"]
 light_mode = 2
