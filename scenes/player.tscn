@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bsd7ynav7k5v6"]
+[gd_scene load_steps=18 format=3 uid="uid://bsd7ynav7k5v6"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_7gn2u"]
 [ext_resource type="Texture2D" uid="uid://cx6123s06po2d" path="res://assets/hero.png" id="1_olbg6"]
@@ -8,10 +8,6 @@
 atlas = ExtResource("1_olbg6")
 region = Rect2(16, 32, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_msn2h"]
-atlas = ExtResource("1_olbg6")
-region = Rect2(0, 16, 16, 16)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_gsraa"]
 atlas = ExtResource("1_olbg6")
 region = Rect2(16, 16, 16, 16)
@@ -20,9 +16,9 @@ region = Rect2(16, 16, 16, 16)
 atlas = ExtResource("1_olbg6")
 region = Rect2(32, 16, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6n6c7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_msn2h"]
 atlas = ExtResource("1_olbg6")
-region = Rect2(0, 32, 16, 16)
+region = Rect2(0, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pfedo"]
 atlas = ExtResource("1_olbg6")
@@ -32,9 +28,9 @@ region = Rect2(16, 32, 16, 16)
 atlas = ExtResource("1_olbg6")
 region = Rect2(32, 32, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7yr2m"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_6n6c7"]
 atlas = ExtResource("1_olbg6")
-region = Rect2(0, 0, 16, 16)
+region = Rect2(0, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ywrrq"]
 atlas = ExtResource("1_olbg6")
@@ -43,6 +39,10 @@ region = Rect2(16, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_6105d"]
 atlas = ExtResource("1_olbg6")
 region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7yr2m"]
+atlas = ExtResource("1_olbg6")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fnvgg"]
 animations = [{
@@ -56,13 +56,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_msn2h")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_gsraa")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_07tgx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_msn2h")
 }],
 "loop": true,
 "name": &"walk_back",
@@ -70,31 +70,31 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6n6c7")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_pfedo")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_v0ew2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6n6c7")
 }],
 "loop": true,
 "name": &"walk_front",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7yr2m")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ywrrq")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6105d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7yr2m")
 }],
 "loop": true,
 "name": &"walk_side",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fbnwt"]
@@ -102,6 +102,8 @@ radius = 3.08
 height = 12.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5qcom"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_ng3v6"]
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(3, 3)
@@ -114,6 +116,7 @@ unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_fnvgg")
 animation = &"walk_side"
 autoplay = "idle"
+frame_progress = 0.832445
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.90735e-06, 4)
@@ -123,7 +126,6 @@ shape = SubResource("CapsuleShape2D_fbnwt")
 [node name="Vision" type="PointLight2D" parent="."]
 unique_name_in_owner = true
 visible = false
-scale = Vector2(0.465937, 0.621655)
 shadow_enabled = true
 texture = ExtResource("3_f8108")
 
@@ -136,6 +138,11 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_5qcom")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+texture = SubResource("AnimatedTexture_ng3v6")
+texture_scale = 50.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
