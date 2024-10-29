@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2m11orl3dop6"
-path="res://.godot/imported/outdoor.png-1fc3900427887d4a74a3051b1dfe785b.ctex"
+uid="uid://cyc5obhrrjrnd"
+path="res://.godot/imported/top-down-indoor.jpg-210228c28453046d187f562b8cc91458.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/outdoor.png"
-dest_files=["res://.godot/imported/outdoor.png-1fc3900427887d4a74a3051b1dfe785b.ctex"]
+source_file="res://assets/images/top-down-indoor.jpg"
+dest_files=["res://.godot/imported/top-down-indoor.jpg-210228c28453046d187f562b8cc91458.ctex"]
 
 [params]
 
