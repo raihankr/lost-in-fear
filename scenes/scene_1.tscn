@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dn433xv65wx5u"]
 
-[ext_resource type="Texture2D" uid="uid://d2m11orl3dop6" path="res://assets/outdoor.png" id="1_vv1es"]
+[ext_resource type="Texture2D" uid="uid://d2m11orl3dop6" path="res://assets/images/outdoor.png" id="1_vv1es"]
 [ext_resource type="Texture2D" uid="uid://wr53dp35ak22" path="res://assets/outdoor_tree.png" id="2_bwltb"]
 [ext_resource type="PackedScene" uid="uid://bsd7ynav7k5v6" path="res://scenes/player.tscn" id="2_m8srq"]
 [ext_resource type="PackedScene" uid="uid://6onope3m1r2f" path="res://scenes/mobile_controls.tscn" id="3_31iwd"]
