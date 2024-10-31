@@ -4,9 +4,10 @@
 [ext_resource type="Script" path="res://scenes/mobile_controls.gd" id="1_xkge1"]
 
 [node name="MobileControls" type="CanvasLayer"]
+layer = 10
 script = ExtResource("1_xkge1")
 
 [node name="Joystick" parent="." instance=ExtResource("1_o2kv0")]
 unique_name_in_owner = true
-position = Vector2(128, 336)
+position = Vector2(64, 352)
 scale = Vector2(4, 4)

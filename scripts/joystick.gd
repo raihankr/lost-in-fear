@@ -6,23 +6,25 @@ var max_distance := 32
 var center := Vector2(32, 32)
 var joystick_angle := 0.0
 var touched := false
+var init_pos: Vector2
 
 func _ready():
-	pass
+	init_pos = global_position
+	print(init_pos)
 
-func _unhandled_input(event: InputEvent):
+func _input(event: InputEvent):
 	if event is InputEventScreenTouch:
+		print(event.pressed)
 		if event.pressed and touched:
+			print('yes')
 			_update_joystick(event.position)
 		else:
 			%Tip.position = center
+			global_position = init_pos
 			if not remember_rotation:
 				joystick_angle = 0
 	elif event is InputEventScreenDrag and touched:
 		_update_joystick(event.position)
-
-func _process(delta):
-	pass
 	
 func _update_joystick(position: Vector2):
 	%Tip.global_position = position
