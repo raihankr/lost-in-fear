@@ -22,6 +22,7 @@ BetterTerrain="*res://addons/better-terrain/BetterTerrain.gd"
 [display]
 
 window/size/mode=3
+window/stretch/mode="viewport"
 
 [dotnet]
 

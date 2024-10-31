@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
 @export var limited_vision := true
+@export var SPEED := 100
 
 @onready var joystick = $"../MobileControls/Joystick"
 
-const SPEED = 150.0
 var head_rotation = 0.0
 
 func _ready():
@@ -31,20 +31,31 @@ func _process(delta):
 	move_and_slide()
 	%Vision.rotation = head_rotation
 	
+	%Animation.play()
+	
+	%Animation.animation_finished
 	var _rotation = int(head_rotation * 180 / PI) % 360
 	if _rotation < 0:
 		_rotation += 360
-	if _rotation > 315 or _rotation < 45:
+		
+	if _rotation < 22.5 or _rotation > 337.5:
 		%Animation.animation = 'walk_side'
-		%Animation.flip_h = true
-	elif _rotation > 45 and _rotation < 135:
+	elif _rotation < 67.5:
+		%Animation.animation = 'walk_diagonal_front'
+	elif _rotation < 112.5:
 		%Animation.animation = 'walk_front'
-	elif _rotation < 315 and _rotation > 225:
-		%Animation.animation = 'walk_back'
-	else:
+	elif _rotation < 157.5:
+		%Animation.animation = 'walk_diagonal_front'
+	elif _rotation < 202.5:
 		%Animation.animation = 'walk_side'
-		%Animation.flip_h = false
-	%Animation.play()
+	elif _rotation < 247.5:
+		%Animation.animation = 'walk_diagonal_back'
+	elif _rotation < 292.5:
+		%Animation.animation = 'walk_back'
+	elif _rotation < 337.5:
+		%Animation.animation = 'walk_diagonal_back'
+	
+	%Animation.flip_h = _rotation > 270 or _rotation < 90
 	
 	if velocity.length() == 0:
 		%Animation.pause()

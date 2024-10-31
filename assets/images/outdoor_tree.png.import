@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyngdl4xiinc"
-path="res://.godot/imported/virtual_joystick_icon.png-751334fd742f1c1a4e981c0cff3d2941.ctex"
+uid="uid://wr53dp35ak22"
+path="res://.godot/imported/outdoor_tree.png-3a0cd010c278335060d86122db75665d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/virtual_joystick_icon.png"
-dest_files=["res://.godot/imported/virtual_joystick_icon.png-751334fd742f1c1a4e981c0cff3d2941.ctex"]
+source_file="res://assets/images/outdoor_tree.png"
+dest_files=["res://.godot/imported/outdoor_tree.png-3a0cd010c278335060d86122db75665d.ctex"]
 
 [params]
 

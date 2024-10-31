@@ -28,6 +28,7 @@ func _update_joystick(position: Vector2):
 	%Tip.global_position = position
 	%Tip.position = center + (%Tip.position - center).limit_length(max_distance)
 	joystick_angle = Vector2.ZERO.angle_to_point(get_joystick_dir())
+	
 
 func get_joystick_dir() -> Vector2:
 	var dir = %Tip.position - center
