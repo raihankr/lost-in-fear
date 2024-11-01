@@ -20,7 +20,6 @@ func _process(delta):
 		'Windows', 'macOS':
 			head_rotation = get_angle_to(get_global_mouse_position())
 			if Input.is_action_pressed('move_front'): dir = 1
-			elif Input.is_action_pressed('move_back'): dir = -1
 
 	var _rotation = int(head_rotation * 180 / PI) % 360
 	if _rotation < 0:
