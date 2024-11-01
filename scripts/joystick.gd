@@ -1,6 +1,7 @@
 extends TouchScreenButton
 
-@export var remember_rotation = true
+@export var remember_rotation := true
+@export var dynamic_position := true
 
 var max_distance := 32
 var center := texture_normal.get_size() / 2
@@ -17,7 +18,8 @@ func _input(event: InputEvent):
 	if event is InputEventScreenTouch:
 		if event.pressed and _is_inside_joystick_area(event.position):
 			touched = true
-			global_position = event.position - global_center
+			if dynamic_position:
+				global_position = event.position - global_center
 			_update_joystick(event.position)
 		else:
 			global_position = init_pos
