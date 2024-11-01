@@ -16,8 +16,5 @@ metadata/_edit_group_ = true
 
 [node name="Tip" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(32, 32)
+position = Vector2(32, 31.5)
 texture = ExtResource("3_4b7p4")
-
-[connection signal="pressed" from="." to="." method="_on_pressed"]
-[connection signal="released" from="." to="." method="_on_released"]
