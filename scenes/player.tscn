@@ -1,8 +1,46 @@
-[gd_scene load_steps=27 format=3 uid="uid://bsd7ynav7k5v6"]
+[gd_scene load_steps=38 format=3 uid="uid://bsd7ynav7k5v6"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_7gn2u"]
-[ext_resource type="Texture2D" uid="uid://dunpa2s7v8cwc" path="res://assets/images/player.png" id="2_0bstp"]
+[ext_resource type="Texture2D" uid="uid://dunpa2s7v8cwc" path="res://assets/images/player/player.png" id="2_0bstp"]
+[ext_resource type="Texture2D" uid="uid://g7xcd0k6y7dv" path="res://assets/images/player/player_drop_package.png" id="2_1kl3k"]
+[ext_resource type="Texture2D" uid="uid://bnl1icp5a0lhw" path="res://assets/images/player/player_call.png" id="2_u13he"]
 [ext_resource type="Texture2D" uid="uid://833okvhy5q3w" path="res://assets/images/Light.png" id="3_f8108"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrxqm"]
+atlas = ExtResource("2_u13he")
+region = Rect2(0, 0, 16, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8mcw"]
+atlas = ExtResource("2_u13he")
+region = Rect2(0, 37, 16, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1x5x"]
+atlas = ExtResource("2_u13he")
+region = Rect2(0, 74, 16, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5x7ma"]
+atlas = ExtResource("2_u13he")
+region = Rect2(0, 111, 16, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_la85c"]
+atlas = ExtResource("2_1kl3k")
+region = Rect2(0, 0, 16, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjj2p"]
+atlas = ExtResource("2_1kl3k")
+region = Rect2(0, 37, 16, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0rgv"]
+atlas = ExtResource("2_1kl3k")
+region = Rect2(0, 74, 16, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abnm0"]
+atlas = ExtResource("2_1kl3k")
+region = Rect2(0, 111, 16, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kms7a"]
+atlas = ExtResource("2_1kl3k")
+region = Rect2(0, 148, 16, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p4y8i"]
 atlas = ExtResource("2_0bstp")
@@ -86,6 +124,43 @@ region = Rect2(48, 111, 16, 37)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fnvgg"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrxqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q8mcw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x1x5x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5x7ma")
+}],
+"loop": false,
+"name": &"call",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_la85c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjj2p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0rgv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abnm0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kms7a")
+}],
+"loop": false,
+"name": &"drop_package",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_p4y8i")
@@ -181,18 +256,17 @@ height = 16.0
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(3, 3)
 motion_mode = 1
+platform_on_leave = 2
+platform_floor_layers = 4294967040
 script = ExtResource("1_7gn2u")
 metadata/_edit_group_ = true
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
+position = Vector2(-8, -32)
 sprite_frames = SubResource("SpriteFrames_fnvgg")
-animation = &"walk_side"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.333333, 14)
-rotation = -1.57079
-shape = SubResource("CapsuleShape2D_fbnwt")
+animation = &"call"
+centered = false
 
 [node name="Vision" type="PointLight2D" parent="."]
 unique_name_in_owner = true
@@ -201,15 +275,21 @@ shadow_enabled = true
 texture = ExtResource("3_f8108")
 texture_scale = 2.0
 
-[node name="MouseRotation" type="Marker2D" parent="."]
-unique_name_in_owner = true
+[node name="Collider" type="CollisionShape2D" parent="."]
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_fbnwt")
+debug_color = Color(0, 0.595, 0.7, 0)
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -13.3333)
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_5qcom")
+debug_color = Color(0.351, 0.54405, 0.78, 0)
+
+[node name="Navigation" type="NavigationAgent2D" parent="."]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

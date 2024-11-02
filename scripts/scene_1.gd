@@ -1,7 +1,18 @@
 extends Node2D
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	var dialogue_1 = preload("res://dialogues/scene_1.dialogue")
-	await DialogueManager.show_dialogue_balloon(dialogue_1, 'start')
+	var dialogue = preload("res://dialogues/scene_1.dialogue")
+	set_process(false)
+	await Global.wait(3)
+	set_process(true)
+
+func _process(delta):
+	move_car(delta)
+	
+func move_car(delta):
+	if (%CarPosition.progress_ratio < 1):
+		%Car.play('moving')
+		%CarPosition.progress += 100 * delta
+	else:
+		%Car.frame = 0
+		%Car.pause()

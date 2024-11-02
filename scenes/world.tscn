@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://dhoq12lveplik"]
+[gd_scene load_steps=9 format=4 uid="uid://dhoq12lveplik"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_kxbqx"]
 [ext_resource type="TileSet" uid="uid://cmbjnum3wtge3" path="res://resources/tileset_indoor_test.tres" id="2_462f3"]
@@ -6,9 +6,6 @@
 [ext_resource type="Script" path="res://scripts/tile_map_layer.gd" id="3_5pgxm"]
 [ext_resource type="Texture2D" uid="uid://cyc5obhrrjrnd" path="res://assets/images/top-down-indoor.jpg" id="3_6slfe"]
 [ext_resource type="PackedScene" uid="uid://6onope3m1r2f" path="res://scenes/mobile_controls.tscn" id="6_iaayv"]
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_u3qqm"]
-light_mode = 2
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jy8fd"]
 texture = ExtResource("3_6slfe")
@@ -179,18 +176,20 @@ metadata/_edit_vertical_guides_ = [-774.0]
 layer = -30
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-material = SubResource("CanvasItemMaterial_u3qqm")
 use_parent_material = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.603922, 0.733333, 0.639216, 1)
+color = Color(0, 0, 0, 1)
 
 [node name="Player" parent="." instance=ExtResource("2_dt4h5")]
 position = Vector2(128, 184)
 scale = Vector2(1, 1)
+speed = 90
+limited_vision = true
+enable_input = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(3, 3)

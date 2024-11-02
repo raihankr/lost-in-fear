@@ -1,11 +1,16 @@
 extends CharacterBody2D
 
+@export var speed := 90
 @export var limited_vision := true
-@export var SPEED := 100
+@export var enable_input := true
 
-@onready var joystick = $"../MobileControls/Joystick"
+@onready var joystick = $"../MobileControls/Joystick"\
+	if ['Android', 'iOS'].has(OS.get_name()) else null
 
-var head_rotation = 0.0
+enum States {IDLE, WALK, WALK_PACKAGE, DROP_PACKAGE, CALL}
+
+var state: States = States.IDLE
+var head_rotation := 0.0
 
 func _ready():
 	%Vision.visible = limited_vision
@@ -13,13 +18,15 @@ func _ready():
 
 func _process(delta):
 	var dir := 0
-	match OS.get_name():
-		'Android', 'iOS':
-			head_rotation = joystick.joystick_angle
-			dir = joystick.get_joystick_dir().length()
-		'Windows', 'macOS':
-			head_rotation = get_angle_to(get_global_mouse_position())
-			if Input.is_action_pressed('move_front'): dir = 1
+	if enable_input:
+		match OS.get_name():
+			'Android', 'iOS':
+				head_rotation = joystick.joystick_angle
+				dir = joystick.get_joystick_dir().length()
+			'Windows', 'macOS':
+				head_rotation = get_angle_to(get_global_mouse_position())
+				if global_position.distance_to(get_global_mouse_position()) < 16: dir = 0
+				elif Input.is_action_pressed('move_front'): dir = 1
 
 	var _rotation = int(head_rotation * 180 / PI) % 360
 	if _rotation < 0:
@@ -56,13 +63,13 @@ func _process(delta):
 		%Animation.flip_h = true
 		velocity.x *= -1	
 	
-	velocity *= SPEED * dir
+	velocity *= speed * dir
 	
 	%Vision.rotation = head_rotation
 	
 	if velocity.length() == 0:
 		%Animation.pause()
-		$Animation.frame = 0
+		%Animation.frame = 0
 		
 	move_and_slide()
 
@@ -71,5 +78,4 @@ func _on_area_2d_body_entered(body: TileMapLayer):
 		body.modulate = Color(1, 1, 1, .2)
 
 func _on_area_2d_body_exited(body: TileMapLayer):
-	if body.is_in_group('wall'):
 		body.modulate = Color(1, 1, 1, 1)
