@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crjhk1w5v3qtq"
-path="res://.godot/imported/L2_Shadow.png-98ba54f7329357d45523e1fb068fffa0.ctex"
+uid="uid://coswctm44vfxl"
+path="res://.godot/imported/mailbox.png-e4e7d1eb05ffeec184367faa72aaf8cd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/outdoor/L2_Shadow.png"
-dest_files=["res://.godot/imported/L2_Shadow.png-98ba54f7329357d45523e1fb068fffa0.ctex"]
+source_file="res://assets/images/outdoor/mailbox.png"
+dest_files=["res://.godot/imported/mailbox.png-e4e7d1eb05ffeec184367faa72aaf8cd.ctex"]
 
 [params]
 

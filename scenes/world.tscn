@@ -186,10 +186,6 @@ color = Color(0, 0, 0, 1)
 
 [node name="Player" parent="." instance=ExtResource("2_dt4h5")]
 position = Vector2(128, 184)
-scale = Vector2(1, 1)
-speed = 90
-limited_vision = true
-enable_input = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(3, 3)

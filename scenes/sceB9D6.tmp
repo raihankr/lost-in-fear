@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://f0sc3xcf6b5h"]
+[gd_scene load_steps=39 format=4 uid="uid://dn433xv65wx5u"]
 
 [ext_resource type="Script" path="res://scripts/scene_1.gd" id="1_xubda"]
 [ext_resource type="Texture2D" uid="uid://da4ai86lyx17v" path="res://assets/images/outdoor/grass.png" id="2_bmjen"]
@@ -9,9 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://l3le5lgqjehp" path="res://assets/images/outdoor/house.png" id="6_fmkcg"]
 [ext_resource type="Shader" path="res://shaders/vertical_vignette.gdshader" id="9_cyj0p"]
 [ext_resource type="Texture2D" uid="uid://dele8q1v81e83" path="res://assets/images/car.png" id="11_7axkv"]
+[ext_resource type="Texture2D" uid="uid://cwgmnkkik8862" path="res://assets/images/hint.png" id="12_qdf1u"]
 [ext_resource type="Texture2D" uid="uid://coswctm44vfxl" path="res://assets/images/outdoor/mailbox.png" id="13_jlt8p"]
-[ext_resource type="PackedScene" uid="uid://conc52ihmoy0b" path="res://scenes/hotspot.tscn" id="15_ec3i3"]
 [ext_resource type="Texture2D" uid="uid://cp6khqctqg4y1" path="res://assets/images/tree/tree1.png" id="15_hywnu"]
+[ext_resource type="Texture2D" uid="uid://ug56bho7lyys" path="res://assets/images/package.png" id="16_8gfrt"]
 [ext_resource type="Texture2D" uid="uid://bxfl0kqebxng6" path="res://assets/images/tree/tree2.png" id="16_581nd"]
 [ext_resource type="Texture2D" uid="uid://bwq84f4hwfbuo" path="res://assets/images/tree/tree3.png" id="17_r4nhp"]
 [ext_resource type="Texture2D" uid="uid://bojclgvvwjehl" path="res://assets/images/tree/tree4.png" id="18_c34pk"]
@@ -118,7 +119,46 @@ size = Vector2(70.0048, 28.8018)
 shader = ExtResource("9_cyj0p")
 shader_parameter/offset = 0.2
 
-[node name="Main" type="Node2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8w1dl"]
+atlas = ExtResource("12_qdf1u")
+region = Rect2(3, 4, 29, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_boojh"]
+atlas = ExtResource("12_qdf1u")
+region = Rect2(35, 4, 29, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kbtw"]
+atlas = ExtResource("12_qdf1u")
+region = Rect2(67, 4, 29, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s85ku"]
+atlas = ExtResource("12_qdf1u")
+region = Rect2(99, 4, 29, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_08gxp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8w1dl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_boojh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3kbtw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s85ku")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jafok"]
+size = Vector2(10, 11)
+
+[node name="Scene_1" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_xubda")
 
@@ -144,9 +184,9 @@ centered = false
 
 [node name="Player" parent="." instance=ExtResource("2_m8srq")]
 unique_name_in_owner = true
-visible = false
 material = SubResource("ShaderMaterial_p5lsc")
-position = Vector2(247, 758)
+position = Vector2(269, 763)
+scale = Vector2(1, 1)
 limited_vision = false
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -219,18 +259,6 @@ offset = Vector2(-48, -24)
 position = Vector2(3.23921, 4.71185)
 shape = SubResource("RectangleShape2D_kskcu")
 
-[node name="StartingPoint" type="Marker2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(255, 642)
-
-[node name="TaskCall" parent="." instance=ExtResource("15_ec3i3")]
-visible = true
-position = Vector2(234, 285)
-monitoring = true
-
-[node name="TaskGoInside" parent="." instance=ExtResource("15_ec3i3")]
-position = Vector2(234, 232)
-
 [node name="Vignette" type="ColorRect" parent="."]
 z_index = 10
 material = SubResource("ShaderMaterial_ral5y")
@@ -244,9 +272,27 @@ grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
+[node name="Doorway" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(233, 216)
+
 [node name="MobileControls" parent="." instance=ExtResource("3_31iwd")]
-layer = 10
 visible = false
 
-[connection signal="body_entered" from="TaskCall" to="." method="_on_task_call_body_entered"]
-[connection signal="body_entered" from="TaskGoInside" to="." method="_on_task_go_inside_body_entered"]
+[node name="Hint" type="AnimatedSprite2D" parent="."]
+position = Vector2(-24, 8)
+sprite_frames = SubResource("SpriteFrames_08gxp")
+frame_progress = 0.113603
+
+[node name="Package" type="StaticBody2D" parent="."]
+position = Vector2(304, 745)
+
+[node name="Sprite2D" type="Sprite2D" parent="Package"]
+position = Vector2(-12, -15)
+scale = Vector2(0.938, 0.938)
+texture = ExtResource("16_8gfrt")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Package"]
+position = Vector2(-5, -6.5)
+shape = SubResource("RectangleShape2D_jafok")

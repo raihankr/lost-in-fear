@@ -1,4 +1,4 @@
-extends CanvasLayer
+class_name DialogueManagerExampleBalloon extends CanvasLayer
 ## A basic dialogue balloon for use with Dialogue Manager.
 
 ## The action to use for advancing the dialogue
@@ -21,8 +21,6 @@ var will_hide_balloon: bool = false
 
 var _locale: String = TranslationServer.get_locale()
 
-
-
 ## The current line
 var dialogue_line: DialogueLine:
 	set(next_dialogue_line):
@@ -32,7 +30,6 @@ var dialogue_line: DialogueLine:
 
 		# The dialogue has finished so close the balloon
 		if not next_dialogue_line:
-			Global.enable_input = true
 			queue_free()
 			return
 
@@ -50,13 +47,6 @@ var dialogue_line: DialogueLine:
 
 		responses_menu.hide()
 		responses_menu.set_responses(dialogue_line.responses)
-		
-		# Set color
-		if dialogue_line.tags.has('silent'):
-			dialogue_line.text = '[color=#555][i]' + dialogue_line.text
-		
-		if dialogue_line.character == '???':
-			dialogue_line.text = '[color=#e01919fc]' + dialogue_line.text
 
 		# Show our balloon
 		balloon.show()
@@ -121,7 +111,6 @@ func _notification(what: int) -> void:
 
 ## Start some dialogue
 func start(dialogue_resource: DialogueResource, title: String, extra_game_states: Array = []) -> void:
-	Global.enable_input = false
 	temporary_game_states =  [self] + extra_game_states
 	is_waiting_for_input = false
 	resource = dialogue_resource
@@ -163,8 +152,6 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 	get_viewport().set_input_as_handled()
 
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
-		next(dialogue_line.next_id)
-	elif event is InputEventScreenTouch and event.is_pressed():
 		next(dialogue_line.next_id)
 	elif event.is_action_pressed(next_action) and get_viewport().gui_get_focus_owner() == balloon:
 		next(dialogue_line.next_id)

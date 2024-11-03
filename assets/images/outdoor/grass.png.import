@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhsoffxyb71yf"
-path="res://.godot/imported/L3_House.png-cd44dc56b2219a917dd4a34cbdada04a.ctex"
+uid="uid://da4ai86lyx17v"
+path="res://.godot/imported/grass.png-4d6698be01e5009dc93f9f0bf52d11b1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/outdoor/L3_House.png"
-dest_files=["res://.godot/imported/L3_House.png-cd44dc56b2219a917dd4a34cbdada04a.ctex"]
+source_file="res://assets/images/outdoor/grass.png"
+dest_files=["res://.godot/imported/grass.png-4d6698be01e5009dc93f9f0bf52d11b1.ctex"]
 
 [params]
 
