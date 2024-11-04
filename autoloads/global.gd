@@ -4,9 +4,12 @@ extends Node
 
 var enable_input: bool = true:
 	set(value):
-		player.enable_input = value
+		if player:
+			player.enable_input = value
 	get:
-		return player.enable_input
+		if player:
+			return player.enable_input
+		else: return false
 
 func wait(seconds: float):
 	await get_tree().create_timer(seconds).timeout

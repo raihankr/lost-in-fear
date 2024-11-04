@@ -146,7 +146,7 @@ centered = false
 unique_name_in_owner = true
 visible = false
 material = SubResource("ShaderMaterial_p5lsc")
-position = Vector2(247, 758)
+position = Vector2(271, 753)
 limited_vision = false
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -198,8 +198,7 @@ curve = SubResource("Curve2D_2eopt")
 
 [node name="CarPosition" type="PathFollow2D" parent="CarPath"]
 unique_name_in_owner = true
-position = Vector2(-15.6037, 0)
-progress = 0.612029
+position = Vector2(-16, 0)
 loop = false
 
 [node name="Car" type="StaticBody2D" parent="CarPath/CarPosition"]
@@ -221,7 +220,7 @@ shape = SubResource("RectangleShape2D_kskcu")
 
 [node name="StartingPoint" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(255, 642)
+position = Vector2(271, 639)
 
 [node name="TaskCall" parent="." instance=ExtResource("15_ec3i3")]
 visible = true

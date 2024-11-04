@@ -8,6 +8,7 @@ func enter(previous_state_path, data := {}):
 		finished.emit(IDLE)
 		return
 	player.animation.play('drop_package')
+	player.animation.flip_h = false
 	await player.animation.animation_finished
 	finished.emit(IDLE, { 'head_rotation': 1.0 / 2 * PI })
 
