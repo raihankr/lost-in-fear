@@ -30,8 +30,10 @@ func move_car(delta):
 		car.pause()
 
 func _on_task_call_body_entered(body):
+	player.head_rotation = 1.5 * PI
 	await DialogueManager.show_dialogue_balloon(dialogue, 'call')
 	$TaskGoInside.enable()
 
 func _on_task_go_inside_body_entered(body):
+	player.head_rotation = 1.5 * PI
 	await DialogueManager.show_dialogue_balloon(dialogue, 'going_inside')

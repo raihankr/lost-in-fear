@@ -2,10 +2,10 @@ extends CanvasLayer
 ## A basic dialogue balloon for use with Dialogue Manager.
 
 ## The action to use for advancing the dialogue
-@export var next_action: StringName = &"ui_accept"
+@export var next_action: StringName = &"next_dialogue"
 
 ## The action to use to skip typing the dialogue
-@export var skip_action: StringName = &"ui_cancel"
+@export var skip_action: StringName = &"skip_dialogue"
 
 ## The dialogue resource
 var resource: DialogueResource
@@ -51,9 +51,11 @@ var dialogue_line: DialogueLine:
 		responses_menu.hide()
 		responses_menu.set_responses(dialogue_line.responses)
 		
-		# Set color
+		# Dialogue Balloon Setting
 		if dialogue_line.tags.has('silent'):
 			dialogue_line.text = '[color=#555][i]' + dialogue_line.text
+		if dialogue_line.tags.has('red-vignette-in'):
+			show_red_vignette()
 		
 		if dialogue_line.character == '???':
 			dialogue_line.text = '[color=#e01919fc]' + dialogue_line.text
@@ -66,6 +68,9 @@ var dialogue_line: DialogueLine:
 		if not dialogue_line.text.is_empty():
 			dialogue_label.type_out()
 			await dialogue_label.finished_typing
+
+		if dialogue_line.tags.has('red-vignette-out'):
+			await hide_red_vignette()
 
 		# Wait for input
 		if dialogue_line.responses.size() > 0:
@@ -151,6 +156,7 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 	if dialogue_label.is_typing:
 		var mouse_was_clicked: bool = event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed()
 		var skip_button_was_pressed: bool = event.is_action_pressed(skip_action)
+		#var screen_was_touched: bool = event is InputEventScreenTouch and event.is_pressed()
 		if mouse_was_clicked or skip_button_was_pressed:
 			get_viewport().set_input_as_handled()
 			dialogue_label.skip_typing()
@@ -175,3 +181,10 @@ func _on_responses_menu_response_selected(response: DialogueResponse) -> void:
 
 
 #endregion
+
+func show_red_vignette():
+	$RedVignette/Animation.play('Fade')
+
+func hide_red_vignette():
+	$RedVignette/Animation.play_backwards('Fade')
+	return $RedVignette/Animation.animation_finished
