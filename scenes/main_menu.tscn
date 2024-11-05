@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_6i7x6"]
 [ext_resource type="Texture2D" uid="uid://v7u54xtx3y32" path="res://assets/progres2s.png" id="2_7ntxy"]
-[ext_resource type="FontFile" uid="uid://bxi1ev5tfug74" path="res://assets/fonts/TwistyPixel.ttf" id="2_co8sm"]
+[ext_resource type="FontFile" uid="uid://b6avu6ubekbr7" path="res://assets/fonts/N8ghtmare.ttf" id="3_6jj28"]
 [ext_resource type="AudioStream" uid="uid://dm6ugwcogcosf" path="res://assets/audios/qubodup-yd-DarkShrineLoop-OpenGameArt.mp3" id="4_s2vru"]
 [ext_resource type="PackedScene" uid="uid://lynjxgn82bh5" path="res://scenes/options_menu.tscn" id="5_u0mkr"]
 
@@ -50,13 +50,14 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.592157, 0, 0, 1)
+theme_override_colors/font_color = Color(0.544226, 9.68631e-07, 1.44392e-07, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.902396, 0.923513, 0.981866, 1)
 theme_override_constants/shadow_offset_y = 10
-theme_override_fonts/font = ExtResource("2_co8sm")
-theme_override_font_sizes/font_size = 132
-text = "Lost in Fear"
+theme_override_fonts/font = ExtResource("3_6jj28")
+theme_override_font_sizes/font_size = 98
+text = "Lost in Fear
+"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -85,8 +86,8 @@ layout_mode = 2
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.521569, 0, 0, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_co8sm")
-theme_override_font_sizes/font_size = 72
+theme_override_fonts/font = ExtResource("3_6jj28")
+theme_override_font_sizes/font_size = 36
 text = "Start"
 flat = true
 
@@ -95,8 +96,8 @@ layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.52549, 0, 0, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.99085, 0.945645, 0.745983, 1)
-theme_override_fonts/font = ExtResource("2_co8sm")
-theme_override_font_sizes/font_size = 72
+theme_override_fonts/font = ExtResource("3_6jj28")
+theme_override_font_sizes/font_size = 36
 text = "Options"
 flat = true
 
@@ -105,8 +106,8 @@ layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.52549, 0, 0, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.99085, 0.945645, 0.745983, 1)
-theme_override_fonts/font = ExtResource("2_co8sm")
-theme_override_font_sizes/font_size = 72
+theme_override_fonts/font = ExtResource("3_6jj28")
+theme_override_font_sizes/font_size = 36
 text = "Credits
 "
 flat = true
@@ -116,8 +117,8 @@ layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.52549, 0, 0, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.99085, 0.945645, 0.745983, 1)
-theme_override_fonts/font = ExtResource("2_co8sm")
-theme_override_font_sizes/font_size = 72
+theme_override_fonts/font = ExtResource("3_6jj28")
+theme_override_font_sizes/font_size = 36
 text = "Quit"
 flat = true
 

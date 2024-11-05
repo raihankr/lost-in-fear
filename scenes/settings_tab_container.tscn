@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://b0o4iadr0getn"]
+[gd_scene load_steps=4 format=3 uid="uid://b0o4iadr0getn"]
+
+[ext_resource type="PackedScene" uid="uid://cdsn0h15546at" path="res://scenes/hotkey_rebind_button.tscn" id="1_jomij"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dwdun"]
 
@@ -47,15 +49,25 @@ layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Control/MarginContainer/ScrollContainer"]
 layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/separation = 68
 
 [node name="HSeparator" type="HSeparator" parent="TabContainer/Control/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 32
+theme_override_constants/separation = 5
 theme_override_styles/separator = SubResource("StyleBoxEmpty_dwdun")
+
+[node name="Hotkey_Rebind_Button" parent="TabContainer/Control/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_jomij")]
+layout_mode = 2
+
+[node name="Hotkey_Rebind_Button2" parent="TabContainer/Control/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_jomij")]
+layout_mode = 2
+action_name = "move_back"
 
 [node name="HSeparator2" type="HSeparator" parent="TabContainer/Control/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 32
+theme_override_constants/separation = 4
 theme_override_styles/separator = SubResource("StyleBoxEmpty_a4ki1")
 
 [node name="Sound2" type="TabBar" parent="TabContainer"]

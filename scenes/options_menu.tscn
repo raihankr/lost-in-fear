@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://lynjxgn82bh5"]
 
 [ext_resource type="Script" path="res://scenes/options_menu.gd" id="1_s8oas"]
-[ext_resource type="FontFile" uid="uid://bxi1ev5tfug74" path="res://assets/fonts/TwistyPixel.ttf" id="2_y5ct5"]
+[ext_resource type="FontFile" uid="uid://b6avu6ubekbr7" path="res://assets/fonts/N8ghtmare.ttf" id="2_ihmfb"]
 [ext_resource type="PackedScene" uid="uid://b0o4iadr0getn" path="res://scenes/settings_tab_container.tscn" id="3_k7e00"]
 
 [node name="Options_Menu" type="Control"]
@@ -31,8 +31,8 @@ theme_override_constants/separation = -48
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_y5ct5")
-theme_override_font_sizes/font_size = 92
+theme_override_fonts/font = ExtResource("2_ihmfb")
+theme_override_font_sizes/font_size = 48
 text = "Options"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -47,6 +47,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_colors/font_hover_color = Color(0.592157, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_y5ct5")
-theme_override_font_sizes/font_size = 50
+theme_override_fonts/font = ExtResource("2_ihmfb")
+theme_override_font_sizes/font_size = 24
 text = "Exit"
