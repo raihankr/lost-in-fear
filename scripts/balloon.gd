@@ -69,7 +69,7 @@ var dialogue_line: DialogueLine:
 			dialogue_label.type_out()
 			await dialogue_label.finished_typing
 
-		if dialogue_line.tags.has('red-vignette-out'):
+		if dialogue_line.tags.has ('red-vignette-out'):
 			await hide_red_vignette()
 
 		# Wait for input

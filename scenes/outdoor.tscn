@@ -1,6 +1,7 @@
-[gd_scene load_steps=32 format=4 uid="uid://f0sc3xcf6b5h"]
+[gd_scene load_steps=33 format=4 uid="uid://f0sc3xcf6b5h"]
 
-[ext_resource type="Script" path="res://scripts/scene_1.gd" id="1_xubda"]
+[ext_resource type="PackedScene" uid="uid://cm2f40rvqfd66" path="res://scenes/base_scene.tscn" id="1_g05sf"]
+[ext_resource type="Script" path="res://scripts/outdoor.gd" id="1_xubda"]
 [ext_resource type="Texture2D" uid="uid://da4ai86lyx17v" path="res://assets/images/outdoor/grass.png" id="2_bmjen"]
 [ext_resource type="Texture2D" uid="uid://dbs8jn1ogfcip" path="res://assets/images/outdoor/shadow.png" id="2_fb03m"]
 [ext_resource type="PackedScene" uid="uid://bsd7ynav7k5v6" path="res://scenes/player.tscn" id="2_m8srq"]
@@ -118,38 +119,38 @@ size = Vector2(70.0048, 28.8018)
 shader = ExtResource("9_cyj0p")
 shader_parameter/offset = 0.2
 
-[node name="Main" type="Node2D"]
+[node name="Main" instance=ExtResource("1_g05sf")]
 y_sort_enabled = true
 script = ExtResource("1_xubda")
 
-[node name="InvisibleWall" type="StaticBody2D" parent="."]
+[node name="InvisibleWall" type="StaticBody2D" parent="." index="2"]
 position = Vector2(-24, 8)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InvisibleWall"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InvisibleWall" index="0"]
 build_mode = 1
 polygon = PackedVector2Array(24, 802, 504, 802, 504, -8, 24, -8)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="3"]
 environment = SubResource("Environment_70alq")
 
-[node name="Grass" type="Sprite2D" parent="."]
+[node name="Grass" type="Sprite2D" parent="." index="4"]
 y_sort_enabled = true
 texture = ExtResource("2_bmjen")
 centered = false
 
-[node name="Shadow" type="Sprite2D" parent="."]
+[node name="Shadow" type="Sprite2D" parent="." index="5"]
 y_sort_enabled = true
 texture = ExtResource("2_fb03m")
 centered = false
 
-[node name="Player" parent="." instance=ExtResource("2_m8srq")]
+[node name="Player" parent="." index="6" instance=ExtResource("2_m8srq")]
 unique_name_in_owner = true
 visible = false
 material = SubResource("ShaderMaterial_p5lsc")
 position = Vector2(271, 753)
 limited_vision = false
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="Player" index="5"]
 rotation = -3.14159
 scale = Vector2(0.5, 0.5)
 zoom = Vector2(2.4, 2.4)
@@ -158,55 +159,55 @@ limit_top = 0
 limit_right = 480
 limit_bottom = 810
 
-[node name="House" type="StaticBody2D" parent="."]
+[node name="House" type="StaticBody2D" parent="." index="7"]
 y_sort_enabled = true
 position = Vector2(247, 129)
 
-[node name="Sprite2D" type="Sprite2D" parent="House"]
+[node name="Sprite2D" type="Sprite2D" parent="House" index="0"]
 position = Vector2(-14, 42)
 texture = ExtResource("6_fmkcg")
 centered = false
 offset = Vector2(-115, -155)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="House"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="House" index="1"]
 build_mode = 1
 polygon = PackedVector2Array(-35, 81, -35, 97, 8, 97, 8, 81, 59, 81, 59, 62, 91, 62, 91, 32, 59, 32, 59, -18, -87, -18, -86, 32, -117, 32, -117, 62, -86, 62, -86, 81)
 
-[node name="Tree" type="TileMapLayer" parent="."]
+[node name="Tree" type="TileMapLayer" parent="." index="8"]
 y_sort_enabled = true
 position = Vector2(11, 3)
 tile_map_data = PackedByteArray("AAACACoABAAAAAAAAAACACEABAAAAAAAAAAVACIABAAAAAAAAAAbACoAAwAAAAAAAAAIABEABAAAAAAAAAAUABAAAQAAAAAAAAAaABMAAQAAAAAAAAAXAAYAAQAAAAAAAAAbAAkAAQAAAAAAAAAGAAMAAQAAAAAAAAAAAAgAAQAAAAAAAAADAAsAAgAAAAAAAAAXABwAAQAAAAAAAAAFABIAAQAAAAAAAAAZACAAAQAAAAAAAAACACUAAgAAAAAAAAD//yYAAgAAAAAAAAAXACsAAwAAAAAAAAAaACgAAgAAAAAAAAAcACYAAgAAAAAAAAASACAAAgAAAAAAAAATABgAAgAAAAAAAAAYABgAAgAAAAAAAAAZABMAAgAAAAAAAAAHACQAAwAAAAAAAAAEAB8AAwAAAAAAAAD//yAAAwAAAAAAAAACAB0AAwAAAAAAAAD//xoAAwAAAAAAAAADABoAAwAAAAAAAAABABgAAwAAAAAAAAACABQAAwAAAAAAAAABABQAAwAAAAAAAAADAA4AAwAAAAAAAAAAAA8AAwAAAAAAAAAEAAgAAwAAAAAAAAADAAUAAwAAAAAAAAD//wIAAwAAAAAAAAAUAAMAAwAAAAAAAAAaAAQAAwAAAAAAAAAdAAYAAwAAAAAAAAAZABAAAwAAAAAAAAAdAA8AAwAAAAAAAAAcABYAAwAAAAAAAAAbABsAAwAAAAAAAAAYACQAAwAAAAAAAAAcACEAAwAAAAAAAAAGACkAAgAAAAAAAAAFABYAAgAAAAAAAAA=")
 tile_set = SubResource("TileSet_cnpmq")
 
-[node name="Mailbox" type="StaticBody2D" parent="."]
+[node name="Mailbox" type="StaticBody2D" parent="." index="9"]
 y_sort_enabled = true
 position = Vector2(318, 701)
 
-[node name="Sprite2D" type="Sprite2D" parent="Mailbox"]
+[node name="Sprite2D" type="Sprite2D" parent="Mailbox" index="0"]
 position = Vector2(10, 32)
 texture = ExtResource("13_jlt8p")
 centered = false
 offset = Vector2(-10, -32)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Mailbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mailbox" index="1"]
 position = Vector2(10, 32)
 shape = SubResource("RectangleShape2D_80wvx")
 
-[node name="CarPath" type="Path2D" parent="."]
+[node name="CarPath" type="Path2D" parent="." index="10"]
 position = Vector2(-40, 763)
 curve = SubResource("Curve2D_2eopt")
 
-[node name="CarPosition" type="PathFollow2D" parent="CarPath"]
+[node name="CarPosition" type="PathFollow2D" parent="CarPath" index="0"]
 unique_name_in_owner = true
 position = Vector2(-16, 0)
 loop = false
 
-[node name="Car" type="StaticBody2D" parent="CarPath/CarPosition"]
+[node name="Car" type="StaticBody2D" parent="CarPath/CarPosition" index="0"]
 unique_name_in_owner = true
 y_sort_enabled = true
 scale = Vector2(1.2, 1.2)
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="CarPath/CarPosition/Car"]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="CarPath/CarPosition/Car" index="0"]
 sprite_frames = SubResource("SpriteFrames_yibd8")
 animation = &"moving"
 autoplay = "moving"
@@ -214,23 +215,23 @@ frame_progress = 0.156523
 centered = false
 offset = Vector2(-48, -24)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CarPath/CarPosition/Car"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CarPath/CarPosition/Car" index="1"]
 position = Vector2(3.23921, 4.71185)
 shape = SubResource("RectangleShape2D_kskcu")
 
-[node name="StartingPoint" type="Marker2D" parent="."]
+[node name="StartingPoint" type="Marker2D" parent="." index="11"]
 unique_name_in_owner = true
 position = Vector2(271, 639)
 
-[node name="TaskCall" parent="." instance=ExtResource("15_ec3i3")]
+[node name="TaskCall" parent="." index="12" instance=ExtResource("15_ec3i3")]
 visible = true
 position = Vector2(234, 285)
 monitoring = true
 
-[node name="TaskGoInside" parent="." instance=ExtResource("15_ec3i3")]
+[node name="TaskGoInside" parent="." index="13" instance=ExtResource("15_ec3i3")]
 position = Vector2(234, 232)
 
-[node name="Vignette" type="ColorRect" parent="."]
+[node name="Vignette" type="ColorRect" parent="." index="14"]
 z_index = 10
 material = SubResource("ShaderMaterial_ral5y")
 anchors_preset = 15
@@ -243,7 +244,7 @@ grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
-[node name="MobileControls" parent="." instance=ExtResource("3_31iwd")]
+[node name="MobileControls" parent="." index="15" instance=ExtResource("3_31iwd")]
 layer = 10
 visible = false
 
