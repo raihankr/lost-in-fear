@@ -1,0 +1,113 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0o4iadr0getn"]
+
+[ext_resource type="PackedScene" uid="uid://cdsn0h15546at" path="res://scenes/hotkey_rebind_button.tscn" id="1_jomij"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dwdun"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a4ki1"]
+
+[node name="Settings_Tab_Container" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = 120.0
+offset_right = -100.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+tab_alignment = 1
+current_tab = 0
+
+[node name="Control" type="TabBar" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Control/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Control/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/separation = 68
+
+[node name="HSeparator" type="HSeparator" parent="TabContainer/Control/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+theme_override_styles/separator = SubResource("StyleBoxEmpty_dwdun")
+
+[node name="Hotkey_Rebind_Button" parent="TabContainer/Control/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_jomij")]
+layout_mode = 2
+
+[node name="Hotkey_Rebind_Button2" parent="TabContainer/Control/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_jomij")]
+layout_mode = 2
+action_name = "move_back"
+
+[node name="HSeparator2" type="HSeparator" parent="TabContainer/Control/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+theme_override_styles/separator = SubResource("StyleBoxEmpty_a4ki1")
+
+[node name="Sound2" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Sound2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Sound2/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/Sound2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "LOREM IPSUM
+"
+
+[node name="Label2" type="Label" parent="TabContainer/Sound2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "LOREM IPSUM
+"
+
+[node name="Label3" type="Label" parent="TabContainer/Sound2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "LOREM IPSUM
+"
+
+[node name="Label4" type="Label" parent="TabContainer/Sound2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "LOREM IPSUM
+"
