@@ -1,6 +1,6 @@
 extends PlayerState
 
-var animation = 'idle'
+var animation: String = 'idle'
 
 func enter(previos_state_path, data := {}):
 	player.animation.animation = animation

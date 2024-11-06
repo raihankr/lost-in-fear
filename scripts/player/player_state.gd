@@ -1,11 +1,11 @@
 class_name PlayerState extends State
 
-const IDLE = 'Idle'
-const IDLE_PACKAGE = 'IdlePackage'
-const WALK = 'Walk'
-const WALK_PACKAGE = 'WalkPackage'
-const DROP_PACKAGE = 'DropPackage'
-const CALL = 'Call'
+const IDLE: String = 'Idle'
+const IDLE_PACKAGE: String = 'IdlePackage'
+const WALK: String = 'Walk'
+const WALK_PACKAGE: String = 'WalkPackage'
+const DROP_PACKAGE: String = 'DropPackage'
+const CALL: String = 'Call'
 
 var player: Player
 

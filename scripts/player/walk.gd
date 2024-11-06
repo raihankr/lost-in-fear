@@ -1,14 +1,14 @@
 class_name PlayerWalk extends PlayerState
 
-var animations = [
+var animations: Array[String] = [
 	'walk_front',
 	'walk_diagonal_front',
 	'walk_side',
 	'walk_diagonal_back',
 	'walk_back'
 ]
-var idle = IDLE
-var target_position = null
+var idle: String = IDLE
+var target_position: Variant = null
 var initial_speed: int
 
 func enter(previous_state_path, data := {}):

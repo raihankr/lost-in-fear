@@ -1,28 +1,23 @@
 class_name Player extends CharacterBody2D
 
-enum Rotation {
-	FRONT,
-	DIAGONAL_FRONT,
-	SIDE,
-	DIAGONAL_BACK,
-	BACK
-}
-
+enum Rotation {FRONT, DIAGONAL_FRONT, SIDE, DIAGONAL_BACK, BACK}
 enum Direction {UP, RIGHT, DOWN, LEFT}
+enum VisionStyle {NONE, CIRCLE, CONE}
 
-@export var move_speed := 80
+@export var move_speed: int= 80
 @export var rotation_speed: float = 225 * PI / 180
-@export var limited_vision := true
-@export var enable_input := true
+@export var limited_vision: int = true
+@export var enable_input: int = true
+@export var vision_style: VisionStyle = VisionStyle.NONE
 
-@onready var joystick = $/root.find_child('Joystick', true, false) if OS.get_name() in ['Android', 'iOS'] else null
+@onready var joystick: TouchScreenButton = $/root.find_child('Joystick', true, false) if OS.get_name() in ['Android', 'iOS'] else null
 @onready var animation: AnimatedSprite2D = %Animation
-@onready var vision := %Vision
-@onready var state_machine := %StateMachine
+@onready var vision: PointLight2D= %Vision
+@onready var state_machine: StateMachine = %StateMachine
 
-var head_rotation := 1/2 * PI:
+var head_rotation: float = 1/2 * PI:
 	set = _on_rotated
-var dir := 0
+var dir: int = 0
 var rotation_state: Rotation = 0
 var horizontal_heading: Direction = Direction.LEFT
 
@@ -44,9 +39,9 @@ func _process(delta):
 					head_rotation += rotation_speed * delta
 				if Input.is_action_pressed('move_front'): dir = 1
 
-func _on_rotated(value):
+func _on_rotated(value: float) -> void:
 	head_rotation = value
-	var _rotation = int(head_rotation * 180 / PI) % 360
+	var _rotation: int = int(head_rotation * 180 / PI) % 360
 	if _rotation < 0:
 		_rotation += 360
 
@@ -73,11 +68,11 @@ func _on_rotated(value):
 	
 	%Vision.rotation = head_rotation
 
-func _on_area_2d_body_entered(body: TileMapLayer):
+func _on_area_2d_body_entered(body: TileMapLayer) -> void:
 	if body.is_in_group('wall'):
 		body.modulate = Color(1, 1, 1, .2)
 
-func _on_area_2d_body_exited(body: TileMapLayer):
+func _on_area_2d_body_exited(body: TileMapLayer) -> void:
 		body.modulate = Color(1, 1, 1, 1)
 
 func move_to(target_position: Vector2, _move_speed: int = move_speed, state: String = 'Walk') -> Signal:
@@ -85,10 +80,10 @@ func move_to(target_position: Vector2, _move_speed: int = move_speed, state: Str
 	state_machine.enter(state, { 'target_position': target_position, 'move_speed': _move_speed })
 	return state_machine.state.finished
 
-func phone_call():
+func phone_call() -> void:
 	state_machine.enter('DropPackage')
 	await state_machine.state.finished
 	state_machine.enter('Call')
 
-func phone_down():
+func phone_down() -> void:
 	%StateMachine/Call.finished.emit('Idle')
