@@ -8,7 +8,7 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("FadeTransition/ColorRect:modulate")
+tracks/0/path = NodePath("ContainerFront/SceneTransition:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -23,7 +23,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("FadeTransition/ColorRect:modulate")
+tracks/0/path = NodePath("ContainerFront/SceneTransition:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -47,10 +47,21 @@ libraries = {
 "": SubResource("AnimationLibrary_dkrw1")
 }
 
-[node name="FadeTransition" type="CanvasLayer" parent="."]
+[node name="ContainerBack" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="BlackBg" type="ColorRect" parent="ContainerBack"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ContainerFront" type="CanvasLayer" parent="."]
 layer = 101
 
-[node name="ColorRect" type="ColorRect" parent="FadeTransition"]
+[node name="SceneTransition" type="ColorRect" parent="ContainerFront"]
 modulate = Color(0, 0, 0, 0)
 anchors_preset = 15
 anchor_right = 1.0

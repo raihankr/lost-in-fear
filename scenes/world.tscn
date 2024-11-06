@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://dhoq12lveplik"]
+[gd_scene load_steps=8 format=4 uid="uid://dhoq12lveplik"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_kxbqx"]
 [ext_resource type="TileSet" uid="uid://cmbjnum3wtge3" path="res://resources/tileset_indoor_test.tres" id="2_462f3"]
 [ext_resource type="PackedScene" uid="uid://bsd7ynav7k5v6" path="res://scenes/player.tscn" id="2_dt4h5"]
-[ext_resource type="Script" path="res://scripts/tile_map_layer.gd" id="3_5pgxm"]
 [ext_resource type="Texture2D" uid="uid://cyc5obhrrjrnd" path="res://assets/images/top-down-indoor.jpg" id="3_6slfe"]
-[ext_resource type="PackedScene" path="res://scenes/mobile_controls.tscn" id="6_iaayv"]
+[ext_resource type="PackedScene" uid="uid://6onope3m1r2f" path="res://scenes/mobile_controls.tscn" id="6_iaayv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jy8fd"]
 texture = ExtResource("3_6slfe")
@@ -183,6 +182,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_dt4h5")]
 position = Vector2(128, 184)
@@ -205,6 +205,5 @@ z_index = 1
 position = Vector2(24, 15)
 tile_map_data = PackedByteArray("AAABABcAAQABAAIAAAACABcAAQABAAIAAAADABcAAQABAAIAAAAEABcAAQABAAIAAAAFABcAAQABAAIAAAAGABcAAQABAAIAAAALABYAAQABAAIAAAAMABYAAQABAAIAAAANABYAAQABAAIAAAAOABYAAQABAAIAAAAPABYAAQABAAIAAAABABUAAQABAAEAAAACABUAAQABAAEAAAADABUAAQABAAEAAAAEABUAAQABAAEAAAAFABUAAQABAAEAAAAGABUAAQABAAEAAAALABQAAQABAAEAAAAMABQAAQABAAEAAAANABQAAQABAAEAAAAOABQAAQABAAEAAAAPABQAAQABAAEAAAD5/xAAAQABAAIAAAD6/xAAAQABAAIAAAD7/xAAAQABAAIAAAD8/xAAAQABAAIAAAD9/xAAAQABAAIAAAD+/xAAAQABAAIAAAD//xAAAQABAAIAAAAAABAAAQACAAIAAAD5/w4AAQABAAEAAAD6/w4AAQABAAEAAAD7/w4AAQABAAEAAAD8/w4AAQABAAEAAAD9/w4AAQABAAEAAAD+/w4AAQABAAEAAAD//w4AAQABAAEAAAAAAA4AAQACAAEAAAAAAA8AAQACAAIAAAD4/xAAAQABAAIAAAD4/w4AAQAAAAQAAAAAABUAAQAAAAQAAAAHABUAAQACAAQAAAAAABcAAQABAAIAAAAHABcAAQABAAIAAAAKABYAAQABAAIAAAAQABYAAQABAAIAAAAHABQAAQACAAIAAAAIABQAAQABAAIAAAAJABQAAQABAAIAAAAKABQAAQAAAAQAAAAHABMAAQACAAIAAAAKABMAAQACAAIAAAAIABIAAQABAAEAAAAJABIAAQABAAEAAAAKABIAAQACAAEAAAAHABIAAQAAAAEAAAAQABQAAQACAAQAAAA=")
 tile_set = SubResource("TileSet_fvg8l")
-script = ExtResource("3_5pgxm")
 
 [node name="MobileControls" parent="." instance=ExtResource("6_iaayv")]

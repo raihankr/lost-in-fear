@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://bsd7ynav7k5v6"]
+[gd_scene load_steps=76 format=3 uid="uid://bsd7ynav7k5v6"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_7gn2u"]
 [ext_resource type="Texture2D" uid="uid://dunpa2s7v8cwc" path="res://assets/images/player/player.png" id="2_0bstp"]
@@ -516,8 +516,6 @@ animations = [{
 radius = 3.66667
 height = 16.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_5qcom"]
-
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
 motion_mode = 1
@@ -567,15 +565,3 @@ texture_scale = 2.0
 rotation = -1.57079
 shape = SubResource("CapsuleShape2D_fbnwt")
 debug_color = Color(0, 0.595, 0.7, 0)
-
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(0, -13.3333)
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_5qcom")
-debug_color = Color(0.351, 0.54405, 0.78, 0)
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

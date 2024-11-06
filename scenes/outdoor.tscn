@@ -148,7 +148,6 @@ unique_name_in_owner = true
 visible = false
 material = SubResource("ShaderMaterial_p5lsc")
 position = Vector2(271, 753)
-limited_vision = false
 
 [node name="Camera2D" type="Camera2D" parent="Player" index="5"]
 rotation = -3.14159
