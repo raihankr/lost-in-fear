@@ -527,7 +527,6 @@ metadata/_edit_group_ = true
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_fnvgg")
-animation = &"call"
 autoplay = "default"
 centered = false
 offset = Vector2(-8, -32)
@@ -565,3 +564,7 @@ texture_scale = 2.0
 rotation = -1.57079
 shape = SubResource("CapsuleShape2D_fbnwt")
 debug_color = Color(0, 0.595, 0.7, 0)
+
+[node name="FootstepSound" type="AudioStreamPlayer2D" parent="."]
+volume_db = -8.0
+bus = &"SFX"

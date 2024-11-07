@@ -4,9 +4,11 @@ signal car_arrived
 
 @onready var car = %Car/Sprite2D
 @onready var player = %Player
+@onready var car_running_sound = %CarRunningSound
 
-var living_room = preload('res://scenes/living_room.tscn')
+var living_room = preload('res://scenes/world/living_room.tscn')
 var dialogue = preload("res://dialogues/scene_1.dialogue")
+
 
 func _ready():
 	super()
@@ -25,6 +27,7 @@ func _process(delta):
 func move_car(delta):
 	if (%CarPosition.progress_ratio < 1):
 		car.play('moving')
+		
 		%CarPosition.progress += 100 * delta
 	elif car.is_playing():
 		car.frame = 0

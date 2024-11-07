@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cm2f40rvqfd66"]
 
-[ext_resource type="Script" path="res://scripts/base_scene.gd" id="1_ltd4q"]
+[ext_resource type="Script" path="res://classes/base_scene.gd" id="1_ltd4q"]
 
 [sub_resource type="Animation" id="Animation_2w4im"]
 resource_name = "Fade"
@@ -8,7 +8,7 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ContainerFront/SceneTransition:modulate")
+tracks/0/path = NodePath("ContainerFront/BlackFade:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -23,7 +23,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ContainerFront/SceneTransition:modulate")
+tracks/0/path = NodePath("ContainerFront/BlackFade:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -61,7 +61,8 @@ color = Color(0, 0, 0, 1)
 [node name="ContainerFront" type="CanvasLayer" parent="."]
 layer = 101
 
-[node name="SceneTransition" type="ColorRect" parent="ContainerFront"]
+[node name="BlackFade" type="ColorRect" parent="ContainerFront"]
+unique_name_in_owner = true
 modulate = Color(0, 0, 0, 0)
 anchors_preset = 15
 anchor_right = 1.0
