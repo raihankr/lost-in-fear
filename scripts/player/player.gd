@@ -1,0 +1,94 @@
+class_name Player extends CharacterBody2D
+
+enum Rotation {
+	FRONT,
+	DIAGONAL_FRONT,
+	SIDE,
+	DIAGONAL_BACK,
+	BACK
+}
+
+enum Direction {UP, RIGHT, DOWN, LEFT}
+
+@export var move_speed := 80
+@export var rotation_speed: float = 225 * PI / 180
+@export var limited_vision := true
+@export var enable_input := true
+
+@onready var joystick = $/root.find_child('Joystick', true, false) if OS.get_name() in ['Android', 'iOS'] else null
+@onready var animation: AnimatedSprite2D = %Animation
+@onready var vision := %Vision
+@onready var state_machine := %StateMachine
+
+var head_rotation := 1/2 * PI:
+	set = _on_rotated
+var dir := 0
+var rotation_state: Rotation = 0
+var horizontal_heading: Direction = Direction.LEFT
+
+func _ready():
+	%Vision.visible = limited_vision
+	velocity = Vector2.ZERO
+
+func _process(delta):
+	dir = 0
+	if enable_input:
+		match OS.get_name():
+			'Android', 'iOS':
+				head_rotation = joystick.joystick_angle
+				dir = joystick.get_joystick_dir().length()
+			'Windows', 'macOS':
+				if Input.is_action_pressed('rotate_left'):
+					head_rotation -= rotation_speed * delta
+				if Input.is_action_pressed('rotate_right'):
+					head_rotation += rotation_speed * delta
+				if Input.is_action_pressed('move_front'): dir = 1
+
+func _on_rotated(value):
+	head_rotation = value
+	var _rotation = int(head_rotation * 180 / PI) % 360
+	if _rotation < 0:
+		_rotation += 360
+
+	if _rotation < 22.5 or _rotation > 337.5:
+		rotation_state = Rotation.SIDE
+	elif _rotation < 67.5:
+		rotation_state = Rotation.DIAGONAL_FRONT
+	elif _rotation < 112.5:
+		rotation_state = Rotation.FRONT
+	elif _rotation < 157.5:
+		rotation_state = Rotation.DIAGONAL_FRONT
+	elif _rotation < 202.5:
+		rotation_state = Rotation.SIDE
+	elif _rotation < 247.5:
+		rotation_state = Rotation.DIAGONAL_BACK
+	elif _rotation < 292.5:
+		rotation_state = Rotation.BACK
+	elif _rotation < 337.5:
+		rotation_state = Rotation.DIAGONAL_BACK
+
+	horizontal_heading = Direction.LEFT
+	if _rotation > 270 or _rotation < 90:
+		horizontal_heading = Direction.RIGHT
+	
+	%Vision.rotation = head_rotation
+
+func _on_area_2d_body_entered(body: TileMapLayer):
+	if body.is_in_group('wall'):
+		body.modulate = Color(1, 1, 1, .2)
+
+func _on_area_2d_body_exited(body: TileMapLayer):
+		body.modulate = Color(1, 1, 1, 1)
+
+func move_to(target_position: Vector2, _move_speed: int = move_speed, state: String = 'Walk') -> Signal:
+	assert(state_machine.get_node(state) is PlayerWalk)
+	state_machine.enter(state, { 'target_position': target_position, 'move_speed': _move_speed })
+	return state_machine.state.finished
+
+func phone_call():
+	state_machine.enter('DropPackage')
+	await state_machine.state.finished
+	state_machine.enter('Call')
+
+func phone_down():
+	%StateMachine/Call.finished.emit('Idle')
