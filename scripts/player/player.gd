@@ -32,6 +32,7 @@ var vision_texture: Array[Variant] = [
 	null,
 	preload('res://assets/images/Light.png')
 ]
+var music_area_array: Array[MusicArea] = []
 
 func _ready():
 	velocity = Vector2.ZERO

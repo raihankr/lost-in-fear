@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://73jm5qjy52vq"]
+[gd_scene load_steps=15 format=3 uid="uid://73jm5qjy52vq"]
 
 [ext_resource type="Script" path="res://scripts/balloon.gd" id="1_36de5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_reponses_menu.gd" id="3_72ixx"]
 [ext_resource type="Shader" path="res://shaders/circular_vignette.gdshader" id="4_6hb35"]
+[ext_resource type="AudioStream" uid="uid://ck0wr0dotortx" path="res://assets/audios/typing.wav" id="5_ayith"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n3diy"]
 shader = ExtResource("4_6hb35")
@@ -202,5 +203,10 @@ response_template = NodePath("ResponseExample")
 layout_mode = 2
 text = "Response example"
 
+[node name="TypeSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_ayith")
+
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
+[connection signal="spoke" from="Balloon/Panel/Dialogue/VBoxContainer/DialogueLabel" to="." method="_on_dialogue_label_spoke"]
 [connection signal="response_selected" from="Balloon/Responses/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]
