@@ -99,6 +99,8 @@ var dialogue_line: DialogueLine:
 ## The menu of responses
 @onready var responses_menu: DialogueResponsesMenu = %ResponsesMenu
 
+@onready var type_sound: AudioStreamPlayer = %TypeSound
+
 
 func _ready() -> void:
 	balloon.hide()
@@ -107,6 +109,12 @@ func _ready() -> void:
 	# If the responses menu doesn't have a next action set, use this one
 	if responses_menu.next_action.is_empty():
 		responses_menu.next_action = next_action
+
+
+#func _process(delta: float):
+	#if dialogue_label.is_typing and not type_sound.playing:
+		#type_sound.pitch_scale = randf_range(.8, 1.7)
+		#type_sound.play()
 
 
 func _unhandled_input(_event: InputEvent) -> void:
@@ -156,8 +164,8 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 	if dialogue_label.is_typing:
 		var mouse_was_clicked: bool = event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed()
 		var skip_button_was_pressed: bool = event.is_action_pressed(skip_action)
-		#var screen_was_touched: bool = event is InputEventScreenTouch and event.is_pressed()
-		if mouse_was_clicked or skip_button_was_pressed:
+		var screen_was_touched: bool = event is InputEventScreenTouch and event.is_pressed()
+		if mouse_was_clicked or skip_button_was_pressed or screen_was_touched:
 			get_viewport().set_input_as_handled()
 			dialogue_label.skip_typing()
 			return
@@ -188,3 +196,9 @@ func show_red_vignette():
 func hide_red_vignette():
 	$RedVignette/Animation.play_backwards('Fade')
 	return $RedVignette/Animation.animation_finished
+
+
+func _on_dialogue_label_spoke(letter, letter_index, speed):
+	if not type_sound.playing:
+		type_sound.pitch_scale = randf_range(.8, 1.7)
+		type_sound.play()

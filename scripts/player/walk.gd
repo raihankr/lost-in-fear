@@ -1,14 +1,14 @@
 class_name PlayerWalk extends PlayerState
 
-var animations = [
+var animations: Array[String] = [
 	'walk_front',
 	'walk_diagonal_front',
 	'walk_side',
 	'walk_diagonal_back',
 	'walk_back'
 ]
-var idle = IDLE
-var target_position = null
+var idle: String = IDLE
+var target_position: Variant = null
 var initial_speed: int
 
 func enter(previous_state_path, data := {}):
@@ -23,6 +23,8 @@ func enter(previous_state_path, data := {}):
 
 func update(delta):
 	player.animation.animation = animations[player.rotation_state]
+	if not player.footstep_sound.playing:
+		player._play_footstep_sound()
 	if target_position == null:
 		
 		match player.rotation_state:

@@ -1,0 +1,682 @@
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://befa8e1hqfteb"]
+
+[ext_resource type="Texture2D" uid="uid://bh05v2408k0x5" path="res://assets/images/room/bathroom.png" id="1_kgl4m"]
+[ext_resource type="Texture2D" uid="uid://c4f7res00whtb" path="res://assets/images/room/room.png" id="2_y727a"]
+[ext_resource type="Texture2D" uid="uid://dg11npumtpkh" path="res://assets/images/room/door.png" id="3_f1ryd"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j4qu4"]
+texture = ExtResource("2_y727a")
+1:1/size_in_atlas = Vector2i(1, 4)
+1:1/next_alternative_id = 2
+1:1/0 = 0
+1:1/0/texture_origin = Vector2i(0, 24)
+1:1/0/z_index = -1
+1:1/0/metadata/_better_terrain = {
+0: [0, 1],
+3: [0, 1],
+4: [0, 1],
+7: [0, 1],
+8: [0, 1],
+12: [0, 1],
+15: [0, 1],
+"type": 1
+}
+3:1/size_in_atlas = Vector2i(1, 4)
+3:1/0 = 0
+3:1/0/texture_origin = Vector2i(0, 24)
+3:1/0/z_index = -1
+3:1/0/metadata/_better_terrain = {
+0: [1, 0],
+3: [1, 0],
+4: [1, 0],
+7: [1, 0],
+8: [1, 0],
+11: [1, 0],
+12: [1, 0],
+"type": 1
+}
+6:2/size_in_atlas = Vector2i(1, 4)
+6:2/0 = 0
+6:2/0/texture_origin = Vector2i(0, 24)
+6:2/0/z_index = -1
+6:2/0/metadata/_better_terrain = {
+0: [1, 0],
+3: [1, 0],
+4: [1, 0],
+7: [1, 0],
+8: [1, 0],
+"type": 1
+}
+5:2/size_in_atlas = Vector2i(1, 4)
+5:2/0 = 0
+5:2/0/texture_origin = Vector2i(0, 24)
+5:2/0/z_index = -1
+5:2/0/metadata/_better_terrain = {
+0: [1, 0],
+3: [1, 0],
+4: [1, 0],
+"type": 1
+}
+7:2/size_in_atlas = Vector2i(1, 4)
+7:2/0 = 0
+7:2/0/texture_origin = Vector2i(0, 24)
+7:2/0/z_index = -1
+7:2/0/metadata/_better_terrain = {
+4: [1, 0],
+7: [1, 0],
+8: [1, 0],
+"type": 1
+}
+6:6/next_alternative_id = 2
+6:6/0 = 0
+6:6/0/z_index = -1
+6:6/0/metadata/_better_terrain = {
+0: [1, 0],
+3: [1, 0],
+4: [1, 0],
+7: [1, 0],
+8: [1, 0],
+11: [1, 0],
+12: [1, 0],
+15: [1, 0],
+"type": 1
+}
+6:6/1 = 1
+6:6/1/modulate = Color(0.6, 0.6, 0.6, 1)
+6:6/1/z_index = -1
+6:6/1/metadata/_better_terrain = {
+0: [2, 0],
+3: [2, 0],
+4: [2, 0],
+7: [2, 0],
+8: [2, 0],
+11: [2, 0],
+12: [2, 0],
+15: [2, 0],
+"type": 2
+}
+5:6/next_alternative_id = 2
+5:6/0 = 0
+5:6/0/z_index = -1
+5:6/0/metadata/_better_terrain = {
+0: [1, 0],
+3: [1, 0],
+4: [1, 0],
+12: [1, 0],
+15: [1, 0],
+"type": 1
+}
+5:6/1 = 1
+5:6/1/z_index = -1
+5:6/1/metadata/_better_terrain = {
+0: [2, 0],
+3: [2, 0],
+4: [2, 0],
+12: [2, 0],
+15: [2, 0],
+"type": 2
+}
+7:6/next_alternative_id = 2
+7:6/0 = 0
+7:6/0/z_index = -1
+7:6/0/metadata/_better_terrain = {
+4: [1, 0],
+7: [1, 0],
+8: [1, 0],
+11: [1, 0],
+12: [1, 0],
+"type": 1
+}
+7:6/1 = 1
+7:6/1/z_index = -1
+7:6/1/metadata/_better_terrain = {
+4: [2, 0],
+7: [2, 0],
+8: [2, 0],
+11: [2, 0],
+12: [2, 0],
+"type": 2
+}
+5:7/size_in_atlas = Vector2i(1, 4)
+5:7/0 = 0
+5:7/0/texture_origin = Vector2i(0, 24)
+5:7/0/z_index = 1
+6:7/size_in_atlas = Vector2i(1, 4)
+6:7/0 = 0
+6:7/0/texture_origin = Vector2i(0, 24)
+6:7/0/z_index = 1
+7:7/size_in_atlas = Vector2i(1, 4)
+7:7/0 = 0
+7:7/0/texture_origin = Vector2i(0, 24)
+7:7/0/z_index = 1
+2:8/next_alternative_id = 2
+2:8/0 = 0
+2:8/0/z_index = -1
+2:8/0/metadata/_better_terrain = {
+0: [1, 0],
+8: [1, 0],
+11: [1, 0],
+12: [1, 0],
+15: [1, 0],
+"type": 1
+}
+2:8/1 = 1
+2:8/1/z_index = -1
+2:8/1/metadata/_better_terrain = {
+0: [2, 0],
+8: [2, 0],
+11: [2, 0],
+12: [2, 0],
+15: [2, 0],
+"type": 2
+}
+2:0/0 = 0
+2:0/0/z_index = -1
+2:0/0/metadata/_better_terrain = {
+0: [2, 0],
+3: [2, 0],
+4: [2, 0],
+7: [2, 0],
+8: [2, 0],
+"type": 2
+}
+1:9/next_alternative_id = 3
+1:9/0 = 0
+1:9/0/z_index = -1
+1:9/0/metadata/_better_terrain = {
+0: [1, 0],
+3: [1, 0],
+4: [1, 0],
+8: [1, 0],
+11: [1, 0],
+12: [1, 0],
+15: [1, 0],
+"type": 1
+}
+1:9/1 = 1
+1:9/1/flip_v = true
+1:9/1/z_index = -1
+1:9/1/metadata/_better_terrain = {
+0: [2, 0],
+3: [2, 0],
+4: [2, 0],
+7: [2, 0],
+8: [2, 0],
+12: [2, 0],
+15: [2, 0],
+"type": 2
+}
+1:9/2 = 2
+1:9/2/z_index = -1
+1:9/2/metadata/_better_terrain = {
+0: [2, 0],
+3: [2, 0],
+4: [2, 0],
+8: [2, 0],
+11: [2, 0],
+12: [2, 0],
+15: [2, 0],
+"type": 2
+}
+1:5/size_in_atlas = Vector2i(1, 4)
+1:5/0 = 0
+1:5/0/texture_origin = Vector2i(0, 24)
+1:5/0/z_index = -1
+3:5/size_in_atlas = Vector2i(1, 4)
+3:5/0 = 0
+3:5/0/texture_origin = Vector2i(0, 24)
+3:5/0/z_index = -1
+0:9/next_alternative_id = 3
+0:9/0 = 0
+0:9/0/z_index = -1
+0:9/0/metadata/_better_terrain = {
+0: [1, 0],
+12: [1, 0],
+15: [1, 0],
+"type": 1
+}
+0:9/1 = 1
+0:9/1/flip_v = true
+0:9/1/z_index = -1
+0:9/1/metadata/_better_terrain = {
+0: [2, 0],
+3: [2, 0],
+4: [2, 0],
+"type": 2
+}
+0:9/2 = 2
+0:9/2/z_index = -1
+0:9/2/metadata/_better_terrain = {
+0: [2, 0],
+12: [2, 0],
+15: [2, 0],
+"type": 2
+}
+3:9/next_alternative_id = 3
+3:9/0 = 0
+3:9/0/z_index = -1
+3:9/0/metadata/_better_terrain = {
+0: [1, 0],
+4: [1, 0],
+7: [1, 0],
+8: [1, 0],
+11: [1, 0],
+12: [1, 0],
+15: [1, 0],
+"type": 1
+}
+3:9/1 = 1
+3:9/1/flip_v = true
+3:9/1/z_index = -1
+3:9/1/metadata/_better_terrain = {
+0: [2, 0],
+3: [2, 0],
+4: [2, 0],
+7: [2, 0],
+8: [2, 0],
+11: [0, 2],
+12: [2, 0],
+"type": 2
+}
+3:9/2 = 2
+3:9/2/z_index = -1
+3:9/2/metadata/_better_terrain = {
+0: [2, 0],
+4: [2, 0],
+7: [2, 0],
+8: [2, 0],
+11: [2, 0],
+12: [2, 0],
+15: [2, 0],
+"type": 2
+}
+4:9/next_alternative_id = 3
+4:9/0 = 0
+4:9/0/z_index = -1
+4:9/0/metadata/_better_terrain = {
+8: [1, 0],
+11: [1, 0],
+12: [1, 0],
+"type": 1
+}
+4:9/1 = 1
+4:9/1/flip_v = true
+4:9/1/z_index = -1
+4:9/1/metadata/_better_terrain = {
+4: [2, 0],
+7: [2, 0],
+8: [2, 0],
+"type": 2
+}
+4:9/2 = 2
+4:9/2/z_index = -1
+4:9/2/metadata/_better_terrain = {
+8: [2, 0],
+11: [2, 0],
+12: [2, 0],
+"type": 2
+}
+4:1/size_in_atlas = Vector2i(1, 4)
+4:1/0 = 0
+4:1/0/texture_origin = Vector2i(0, 24)
+4:1/0/z_index = -1
+4:5/size_in_atlas = Vector2i(1, 4)
+4:5/0 = 0
+4:5/0/texture_origin = Vector2i(0, 24)
+4:5/0/z_index = -1
+0:5/size_in_atlas = Vector2i(1, 4)
+0:5/0 = 0
+0:5/0/texture_origin = Vector2i(0, 24)
+0:5/0/z_index = -1
+0:1/size_in_atlas = Vector2i(1, 4)
+0:1/0 = 0
+0:1/0/texture_origin = Vector2i(0, 24)
+0:1/0/z_index = -1
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p5hla"]
+texture = ExtResource("1_kgl4m")
+1:1/size_in_atlas = Vector2i(1, 4)
+1:1/next_alternative_id = 2
+1:1/0 = 0
+1:1/0/texture_origin = Vector2i(0, 24)
+1:1/0/metadata/_better_terrain = {
+0: [0, 3],
+3: [0, 3],
+4: [0, 3],
+7: [0, 3],
+8: [0, 3],
+12: [0, 3],
+15: [0, 3],
+"type": 3
+}
+3:1/size_in_atlas = Vector2i(1, 4)
+3:1/0 = 0
+3:1/0/texture_origin = Vector2i(0, 24)
+3:1/0/metadata/_better_terrain = {
+0: [3, 0],
+3: [3, 0],
+4: [3, 0],
+7: [3, 0],
+8: [3, 0],
+11: [3, 0],
+12: [3, 0],
+"type": 3
+}
+6:2/size_in_atlas = Vector2i(1, 4)
+6:2/0 = 0
+6:2/0/texture_origin = Vector2i(0, 24)
+6:2/0/metadata/_better_terrain = {
+0: [3, 0],
+3: [3, 0],
+4: [3, 0],
+7: [3, 0],
+8: [3, 0],
+"type": 3
+}
+5:2/size_in_atlas = Vector2i(1, 4)
+5:2/0 = 0
+5:2/0/texture_origin = Vector2i(0, 24)
+5:2/0/metadata/_better_terrain = {
+0: [3, 0],
+3: [3, 0],
+4: [3, 0],
+"type": 3
+}
+7:2/size_in_atlas = Vector2i(1, 4)
+7:2/0 = 0
+7:2/0/texture_origin = Vector2i(0, 24)
+7:2/0/metadata/_better_terrain = {
+4: [3, 0],
+7: [3, 0],
+8: [3, 0],
+"type": 3
+}
+6:6/next_alternative_id = 2
+6:6/0 = 0
+6:6/0/metadata/_better_terrain = {
+0: [3, 0],
+3: [3, 0],
+4: [3, 0],
+7: [3, 0],
+8: [3, 0],
+11: [3, 0],
+12: [3, 0],
+15: [3, 0],
+"type": 3
+}
+6:6/1 = 1
+6:6/1/modulate = Color(0.6, 0.6, 0.6, 1)
+6:6/1/metadata/_better_terrain = {
+0: [4, 0],
+3: [4, 0],
+4: [4, 0],
+7: [4, 0],
+8: [4, 0],
+11: [4, 0],
+12: [4, 0],
+15: [4, 0],
+"type": 4
+}
+5:6/next_alternative_id = 2
+5:6/0 = 0
+5:6/0/metadata/_better_terrain = {
+0: [3, 0],
+3: [3, 0],
+4: [3, 0],
+12: [3, 0],
+15: [3, 0],
+"type": 3
+}
+5:6/1 = 1
+5:6/1/metadata/_better_terrain = {
+0: [4, 0],
+3: [4, 0],
+4: [4, 0],
+12: [4, 0],
+15: [4, 0],
+"type": 4
+}
+7:6/next_alternative_id = 2
+7:6/0 = 0
+7:6/0/metadata/_better_terrain = {
+4: [3, 0],
+7: [3, 0],
+8: [3, 0],
+11: [3, 0],
+12: [3, 0],
+"type": 3
+}
+7:6/1 = 1
+7:6/1/metadata/_better_terrain = {
+4: [4, 0],
+7: [4, 0],
+8: [4, 0],
+11: [4, 0],
+12: [4, 0],
+"type": 4
+}
+5:7/size_in_atlas = Vector2i(1, 4)
+5:7/0 = 0
+5:7/0/texture_origin = Vector2i(0, 24)
+6:7/size_in_atlas = Vector2i(1, 4)
+6:7/0 = 0
+6:7/0/texture_origin = Vector2i(0, 24)
+7:7/size_in_atlas = Vector2i(1, 4)
+7:7/0 = 0
+7:7/0/texture_origin = Vector2i(0, 24)
+2:8/next_alternative_id = 2
+2:8/0 = 0
+2:8/0/metadata/_better_terrain = {
+0: [3, 0],
+8: [3, 0],
+11: [3, 0],
+12: [3, 0],
+15: [3, 0],
+"type": 3
+}
+2:8/1 = 1
+2:8/1/metadata/_better_terrain = {
+0: [4, 0],
+8: [4, 0],
+11: [4, 0],
+12: [4, 0],
+15: [4, 0],
+"type": 4
+}
+2:0/0 = 0
+2:0/0/metadata/_better_terrain = {
+0: [4, 0],
+3: [4, 0],
+4: [4, 0],
+7: [4, 0],
+8: [4, 0],
+"type": 4
+}
+1:9/next_alternative_id = 3
+1:9/0 = 0
+1:9/0/metadata/_better_terrain = {
+0: [3, 0],
+3: [3, 0],
+4: [3, 0],
+8: [3, 0],
+11: [3, 0],
+12: [3, 0],
+15: [3, 0],
+"type": 3
+}
+1:9/1 = 1
+1:9/1/flip_v = true
+1:9/1/metadata/_better_terrain = {
+0: [4, 0],
+3: [4, 0],
+4: [4, 0],
+7: [4, 0],
+8: [4, 0],
+12: [4, 0],
+15: [4, 0],
+"type": 4
+}
+1:9/2 = 2
+1:9/2/metadata/_better_terrain = {
+0: [4, 0],
+3: [4, 0],
+4: [4, 0],
+8: [4, 0],
+11: [4, 0],
+12: [4, 0],
+15: [4, 0],
+"type": 4
+}
+1:5/size_in_atlas = Vector2i(1, 4)
+1:5/0 = 0
+1:5/0/texture_origin = Vector2i(0, 24)
+3:5/size_in_atlas = Vector2i(1, 4)
+3:5/0 = 0
+3:5/0/texture_origin = Vector2i(0, 24)
+0:9/next_alternative_id = 3
+0:9/0 = 0
+0:9/0/metadata/_better_terrain = {
+0: [3, 0],
+12: [3, 0],
+15: [3, 0],
+"type": 3
+}
+0:9/1 = 1
+0:9/1/flip_v = true
+0:9/1/metadata/_better_terrain = {
+0: [4, 0],
+3: [4, 0],
+4: [4, 0],
+"type": 4
+}
+0:9/2 = 2
+0:9/2/metadata/_better_terrain = {
+0: [4, 0],
+12: [4, 0],
+15: [4, 0],
+"type": 4
+}
+3:9/next_alternative_id = 3
+3:9/0 = 0
+3:9/0/metadata/_better_terrain = {
+0: [3, 0],
+4: [3, 0],
+7: [3, 0],
+8: [3, 0],
+11: [3, 0],
+12: [3, 0],
+15: [3, 0],
+"type": 3
+}
+3:9/1 = 1
+3:9/1/flip_v = true
+3:9/1/metadata/_better_terrain = {
+0: [4, 0],
+3: [4, 0],
+4: [4, 0],
+7: [4, 0],
+8: [4, 0],
+11: [0, 4],
+12: [4, 0],
+"type": 4
+}
+3:9/2 = 2
+3:9/2/metadata/_better_terrain = {
+0: [4, 0],
+4: [4, 0],
+7: [4, 0],
+8: [4, 0],
+11: [4, 0],
+12: [4, 0],
+15: [4, 0],
+"type": 4
+}
+4:9/next_alternative_id = 3
+4:9/0 = 0
+4:9/0/metadata/_better_terrain = {
+8: [3, 0],
+11: [3, 0],
+12: [3, 0],
+"type": 3
+}
+4:9/1 = 1
+4:9/1/flip_v = true
+4:9/1/metadata/_better_terrain = {
+4: [4, 0],
+7: [4, 0],
+8: [4, 0],
+"type": 4
+}
+4:9/2 = 2
+4:9/2/metadata/_better_terrain = {
+8: [4, 0],
+11: [4, 0],
+12: [4, 0],
+"type": 4
+}
+4:1/size_in_atlas = Vector2i(1, 4)
+4:1/0 = 0
+4:1/0/texture_origin = Vector2i(0, 24)
+4:5/size_in_atlas = Vector2i(1, 4)
+4:5/0 = 0
+4:5/0/texture_origin = Vector2i(0, 24)
+0:5/size_in_atlas = Vector2i(1, 4)
+0:5/0 = 0
+0:5/0/texture_origin = Vector2i(0, 24)
+0:1/size_in_atlas = Vector2i(1, 4)
+0:1/0 = 0
+0:1/0/texture_origin = Vector2i(0, 24)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_agxf2"]
+texture = ExtResource("3_f1ryd")
+0:0/size_in_atlas = Vector2i(1, 4)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 24)
+0:0/0/z_index = 1
+0:0/0/probability = 0.0
+0:0/0/metadata/_better_terrain = {
+0: [5, 0],
+3: [5, 0],
+4: [5, 0],
+7: [5, 0],
+8: [5, 0],
+"type": 5
+}
+1:0/size_in_atlas = Vector2i(2, 4)
+1:0/0 = 0
+1:0/0/texture_origin = Vector2i(-8, 24)
+1:0/0/z_index = 1
+1:0/0/probability = 0.0
+1:0/0/metadata/_better_terrain = {
+0: [5, 0],
+3: [5, 0],
+4: [5, 0],
+7: [5, 0],
+8: [5, 0],
+"type": 5
+}
+
+[resource]
+terrain_set_0/mode = 0
+sources/0 = SubResource("TileSetAtlasSource_j4qu4")
+sources/1 = SubResource("TileSetAtlasSource_p5hla")
+sources/2 = SubResource("TileSetAtlasSource_agxf2")
+metadata/_better_terrain = {
+"decoration": ["Decoration", Color(0.411765, 0.411765, 0.411765, 1), 3, [], {
+"path": "res://addons/better-terrain/icons/Decoration.svg"
+}],
+"terrains": [["Room", Color(0.373028, 0.655509, 0.0204705, 1), 2, [], {
+"path": ""
+}], ["Regular Wall", Color(0.862139, 0.238115, 0.632584, 1), 0, [0], {
+"path": ""
+}], ["Regular Floor", Color(0.546433, 0.070911, 0.736845, 1), 0, [0], {
+"path": ""
+}], ["Bathroom Wall", Color(0.691127, 0.325062, 0.332863, 1), 0, [0], {
+"path": ""
+}], ["Bathroom Floor", Color(0.841629, 0.96447, 0.174684, 1), 0, [0], {
+"path": ""
+}], ["Door", Color(0.713322, 0.955122, 0.354846, 1), 0, [0], {
+"path": ""
+}]],
+"version": "0.2"
+}

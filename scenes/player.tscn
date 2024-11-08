@@ -1,11 +1,10 @@
-[gd_scene load_steps=77 format=3 uid="uid://bsd7ynav7k5v6"]
+[gd_scene load_steps=75 format=3 uid="uid://bsd7ynav7k5v6"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_7gn2u"]
 [ext_resource type="Texture2D" uid="uid://dunpa2s7v8cwc" path="res://assets/images/player/player.png" id="2_0bstp"]
 [ext_resource type="Texture2D" uid="uid://g7xcd0k6y7dv" path="res://assets/images/player/player_drop_package.png" id="2_1kl3k"]
 [ext_resource type="Script" path="res://classes/state_machine.gd" id="2_ar8by"]
 [ext_resource type="Texture2D" uid="uid://bnl1icp5a0lhw" path="res://assets/images/player/player_call.png" id="2_u13he"]
-[ext_resource type="Texture2D" uid="uid://833okvhy5q3w" path="res://assets/images/Light.png" id="3_f8108"]
 [ext_resource type="Script" path="res://scripts/player/idle.gd" id="3_xn6ho"]
 [ext_resource type="Script" path="res://scripts/player/idle_package.gd" id="4_fnst4"]
 [ext_resource type="Script" path="res://scripts/player/walk.gd" id="5_dt0mr"]
@@ -516,8 +515,6 @@ animations = [{
 radius = 3.66667
 height = 16.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_5qcom"]
-
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
 motion_mode = 1
@@ -529,7 +526,6 @@ metadata/_edit_group_ = true
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_fnvgg")
-animation = &"call"
 autoplay = "default"
 centered = false
 offset = Vector2(-8, -32)
@@ -558,24 +554,15 @@ script = ExtResource("12_500c5")
 
 [node name="Vision" type="PointLight2D" parent="."]
 unique_name_in_owner = true
-visible = false
+rotation = 1.5708
 shadow_enabled = true
-texture = ExtResource("3_f8108")
-texture_scale = 2.0
+texture_scale = 1.5
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 rotation = -1.57079
 shape = SubResource("CapsuleShape2D_fbnwt")
 debug_color = Color(0, 0.595, 0.7, 0)
 
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(0, -13.3333)
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_5qcom")
-debug_color = Color(0.351, 0.54405, 0.78, 0)
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[node name="FootstepSound" type="AudioStreamPlayer2D" parent="."]
+volume_db = -8.0
+bus = &"SFX"

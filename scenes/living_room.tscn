@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://cc51ll4dcyqfw"]
-
-[ext_resource type="PackedScene" uid="uid://cm2f40rvqfd66" path="res://scenes/base_scene.tscn" id="1_g05sf"]
-[ext_resource type="Script" path="res://scripts/living_room.gd" id="2_k4ibl"]
-
-[node name="Main" instance=ExtResource("1_g05sf")]
-script = ExtResource("2_k4ibl")
-
-[node name="TileMapLayer" type="TileMapLayer" parent="." index="2"]
