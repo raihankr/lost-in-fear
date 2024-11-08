@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://f0sc3xcf6b5h"]
+[gd_scene load_steps=38 format=4 uid="uid://f0sc3xcf6b5h"]
 
 [ext_resource type="PackedScene" uid="uid://cm2f40rvqfd66" path="res://scenes/base_scene.tscn" id="1_55dy1"]
 [ext_resource type="Script" path="res://scripts/outdoor.gd" id="2_gcws6"]
@@ -19,6 +19,7 @@
 [ext_resource type="Shader" path="res://shaders/vertical_vignette.gdshader" id="15_iwl4p"]
 [ext_resource type="PackedScene" uid="uid://6onope3m1r2f" path="res://scenes/mobile_controls.tscn" id="16_65220"]
 [ext_resource type="AudioStream" uid="uid://bdntrnjicn0q5" path="res://assets/audios/car-stopping.wav" id="16_ju5jh"]
+[ext_resource type="Script" path="res://classes/music_area.gd" id="20_oxkmf"]
 
 [sub_resource type="Environment" id="Environment_70alq"]
 background_mode = 3
@@ -155,6 +156,7 @@ unique_name_in_owner = true
 visible = false
 material = SubResource("ShaderMaterial_p5lsc")
 position = Vector2(271, 753)
+vision_style = 0
 walk_sound = ExtResource("7_8ygu1")
 
 [node name="Camera2D" type="Camera2D" parent="Player" index="4"]
@@ -265,6 +267,9 @@ visible = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="17"]
 stream = SubResource("AudioStreamMP3_km07t")
+
+[node name="MusicArea" type="Area2D" parent="." index="18"]
+script = ExtResource("20_oxkmf")
 
 [connection signal="body_entered" from="TaskCall" to="." method="_on_task_call_body_entered"]
 [connection signal="body_entered" from="TaskGoInside" to="." method="_on_task_go_inside_body_entered"]

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cm2f40rvqfd66" path="res://scenes/base_scene.tscn" id="1_r7it6"]
 [ext_resource type="TileSet" uid="uid://befa8e1hqfteb" path="res://resources/house.tres" id="2_gsdvx"]
 [ext_resource type="TileSet" uid="uid://b4m7u4qm5jhrv" path="res://resources/furniture.tres" id="3_bbnyr"]
-[ext_resource type="TileSet" uid="uid://c5een44ke5r5i" path="res://resources/small_item.tres" id="4_iu6ta"]
+[ext_resource type="TileSet" uid="uid://c5een44ke5r5i" path="res://resources/item.tres" id="4_iu6ta"]
 
 [node name="BaseScene" instance=ExtResource("1_r7it6")]
 
@@ -13,7 +13,7 @@ tile_map_data = PackedByteArray("AAAPAAsAAQAFAAIAAAAQAAsAAQAGAAIAAAARAAsAAQAGAAI
 tile_set = ExtResource("2_gsdvx")
 
 [node name="Furniture" type="TileMapLayer" parent="Room" index="0"]
-tile_map_data = PackedByteArray("AAAQAAwAAgAFABAAAAATAA4AAAAJABAAABATAAwAAAABABAAAAATAAkAAgAHAAcAAAAUAAkAAgAIAAcAAAATAAoAAgAHAAkAAAAUAAoAAgAIAAkAAAARAAkAAgAIAA8AAAASAAkAAgAKAA8AAAA=")
+tile_map_data = PackedByteArray("AAATAA4AAwACAAEAABATAAwAAwADAAUAAAATAAkAAgAHAAcAAAATAAoAAwAAAAEAAAARAAkAAgAIAA8AAAASAAkAAgAKAA8AAAAQAAwAAwAAAAUAAAA=")
 tile_set = ExtResource("3_bbnyr")
 
 [node name="SmallItem" type="TileMapLayer" parent="Room" index="1"]

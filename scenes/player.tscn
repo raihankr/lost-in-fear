@@ -1,11 +1,10 @@
-[gd_scene load_steps=76 format=3 uid="uid://bsd7ynav7k5v6"]
+[gd_scene load_steps=75 format=3 uid="uid://bsd7ynav7k5v6"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_7gn2u"]
 [ext_resource type="Texture2D" uid="uid://dunpa2s7v8cwc" path="res://assets/images/player/player.png" id="2_0bstp"]
 [ext_resource type="Texture2D" uid="uid://g7xcd0k6y7dv" path="res://assets/images/player/player_drop_package.png" id="2_1kl3k"]
 [ext_resource type="Script" path="res://classes/state_machine.gd" id="2_ar8by"]
 [ext_resource type="Texture2D" uid="uid://bnl1icp5a0lhw" path="res://assets/images/player/player_call.png" id="2_u13he"]
-[ext_resource type="Texture2D" uid="uid://833okvhy5q3w" path="res://assets/images/Light.png" id="3_f8108"]
 [ext_resource type="Script" path="res://scripts/player/idle.gd" id="3_xn6ho"]
 [ext_resource type="Script" path="res://scripts/player/idle_package.gd" id="4_fnst4"]
 [ext_resource type="Script" path="res://scripts/player/walk.gd" id="5_dt0mr"]
@@ -555,10 +554,9 @@ script = ExtResource("12_500c5")
 
 [node name="Vision" type="PointLight2D" parent="."]
 unique_name_in_owner = true
-visible = false
+rotation = 1.5708
 shadow_enabled = true
-texture = ExtResource("3_f8108")
-texture_scale = 2.0
+texture_scale = 1.5
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 rotation = -1.57079

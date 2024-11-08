@@ -4,8 +4,8 @@ enum Rotation {FRONT, DIAGONAL_FRONT, SIDE, DIAGONAL_BACK, BACK}
 enum Direction {UP, RIGHT, DOWN, LEFT}
 enum VisionStyle {NONE, CIRCLE, CONE}
 
-@export var move_speed: int= 80
-@export var rotation_speed: float = 225 * PI / 180
+@export var move_speed: int = 60
+@export var rotation_speed: float = 180 * PI / 180
 @export var enable_input: int = true
 @export var vision_style: VisionStyle = VisionStyle.CONE:
 	set(value):
@@ -29,14 +29,15 @@ var rotation_state: Rotation = 0
 var horizontal_heading: Direction = Direction.LEFT
 var vision_texture: Array[Variant] = [
 	null,
-	null,
-	preload('res://assets/images/Light.png')
+	preload("res://assets/images/light-circular.png"),
+	preload('res://assets/images/light-cone.png')
 ]
 var music_area_array: Array[MusicArea] = []
 
 func _ready():
 	velocity = Vector2.ZERO
 	vision_style = vision_style
+	%Vision.show()
 	walk_sound = walk_sound
 
 func _process(delta):
