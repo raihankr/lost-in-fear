@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://dqu60wnqrxk0k"]
+[gd_scene load_steps=8 format=4 uid="uid://dqu60wnqrxk0k"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_6i7x6"]
 [ext_resource type="Texture2D" uid="uid://v7u54xtx3y32" path="res://assets/progres2s.png" id="2_7ntxy"]
 [ext_resource type="FontFile" uid="uid://b6avu6ubekbr7" path="res://assets/fonts/N8ghtmare.ttf" id="3_6jj28"]
 [ext_resource type="AudioStream" uid="uid://dm6ugwcogcosf" path="res://assets/audios/qubodup-yd-DarkShrineLoop-OpenGameArt.mp3" id="4_s2vru"]
+[ext_resource type="AudioStream" uid="uid://cl0bw4hpuo4kj" path="res://assets/audios/Menu Selection Click.wav" id="4_u45nn"]
 [ext_resource type="PackedScene" uid="uid://lynjxgn82bh5" path="res://scenes/options_menu.tscn" id="5_u0mkr"]
 
 [sub_resource type="AudioStreamMP3" id="AudioStreamMP3_dyf5r"]
@@ -91,6 +92,9 @@ theme_override_font_sizes/font_size = 36
 text = "Start"
 flat = true
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="MarginContainer/HBoxContainer/VBoxContainer/Btn_Start"]
+stream = ExtResource("4_u45nn")
+
 [node name="Btn_Options" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.52549, 0, 0, 1)
@@ -100,6 +104,9 @@ theme_override_fonts/font = ExtResource("3_6jj28")
 theme_override_font_sizes/font_size = 36
 text = "Options"
 flat = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="MarginContainer/HBoxContainer/VBoxContainer/Btn_Options"]
+stream = ExtResource("4_u45nn")
 
 [node name="Btn_Credits" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -112,6 +119,9 @@ text = "Credits
 "
 flat = true
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="MarginContainer/HBoxContainer/VBoxContainer/Btn_Credits"]
+stream = ExtResource("4_u45nn")
+
 [node name="Btn_Quit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.52549, 0, 0, 1)
@@ -121,6 +131,9 @@ theme_override_fonts/font = ExtResource("3_6jj28")
 theme_override_font_sizes/font_size = 36
 text = "Quit"
 flat = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="MarginContainer/HBoxContainer/VBoxContainer/Btn_Quit"]
+stream = ExtResource("4_u45nn")
 
 [node name="BackrgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamMP3_dyf5r")
