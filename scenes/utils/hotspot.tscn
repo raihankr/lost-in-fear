@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://conc52ihmoy0b"]
 
-[ext_resource type="Script" path="res://scripts/hotspot.gd" id="1_75llx"]
+[ext_resource type="Script" path="res://scripts/utils/hotspot.gd" id="1_75llx"]
 [ext_resource type="Texture2D" uid="uid://cwgmnkkik8862" path="res://assets/images/hint.png" id="1_yn3r2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8w1dl"]

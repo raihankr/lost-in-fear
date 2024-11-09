@@ -24,7 +24,7 @@ AudioManager="*res://classes/audio_manager.tscn"
 
 [dialogue_manager]
 
-general/balloon_path="res://scenes/balloon.tscn"
+general/balloon_path="res://scenes/interfaces/balloon.tscn"
 
 [display]
 
@@ -43,6 +43,18 @@ version_control/autoload_on_startup=true
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/better-terrain/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://addons/": "gray",
+"res://assets/": "green",
+"res://dialogues/": "purple",
+"res://resources/": "teal",
+"res://scenes/": "yellow",
+"res://scripts/": "red",
+"res://shaders/": "orange"
+}
 
 [input]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=4 uid="uid://duh80rqo3tcgb"]
 
-[ext_resource type="PackedScene" uid="uid://cm2f40rvqfd66" path="res://scenes/base_scene.tscn" id="1_8uoh1"]
+[ext_resource type="PackedScene" uid="uid://cm2f40rvqfd66" path="res://classes/base_scene.tscn" id="1_8uoh1"]
 [ext_resource type="TileSet" uid="uid://befa8e1hqfteb" path="res://resources/house.tres" id="2_11b68"]
 [ext_resource type="TileSet" uid="uid://b4m7u4qm5jhrv" path="res://resources/furniture.tres" id="3_fceot"]
 

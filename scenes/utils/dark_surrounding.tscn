@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://crgbii6omcjwa"]
 
-[ext_resource type="Script" path="res://scripts/dark-surrounding.gd" id="1_sa538"]
+[ext_resource type="Script" path="res://scripts/utils/dark-surrounding.gd" id="1_sa538"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_cxue3"]
 light_mode = 2
