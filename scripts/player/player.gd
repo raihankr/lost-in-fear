@@ -6,26 +6,26 @@ enum VisionStyle {NONE, CIRCLE, CONE}
 
 @export var move_speed: int = 60
 @export var rotation_speed: float = 180 * PI / 180
-@export var enable_input: int = true
+@export var input_enabled: bool = true
 @export var vision_style: VisionStyle = VisionStyle.CONE:
 	set(value):
 		vision_style = value
 		%Vision.texture = vision_texture[value]
-@export var walk_sound: AudioStream = preload("res://assets/audios/footstep_wood.wav"):
+@export var walk_sound: AudioStream = preload("res://assets/audios/footstep_wood.mp3"):
 	set(value):
 		walk_sound = value
 		$FootstepSound.stream = value
 
-@onready var joystick: TouchScreenButton = $/root.find_child('Joystick', true, false) if OS.get_name() in ['Android', 'iOS'] else null
+@onready var joystick: TouchScreenButton = get_node_or_null('../MobileControls/Joystick') if OS.get_name() in ['Android', 'iOS'] else null
 @onready var animation: AnimatedSprite2D = %Animation
 @onready var vision: PointLight2D= %Vision
 @onready var state_machine: StateMachine = %StateMachine
 @onready var footstep_sound: AudioStreamPlayer2D = $FootstepSound
 
-var head_rotation: float = 1/2 * PI:
+var head_rotation: float = 1.0/2 * PI:
 	set = _on_rotated
-var dir: int = 0
-var rotation_state: Rotation = 0
+var speed: int = 0
+var rotation_state: Rotation = Rotation.FRONT
 var horizontal_heading: Direction = Direction.LEFT
 var vision_texture: Array[Variant] = [
 	null,
@@ -41,18 +41,33 @@ func _ready():
 	walk_sound = walk_sound
 
 func _process(delta):
-	dir = 0
-	if enable_input:
+	speed = 0
+	if input_enabled:
 		match OS.get_name():
 			'Android', 'iOS':
 				head_rotation = joystick.joystick_angle
-				dir = joystick.get_joystick_dir().length()
+				speed = joystick.get_joystick_dir().length()
 			'Windows', 'macOS':
-				if Input.is_action_pressed('rotate_left'):
-					head_rotation -= rotation_speed * delta
-				if Input.is_action_pressed('rotate_right'):
-					head_rotation += rotation_speed * delta
-				if Input.is_action_pressed('move_front'): dir = 1
+				if Input.is_action_pressed('move_left'):
+					speed = 1
+					head_rotation = 1.0 * PI
+					if Input.is_action_pressed('move_up'):
+						head_rotation += .25 * PI
+					elif Input.is_action_pressed('move_down'):
+						head_rotation -= .25 * PI
+				elif Input.is_action_pressed('move_right'):
+					speed = 1
+					head_rotation = 0
+					if Input.is_action_pressed('move_up'):
+						head_rotation -= .25 * PI
+					elif Input.is_action_pressed('move_down'):
+						head_rotation += .25 * PI
+				elif Input.is_action_pressed('move_up'):
+					speed = 1
+					head_rotation = 1.5 * PI
+				elif Input.is_action_pressed('move_down'):
+					speed = 1
+					head_rotation = .5 * PI
 
 func _on_rotated(value: float) -> void:
 	head_rotation = value

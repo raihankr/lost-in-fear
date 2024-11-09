@@ -2,13 +2,13 @@ extends Node
 
 @onready var player: Player = $/root.get_node_or_null('Main/Player')
 
-var enable_input: bool = true:
+var input_enabled: bool = true:
 	set(value):
 		if player:
-			player.enable_input = value
+			player.input_enabled = value
 	get:
 		if player:
-			return player.enable_input
+			return player.input_enabled
 		else: return false
 
 func wait(seconds: float) -> void:

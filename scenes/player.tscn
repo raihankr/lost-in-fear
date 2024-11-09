@@ -523,6 +523,13 @@ platform_floor_layers = 4294967040
 script = ExtResource("1_7gn2u")
 metadata/_edit_group_ = true
 
+[node name="Vision" type="PointLight2D" parent="."]
+unique_name_in_owner = true
+rotation = 1.5708
+energy = 1.5
+shadow_enabled = true
+texture_scale = 1.2
+
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_fnvgg")
@@ -552,17 +559,11 @@ script = ExtResource("7_6yi3t")
 [node name="Call" type="Node" parent="StateMachine"]
 script = ExtResource("12_500c5")
 
-[node name="Vision" type="PointLight2D" parent="."]
-unique_name_in_owner = true
-rotation = 1.5708
-shadow_enabled = true
-texture_scale = 1.5
-
 [node name="Collider" type="CollisionShape2D" parent="."]
 rotation = -1.57079
 shape = SubResource("CapsuleShape2D_fbnwt")
 debug_color = Color(0, 0.595, 0.7, 0)
 
 [node name="FootstepSound" type="AudioStreamPlayer2D" parent="."]
-volume_db = -8.0
+volume_db = -12.0
 bus = &"SFX"

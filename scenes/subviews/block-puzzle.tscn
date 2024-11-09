@@ -1,0 +1,124 @@
+[gd_scene load_steps=6 format=4 uid="uid://bdmrlhch2qfde"]
+
+[ext_resource type="Texture2D" uid="uid://dvao6qkmp1lur" path="res://assets/images/block-puzzle.png" id="1_i3dkv"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3cklf"]
+texture = ExtResource("1_i3dkv")
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0/metadata/_better_terrain = {
+0: [0],
+4: [0],
+"type": 0
+}
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:3/0/metadata/_better_terrain = {
+0: [0],
+12: [0],
+"type": 0
+}
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0/metadata/_better_terrain = {
+4: [0],
+8: [0],
+"type": 0
+}
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:3/0/metadata/_better_terrain = {
+8: [0],
+12: [0],
+"type": 0
+}
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0/metadata/_better_terrain = {
+0: [0],
+8: [0],
+"type": 0
+}
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:3/0/metadata/_better_terrain = {
+4: [0],
+12: [0],
+"type": 0
+}
+3:2/next_alternative_id = 2
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:2/0/metadata/_better_terrain = {
+4: [0],
+"type": 0
+}
+3:2/1 = 1
+3:2/1/transpose = true
+3:2/1/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:2/1/metadata/_better_terrain = {
+0: [0],
+"type": 0
+}
+3:3/next_alternative_id = 2
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:3/0/metadata/_better_terrain = {
+12: [0],
+"type": 0
+}
+3:3/1 = 1
+3:3/1/transpose = true
+3:3/1/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:3/1/metadata/_better_terrain = {
+8: [0],
+"type": 0
+}
+4:2/0 = 0
+4:3/0 = 0
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:3/0/metadata/_better_terrain = {
+"type": 0
+}
+
+[sub_resource type="TileSet" id="TileSet_5krcs"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_3cklf")
+metadata/_better_terrain = {
+"decoration": ["Decoration", Color(0.411765, 0.411765, 0.411765, 1), 3, [], {
+"path": "res://addons/better-terrain/icons/Decoration.svg"
+}],
+"terrains": [["Border", Color(0.5625, 0.359253, 0.0205078, 1), 0, [], {
+"path": ""
+}]],
+"version": "0.2"
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjs36"]
+atlas = ExtResource("1_i3dkv")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xo2eq"]
+size = Vector2(16, 32)
+
+[node name="Node2D" type="CanvasLayer"]
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+scale = Vector2(4, 4)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="CanvasGroup"]
+position = Vector2(68, -6)
+tile_map_data = PackedByteArray("AAACAAEAAAAAAAIAAAACAAIAAAACAAMAAAACAAMAAAACAAMAAAACAAQAAAACAAMAAAACAAUAAAACAAMAAAACAAYAAAACAAMAAAACAAcAAAACAAMAAAACAAgAAAACAAMAAAACAAkAAAAAAAMAAAADAAEAAAACAAIAAAAEAAEAAAACAAIAAAAFAAEAAAACAAIAAAAGAAEAAAACAAIAAAAHAAEAAAACAAIAAAAIAAEAAAACAAIAAAAJAAEAAAACAAIAAAAKAAEAAAABAAIAAAAKAAIAAAACAAMAAAAKAAMAAAACAAMAAAAKAAQAAAADAAMAAAAKAAYAAAADAAIAAAAKAAcAAAACAAMAAAAKAAgAAAACAAMAAAAKAAkAAAABAAMAAAAJAAkAAAACAAIAAAAIAAkAAAACAAIAAAAHAAkAAAACAAIAAAAGAAkAAAACAAIAAAAFAAkAAAACAAIAAAAEAAkAAAACAAIAAAADAAkAAAACAAIAAAADAAIAAAAEAAIAAAADAAMAAAAEAAIAAAADAAQAAAAEAAIAAAADAAUAAAAEAAIAAAADAAYAAAAEAAIAAAADAAcAAAAEAAIAAAADAAgAAAAEAAIAAAAEAAIAAAAEAAIAAAAEAAMAAAAEAAIAAAAEAAQAAAAEAAIAAAAEAAUAAAAEAAIAAAAEAAYAAAAEAAIAAAAEAAcAAAAEAAIAAAAEAAgAAAAEAAIAAAAFAAIAAAAEAAIAAAAFAAMAAAAEAAIAAAAFAAQAAAAEAAIAAAAFAAUAAAAEAAIAAAAFAAYAAAAEAAIAAAAFAAcAAAAEAAIAAAAFAAgAAAAEAAIAAAAGAAIAAAAEAAIAAAAGAAMAAAAEAAIAAAAGAAQAAAAEAAIAAAAGAAUAAAAEAAIAAAAGAAYAAAAEAAIAAAAGAAcAAAAEAAIAAAAGAAgAAAAEAAIAAAAHAAIAAAAEAAIAAAAHAAMAAAAEAAIAAAAHAAQAAAAEAAIAAAAHAAUAAAAEAAIAAAAHAAYAAAAEAAIAAAAHAAcAAAAEAAIAAAAHAAgAAAAEAAIAAAAIAAIAAAAEAAIAAAAIAAMAAAAEAAIAAAAIAAQAAAAEAAIAAAAIAAUAAAAEAAIAAAAIAAYAAAAEAAIAAAAIAAcAAAAEAAIAAAAIAAgAAAAEAAIAAAAJAAIAAAAEAAIAAAAJAAMAAAAEAAIAAAAJAAQAAAAEAAIAAAAJAAUAAAAEAAIAAAAJAAYAAAAEAAIAAAAJAAcAAAAEAAIAAAAJAAgAAAAEAAIAAAAKAAUAAAAEAAIAAAA=")
+tile_set = SubResource("TileSet_5krcs")
+
+[node name="Area2D" type="Area2D" parent="CanvasGroup"]
+position = Vector2(132, 84)
+rotation = 1.5708
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasGroup/Area2D"]
+position = Vector2(1.90735e-06, 0.25)
+texture = SubResource("AtlasTexture_rjs36")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasGroup/Area2D"]
+position = Vector2(0, 0.25)
+shape = SubResource("RectangleShape2D_xo2eq")

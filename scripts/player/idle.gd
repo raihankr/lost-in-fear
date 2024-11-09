@@ -18,5 +18,5 @@ func update(delta):
 			player.animation.flip_h = true
 
 func update_end():
-	if player.dir:
+	if player.speed:
 		finished.emit(WALK)

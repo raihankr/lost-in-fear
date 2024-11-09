@@ -8,5 +8,5 @@ light_mode = 2
 [node name="DarkSurrounding" type="CanvasModulate"]
 visible = false
 material = SubResource("CanvasItemMaterial_cxue3")
-color = Color(0.0745098, 0.0745098, 0.0745098, 1)
+color = Color(0.0392157, 0.0392157, 0.0392157, 1)
 script = ExtResource("1_sa538")

@@ -16,7 +16,7 @@ func enter(previous_state_path, data := {}):
 	player.animation.play()
 	if data.has('target_position') and data.target_position is Vector2:
 		target_position = data.target_position
-		player.enable_input = false
+		player.input_enabled = false
 		player.head_rotation = player.global_position.angle_to_point(target_position)
 	if data.has('move_speed') and data.move_speed is int:
 		player.move_speed = data.move_speed
@@ -41,7 +41,7 @@ func update(delta):
 				player.animation.flip_h = true
 				player.velocity.x *= -1
 		
-		player.velocity *= player.move_speed * player.dir
+		player.velocity *= player.move_speed * player.speed
 	
 		player.move_and_slide()
 	else:
@@ -50,8 +50,8 @@ func update(delta):
 		if target_position == new_pos:
 			player.move_speed = initial_speed
 			target_position = null
-			player.enable_input = true
+			player.input_enabled = true
 
 func update_end():
-	if target_position == null and not player.dir:
+	if target_position == null and not player.speed:
 		finished.emit(idle)

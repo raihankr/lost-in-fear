@@ -5,8 +5,9 @@
 //on shadertoy https://www.shadertoy.com/view/WsGSD3
 
 shader_type canvas_item;
-uniform float offset = 0.0;
+uniform float inner_offset = 0.0;
+uniform float outer_offset = 0.0;
 
 void fragment() {
-	COLOR = vec4(vec3(0), abs(UV.x * 2.0 - 1.0) / offset - 1.0 / offset + 1.0);
+	COLOR = vec4(vec3(0), outer_offset + abs(UV.x * 2.0 - 1.0) / inner_offset - 1.0 / inner_offset + 1.0);
 }

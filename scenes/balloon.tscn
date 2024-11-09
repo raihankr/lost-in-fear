@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_reponses_menu.gd" id="3_72ixx"]
 [ext_resource type="FontFile" uid="uid://bxi1ev5tfug74" path="res://assets/fonts/TwistyPixel.ttf" id="3_yvbp1"]
 [ext_resource type="Shader" path="res://shaders/circular_vignette.gdshader" id="4_6hb35"]
-[ext_resource type="AudioStream" uid="uid://ck0wr0dotortx" path="res://assets/audios/typing.wav" id="5_ayith"]
+[ext_resource type="AudioStream" uid="uid://t4uu8verbiip" path="res://assets/audios/typing.mp3" id="5_ayith"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n3diy"]
 shader = ExtResource("4_6hb35")
