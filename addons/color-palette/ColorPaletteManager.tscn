@@ -1,0 +1,117 @@
+[gd_scene load_steps=7 format=3 uid="uid://80qlg0ft0qvs"]
+
+[ext_resource type="Theme" uid="uid://dclqcdtatxtxb" path="res://addons/color-palette/utilities/EditorTheme.tres" id="1"]
+[ext_resource type="Script" path="res://addons/color-palette/ColorPaletteManager.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://bivgm765f3nvj" path="res://addons/color-palette/icons/Add.svg" id="3"]
+[ext_resource type="Texture2D" uid="uid://1hw3adbycnb1" path="res://addons/color-palette/icons/Reload.svg" id="4"]
+[ext_resource type="Texture2D" uid="uid://dyjja331edbeq" path="res://addons/color-palette/icons/Override.svg" id="5"]
+[ext_resource type="Texture2D" uid="uid://cy8dyaui24ca5" path="res://addons/color-palette/icons/Filesystem.svg" id="6"]
+
+[node name="ColorPaletteManager" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1")
+script = ExtResource("2")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ColorPaletteContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OptionsContainer" type="HBoxContainer" parent="HBoxContainer/ColorPaletteContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="HBoxContainer/ColorPaletteContainer/OptionsContainer"]
+layout_mode = 2
+text = "Palette Directory"
+
+[node name="PaletteDirectory" type="LineEdit" parent="HBoxContainer/ColorPaletteContainer/OptionsContainer"]
+layout_mode = 2
+text = "res://addons/color-palette/_palettes/"
+placeholder_text = "Palette Directory"
+expand_to_text_length = true
+
+[node name="OpenPaletteDirectory" type="Button" parent="HBoxContainer/ColorPaletteContainer/OptionsContainer"]
+layout_mode = 2
+icon = ExtResource("6")
+
+[node name="Spacer" type="Control" parent="HBoxContainer/ColorPaletteContainer/OptionsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NewPaletteName" type="LineEdit" parent="HBoxContainer/ColorPaletteContainer/OptionsContainer"]
+layout_mode = 2
+placeholder_text = "New Palette Name"
+expand_to_text_length = true
+
+[node name="NewPalette" type="Button" parent="HBoxContainer/ColorPaletteContainer/OptionsContainer"]
+layout_mode = 2
+icon = ExtResource("3")
+
+[node name="RefreshList" type="Button" parent="HBoxContainer/ColorPaletteContainer/OptionsContainer"]
+layout_mode = 2
+icon = ExtResource("4")
+
+[node name="PaletteListScroll" type="ScrollContainer" parent="HBoxContainer/ColorPaletteContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PaletteList" type="VBoxContainer" parent="HBoxContainer/ColorPaletteContainer/PaletteListScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorEditorContainer" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Margin" type="MarginContainer" parent="HBoxContainer/ColorEditorContainer"]
+layout_mode = 2
+
+[node name="Scroll" type="ScrollContainer" parent="HBoxContainer/ColorEditorContainer/Margin"]
+layout_mode = 2
+
+[node name="ColorPickerContainer" type="VBoxContainer" parent="HBoxContainer/ColorEditorContainer/Margin/Scroll"]
+layout_mode = 2
+
+[node name="SelectedColorLabel" type="Label" parent="HBoxContainer/ColorEditorContainer/Margin/Scroll/ColorPickerContainer"]
+layout_mode = 2
+text = "Select a palette or color..."
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/ColorEditorContainer/Margin/Scroll/ColorPickerContainer"]
+layout_mode = 2
+
+[node name="SelectedColorRect" type="ColorRect" parent="HBoxContainer/ColorEditorContainer/Margin/Scroll/ColorPickerContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/ColorEditorContainer/Margin/Scroll/ColorPickerContainer/HBoxContainer"]
+layout_mode = 2
+text = ">"
+
+[node name="NewColorRect" type="ColorRect" parent="HBoxContainer/ColorEditorContainer/Margin/Scroll/ColorPickerContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ApplyChanges" type="Button" parent="HBoxContainer/ColorEditorContainer/Margin/Scroll/ColorPickerContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1")
+icon = ExtResource("5")
+
+[node name="AddNewColor" type="Button" parent="HBoxContainer/ColorEditorContainer/Margin/Scroll/ColorPickerContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1")
+icon = ExtResource("3")
+
+[node name="ColorPicker" type="ColorPicker" parent="HBoxContainer/ColorEditorContainer/Margin/Scroll/ColorPickerContainer"]
+layout_mode = 2
+presets_visible = false

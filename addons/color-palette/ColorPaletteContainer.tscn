@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://chdltdmm4xyki"]
+
+[ext_resource type="Script" path="res://addons/color-palette/TileContainer.gd" id="1"]
+[ext_resource type="Theme" uid="uid://dclqcdtatxtxb" path="res://addons/color-palette/utilities/EditorTheme.tres" id="2"]
+[ext_resource type="Script" path="res://addons/color-palette/ColorPaletteContainer.gd" id="4"]
+
+[node name="ColorPaletteContainer" type="PanelContainer"]
+theme = ExtResource("2")
+script = ExtResource("4")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PaletteName" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Palette Name"
+
+[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="BtnLoadToPicker" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Load into Picker"
+
+[node name="BtnUpdateFromPicker" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Update From Picker"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="PaletteTileContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TileContainer" type="Container" parent="MarginContainer/VBoxContainer/PaletteTileContainer"]
+layout_mode = 2
+script = ExtResource("1")
