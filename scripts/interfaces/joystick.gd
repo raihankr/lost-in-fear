@@ -36,7 +36,6 @@ func _update_joystick(pos: Vector2) -> void:
 	joystick_angle = Vector2.ZERO.angle_to_point(get_joystick_dir())
 
 func _is_inside_joystick_area(point: Vector2) -> bool:
-	print(point.distance_to(global_position + global_center))
 	return point.distance_to(global_position + global_center) < touch_radius
 
 func get_joystick_dir() -> Vector2:

@@ -1,7 +1,7 @@
 extends PlayerState
 
 var package_placed: bool = false
-var pkg_scene: PackedScene = preload('res://scenes/package.tscn')
+var pkg_scene: PackedScene = preload('res://scenes/entities/package.tscn')
 
 func enter(previous_state_path, data := {}):
 	if not previous_state_path in [WALK_PACKAGE, IDLE_PACKAGE]:

@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://cm2f40rvqfd66" path="res://classes/base_scene.tscn" id="1_g05sf"]
 [ext_resource type="Script" path="res://scripts/world/living_room.gd" id="2_k4ibl"]
-[ext_resource type="TileSet" uid="uid://befa8e1hqfteb" path="res://resources/house.tres" id="3_xuw80"]
-[ext_resource type="TileSet" uid="uid://b4m7u4qm5jhrv" path="res://resources/furniture.tres" id="4_lh7od"]
-[ext_resource type="TileSet" uid="uid://c5een44ke5r5i" path="res://resources/item.tres" id="5_ks35s"]
+[ext_resource type="TileSet" uid="uid://befa8e1hqfteb" path="res://resources/tilesets/house.tres" id="3_xuw80"]
+[ext_resource type="TileSet" uid="uid://b4m7u4qm5jhrv" path="res://resources/tilesets/furniture.tres" id="4_lh7od"]
+[ext_resource type="TileSet" uid="uid://c5een44ke5r5i" path="res://resources/tilesets/item.tres" id="5_ks35s"]
 [ext_resource type="PackedScene" uid="uid://bsd7ynav7k5v6" path="res://scenes/entities/player.tscn" id="6_60e3h"]
 [ext_resource type="PackedScene" uid="uid://crgbii6omcjwa" path="res://scenes/utils/dark_surrounding.tscn" id="7_byxc2"]
 

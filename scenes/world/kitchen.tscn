@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=4 uid="uid://dxwmo46qfblwn"]
 
 [ext_resource type="PackedScene" uid="uid://cm2f40rvqfd66" path="res://classes/base_scene.tscn" id="1_t01fd"]
-[ext_resource type="TileSet" uid="uid://befa8e1hqfteb" path="res://resources/house.tres" id="2_ni4wi"]
-[ext_resource type="TileSet" uid="uid://b4m7u4qm5jhrv" path="res://resources/furniture.tres" id="3_1gqfu"]
-[ext_resource type="TileSet" uid="uid://c5een44ke5r5i" path="res://resources/item.tres" id="4_u5mg1"]
+[ext_resource type="TileSet" uid="uid://befa8e1hqfteb" path="res://resources/tilesets/house.tres" id="2_ni4wi"]
+[ext_resource type="TileSet" uid="uid://b4m7u4qm5jhrv" path="res://resources/tilesets/furniture.tres" id="3_1gqfu"]
+[ext_resource type="TileSet" uid="uid://c5een44ke5r5i" path="res://resources/tilesets/item.tres" id="4_u5mg1"]
 
 [node name="BaseScene" instance=ExtResource("1_t01fd")]
 

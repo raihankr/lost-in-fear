@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=4 uid="uid://duuxixlwg0dpo"]
 
 [ext_resource type="PackedScene" uid="uid://cm2f40rvqfd66" path="res://classes/base_scene.tscn" id="1_sklyd"]
-[ext_resource type="TileSet" uid="uid://befa8e1hqfteb" path="res://resources/house.tres" id="2_r1e1b"]
+[ext_resource type="TileSet" uid="uid://befa8e1hqfteb" path="res://resources/tilesets/house.tres" id="2_r1e1b"]
 
 [node name="BaseScene" instance=ExtResource("1_sklyd")]
 

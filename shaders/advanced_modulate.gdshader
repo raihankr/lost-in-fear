@@ -24,7 +24,7 @@ vec3 rgb2hsl(vec3 color) {
 
     if (delta != 0.0) {
         sat = (lightness < 0.5) ? (delta / (max_color + min_color)) : (delta / (2.0 - max_color - min_color));
-        
+
         if (max_color == color.r) {
             hue = (color.g - color.b) / delta + (color.g < color.b ? 6.0 : 0.0);
         } else if (max_color == color.g) {
@@ -72,7 +72,7 @@ vec3 hsl2rgb(vec3 hsl) {
 void fragment() {
     // Prendi il colore della texture
     vec4 tex_color = texture(TEXTURE, UV);
-    
+
     // Modifica RGB
     tex_color.r *= red_factor;
     tex_color.g *= green_factor;
@@ -80,10 +80,10 @@ void fragment() {
 
     // Converte il colore in HSL
     vec3 hsl = rgb2hsl(tex_color.rgb);
-    
+
     // Shift del tono (Hue)
     hsl.x = mod(hsl.x + hue_shift, 1.0);
-    
+
     // Modifica della Saturazione
     hsl.y *= saturation;
 
@@ -92,10 +92,10 @@ void fragment() {
 
     // Applica Luminosità e Contrasto
     final_rgb = final_rgb * contrast + vec3(brightness);
-    
+
     // Applica la correzione gamma
     final_rgb = pow(final_rgb, vec3(gamma));
-    
+
     // Assegna il colore finale mantenendo l'alpha originale
     COLOR = vec4(final_rgb, tex_color.a);
 }
