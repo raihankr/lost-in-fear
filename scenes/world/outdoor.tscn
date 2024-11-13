@@ -1,6 +1,6 @@
 [gd_scene load_steps=41 format=4 uid="uid://f0sc3xcf6b5h"]
 
-[ext_resource type="PackedScene" uid="uid://cm2f40rvqfd66" path="res://classes/base_scene.tscn" id="1_55dy1"]
+[ext_resource type="PackedScene" uid="uid://cm2f40rvqfd66" path="res://scenes/utils/base_scene.tscn" id="1_55dy1"]
 [ext_resource type="Script" path="res://scripts/world/outdoor.gd" id="2_gcws6"]
 [ext_resource type="Texture2D" uid="uid://da4ai86lyx17v" path="res://assets/images/outdoor/grass.png" id="3_kfc7b"]
 [ext_resource type="Texture2D" uid="uid://dbs8jn1ogfcip" path="res://assets/images/outdoor/shadow.png" id="4_jhwpx"]
@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://6onope3m1r2f" path="res://scenes/interfaces/mobile_controls.tscn" id="16_65220"]
 [ext_resource type="AudioStream" uid="uid://pf43b8pkh48u" path="res://assets/audios/car-stopping.mp3" id="16_ju5jh"]
 [ext_resource type="AudioStream" uid="uid://dl2k4pmi7axxh" path="res://assets/audios/Snow_falls_again.mp3" id="20_ghv16"]
-[ext_resource type="Script" path="res://classes/music_area.gd" id="20_oxkmf"]
+[ext_resource type="Script" path="res://scripts/utils/music_area.gd" id="20_oxkmf"]
 
 [sub_resource type="Environment" id="Environment_70alq"]
 background_mode = 3
@@ -122,8 +122,8 @@ size = Vector2(70.0048, 28.8018)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ral5y"]
 shader = ExtResource("15_iwl4p")
-shader_parameter/inner_offset = 0.305
-shader_parameter/outer_offset = 0.675
+shader_parameter/inner_offset = 0.4
+shader_parameter/outer_offset = 0.0
 
 [sub_resource type="Animation" id="Animation_irwe4"]
 resource_name = "HouseOverview"
@@ -132,7 +132,7 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../GlobalCamera:position")
+tracks/0/path = NodePath("../../GlobalCamera:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -144,7 +144,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../GlobalCamera:zoom")
+tracks/1/path = NodePath("../../GlobalCamera:zoom")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -156,30 +156,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_l0vsc"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../GlobalCamera:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(234, 88)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../GlobalCamera:zoom")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(3.57, 3.57)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_66aio"]
 _data = {
@@ -187,12 +163,12 @@ _data = {
 "RESET": SubResource("Animation_l0vsc")
 }
 
-[node name="Main" instance=ExtResource("1_55dy1")]
+[node name="Outdoor" instance=ExtResource("1_55dy1")]
 y_sort_enabled = true
 script = ExtResource("2_gcws6")
 
 [node name="InvisibleWall" type="StaticBody2D" parent="." index="2"]
-position = Vector2(-24, 8)
+position = Vector2(-23, 8)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InvisibleWall" index="0"]
 build_mode = 1
@@ -216,7 +192,6 @@ unique_name_in_owner = true
 visible = false
 material = SubResource("ShaderMaterial_p5lsc")
 position = Vector2(271, 753)
-input_enabled = false
 vision_style = 0
 walk_sound = ExtResource("7_8ygu1")
 
@@ -224,6 +199,7 @@ walk_sound = ExtResource("7_8ygu1")
 unique_name_in_owner = true
 rotation = -3.14159
 scale = Vector2(0.5, 0.5)
+enabled = false
 zoom = Vector2(3.25, 3.25)
 limit_left = 0
 limit_top = 0
@@ -301,42 +277,38 @@ stream = ExtResource("16_ju5jh")
 [node name="StartingPoint" type="Marker2D" parent="." index="11"]
 position = Vector2(240, 639)
 
-[node name="SpawnPoint" type="Marker2D" parent="." index="12"]
-position = Vector2(240, 753)
-
-[node name="TaskCall" parent="." index="13" instance=ExtResource("14_imhac")]
+[node name="TaskCall" parent="." index="12" instance=ExtResource("14_imhac")]
 visible = true
 position = Vector2(234, 285)
 monitoring = true
 
-[node name="TaskGoInside" parent="." index="14" instance=ExtResource("14_imhac")]
+[node name="TaskGoInside" parent="." index="13" instance=ExtResource("14_imhac")]
 position = Vector2(234, 232)
 
-[node name="Vignette" type="ColorRect" parent="." index="15"]
+[node name="Vignette" type="ColorRect" parent="." index="14"]
 z_index = 10
 material = SubResource("ShaderMaterial_ral5y")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -54.0
-offset_right = 534.0
+offset_right = 480.0
 offset_bottom = 810.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
-[node name="MobileControls" parent="." index="16" instance=ExtResource("16_65220")]
+[node name="MobileControls" parent="." index="15" instance=ExtResource("16_65220")]
 layer = 10
 visible = false
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="18"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="17"]
 stream = ExtResource("20_ghv16")
 
-[node name="MusicArea" type="Area2D" parent="." index="19"]
+[node name="MusicArea" type="Area2D" parent="." index="18"]
 script = ExtResource("20_oxkmf")
 
-[node name="GlobalCamera" type="Camera2D" parent="." index="20"]
+[node name="GlobalCamera" type="Camera2D" parent="." index="19"]
 position = Vector2(234, 88)
 zoom = Vector2(3.57, 3.57)
 limit_left = 0
@@ -344,11 +316,21 @@ limit_top = 0
 limit_right = 480
 limit_bottom = 810
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="21"]
-root_node = NodePath("../SpawnPoint")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="20"]
+root_node = NodePath("../EntranceMarkers/Spawn")
 libraries = {
 "": SubResource("AnimationLibrary_66aio")
 }
+
+[node name="Spawn" type="Marker2D" parent="EntranceMarkers" index="0"]
+position = Vector2(240, 753)
+
+[node name="FollowCamera" parent="." index="22" node_paths=PackedStringArray("follow_node")]
+limit_left = 0
+limit_top = 0
+limit_right = 480
+limit_bottom = 810
+follow_node = NodePath("../Player")
 
 [connection signal="body_entered" from="TaskCall" to="." method="_on_task_call_body_entered"]
 [connection signal="body_entered" from="TaskGoInside" to="." method="_on_task_go_inside_body_entered"]

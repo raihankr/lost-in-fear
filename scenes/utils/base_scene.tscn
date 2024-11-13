@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cm2f40rvqfd66"]
+[gd_scene load_steps=6 format=3 uid="uid://cm2f40rvqfd66"]
 
-[ext_resource type="Script" path="res://classes/base_scene.gd" id="1_ltd4q"]
+[ext_resource type="Script" path="res://scripts/utils/base_scene.gd" id="1_nm1ig"]
+[ext_resource type="Script" path="res://scripts/utils/follow_camera.gd" id="2_ygadf"]
 
 [sub_resource type="Animation" id="Animation_2w4im"]
 resource_name = "Fade"
@@ -39,7 +40,7 @@ _data = {
 }
 
 [node name="BaseScene" type="Node2D"]
-script = ExtResource("1_ltd4q")
+script = ExtResource("1_nm1ig")
 
 [node name="SceneTransition" type="AnimationPlayer" parent="."]
 libraries = {
@@ -60,3 +61,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="EntranceMarkers" type="Node2D" parent="."]
+
+[node name="FollowCamera" type="Camera2D" parent="."]
+zoom = Vector2(3.25, 3.25)
+script = ExtResource("2_ygadf")

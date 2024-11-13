@@ -50,7 +50,7 @@ func update(delta):
 		if target_position == new_pos:
 			player.move_speed = initial_speed
 			target_position = null
-			player.input_enabled = true
+			player.input_enabled = false
 
 func update_end():
 	if target_position == null and not player.speed:

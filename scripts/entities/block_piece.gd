@@ -22,7 +22,6 @@ func _process(delta: float):
 				distance = mouse_position.y - global_position.y
 				speed = distance / delta
 				velocity.y = speed
-		print(velocity)
 		move_and_slide()
 
 func _input(event: InputEvent):

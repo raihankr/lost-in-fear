@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0p02gpjoo5se"
-path="res://.godot/imported/stair.png-68b5cf91414a1ff3c9d66a5029d32074.ctex"
+uid="uid://ddyev8qdnjpgj"
+path="res://.godot/imported/player_flashlight.png-708569f0ebf37de57b60f354df02ba8d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/room/stair.png"
-dest_files=["res://.godot/imported/stair.png-68b5cf91414a1ff3c9d66a5029d32074.ctex"]
+source_file="res://assets/images/player/player_flashlight.png"
+dest_files=["res://.godot/imported/player_flashlight.png-708569f0ebf37de57b60f354df02ba8d.ctex"]
 
 [params]
 

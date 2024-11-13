@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://btybsoda3ih7x"]
+
+[ext_resource type="PackedScene" uid="uid://cm2f40rvqfd66" path="res://scenes/utils/base_scene.tscn" id="1_yvm74"]
+[ext_resource type="PackedScene" uid="uid://crgbii6omcjwa" path="res://scenes/utils/dark_surrounding.tscn" id="2_r70af"]
+
+[node name="BaseScene" instance=ExtResource("1_yvm74")]
+
+[node name="DarkSurrounding" parent="FollowCamera" index="0" instance=ExtResource("2_r70af")]

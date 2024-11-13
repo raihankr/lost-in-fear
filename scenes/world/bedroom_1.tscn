@@ -1,10 +1,15 @@
-[gd_scene load_steps=4 format=4 uid="uid://duh80rqo3tcgb"]
+[gd_scene load_steps=7 format=4 uid="uid://duh80rqo3tcgb"]
 
-[ext_resource type="PackedScene" uid="uid://cm2f40rvqfd66" path="res://classes/base_scene.tscn" id="1_8uoh1"]
+[ext_resource type="PackedScene" uid="uid://cm2f40rvqfd66" path="res://scenes/utils/base_scene.tscn" id="1_8uoh1"]
 [ext_resource type="TileSet" uid="uid://befa8e1hqfteb" path="res://resources/tilesets/house.tres" id="2_11b68"]
 [ext_resource type="TileSet" uid="uid://b4m7u4qm5jhrv" path="res://resources/tilesets/furniture.tres" id="3_fceot"]
+[ext_resource type="PackedScene" uid="uid://dyhpmtx5irjvs" path="res://scenes/utils/scene_trigger.tscn" id="4_7uo3u"]
+[ext_resource type="PackedScene" uid="uid://crgbii6omcjwa" path="res://scenes/utils/dark_surrounding.tscn" id="5_ptomb"]
 
-[node name="BaseScene" instance=ExtResource("1_8uoh1")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a7f87"]
+size = Vector2(8, 32)
+
+[node name="Bedroom" instance=ExtResource("1_8uoh1")]
 
 [node name="Room" type="TileMapLayer" parent="." index="3"]
 tile_map_data = PackedByteArray("AAALAAgAAAAFAAIAAAAMAAgAAAAGAAIAAAANAAgAAAAGAAIAAAAOAAgAAAAGAAIAAAAPAAgAAAAGAAIAAAAQAAgAAAAGAAIAAAARAAgAAAAGAAIAAAASAAgAAAAGAAIAAAALAAkAAAAFAAYAAAAMAAkAAAAGAAYAAAANAAkAAAAGAAYAAAAOAAkAAAAGAAYAAAAPAAkAAAAGAAYAAAAQAAkAAAAGAAYAAAARAAkAAAAGAAYAAAASAAkAAAAGAAYAAAALAAoAAAABAAkAAQAMAAoAAAAGAAYAAAANAAoAAAAGAAYAAAAOAAoAAAAGAAYAAAAPAAoAAAAGAAYAAAAQAAoAAAAGAAYAAAARAAoAAAAGAAYAAAASAAoAAAAGAAYAAAALAAsAAAAGAAYAAQAMAAsAAAAGAAYAAAANAAsAAAAGAAYAAAAOAAsAAAAGAAYAAAAPAAsAAAAGAAYAAAAQAAsAAAAGAAYAAAARAAsAAAAGAAYAAAASAAsAAAAGAAYAAAALAAwAAAAGAAYAAQAMAAwAAAAGAAYAAAANAAwAAAAGAAYAAAAOAAwAAAAGAAYAAAAPAAwAAAAGAAYAAAAQAAwAAAAGAAYAAAARAAwAAAAGAAYAAAASAAwAAAAGAAYAAAALAA0AAAABAAkAAgAMAA0AAAAGAAYAAAANAA0AAAAGAAYAAAAOAA0AAAAGAAYAAAAPAA0AAAAGAAYAAAAQAA0AAAAGAAYAAAARAA0AAAAGAAYAAAASAA0AAAAGAAYAAAATAAkAAAAHAAYAAAATAAoAAAAHAAYAAAATAAsAAAAHAAYAAAATAAwAAAAHAAYAAAATAA0AAAAHAAYAAAATAAgAAAAHAAIAAAAKAAoAAAAAAAkAAQAKAAsAAAAFAAYAAQAKAAwAAAAFAAYAAQAKAA0AAAAAAAkAAgAMAA4AAAACAAgAAAANAA4AAAACAAgAAAAOAA4AAAACAAgAAAAPAA4AAAACAAgAAAAQAA4AAAACAAgAAAARAA4AAAACAAgAAAASAA4AAAACAAgAAAALAA4AAAAAAAkAAAATAA4AAAAEAAkAAAA=")
@@ -13,3 +18,16 @@ tile_set = ExtResource("2_11b68")
 [node name="Furniture" type="TileMapLayer" parent="Room" index="0"]
 tile_map_data = PackedByteArray("AAAPAAoABAACAAMAAAANAAkABAAAAAUAAAASAAkAAgADAAAAAAAMAAkAAAADAAcAAAAPAAwAAgAKAAIAAAASAA0AAAAGAAcAAAA=")
 tile_set = ExtResource("3_fceot")
+
+[node name="LivingRoomEntry" parent="Room" index="1" instance=ExtResource("4_7uo3u")]
+position = Vector2(184, 192)
+connected_scene = "res://scenes/world/living_room.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room/LivingRoomEntry" index="0"]
+position = Vector2(-4, 0)
+shape = SubResource("RectangleShape2D_a7f87")
+
+[node name="LivingRoom" type="Marker2D" parent="EntranceMarkers" index="0"]
+position = Vector2(200, 192)
+
+[node name="DarkSurrounding" parent="." index="6" instance=ExtResource("5_ptomb")]

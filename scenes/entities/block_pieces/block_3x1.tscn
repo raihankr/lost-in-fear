@@ -8,13 +8,14 @@ atlas = ExtResource("2_worrb")
 region = Rect2(0, 0, 48, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mobfd"]
-size = Vector2(15.9, 47.9)
+size = Vector2(15.8, 47.8)
 
 [node name="Block (3x1)" instance=ExtResource("1_bde20")]
 
 [node name="BlockSprite" parent="." index="0"]
+position = Vector2(-7.99991, 24)
 texture = SubResource("AtlasTexture_pmor3")
 
 [node name="Collider" parent="." index="1"]
-position = Vector2(7.99991, -24)
+position = Vector2(-3.33786e-06, 2.86102e-05)
 shape = SubResource("RectangleShape2D_mobfd")

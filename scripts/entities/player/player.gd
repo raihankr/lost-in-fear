@@ -6,7 +6,7 @@ enum VisionStyle {NONE, CIRCLE, CONE}
 
 @export var move_speed: int = 60
 @export var rotation_speed: float = 180 * PI / 180
-@export var input_enabled: bool = true
+@export var input_enabled: bool = false
 @export var vision_style: VisionStyle = VisionStyle.CONE:
 	set(value):
 		vision_style = value
@@ -15,7 +15,6 @@ enum VisionStyle {NONE, CIRCLE, CONE}
 	set(value):
 		walk_sound = value
 		$FootstepSound.stream = value
-
 @onready var joystick: TouchScreenButton = get_node_or_null('../MobileControls/Joystick') if OS.get_name() in ['Android', 'iOS'] else null
 @onready var animation: AnimatedSprite2D = %Animation
 @onready var vision: PointLight2D= %Vision

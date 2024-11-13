@@ -32,7 +32,7 @@ var dialogue_line: DialogueLine:
 
 		# The dialogue has finished so close the balloon
 		if not next_dialogue_line:
-			Global.input_enabled = true
+			get_tree().current_scene.player.input_enabled = true
 			queue_free()
 			return
 
@@ -134,7 +134,7 @@ func _notification(what: int) -> void:
 
 ## Start some dialogue
 func start(dialogue_resource: DialogueResource, title: String, extra_game_states: Array = []) -> void:
-	Global.input_enabled = false
+	get_tree().current_scene.player.input_enabled = false
 	temporary_game_states =  [self] + extra_game_states
 	is_waiting_for_input = false
 	resource = dialogue_resource

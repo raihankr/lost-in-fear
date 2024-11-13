@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=4 uid="uid://bdmrlhch2qfde"]
+[gd_scene load_steps=6 format=4 uid="uid://bdmrlhch2qfde"]
 
 [ext_resource type="Texture2D" uid="uid://dvao6qkmp1lur" path="res://assets/images/block-puzzle.png" id="1_i3dkv"]
+[ext_resource type="PackedScene" uid="uid://c02ech8ey6mbb" path="res://scenes/entities/block_pieces/block_3x1.tscn" id="2_mr6p1"]
 [ext_resource type="PackedScene" uid="uid://buq6gdh6w7hb3" path="res://scenes/entities/block_pieces/block_2x1.tscn" id="3_iubbc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3cklf"]
@@ -100,14 +101,72 @@ follow_viewport_enabled = true
 
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 scale = Vector2(4, 4)
-metadata/_edit_group_ = true
-
-[node name="Block (2x1)" parent="CanvasGroup" instance=ExtResource("3_iubbc")]
-
-[node name="Block (2x1)2" parent="CanvasGroup" instance=ExtResource("3_iubbc")]
-position = Vector2(52, 52)
 
 [node name="ObstacleBoundaries" type="TileMapLayer" parent="CanvasGroup"]
 position = Vector2(48, -8)
 tile_map_data = PackedByteArray("AAACAAEAAAAAAAIAAAACAAIAAAACAAMAAAACAAMAAAACAAMAAAACAAQAAAACAAMAAAACAAUAAAACAAMAAAACAAYAAAACAAMAAAACAAcAAAACAAMAAAACAAgAAAACAAMAAAACAAkAAAAAAAMAAAADAAEAAAACAAIAAAAEAAEAAAACAAIAAAAFAAEAAAACAAIAAAAGAAEAAAACAAIAAAAHAAEAAAACAAIAAAAIAAEAAAACAAIAAAAJAAEAAAACAAIAAAAKAAEAAAABAAIAAAAKAAIAAAACAAMAAAAKAAMAAAACAAMAAAAKAAQAAAADAAMAAAAKAAYAAAADAAIAAAAKAAcAAAACAAMAAAAKAAgAAAACAAMAAAAKAAkAAAABAAMAAAAJAAkAAAACAAIAAAAIAAkAAAACAAIAAAAHAAkAAAACAAIAAAAGAAkAAAACAAIAAAAFAAkAAAACAAIAAAAEAAkAAAACAAIAAAADAAkAAAACAAIAAAADAAIAAAAEAAIAAAADAAMAAAAEAAIAAAADAAQAAAAEAAIAAAADAAUAAAAEAAIAAAADAAYAAAAEAAIAAAADAAcAAAAEAAIAAAADAAgAAAAEAAIAAAAEAAIAAAAEAAIAAAAEAAMAAAAEAAIAAAAEAAQAAAAEAAIAAAAEAAUAAAAEAAIAAAAEAAYAAAAEAAIAAAAEAAcAAAAEAAIAAAAEAAgAAAAEAAIAAAAFAAIAAAAEAAIAAAAFAAMAAAAEAAIAAAAFAAQAAAAEAAIAAAAFAAUAAAAEAAIAAAAFAAYAAAAEAAIAAAAFAAcAAAAEAAIAAAAFAAgAAAAEAAIAAAAGAAIAAAAEAAIAAAAGAAMAAAAEAAIAAAAGAAQAAAAEAAIAAAAGAAUAAAAEAAIAAAAGAAYAAAAEAAIAAAAGAAcAAAAEAAIAAAAGAAgAAAAEAAIAAAAHAAIAAAAEAAIAAAAHAAMAAAAEAAIAAAAHAAQAAAAEAAIAAAAHAAUAAAAEAAIAAAAHAAYAAAAEAAIAAAAHAAcAAAAEAAIAAAAHAAgAAAAEAAIAAAAIAAIAAAAEAAIAAAAIAAMAAAAEAAIAAAAIAAQAAAAEAAIAAAAIAAUAAAAEAAIAAAAIAAYAAAAEAAIAAAAIAAcAAAAEAAIAAAAIAAgAAAAEAAIAAAAJAAIAAAAEAAIAAAAJAAMAAAAEAAIAAAAJAAQAAAAEAAIAAAAJAAUAAAAEAAIAAAAJAAYAAAAEAAIAAAAJAAcAAAAEAAIAAAAJAAgAAAAEAAIAAAAKAAUAAAAEAAIAAAA=")
 tile_set = SubResource("TileSet_5krcs")
+
+[node name="Block (3x1)" parent="CanvasGroup" instance=ExtResource("2_mr6p1")]
+position = Vector2(200, 64)
+rotation = -3.14159
+scale = Vector2(-1, 1)
+move_axis = 1
+
+[node name="Block (3x1)2" parent="CanvasGroup" instance=ExtResource("2_mr6p1")]
+position = Vector2(168, 80)
+rotation = -3.14159
+scale = Vector2(-1, 1)
+move_axis = 1
+
+[node name="Block (3x1)4" parent="CanvasGroup" instance=ExtResource("2_mr6p1")]
+position = Vector2(104, 48)
+rotation = -3.14159
+scale = Vector2(-1, 1)
+move_axis = 1
+
+[node name="Block (2x1)" parent="CanvasGroup" instance=ExtResource("3_iubbc")]
+position = Vector2(192, 32)
+
+[node name="Block (2x1)12" parent="CanvasGroup" instance=ExtResource("3_iubbc")]
+position = Vector2(160, 32)
+
+[node name="Block (2x1)4" parent="CanvasGroup" instance=ExtResource("3_iubbc")]
+position = Vector2(128, 64)
+
+[node name="Block (2x1)13" parent="CanvasGroup" instance=ExtResource("3_iubbc")]
+position = Vector2(176, 48)
+
+[node name="Block (2x1)8" parent="CanvasGroup" instance=ExtResource("3_iubbc")]
+position = Vector2(192, 112)
+
+[node name="Block (2x1)7" parent="CanvasGroup" instance=ExtResource("3_iubbc")]
+position = Vector2(112, 128)
+
+[node name="Block (2x1)3" parent="CanvasGroup" instance=ExtResource("3_iubbc")]
+position = Vector2(152, 72)
+rotation = 3.14159
+scale = Vector2(-1, 1)
+move_axis = 1
+
+[node name="Block (2x1)11" parent="CanvasGroup" instance=ExtResource("3_iubbc")]
+position = Vector2(136, 120)
+rotation = 3.14159
+scale = Vector2(-1, 1)
+move_axis = 1
+
+[node name="Block (2x1)10" parent="CanvasGroup" instance=ExtResource("3_iubbc")]
+position = Vector2(136, 40)
+rotation = 3.14159
+scale = Vector2(-1, 1)
+move_axis = 1
+
+[node name="Block (2x1)9" parent="CanvasGroup" instance=ExtResource("3_iubbc")]
+position = Vector2(168, 120)
+rotation = 3.14159
+scale = Vector2(-1, 1)
+move_axis = 1
+
+[node name="Block (2x1)2" parent="CanvasGroup" instance=ExtResource("3_iubbc")]
+modulate = Color(0.860301, 0.912601, 0, 1)
+position = Vector2(112, 80)
