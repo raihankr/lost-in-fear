@@ -1,6 +1,7 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://c5een44ke5r5i"]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://c5een44ke5r5i"]
 
 [ext_resource type="Texture2D" uid="uid://xi5uti7uvlcn" path="res://assets/images/item/items.png" id="2_qmrht"]
+[ext_resource type="Texture2D" uid="uid://b7bpcjh0v8os3" path="res://assets/images/furniture/storage_room_items.png" id="2_rs3i3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_thdt3"]
 texture = ExtResource("2_qmrht")
@@ -128,7 +129,30 @@ texture = ExtResource("2_qmrht")
 7:7/0 = 0
 7:7/0/texture_origin = Vector2i(-4, 4)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e83su"]
+texture = ExtResource("2_rs3i3")
+0:0/size_in_atlas = Vector2i(1, 2)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 4)
+1:0/size_in_atlas = Vector2i(1, 2)
+1:0/0 = 0
+1:0/0/texture_origin = Vector2i(0, 4)
+2:0/size_in_atlas = Vector2i(1, 2)
+2:0/0 = 0
+2:0/0/texture_origin = Vector2i(0, 4)
+3:0/size_in_atlas = Vector2i(1, 2)
+3:0/0 = 0
+3:0/0/texture_origin = Vector2i(0, 12)
+4:0/size_in_atlas = Vector2i(1, 2)
+4:0/0 = 0
+4:0/0/texture_origin = Vector2i(0, 12)
+0:2/size_in_atlas = Vector2i(3, 2)
+0:2/0 = 0
+4:2/0 = 0
+4:2/0/texture_origin = Vector2i(0, 4)
+
 [resource]
 tile_size = Vector2i(8, 8)
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_thdt3")
+sources/2 = SubResource("TileSetAtlasSource_e83su")

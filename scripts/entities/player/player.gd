@@ -4,10 +4,15 @@ enum Rotation {FRONT, DIAGONAL_FRONT, SIDE, DIAGONAL_BACK, BACK}
 enum Direction {UP, RIGHT, DOWN, LEFT}
 enum VisionStyle {NONE, CIRCLE, CONE}
 
+const WALK_SOUND = {
+	'wood': preload('res://assets/audios/footstep_wood.mp3'),
+	'grass': preload('res://assets/audios/footstep_grass.mp3')
+}
+
 @export var move_speed: int = 60
 @export var rotation_speed: float = 180 * PI / 180
-@export var input_enabled: bool = false
-@export var vision_style: VisionStyle = VisionStyle.CONE:
+@export var input_enabled: bool = true
+@export var vision_style: VisionStyle = VisionStyle.NONE:
 	set(value):
 		vision_style = value
 		%Vision.texture = vision_texture[value]
@@ -17,7 +22,7 @@ enum VisionStyle {NONE, CIRCLE, CONE}
 		$FootstepSound.stream = value
 @onready var joystick: TouchScreenButton = get_node_or_null('../MobileControls/Joystick') if OS.get_name() in ['Android', 'iOS'] else null
 @onready var animation: AnimatedSprite2D = %Animation
-@onready var vision: PointLight2D= %Vision
+@onready var vision: PointLight2D = %Vision
 @onready var state_machine: StateMachine = %StateMachine
 @onready var footstep_sound: AudioStreamPlayer2D = $FootstepSound
 
@@ -32,6 +37,16 @@ var vision_texture: Array[Variant] = [
 	preload('res://assets/images/light-cone.png')
 ]
 var music_area_array: Array[MusicArea] = []
+var state: Variant:
+	set(value):
+		if value is Array:
+			state_machine.enter(value[0], value[1])
+		elif value is String:
+			state_machine.enter(value)
+	get:
+		return state_machine.state.name
+var world_position: Variant:
+	set = set_world_position, get = get_world_position
 
 func _ready():
 	velocity = Vector2.ZERO
@@ -107,6 +122,28 @@ func _on_area_2d_body_exited(body: TileMapLayer) -> void:
 func _play_footstep_sound():
 	footstep_sound.pitch_scale = randf_range(.8, 1.2)
 	footstep_sound.play()
+
+func get_world_position():
+	return global_position
+
+func set_world_position(value: Variant):
+	var scene: Node = get_tree().current_scene
+	if value is Vector2:
+		global_position = value
+	if value == null:
+		value = 'Spawn'
+	if value is Array:
+		scene = value[1]
+		value = value[0]
+	if value is String:
+		var entrances: Array = scene.get_node('EntranceMarkers').get_children()
+		var entrance = entrances.filter(func(x: Marker2D): return x.name == value)
+		if not entrance.is_empty():
+			global_position = entrance[0].global_position
+		elif entrances.size() > 0:
+			global_position = entrances[0].global_position
+		else:
+			global_position = Vector2.ZERO
 
 func move_to(target_position: Vector2, _move_speed: int = move_speed, state: String = 'Walk') -> Signal:
 	assert(state_machine.get_node(state) is PlayerWalk)

@@ -8,4 +8,5 @@ extends Camera2D
 func _process(delta: float):
 	if not follow_node:
 		enabled = false
-	global_position = follow_node.global_position
+	else:
+		global_position = follow_node.global_position

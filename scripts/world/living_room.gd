@@ -1,6 +1,6 @@
 extends BaseScene
 
-func _ready():
+func _ready(setup_func: Callable = func(): pass):
 	super()
 
 func _process(delta):

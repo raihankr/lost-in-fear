@@ -66,4 +66,5 @@ grow_vertical = 2
 
 [node name="FollowCamera" type="Camera2D" parent="."]
 zoom = Vector2(3.25, 3.25)
+position_smoothing_enabled = true
 script = ExtResource("2_ygadf")

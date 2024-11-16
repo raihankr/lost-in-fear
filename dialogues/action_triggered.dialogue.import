@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://s0nay1cuvigp"
+path="res://.godot/imported/action_triggered.dialogue-bf1d4e8c3144349d2476539281713192.tres"
+
+[deps]
+
+source_file="res://dialogues/action_triggered.dialogue"
+dest_files=["res://.godot/imported/action_triggered.dialogue-bf1d4e8c3144349d2476539281713192.tres"]
+
+[params]
+
+defaults=true

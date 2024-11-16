@@ -188,23 +188,10 @@ texture = ExtResource("4_jhwpx")
 centered = false
 
 [node name="Player" parent="." index="6" instance=ExtResource("5_wgtfb")]
-unique_name_in_owner = true
 visible = false
 material = SubResource("ShaderMaterial_p5lsc")
 position = Vector2(271, 753)
-vision_style = 0
 walk_sound = ExtResource("7_8ygu1")
-
-[node name="Camera" type="Camera2D" parent="Player" index="4"]
-unique_name_in_owner = true
-rotation = -3.14159
-scale = Vector2(0.5, 0.5)
-enabled = false
-zoom = Vector2(3.25, 3.25)
-limit_left = 0
-limit_top = 0
-limit_right = 480
-limit_bottom = 810
 
 [node name="House" type="StaticBody2D" parent="." index="7"]
 y_sort_enabled = true
@@ -330,6 +317,7 @@ limit_left = 0
 limit_top = 0
 limit_right = 480
 limit_bottom = 810
+editor_draw_limits = true
 follow_node = NodePath("../Player")
 
 [connection signal="body_entered" from="TaskCall" to="." method="_on_task_call_body_entered"]

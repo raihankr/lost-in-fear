@@ -12,29 +12,33 @@ size = Vector2(8, 16)
 
 [node name="Bathroom" instance=ExtResource("1_r7it6")]
 
-[node name="Room" type="TileMapLayer" parent="." index="3"]
+[node name="LivingRoom" type="Marker2D" parent="EntranceMarkers" index="0"]
+position = Vector2(88, 128)
+
+[node name="DarkSurrounding" parent="." index="5" instance=ExtResource("6_4nfx8")]
+
+[node name="Map" type="CanvasGroup" parent="." index="6"]
+
+[node name="Room" type="TileMapLayer" parent="Map" index="0"]
 z_index = -1
 position = Vector2(-176, -88)
 tile_map_data = PackedByteArray("AAAPAAsAAQAFAAIAAAAQAAsAAQAGAAIAAAARAAsAAQAGAAIAAAASAAsAAQAGAAIAAAATAAsAAQAGAAIAAAAPAAwAAQABAAkAAQAQAAwAAQAGAAYAAAARAAwAAQAGAAYAAAASAAwAAQAGAAYAAAATAAwAAQAGAAYAAAAPAA0AAQAGAAYAAQAQAA0AAQAGAAYAAAARAA0AAQAGAAYAAAASAA0AAQAGAAYAAAATAA0AAQAGAAYAAAAPAA4AAQABAAkAAgAQAA4AAQAGAAYAAAARAA4AAQAGAAYAAAASAA4AAQAGAAYAAAATAA4AAQAGAAYAAAAPAA8AAQAAAAkAAAAQAA8AAQACAAgAAAARAA8AAQACAAgAAAASAA8AAQACAAgAAAATAA8AAQACAAgAAAAOAAwAAQAAAAkAAQAOAA0AAQAFAAYAAQAOAA4AAQAAAAkAAgAUAAsAAQAGAAIAAAAUAAwAAQAGAAYAAAAUAA0AAQAGAAYAAAAUAA4AAQAGAAYAAAAUAA8AAQACAAgAAAAVAAsAAQAHAAIAAAAVAAwAAQAHAAYAAAAVAA0AAQAHAAYAAAAVAA4AAQAHAAYAAAAVAA8AAQAEAAkAAAA=")
 tile_set = ExtResource("2_gsdvx")
 
-[node name="Furniture" type="TileMapLayer" parent="Room" index="0"]
+[node name="Furniture" type="TileMapLayer" parent="Map" index="1"]
+position = Vector2(-176, -88)
 tile_map_data = PackedByteArray("AAATAA4AAwACAAEAABATAAwAAwADAAUAAAATAAkAAgAHAAcAAAATAAoAAwAAAAEAAAARAAkAAgAIAA8AAAASAAkAAgAKAA8AAAAQAAwAAwAAAAUAAAA=")
 tile_set = ExtResource("3_bbnyr")
 
-[node name="SmallItem" type="TileMapLayer" parent="Room" index="1"]
+[node name="SmallItem" type="TileMapLayer" parent="Map" index="2"]
+position = Vector2(-176, -88)
 tile_map_data = PackedByteArray("AAAiABMAAQAEAAAAAAAkABMAAQAFAAAAAAAjABMAAQACAAMAAAA=")
 tile_set = ExtResource("4_iu6ta")
 
-[node name="LivingRoomEntry" parent="Room" index="2" instance=ExtResource("5_ftsrb")]
-position = Vector2(258.879, 216.515)
+[node name="LivingRoomEntry" parent="Map" index="3" instance=ExtResource("5_ftsrb")]
+position = Vector2(82.879, 128.515)
 connected_scene = "res://scenes/world/living_room.tscn"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Room/LivingRoomEntry" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/LivingRoomEntry" index="0"]
 position = Vector2(-14.8787, -0.514725)
 shape = SubResource("RectangleShape2D_87ons")
-
-[node name="LivingRoom" type="Marker2D" parent="EntranceMarkers" index="0"]
-position = Vector2(88, 128)
-
-[node name="DarkSurrounding" parent="." index="6" instance=ExtResource("6_4nfx8")]
