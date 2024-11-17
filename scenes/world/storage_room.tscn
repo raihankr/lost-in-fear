@@ -14,11 +14,15 @@ size = Vector2(16, 8)
 [node name="StorageRoom" instance=ExtResource("1_sklyd")]
 y_sort_enabled = true
 
+[node name="EntranceMarkers" parent="." index="3"]
+position = Vector2(-184, -216)
+
 [node name="Corridor" type="Marker2D" parent="EntranceMarkers" index="0"]
 position = Vector2(200, 216)
 
 [node name="Map" type="CanvasGroup" parent="." index="5"]
 y_sort_enabled = true
+position = Vector2(-184, -216)
 
 [node name="Room" type="TileMapLayer" parent="Map" index="0"]
 light_mask = 3

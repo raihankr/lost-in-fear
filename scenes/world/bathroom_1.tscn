@@ -12,6 +12,9 @@ size = Vector2(8, 16)
 
 [node name="Bathroom" instance=ExtResource("1_r7it6")]
 
+[node name="EntranceMarkers" parent="." index="3"]
+position = Vector2(-120, -112)
+
 [node name="LivingRoom" type="Marker2D" parent="EntranceMarkers" index="0"]
 position = Vector2(88, 128)
 
@@ -19,6 +22,7 @@ position = Vector2(88, 128)
 
 [node name="Map" type="CanvasGroup" parent="." index="6"]
 y_sort_enabled = true
+position = Vector2(-120, -112)
 
 [node name="Room" type="TileMapLayer" parent="Map" index="0"]
 z_index = -1

@@ -34,6 +34,7 @@ script = ExtResource("2_k4ibl")
 
 [node name="Map" type="CanvasGroup" parent="." index="3"]
 y_sort_enabled = true
+position = Vector2(-336, -280)
 
 [node name="Room" type="TileMapLayer" parent="Map" index="0"]
 y_sort_enabled = true
@@ -111,9 +112,12 @@ range_item_cull_mask = 3
 texture = ExtResource("7_3dxyk")
 
 [node name="Player" parent="." index="4" instance=ExtResource("6_60e3h")]
-position = Vector2(368, 440)
+position = Vector2(32, 160)
 
 [node name="DarkSurrounding" parent="." index="5" instance=ExtResource("7_byxc2")]
+
+[node name="EntranceMarkers" parent="." index="6"]
+position = Vector2(-336, -280)
 
 [node name="Outdoor" type="Marker2D" parent="EntranceMarkers" index="0"]
 position = Vector2(360, 448)
@@ -134,3 +138,7 @@ position = Vector2(232, 304)
 position = Vector2(176, 264)
 
 [node name="ArrivedAtHouse" parent="." index="8" instance=ExtResource("9_ijxch")]
+position = Vector2(-336, -280)
+
+[node name="Items" parent="." index="9"]
+position = Vector2(-336, -280)

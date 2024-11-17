@@ -14,6 +14,9 @@ size = Vector2(32, 8)
 [node name="Kitchen" instance=ExtResource("1_t01fd")]
 y_sort_enabled = true
 
+[node name="EntranceMarkers" parent="." index="3"]
+position = Vector2(-384, -208)
+
 [node name="LivingRoom" type="Marker2D" parent="EntranceMarkers" index="0"]
 position = Vector2(416, 232)
 
@@ -22,6 +25,7 @@ position = Vector2(416, 248)
 
 [node name="Map" type="CanvasGroup" parent="." index="6"]
 y_sort_enabled = true
+position = Vector2(-384, -208)
 
 [node name="Room" type="TileMapLayer" parent="Map" index="0"]
 light_mask = 3
