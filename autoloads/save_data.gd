@@ -12,6 +12,9 @@ const NEW_GAME_TEMPLATE: Dictionary = {
 		'selected': null,
 		'items': []
 	},
+	'items': {
+		
+	},
 	'has_entered_house': false,
 	'door_locked': {
 		'bedroom_1': true

@@ -16,7 +16,6 @@ size = Vector2(8, 32)
 position = Vector2(200, 192)
 
 [node name="DarkSurrounding" parent="." index="5" instance=ExtResource("5_ptomb")]
-visible = true
 
 [node name="Map" type="CanvasGroup" parent="." index="6"]
 

@@ -27,7 +27,7 @@ tile_set = ExtResource("2_r1e1b")
 
 [node name="Furniture" type="TileMapLayer" parent="Map" index="1"]
 light_mask = 3
-tile_map_data = PackedByteArray("AAANAAsACwADAAAAAAANAA0ACwADAAQAAAAJAA4ACwADAAIAAAALAA0ACwAAAAIAAAANAA8ACwAEAAMAAAAMAA8ACwAEAAYAAAALAA8ACwAEAAIAAAAKAA0ACwAAAAQAAAA=")
+tile_map_data = PackedByteArray("AAANAAsACwADAAAAAAANAA0ACwADAAQAAAALAA0ACwAAAAIAAAANAA8ACwAEAAMAAAAMAA8ACwAEAAYAAAALAA8ACwAEAAIAAAAKAA0ACwAAAAQAAAAJAA8ACwADAAIAAAA=")
 tile_set = ExtResource("3_1doj7")
 
 [node name="SmallItems" type="TileMapLayer" parent="Map" index="2"]

@@ -28,6 +28,7 @@ position = Vector2(216, 344)
 position = Vector2(208, 232)
 
 [node name="Map" type="CanvasGroup" parent="." index="5"]
+y_sort_enabled = true
 
 [node name="Room" type="TileMapLayer" parent="Map" index="0"]
 light_mask = 3

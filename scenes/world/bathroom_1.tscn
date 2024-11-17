@@ -18,6 +18,7 @@ position = Vector2(88, 128)
 [node name="DarkSurrounding" parent="." index="5" instance=ExtResource("6_4nfx8")]
 
 [node name="Map" type="CanvasGroup" parent="." index="6"]
+y_sort_enabled = true
 
 [node name="Room" type="TileMapLayer" parent="Map" index="0"]
 z_index = -1

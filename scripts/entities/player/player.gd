@@ -127,15 +127,18 @@ func get_world_position():
 	return global_position
 
 func set_world_position(value: Variant):
-	var scene: Node = get_tree().current_scene
+	var scene: Node
 	if value is Vector2:
 		global_position = value
 	if value == null:
 		value = 'Spawn'
 	if value is Array:
 		scene = value[1]
-		value = value[0]
+		if value[0] is String:
+			value = value[0]
 	if value is String:
+		if not scene:
+			scene = get_tree().current_scene
 		var entrances: Array = scene.get_node('EntranceMarkers').get_children()
 		var entrance = entrances.filter(func(x: Marker2D): return x.name == value)
 		if not entrance.is_empty():
