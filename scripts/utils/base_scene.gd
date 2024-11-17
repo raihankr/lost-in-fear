@@ -11,6 +11,7 @@ var last_scene: String
 func _ready():
 	_setup()
 	_fade_in()
+	SaveData.save.connect(store_save_data)
 
 func _setup():
 	last_scene = SceneManager.last_scene_name
@@ -31,12 +32,12 @@ func _fade_in():
 	
 	player.input_enabled = true
 
-func _notification(what):
-	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		SaveData.data.scene_path = self.scene_file_path
-		SaveData.data.player.world_position = player.position
-		SaveData.data.player.state = player.state_machine.state.name
-		SaveData.save_data()
+func store_save_data():
+	SaveData.data.scene_path = self.scene_file_path
+	SaveData.data.player.world_position = player.position
+	SaveData.data.player.state = player.state_machine.state.name
+	print('Savedata stored in memory')
+	SaveData._data_stored.emit()
 
 func transition_to(scene: PackedScene) -> void:
 	black_fade.show()
