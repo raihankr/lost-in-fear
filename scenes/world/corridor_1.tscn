@@ -18,6 +18,12 @@ size = Vector2(24, 8)
 
 [node name="Corridor" instance=ExtResource("1_3juia")]
 
+[node name="BlackFade" parent="ContainerFront" index="0"]
+offset_left = -192.0
+offset_top = 48.0
+offset_right = -192.0
+offset_bottom = 48.0
+
 [node name="EntranceMarkers" parent="." index="3"]
 position = Vector2(-216, -264)
 
@@ -68,16 +74,16 @@ connected_scene = "res://scenes/world/corridor_2.tscn"
 position = Vector2(12, -4)
 shape = SubResource("RectangleShape2D_oauvc")
 
-[node name="DarkSurrounding" parent="." index="6" instance=ExtResource("5_f08g8")]
-
-[node name="PointLight2D" type="PointLight2D" parent="." index="7"]
+[node name="PointLight2D" type="PointLight2D" parent="Map" index="5"]
 position = Vector2(216, 232)
 energy = 4.0
 range_item_cull_mask = 2
 texture = ExtResource("6_ftttt")
 
-[node name="PointLight2D2" type="PointLight2D" parent="." index="8"]
+[node name="PointLight2D2" type="PointLight2D" parent="Map" index="6"]
 position = Vector2(216, 288)
 energy = 4.0
 range_item_cull_mask = 2
 texture = ExtResource("6_ftttt")
+
+[node name="DarkSurrounding" parent="." index="6" instance=ExtResource("5_f08g8")]

@@ -48,7 +48,9 @@ func _on_file_dialog_file_selected(path):
 	scene_path = path
 
 func _on_load_last_save_button_pressed():
-	save_data_edit.text = JSON.stringify(SaveData.load_data('.default'), '	')
+	var save_data: Dictionary = SaveData.load_data('.default')
+	save_data_edit.text = JSON.stringify(save_data, '	')
+	scene_path = save_data.scene_path
 
 func _on_load_new_game_button_pressed():
 	save_data_edit.text = JSON.stringify(SaveData.NEW_GAME_TEMPLATE, '	')

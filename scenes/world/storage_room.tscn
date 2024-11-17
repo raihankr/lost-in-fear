@@ -31,10 +31,12 @@ tile_set = ExtResource("2_r1e1b")
 
 [node name="Furniture" type="TileMapLayer" parent="Map" index="1"]
 light_mask = 3
-tile_map_data = PackedByteArray("AAANAAsACwADAAAAAAANAA0ACwADAAQAAAALAA0ACwAAAAIAAAANAA8ACwAEAAMAAAAMAA8ACwAEAAYAAAALAA8ACwAEAAIAAAAKAA0ACwAAAAQAAAAJAA8ACwADAAIAAAA=")
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAANAAsACwADAAAAAAANAA0ACwADAAQAAAALAA0ACwAAAAIAAAANAA8ACwAEAAMAAAAMAA8ACwAEAAYAAAALAA8ACwAEAAIAAAAJAA8ACwADAAIAAAAKAA0ACwAAAAYAAAAKAAwACwAAAAUAAAAKAAsACwAAAAQAAAA=")
 tile_set = ExtResource("3_1doj7")
 
 [node name="SmallItems" type="TileMapLayer" parent="Map" index="2"]
+y_sort_enabled = true
 tile_map_data = PackedByteArray("AAAVABYAAgABAAAAAAATABYAAgAAAAAAAAAVABgAAgACAAAAAAA=")
 tile_set = ExtResource("4_u7752")
 
@@ -44,11 +46,11 @@ energy = 4.0
 range_item_cull_mask = 2
 texture = ExtResource("5_xnwac")
 
-[node name="LivingRoomEntry" parent="Map" index="4" instance=ExtResource("5_b8jr2")]
+[node name="CorridorEntry" parent="Map" index="4" instance=ExtResource("5_b8jr2")]
 position = Vector2(200, 200)
-connected_scene = "res://s  cenes/world/corridor_1.tscn"
+connected_scene = "res://scenes/world/corridor_1.tscn"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/LivingRoomEntry" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/CorridorEntry" index="0"]
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_oy5fj")
 

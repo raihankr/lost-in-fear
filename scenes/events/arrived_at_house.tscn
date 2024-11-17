@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bvds447b0p8oc"]
+[gd_scene load_steps=8 format=3 uid="uid://rgp2c7xdv62f"]
 
 [ext_resource type="Texture2D" uid="uid://bnfns77rlmtmm" path="res://assets/images/light-circular.png" id="1_gxu0i"]
 [ext_resource type="Script" path="res://scripts/events/arrived_at_house.gd" id="1_s6vns"]
@@ -20,7 +20,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(456, 480), Vector2(360, 480)]
+"values": [Vector2(112, 200), Vector2(48, 200)]
 }
 
 [sub_resource type="Animation" id="Animation_hk7n5"]
@@ -44,6 +44,9 @@ _data = {
 "RESET": SubResource("Animation_hk7n5")
 }
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ftlj4"]
+polygon = PackedVector2Array(-80, 424, -80, 40, -64, 40, -64, 424)
+
 [node name="ArrivedAtHouse" type="Node2D"]
 script = ExtResource("1_s6vns")
 
@@ -52,7 +55,7 @@ position = Vector2(453, 480)
 occluder = SubResource("OccluderPolygon2D_s3ouo")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(360, 624)
+position = Vector2(32, 288)
 energy = 5.0
 shadow_enabled = true
 texture = ExtResource("1_gxu0i")
@@ -62,3 +65,6 @@ texture_scale = 12.0
 libraries = {
 "": SubResource("AnimationLibrary_qwvko")
 }
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_ftlj4")

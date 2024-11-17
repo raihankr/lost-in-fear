@@ -11,6 +11,7 @@
 size = Vector2(8, 16)
 
 [node name="Bathroom" instance=ExtResource("1_r7it6")]
+y_sort_enabled = true
 
 [node name="EntranceMarkers" parent="." index="3"]
 position = Vector2(-120, -112)
@@ -31,11 +32,13 @@ tile_map_data = PackedByteArray("AAAPAAsAAQAFAAIAAAAQAAsAAQAGAAIAAAARAAsAAQAGAAI
 tile_set = ExtResource("2_gsdvx")
 
 [node name="Furniture" type="TileMapLayer" parent="Map" index="1"]
+y_sort_enabled = true
 position = Vector2(-176, -88)
-tile_map_data = PackedByteArray("AAATAA4AAwACAAEAABATAAwAAwADAAUAAAATAAkAAgAHAAcAAAATAAoAAwAAAAEAAAARAAkAAgAIAA8AAAASAAkAAgAKAA8AAAAQAAwAAwAAAAUAAAA=")
+tile_map_data = PackedByteArray("AAATAAwAAwADAAUAAAATAAkAAgAHAAcAAAATAAoAAwAAAAEAAAARAAkAAgAIAA8AAAASAAkAAgAKAA8AAAAQAAwAAwAAAAUAAAAUAA4AAwACAAEAAQA=")
 tile_set = ExtResource("3_bbnyr")
 
 [node name="SmallItem" type="TileMapLayer" parent="Map" index="2"]
+y_sort_enabled = true
 position = Vector2(-176, -88)
 tile_map_data = PackedByteArray("AAAiABMAAQAEAAAAAAAkABMAAQAFAAAAAAAjABMAAQACAAMAAAA=")
 tile_set = ExtResource("4_iu6ta")
