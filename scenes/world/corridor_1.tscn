@@ -1,14 +1,79 @@
-[gd_scene load_steps=4 format=4 uid="uid://bijwhrsquim00"]
+[gd_scene load_steps=10 format=4 uid="uid://bijwhrsquim00"]
 
-[ext_resource type="PackedScene" uid="uid://cm2f40rvqfd66" path="res://scenes/base_scene.tscn" id="1_3juia"]
-[ext_resource type="TileSet" uid="uid://befa8e1hqfteb" path="res://resources/house.tres" id="2_t4cuu"]
-[ext_resource type="TileSet" uid="uid://b4m7u4qm5jhrv" path="res://resources/furniture.tres" id="3_kcgfm"]
+[ext_resource type="PackedScene" uid="uid://cm2f40rvqfd66" path="res://scenes/utils/base_scene.tscn" id="1_3juia"]
+[ext_resource type="TileSet" uid="uid://befa8e1hqfteb" path="res://resources/tilesets/house.tres" id="2_t4cuu"]
+[ext_resource type="TileSet" uid="uid://b4m7u4qm5jhrv" path="res://resources/tilesets/furniture.tres" id="3_kcgfm"]
+[ext_resource type="PackedScene" uid="uid://dyhpmtx5irjvs" path="res://scenes/utils/scene_trigger.tscn" id="4_sbj01"]
+[ext_resource type="PackedScene" uid="uid://crgbii6omcjwa" path="res://scenes/utils/dark_surrounding.tscn" id="5_f08g8"]
+[ext_resource type="Texture2D" uid="uid://bfrqu7jfrejti" path="res://assets/images/room/window_light_ver1.png" id="6_ftttt"]
 
-[node name="BaseScene" instance=ExtResource("1_3juia")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0l5dj"]
+size = Vector2(8, 32)
 
-[node name="Room" type="TileMapLayer" parent="." index="3"]
-tile_map_data = PackedByteArray("AAALAAwAAAAFAAIAAAALAA0AAAAFAAYAAAALAA4AAAAFAAYAAAALAA8AAAAFAAYAAAALABAAAAAFAAYAAAALABEAAAAFAAYAAAALABIAAAAFAAYAAAALABMAAAAFAAYAAAALABQAAAAFAAYAAAALABUAAAAFAAYAAAALABYAAAAAAAkAAAAMAAwAAAAGAAIAAAAMAA0AAAAGAAYAAAAMAA4AAAAGAAYAAAAMAA8AAAAGAAYAAAAMABAAAAAGAAYAAAAMABEAAAAGAAYAAAAMABIAAAAGAAYAAAAMABMAAAAGAAYAAAAMABQAAAAGAAYAAAAMABUAAAAGAAYAAAAMABYAAAABAAkAAAANAAwAAAAGAAIAAAANAA0AAAAGAAYAAAANAA4AAAAGAAYAAAANAA8AAAAGAAYAAAANABAAAAAGAAYAAAANABEAAAAGAAYAAAANABIAAAAGAAYAAAANABMAAAAGAAYAAAANABQAAAAGAAYAAAANABUAAAAGAAYAAAANABYAAAAGAAYAAQAOAAwAAAAGAAIAAAAOAA0AAAAGAAYAAAAOAA4AAAAGAAYAAAAOAA8AAAAGAAYAAAAOABAAAAAGAAYAAAAOABEAAAAGAAYAAAAOABIAAAAGAAYAAAAOABMAAAAGAAYAAAAOABQAAAAGAAYAAAAOABUAAAAGAAYAAAAOABYAAAADAAkAAAAPAAwAAAAHAAIAAAAPAA0AAAAHAAYAAAAPAA4AAAAHAAYAAAAPAA8AAAAHAAYAAAAPABAAAAAHAAYAAAAPABEAAAAHAAYAAAAPABIAAAAHAAYAAAAPABMAAAAHAAYAAAAPABQAAAAHAAYAAAAPABUAAAAHAAYAAAAPABYAAAAEAAkAAAAMABcAAAAAAAkAAgANABcAAAACAAgAAQAOABcAAAAEAAkAAgAdAA0AAAAFAAIAAAA=")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i10ov"]
+size = Vector2(16, 7.99999)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oauvc"]
+size = Vector2(24, 8)
+
+[node name="Corridor" instance=ExtResource("1_3juia")]
+
+[node name="LivingRoom" type="Marker2D" parent="EntranceMarkers" index="0"]
+position = Vector2(232, 304)
+
+[node name="StorageRoom" type="Marker2D" parent="EntranceMarkers" index="1"]
+position = Vector2(216, 344)
+
+[node name="Corridor" type="Marker2D" parent="EntranceMarkers" index="2"]
+position = Vector2(208, 232)
+
+[node name="Map" type="CanvasGroup" parent="." index="5"]
+y_sort_enabled = true
+
+[node name="Room" type="TileMapLayer" parent="Map" index="0"]
+light_mask = 3
+tile_map_data = PackedByteArray("AAALAAwAAAAFAAIAAAALAA0AAAAFAAYAAAALAA4AAAAFAAYAAAALAA8AAAAFAAYAAAALABAAAAAFAAYAAAALABEAAAAFAAYAAAALABIAAAAFAAYAAAALABMAAAAFAAYAAAALABQAAAAFAAYAAAALABUAAAAFAAYAAAALABYAAAAAAAkAAAAMAAwAAAAGAAIAAAAMAA0AAAAGAAYAAAAMAA4AAAAGAAYAAAAMAA8AAAAGAAYAAAAMABAAAAAGAAYAAAAMABEAAAAGAAYAAAAMABIAAAAGAAYAAAAMABMAAAAGAAYAAAAMABQAAAAGAAYAAAAMABUAAAAGAAYAAAAMABYAAAABAAkAAAANAAwAAAAGAAIAAAANAA0AAAAGAAYAAAANAA4AAAAGAAYAAAANAA8AAAAGAAYAAAANABAAAAAGAAYAAAANABEAAAAGAAYAAAANABIAAAAGAAYAAAANABMAAAAGAAYAAAANABQAAAAGAAYAAAANABUAAAAGAAYAAAANABYAAAAGAAYAAQAOAAwAAgAAAAAAAAAOAA0AAAAGAAYAAAAOAA4AAAAGAAYAAAAOAA8AAAAGAAYAAAAOABAAAAAGAAYAAAAOABEAAAAGAAYAAAAOABIAAAAGAAYAAAAOABMAAAAGAAYAAAAOABQAAAAGAAYAAAAOABUAAAAGAAYAAAAOABYAAAADAAkAAAAPAAwAAAAHAAIAAAAPAA0AAAAHAAYAAAAPAA4AAAAHAAYAAAAPAA8AAAAHAAYAAAAPABAAAAAHAAYAAAAPABEAAAADAAkAAQAPABIAAAAGAAYAAQAPABMAAAAGAAYAAQAPABQAAAADAAkAAgAPABUAAAAHAAYAAAAPABYAAAAEAAkAAAAMABcAAAAAAAkAAgANABcAAAACAAgAAQAOABcAAAAEAAkAAgAQABMAAAAHAAYAAQAQABIAAAAHAAYAAQAQABQAAAAEAAkAAgAQABEAAAAEAAkAAQA=")
 tile_set = ExtResource("2_t4cuu")
 
-[node name="Furniture" type="TileMapLayer" parent="Room" index="0"]
+[node name="Furniture" type="TileMapLayer" parent="Map" index="1"]
+light_mask = 3
+tile_map_data = PackedByteArray("AAAMAA0ABwAAAAAAAAA=")
 tile_set = ExtResource("3_kcgfm")
+
+[node name="LivingRoomEntry" parent="Map" index="2" instance=ExtResource("4_sbj01")]
+position = Vector2(248, 304)
+connected_scene = "res://scenes/world/living_room.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/LivingRoomEntry" index="0"]
+position = Vector2(4, 0)
+shape = SubResource("RectangleShape2D_0l5dj")
+
+[node name="StorageRoomEntry" parent="Map" index="3" instance=ExtResource("4_sbj01")]
+position = Vector2(216, 360)
+connected_scene = "res://scenes/world/storage_room.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/StorageRoomEntry" index="0"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_i10ov")
+
+[node name="CorridorEntry" parent="Map" index="4" instance=ExtResource("4_sbj01")]
+position = Vector2(192, 168)
+connected_scene = "res://scenes/world/corridor_2.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/CorridorEntry" index="0"]
+position = Vector2(12, -4)
+shape = SubResource("RectangleShape2D_oauvc")
+
+[node name="DarkSurrounding" parent="." index="6" instance=ExtResource("5_f08g8")]
+
+[node name="PointLight2D" type="PointLight2D" parent="." index="7"]
+position = Vector2(216, 232)
+energy = 4.0
+range_item_cull_mask = 2
+texture = ExtResource("6_ftttt")
+
+[node name="PointLight2D2" type="PointLight2D" parent="." index="8"]
+position = Vector2(216, 288)
+energy = 4.0
+range_item_cull_mask = 2
+texture = ExtResource("6_ftttt")

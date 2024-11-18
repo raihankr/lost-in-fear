@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://bvds447b0p8oc"]
+
+[ext_resource type="Texture2D" uid="uid://bnfns77rlmtmm" path="res://assets/images/light-circular.png" id="1_gxu0i"]
+[ext_resource type="Script" path="res://scripts/events/arrived_at_house.gd" id="1_s6vns"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_s3ouo"]
+polygon = PackedVector2Array(40, -8, -48, -8, -48, 0, 40, 0)
+
+[sub_resource type="Animation" id="Animation_vfulv"]
+resource_name = "CloseDoor"
+length = 3.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LightOccluder2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(456, 480), Vector2(360, 480)]
+}
+
+[sub_resource type="Animation" id="Animation_hk7n5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LightOccluder2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(453, 480)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qwvko"]
+_data = {
+"CloseDoor": SubResource("Animation_vfulv"),
+"RESET": SubResource("Animation_hk7n5")
+}
+
+[node name="ArrivedAtHouse" type="Node2D"]
+script = ExtResource("1_s6vns")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(453, 480)
+occluder = SubResource("OccluderPolygon2D_s3ouo")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(360, 624)
+energy = 5.0
+shadow_enabled = true
+texture = ExtResource("1_gxu0i")
+texture_scale = 12.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qwvko")
+}

@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://lynjxgn82bh5"]
+[gd_scene load_steps=4 format=3 uid="uid://cgtbmb7473klg"]
 
 [ext_resource type="Script" path="res://scenes/options_menu.gd" id="1_s8oas"]
 [ext_resource type="FontFile" uid="uid://b6avu6ubekbr7" path="res://assets/fonts/N8ghtmare.ttf" id="2_ihmfb"]
-[ext_resource type="PackedScene" uid="uid://b0o4iadr0getn" path="res://scenes/settings_tab_container.tscn" id="3_k7e00"]
+[ext_resource type="PackedScene" path="res://scenes/settings_tab_container.tscn" id="3_k7e00"]
 
 [node name="Options_Menu" type="Control"]
 layout_mode = 3

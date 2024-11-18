@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsf8pmncbtxrw"]
+
+[ext_resource type="VideoStream" path="res://assets/videos/finalll (1).ogv" id="1_7igpw"]
+
+[node name="VideoPlayer" type="VideoStreamPlayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_7igpw")
+autoplay = true
+expand = true
+loop = true
+buffering_msec = 1000

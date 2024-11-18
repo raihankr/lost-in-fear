@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_kxbqx"]
 [ext_resource type="TileSet" uid="uid://cmbjnum3wtge3" path="res://resources/tileset_indoor_test.tres" id="2_462f3"]
-[ext_resource type="PackedScene" uid="uid://bsd7ynav7k5v6" path="res://scenes/player.tscn" id="2_dt4h5"]
+[ext_resource type="PackedScene" uid="uid://bsd7ynav7k5v6" path="res://scenes/entities/player.tscn" id="2_dt4h5"]
 [ext_resource type="Texture2D" uid="uid://cyc5obhrrjrnd" path="res://assets/images/top-down-indoor.jpg" id="3_6slfe"]
-[ext_resource type="PackedScene" uid="uid://6onope3m1r2f" path="res://scenes/mobile_controls.tscn" id="6_iaayv"]
+[ext_resource type="PackedScene" uid="uid://6onope3m1r2f" path="res://scenes/interfaces/mobile_controls.tscn" id="6_iaayv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jy8fd"]
 texture = ExtResource("3_6slfe")

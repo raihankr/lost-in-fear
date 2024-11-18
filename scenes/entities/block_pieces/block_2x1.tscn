@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://buq6gdh6w7hb3"]
+
+[ext_resource type="Script" path="res://scripts/entities/block_piece.gd" id="1_ve0fb"]
+[ext_resource type="Texture2D" uid="uid://dvao6qkmp1lur" path="res://assets/images/block-puzzle.png" id="2_mjq58"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjs36"]
+atlas = ExtResource("2_mjq58")
+region = Rect2(0, 16, 32, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xo2eq"]
+size = Vector2(15.8, 31.8)
+
+[node name="Block (2x1)" type="CharacterBody2D"]
+rotation = 1.5708
+input_pickable = true
+motion_mode = 1
+script = ExtResource("1_ve0fb")
+
+[node name="BlockSprite" type="Sprite2D" parent="."]
+position = Vector2(-7.99994, 16)
+rotation = -1.5708
+texture = SubResource("AtlasTexture_rjs36")
+centered = false
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+position = Vector2(-2.73388e-06, 2.86102e-05)
+shape = SubResource("RectangleShape2D_xo2eq")
+debug_color = Color(0, 0.6, 0.701961, 0)

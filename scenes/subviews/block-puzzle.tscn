@@ -1,0 +1,172 @@
+[gd_scene load_steps=6 format=4 uid="uid://bdmrlhch2qfde"]
+
+[ext_resource type="Texture2D" uid="uid://dvao6qkmp1lur" path="res://assets/images/block-puzzle.png" id="1_i3dkv"]
+[ext_resource type="PackedScene" uid="uid://c02ech8ey6mbb" path="res://scenes/entities/block_pieces/block_3x1.tscn" id="2_mr6p1"]
+[ext_resource type="PackedScene" uid="uid://buq6gdh6w7hb3" path="res://scenes/entities/block_pieces/block_2x1.tscn" id="3_iubbc"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3cklf"]
+texture = ExtResource("1_i3dkv")
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0/metadata/_better_terrain = {
+0: [0],
+4: [0],
+"type": 0
+}
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:3/0/metadata/_better_terrain = {
+0: [0],
+12: [0],
+"type": 0
+}
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0/metadata/_better_terrain = {
+4: [0],
+8: [0],
+"type": 0
+}
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:3/0/metadata/_better_terrain = {
+8: [0],
+12: [0],
+"type": 0
+}
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0/metadata/_better_terrain = {
+0: [0],
+8: [0],
+"type": 0
+}
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:3/0/metadata/_better_terrain = {
+4: [0],
+12: [0],
+"type": 0
+}
+3:2/next_alternative_id = 2
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:2/0/metadata/_better_terrain = {
+4: [0],
+"type": 0
+}
+3:2/1 = 1
+3:2/1/transpose = true
+3:2/1/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:2/1/metadata/_better_terrain = {
+0: [0],
+"type": 0
+}
+3:3/next_alternative_id = 2
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:3/0/metadata/_better_terrain = {
+12: [0],
+"type": 0
+}
+3:3/1 = 1
+3:3/1/transpose = true
+3:3/1/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:3/1/metadata/_better_terrain = {
+8: [0],
+"type": 0
+}
+4:2/0 = 0
+4:3/0 = 0
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:3/0/metadata/_better_terrain = {
+"type": 0
+}
+
+[sub_resource type="TileSet" id="TileSet_5krcs"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_3cklf")
+metadata/_better_terrain = {
+"decoration": ["Decoration", Color(0.411765, 0.411765, 0.411765, 1), 3, [], {
+"path": "res://addons/better-terrain/icons/Decoration.svg"
+}],
+"terrains": [["Border", Color(0.5625, 0.359253, 0.0205078, 1), 0, [], {
+"path": ""
+}]],
+"version": "0.2"
+}
+
+[node name="Node2D" type="CanvasLayer"]
+follow_viewport_enabled = true
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+scale = Vector2(4, 4)
+
+[node name="ObstacleBoundaries" type="TileMapLayer" parent="CanvasGroup"]
+position = Vector2(48, -8)
+tile_map_data = PackedByteArray("AAACAAEAAAAAAAIAAAACAAIAAAACAAMAAAACAAMAAAACAAMAAAACAAQAAAACAAMAAAACAAUAAAACAAMAAAACAAYAAAACAAMAAAACAAcAAAACAAMAAAACAAgAAAACAAMAAAACAAkAAAAAAAMAAAADAAEAAAACAAIAAAAEAAEAAAACAAIAAAAFAAEAAAACAAIAAAAGAAEAAAACAAIAAAAHAAEAAAACAAIAAAAIAAEAAAACAAIAAAAJAAEAAAACAAIAAAAKAAEAAAABAAIAAAAKAAIAAAACAAMAAAAKAAMAAAACAAMAAAAKAAQAAAADAAMAAAAKAAYAAAADAAIAAAAKAAcAAAACAAMAAAAKAAgAAAACAAMAAAAKAAkAAAABAAMAAAAJAAkAAAACAAIAAAAIAAkAAAACAAIAAAAHAAkAAAACAAIAAAAGAAkAAAACAAIAAAAFAAkAAAACAAIAAAAEAAkAAAACAAIAAAADAAkAAAACAAIAAAADAAIAAAAEAAIAAAADAAMAAAAEAAIAAAADAAQAAAAEAAIAAAADAAUAAAAEAAIAAAADAAYAAAAEAAIAAAADAAcAAAAEAAIAAAADAAgAAAAEAAIAAAAEAAIAAAAEAAIAAAAEAAMAAAAEAAIAAAAEAAQAAAAEAAIAAAAEAAUAAAAEAAIAAAAEAAYAAAAEAAIAAAAEAAcAAAAEAAIAAAAEAAgAAAAEAAIAAAAFAAIAAAAEAAIAAAAFAAMAAAAEAAIAAAAFAAQAAAAEAAIAAAAFAAUAAAAEAAIAAAAFAAYAAAAEAAIAAAAFAAcAAAAEAAIAAAAFAAgAAAAEAAIAAAAGAAIAAAAEAAIAAAAGAAMAAAAEAAIAAAAGAAQAAAAEAAIAAAAGAAUAAAAEAAIAAAAGAAYAAAAEAAIAAAAGAAcAAAAEAAIAAAAGAAgAAAAEAAIAAAAHAAIAAAAEAAIAAAAHAAMAAAAEAAIAAAAHAAQAAAAEAAIAAAAHAAUAAAAEAAIAAAAHAAYAAAAEAAIAAAAHAAcAAAAEAAIAAAAHAAgAAAAEAAIAAAAIAAIAAAAEAAIAAAAIAAMAAAAEAAIAAAAIAAQAAAAEAAIAAAAIAAUAAAAEAAIAAAAIAAYAAAAEAAIAAAAIAAcAAAAEAAIAAAAIAAgAAAAEAAIAAAAJAAIAAAAEAAIAAAAJAAMAAAAEAAIAAAAJAAQAAAAEAAIAAAAJAAUAAAAEAAIAAAAJAAYAAAAEAAIAAAAJAAcAAAAEAAIAAAAJAAgAAAAEAAIAAAAKAAUAAAAEAAIAAAA=")
+tile_set = SubResource("TileSet_5krcs")
+
+[node name="Block (3x1)" parent="CanvasGroup" instance=ExtResource("2_mr6p1")]
+position = Vector2(200, 64)
+rotation = -3.14159
+scale = Vector2(-1, 1)
+move_axis = 1
+
+[node name="Block (3x1)2" parent="CanvasGroup" instance=ExtResource("2_mr6p1")]
+position = Vector2(168, 80)
+rotation = -3.14159
+scale = Vector2(-1, 1)
+move_axis = 1
+
+[node name="Block (3x1)4" parent="CanvasGroup" instance=ExtResource("2_mr6p1")]
+position = Vector2(104, 48)
+rotation = -3.14159
+scale = Vector2(-1, 1)
+move_axis = 1
+
+[node name="Block (2x1)" parent="CanvasGroup" instance=ExtResource("3_iubbc")]
+position = Vector2(192, 32)
+
+[node name="Block (2x1)12" parent="CanvasGroup" instance=ExtResource("3_iubbc")]
+position = Vector2(160, 32)
+
+[node name="Block (2x1)4" parent="CanvasGroup" instance=ExtResource("3_iubbc")]
+position = Vector2(128, 64)
+
+[node name="Block (2x1)13" parent="CanvasGroup" instance=ExtResource("3_iubbc")]
+position = Vector2(176, 48)
+
+[node name="Block (2x1)8" parent="CanvasGroup" instance=ExtResource("3_iubbc")]
+position = Vector2(192, 112)
+
+[node name="Block (2x1)7" parent="CanvasGroup" instance=ExtResource("3_iubbc")]
+position = Vector2(112, 128)
+
+[node name="Block (2x1)3" parent="CanvasGroup" instance=ExtResource("3_iubbc")]
+position = Vector2(152, 72)
+rotation = 3.14159
+scale = Vector2(-1, 1)
+move_axis = 1
+
+[node name="Block (2x1)11" parent="CanvasGroup" instance=ExtResource("3_iubbc")]
+position = Vector2(136, 120)
+rotation = 3.14159
+scale = Vector2(-1, 1)
+move_axis = 1
+
+[node name="Block (2x1)10" parent="CanvasGroup" instance=ExtResource("3_iubbc")]
+position = Vector2(136, 40)
+rotation = 3.14159
+scale = Vector2(-1, 1)
+move_axis = 1
+
+[node name="Block (2x1)9" parent="CanvasGroup" instance=ExtResource("3_iubbc")]
+position = Vector2(168, 120)
+rotation = 3.14159
+scale = Vector2(-1, 1)
+move_axis = 1
+
+[node name="Block (2x1)2" parent="CanvasGroup" instance=ExtResource("3_iubbc")]
+modulate = Color(0.860301, 0.912601, 0, 1)
+position = Vector2(112, 80)
