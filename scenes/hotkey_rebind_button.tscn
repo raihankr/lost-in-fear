@@ -22,7 +22,7 @@ offset_bottom = 34.0
 alignment = 1
 
 [node name="Label" type="Label" parent="HBoxContainer"]
-custom_minimum_size = Vector2(400, 30)
+custom_minimum_size = Vector2(200, 30)
 layout_mode = 2
 theme_override_fonts/font = SubResource("SystemFont_e5umh")
 theme_override_font_sizes/font_size = 24
