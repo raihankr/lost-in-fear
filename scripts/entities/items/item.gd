@@ -23,10 +23,8 @@ func pick_up(save_to_inventory: bool = true) -> void:
 func on_dropped(at_position: Vector2, data: Variant) -> void:
 	pass
 
- func _on_area_entered(area: Area2D):
-	if area.is_in_group('action_area'):
-		texture_node.material = OUTLINE_MATERIAL
+func _on_area_entered(area):
+	texture_node.material = OUTLINE_MATERIAL
 
-func _on_area_exited(area: Area2D):
-	if area.is_in_group('action_area'):
-		texture_node.material = null
+func _on_area_exited(area):
+	texture_node.material = null

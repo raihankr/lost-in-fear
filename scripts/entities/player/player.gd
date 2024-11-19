@@ -88,8 +88,11 @@ func _process(delta):
 		if Input.is_action_just_pressed("interact"):
 			var ov_areas: Array[Area2D] = %ActionArea.get_overlapping_areas()
 			if ov_areas.size() > 0:
-				if ov_areas.front() is Item:
-					(ov_areas.front() as Item).pick_up()
+				var closest_item: Area2D = ov_areas.front()
+				if closest_item is Item:
+					closest_item.pick_up()
+				elif closest_item is StaticItem:
+					closest_item.interact()
 
 func _on_rotated(value: float) -> void:
 	head_rotation = value

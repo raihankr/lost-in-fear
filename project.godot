@@ -49,7 +49,7 @@ enabled=PackedStringArray("res://addons/better-terrain/plugin.cfg", "res://addon
 
 [environment]
 
-debug_mode=false
+debug_mode=true
 debug_mode.release=false
 
 [file_customization]
