@@ -8,3 +8,4 @@ func _ready():
 		get_tree().change_scene_to_packed(DEBUG_MENU)
 	else:
 		get_tree().change_scene_to_packed(PROD_MENU)
+		

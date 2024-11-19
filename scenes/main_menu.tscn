@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=4 uid="uid://tath1c8xxyy2"]
+[gd_scene load_steps=6 format=4 uid="uid://tath1c8xxyy2"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_6i7x6"]
 [ext_resource type="Texture2D" uid="uid://v7u54xtx3y32" path="res://assets/progres2s.png" id="2_7ntxy"]
 [ext_resource type="FontFile" uid="uid://b6avu6ubekbr7" path="res://assets/fonts/N8ghtmare.ttf" id="3_6jj28"]
-[ext_resource type="AudioStream" uid="uid://dm6ugwcogcosf" path="res://assets/audios/qubodup-yd-DarkShrineLoop-OpenGameArt.mp3" id="4_s2vru"]
 [ext_resource type="PackedScene" uid="uid://cgtbmb7473klg" path="res://scenes/options_menu.tscn" id="5_u0mkr"]
 
 [sub_resource type="AudioStreamMP3" id="AudioStreamMP3_dyf5r"]
