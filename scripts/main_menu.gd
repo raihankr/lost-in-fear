@@ -6,7 +6,7 @@ extends Control
 @onready var Options_Menu  = $Options_Menu as OptionsmMenu
 @onready var Btn_Credits = $MarginContainer/HBoxContainer/VBoxContainer/Btn_Credits as Button
 @onready var Btn_Quit = $MarginContainer/HBoxContainer/VBoxContainer/Btn_Quit as Button
-@onready var Load_Game = preload("res://scenes/world.tscn") as PackedScene
+@onready var Load_Game = preload("res://scenes/world/outdoor.tscn") as PackedScene
 @onready var Margin_Container = $MarginContainer as MarginContainer
 
 func _ready():
@@ -37,7 +37,6 @@ func on_exit_pressed() -> void:
 func on_exit_options_menu() -> void:
 	Margin_Container.visible = true
 	Options_Menu.visible = false
-	
 
 func handle_connecting_signals() -> void:
 		Btn_Start.button_down.connect(on_start_pressed)

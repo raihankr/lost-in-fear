@@ -1,6 +1,7 @@
 ~ arrival
 Angga: Akhirnya aku tiba.
 Angga: [#silent] Mengantar paket adalah pekerjaan yang biasa untukku, tapi kenapa perasaanku tidak tenang? Rasanya seperti sesuatu yang buruk akan menghampiriku... dari dalam rumah ini.
+System: Gunakan tombol AWSD atau virtual joystick (untuk mobile) untuk bergerak
 => END
 ~ call
 Angga: [#silent] Rumah ini lebih terlihat seperti rumah hantu, dibanding rumah berpenghuni.
@@ -14,5 +15,5 @@ do player.phone_down()
 Angga: Kondisi ini terasa asing bagiku. Rumah tua ini terlihat aneh, seperti tidak ada orang. Tapi, kenapa pintunya sedikit terbuka?
 ???: [#red-vignette-in] Masuklah... kamu sudah sejauh ini. Apakah kamu seorang pengecut yang takut terhadap hantu?
 Angga: A—[wait=.5]apa itu tadi? Tidak mungkin... Pasti hanya imajinasiku saja, kan? Tapi kenapa seperti ada yang berbisik kepadaku?
-Angga: [#red-vignette-out] Lagipula, mana mungkin aku takut h-hantu? Hanya sepintas masuk dan memastikan yang ada di dalam rumah ini. Tidak apa-apa, k-kan?
+Angga: [#red-vignette-out] Ini cuma rumah tua. Masuk sebentar, lihat ada orang atau tidak, lalu pergi. Tidak apa, kan?
 => END

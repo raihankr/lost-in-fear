@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5shebyloniit"]
+
+[ext_resource type="Texture2D" uid="uid://dry0s7j2icju4" path="res://resources/textures/inventory_btn.tres" id="1_gtlnj"]
+[ext_resource type="Texture2D" uid="uid://bw1n2gaqqunuy" path="res://resources/textures/inventory_btn_selected.tres" id="2_7n7kx"]
+[ext_resource type="Script" path="res://scripts/interfaces/inventory_slot.gd" id="3_hergq"]
+
+[node name="InventorySlot" type="TextureButton"]
+toggle_mode = true
+texture_normal = ExtResource("1_gtlnj")
+texture_pressed = ExtResource("2_7n7kx")
+script = ExtResource("3_hergq")
+
+[node name="ItemTexture" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.0
+offset_top = -11.0
+offset_right = 11.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2

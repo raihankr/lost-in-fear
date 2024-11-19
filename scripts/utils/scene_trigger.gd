@@ -6,8 +6,9 @@ extends Area2D
 var dialogue = preload("res://dialogues/action_triggered.dialogue")
 
 func _on_body_entered(body: Node):
-	if not id.is_empty() and SaveData.data.door_locked[id]:
-		await DialogueManager.show_dialogue_balloon(dialogue, 'door_locked', [owner.player])
-		return
+	if not id.is_empty() and SaveData.data.door_locked.has(id):
+		if SaveData.data.door_locked[id]:
+			await DialogueManager.show_dialogue_balloon(dialogue, 'door_locked', [owner.player])
+			return
 	if body is Player:
 		SceneManager.change_scene(owner, connected_scene)

@@ -11,7 +11,6 @@ var current_music_player: AudioStreamPlayer # the current player
 
 func _ready() -> void:
 	current_music_player = audio_stream_01
-	
 
 func fade_music_in(track: AudioStream) -> void:
 	current_music_player.stream = track # Specify the song

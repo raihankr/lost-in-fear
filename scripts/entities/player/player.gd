@@ -57,6 +57,7 @@ func _ready():
 func _process(delta):
 	speed = 0
 	if input_enabled:
+		#region Move Control
 		match OS.get_name():
 			'Android', 'iOS':
 				head_rotation = joystick.joystick_angle
@@ -82,6 +83,13 @@ func _process(delta):
 				elif Input.is_action_pressed('move_down'):
 					speed = 1
 					head_rotation = .5 * PI
+		#endregion
+		
+		if Input.is_action_just_pressed("interact"):
+			var ov_areas: Array[Area2D] = %ActionArea.get_overlapping_areas()
+			if ov_areas.size() > 0:
+				if ov_areas.front() is Item:
+					(ov_areas.front() as Item).pick_up()
 
 func _on_rotated(value: float) -> void:
 	head_rotation = value
@@ -111,6 +119,7 @@ func _on_rotated(value: float) -> void:
 		horizontal_heading = Direction.RIGHT
 	
 	%Vision.rotation = head_rotation
+	%ActionArea.rotation = head_rotation
 
 func _on_area_2d_body_entered(body: TileMapLayer) -> void:
 	if body.is_in_group('wall'):
