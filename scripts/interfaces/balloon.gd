@@ -134,7 +134,8 @@ func _notification(what: int) -> void:
 
 ## Start some dialogue
 func start(dialogue_resource: DialogueResource, title: String, extra_game_states: Array = []) -> void:
-	get_tree().current_scene.player.input_enabled = false
+	if get_tree():
+		get_tree().current_scene.player.input_enabled = false
 	temporary_game_states =  [self] + extra_game_states
 	is_waiting_for_input = false
 	resource = dialogue_resource

@@ -16,7 +16,8 @@ func _ready():
 	SaveData.save.connect(store_save_data)
 
 func _setup():
-	var items_save = SaveData.data.items
+	if SaveData.data.items.has(name.to_snake_case()):
+		items_save = SaveData.data.items[name.to_snake_case()]
 	InGameUI.enable(true)
 	last_scene = SceneManager.last_scene_name
 	if SceneManager.player:
