@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=3 uid="uid://cm2f40rvqfd66"]
+
+[ext_resource type="Script" path="res://scripts/utils/base_scene.gd" id="1_nm1ig"]
+[ext_resource type="Script" path="res://scripts/utils/follow_camera.gd" id="2_ygadf"]
+
+[sub_resource type="Animation" id="Animation_2w4im"]
+resource_name = "Fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ContainerFront/BlackFade:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_g33x7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ContainerFront/BlackFade:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dkrw1"]
+_data = {
+"Fade": SubResource("Animation_2w4im"),
+"RESET": SubResource("Animation_g33x7")
+}
+
+[node name="BaseScene" type="Node2D"]
+script = ExtResource("1_nm1ig")
+
+[node name="SceneTransition" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dkrw1")
+}
+
+[node name="ContainerBack" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="ContainerFront" type="CanvasLayer" parent="."]
+layer = 101
+
+[node name="BlackFade" type="ColorRect" parent="ContainerFront"]
+unique_name_in_owner = true
+modulate = Color(0, 0, 0, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EntranceMarkers" type="Node2D" parent="."]
+
+[node name="FollowCamera" type="Camera2D" parent="."]
+zoom = Vector2(3.25, 3.25)
+position_smoothing_enabled = true
+script = ExtResource("2_ygadf")
+
+[node name="Items" type="Node2D" parent="."]

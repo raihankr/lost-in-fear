@@ -1,0 +1,8 @@
+~ door_locked
+Angga: Pintu ini terkunci.
+=> END
+~ front_door_locked
+Angga: Pintu ini terkunci. Aku harus mencari jalan keluar lain dari rumah ini.
+~ inventory_full
+Angga: Sepertinya aku tidak bisa membawa lebih banyak barang lagi. Aku harus menyimpannnya sebagian.
+=> END
