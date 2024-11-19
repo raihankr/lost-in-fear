@@ -4,8 +4,10 @@ do close_door()
 Angga: Kenapa pintunya tiba-tiba menutup sendiri!?
 Angga: Aku harus mencari jalan keluar lain dari rumah ini.
 => END
+~ xxx
 Angga: Ada senter? Syukurlah...walau kelihatannya sudah tua, tapi ini masih bisa digunakan.
 
 Angga: Koran tua? Apa ini...'Misteri Pembunuhan di *****'? Judul yang sangat membuat ambigu.
 Angga: Hah?! Siapa itu?!
 Angga: [#silent] Ini semakin tidak masuk akal, kenapa semakin banyak suara-suara aneh?!
+=> END
