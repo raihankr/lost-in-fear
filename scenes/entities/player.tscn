@@ -531,7 +531,7 @@ platform_floor_layers = 4294967040
 script = ExtResource("1_tuv3y")
 metadata/_edit_group_ = true
 
-[node name="ActionArea" type="Area2D" parent="."]
+[node name="ActionArea" type="Area2D" parent="." groups=["action_area"]]
 unique_name_in_owner = true
 rotation = 1.5708
 collision_layer = 4
