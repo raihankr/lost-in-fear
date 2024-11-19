@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://bwe2xtd4yuxsu"
+path="res://.godot/imported/outdoor.dialogue-05b4e99192d33f1602c1842847ccaad7.tres"
+
+[deps]
+
+source_file="res://dialogues/outdoor.dialogue"
+dest_files=["res://.godot/imported/outdoor.dialogue-05b4e99192d33f1602c1842847ccaad7.tres"]
+
+[params]
+
+defaults=true

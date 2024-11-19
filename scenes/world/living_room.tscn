@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://cc51ll4dcyqfw"]
+[gd_scene load_steps=19 format=4 uid="uid://cc51ll4dcyqfw"]
 
 [ext_resource type="PackedScene" uid="uid://cm2f40rvqfd66" path="res://scenes/utils/base_scene.tscn" id="1_g05sf"]
 [ext_resource type="Script" path="res://scripts/world/living_room.gd" id="2_k4ibl"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://crgbii6omcjwa" path="res://scenes/utils/dark_surrounding.tscn" id="7_byxc2"]
 [ext_resource type="PackedScene" uid="uid://dyhpmtx5irjvs" path="res://scenes/utils/scene_trigger.tscn" id="8_ee8x5"]
 [ext_resource type="PackedScene" uid="uid://rgp2c7xdv62f" path="res://scenes/events/arrived_at_house.tscn" id="9_ijxch"]
+[ext_resource type="PackedScene" uid="uid://h0qfcthvfinp" path="res://scenes/entities/items/flashlight.tscn" id="11_dgixm"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4x3k3"]
 
@@ -27,6 +28,9 @@ size = Vector2(32, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kxw3n"]
 size = Vector2(8, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lnf8s"]
+size = Vector2(48, 16)
 
 [node name="LivingRoom" instance=ExtResource("1_g05sf")]
 y_sort_enabled = true
@@ -110,11 +114,18 @@ energy = 2.0
 range_item_cull_mask = 3
 texture = ExtResource("7_3dxyk")
 
+[node name="Doorway" type="Area2D" parent="Map" index="10"]
+position = Vector2(368, 464)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Doorway" index="0"]
+shape = SubResource("RectangleShape2D_lnf8s")
+
 [node name="Player" parent="." index="4" instance=ExtResource("6_60e3h")]
 position = Vector2(32, 160)
 
 [node name="DarkSurrounding" parent="." index="5" instance=ExtResource("7_byxc2")]
-visible = true
 
 [node name="EntranceMarkers" parent="." index="6"]
 position = Vector2(-336, -280)
@@ -141,3 +152,8 @@ position = Vector2(176, 264)
 
 [node name="Items" parent="." index="9"]
 position = Vector2(-336, -280)
+
+[node name="Flashlight" parent="Items" index="0" instance=ExtResource("11_dgixm")]
+position = Vector2(504, 408)
+
+[connection signal="body_entered" from="Map/Doorway" to="." method="_on_doorway_body_entered"]

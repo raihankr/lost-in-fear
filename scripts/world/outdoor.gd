@@ -9,12 +9,13 @@ signal car_arrived
 @onready var animation: AnimationPlayer  = $AnimationPlayer
 
 var living_room: String = 'res://scenes/world/living_room.tscn'
-var dialogue: Resource = preload("res://dialogues/scene_1.dialogue")
+var dialogue: Resource = preload("res://dialogues/outdoor.dialogue")
 var car_prepare_to_stop: bool = false
 
 func _ready():
 	set_process(false)
 	await super._setup()
+	InGameUI.enable(true, false)
 	player.world_position = 'Spawn'
 	player.hide()
 	await super._fade_in()
@@ -67,5 +68,5 @@ func _on_task_go_inside_body_entered(body: Node) -> void:
 
 func next_scene() -> void:
 	SceneManager.change_scene(self, living_room,
-		{'player': {'vision_style': player.VisionStyle.CIRCLE, 'visible': true}}
+		{'player': {'visible': true}}
 	)
