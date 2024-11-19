@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://tath1c8xxyy2"]
+[gd_scene load_steps=7 format=4 uid="uid://tath1c8xxyy2"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_6i7x6"]
 [ext_resource type="Texture2D" uid="uid://v7u54xtx3y32" path="res://assets/progres2s.png" id="2_7ntxy"]
 [ext_resource type="FontFile" uid="uid://b6avu6ubekbr7" path="res://assets/fonts/N8ghtmare.ttf" id="3_6jj28"]
+[ext_resource type="AudioStream" uid="uid://cl0bw4hpuo4kj" path="res://assets/audios/Menu Selection Click.wav" id="4_xsja3"]
 [ext_resource type="PackedScene" uid="uid://cgtbmb7473klg" path="res://scenes/options_menu.tscn" id="5_u0mkr"]
 
 [sub_resource type="AudioStreamMP3" id="AudioStreamMP3_dyf5r"]
@@ -127,11 +128,18 @@ autoplay = true
 
 [node name="Qubodup-yd-darkShrineLoop-openGameArt" type="AudioStreamPlayer" parent="BackrgroundMusic"]
 
+[node name="MenuSelectionClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_xsja3")
+
 [node name="Options_Menu" parent="." instance=ExtResource("5_u0mkr")]
 visible = false
 layout_mode = 1
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Btn_Start" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Btn_Start" to="." method="btn_click"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Btn_Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Btn_Options" to="." method="btn_click"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Btn_Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Btn_Credits" to="." method="btn_click"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Btn_Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Btn_Quit" to="." method="btn_click"]

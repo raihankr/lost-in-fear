@@ -28,7 +28,7 @@ func run_game(scene: String, save_data: Dictionary):
 	SceneManager.change_scene(self, scene, data)
 	
 func on_start_pressed() -> void:
-	SaveData.load_and_store_data('.default')
+	SaveData.new_game()
 	run_game(SaveData.data.scene_path, SaveData.data)
 
 func on_exit_pressed() -> void:
@@ -44,13 +44,6 @@ func handle_connecting_signals() -> void:
 		Btn_Quit.button_down.connect(on_exit_pressed)
 		Options_Menu.exit_options_menu.connect(on_exit_options_menu)
 		
-		
-		
-	
-	
-	
-
-
-
-	
+func btn_click():
+	$MenuSelectionClick.play()
 	
