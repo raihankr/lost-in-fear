@@ -1,15 +1,25 @@
 extends BaseScene
 
-var arrived_at_house: Resource = preload("res://scenes/events/arrived_at_house.tscn")
-var action_triggered_dialogue: Resource = preload('res://dialogues/action_triggered.dialogue')
+signal just_got_flashlight
+
+var arrived_at_house: PackedScene = preload("res://scenes/events/arrived_at_house.tscn")
+var monika_appearance: PackedScene = preload('res://scenes/events/monika_appearance.tscn')
+var dialogue: Resource = preload('res://dialogues/living_room.dialogue')
 
 func _ready(setup_func: Callable = func(): pass):
-	super()
+	await super._setup()
+	just_got_flashlight.connect(start_monika_appearance)
 	if not SaveData.data.events.has_entered_house:
-		add_child(arrived_at_house.instantiate())
+		self.add_child(arrived_at_house.instantiate())
+	else:
+		await super._fade_in()
 
 func _process(delta):
 	pass
 
 func _on_doorway_body_entered(body):
-	DialogueManager.show_dialogue_balloon(action_triggered_dialogue, 'front_door_locked')
+	DialogueManager.show_dialogue_balloon(dialogue, 'front_door_locked')
+
+func start_monika_appearance():
+	if not SaveData.data.events.has_seen_monika:
+		add_child(monika_appearance.instantiate())

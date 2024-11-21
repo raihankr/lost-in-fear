@@ -1,5 +1,7 @@
 class_name BaseScene extends Node2D
 
+const ITEMS_DIR: String = "res://scenes/entities/items/"
+
 @onready var black_fade: ColorRect = %BlackFade
 @onready var transition: AnimationPlayer = $SceneTransition
 @onready var entrance_markers: Node2D = $EntranceMarkers
@@ -12,10 +14,11 @@ var items_save: Array
 
 func _ready():
 	_setup()
-	_fade_in()
-	SaveData.save.connect(store_save_data)
+	await _fade_in()
 
 func _setup():
+	SaveData.save.connect(store_save_data)
+	Global.item_added.connect(add_item)
 	if SaveData.data.items.has(name.to_snake_case()):
 		items_save = SaveData.data.items[name.to_snake_case()]
 	InGameUI.enable(true)
@@ -29,7 +32,7 @@ func _setup():
 	follow_camera.follow_node = player
 	
 	for item in items_save:
-		var item_node: Item = load(item[0]).instantiate()
+		var item_node: Item = load(ITEMS_DIR + item[0] + '.tscn').instantiate()
 		item_node.position = item[1]
 		items_root.add_child(item_node)
 	
@@ -46,10 +49,6 @@ func store_save_data():
 	SaveData.data.scene_path = self.scene_file_path
 	SaveData.data.player.world_position = player.position
 	SaveData.data.player.state = player.state_machine.state.name
-	var new_items_save: Array = []
-	for item in items_root.get_children():
-		new_items_save.append([item.scene_file_path, item.position])
-	items_save = new_items_save
 	SaveData._data_stored.emit()
 
 func transition_to(scene: PackedScene) -> void:
@@ -57,3 +56,8 @@ func transition_to(scene: PackedScene) -> void:
 	transition.play('Fade')
 	await transition.animation_finished
 	get_tree().call_deferred('change_scene_to_packed', scene)
+
+func add_item(item_name: String, position: Vector2):
+	var new_item: Item = load(ITEMS_DIR + item_name + '.tscn').instantiate()
+	new_item.global_position = position 
+	items_root.add_child(new_item)

@@ -33,8 +33,8 @@ var rotation_state: Rotation = Rotation.FRONT
 var horizontal_heading: Direction = Direction.LEFT
 var vision_texture: Array[Variant] = [
 	null,
-	preload("res://assets/images/light-circular.png"),
-	preload('res://assets/images/light-cone.png')
+	preload("res://assets/images/vfx/light-circular.png"),
+	preload('res://assets/images/vfx/light-cone.png')
 ]
 var music_area_array: Array[MusicArea] = []
 var state: Variant:
@@ -85,7 +85,7 @@ func _process(delta):
 					head_rotation = .5 * PI
 		#endregion
 		
-		if Input.is_action_just_pressed("interact"):
+		if Input.is_action_just_pressed("interact", true):
 			var ov_areas: Array[Area2D] = %ActionArea.get_overlapping_areas()
 			if ov_areas.size() > 0:
 				var closest_item: Area2D = ov_areas.front()

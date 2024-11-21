@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ug56bho7lyys"
-path="res://.godot/imported/package.png-ddf29347ac61782b1dd889d2c17b6c15.ctex"
+uid="uid://bmqfmtum4t1t1"
+path="res://.godot/imported/light-cone.png-9d2d9601525f4d527d79bf6f0bb05565.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/package.png"
-dest_files=["res://.godot/imported/package.png-ddf29347ac61782b1dd889d2c17b6c15.ctex"]
+source_file="res://assets/images/vfx/light-cone.png"
+dest_files=["res://.godot/imported/light-cone.png-9d2d9601525f4d527d79bf6f0bb05565.ctex"]
 
 [params]
 

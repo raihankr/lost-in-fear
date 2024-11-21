@@ -1,6 +1,8 @@
 extends Node
 
 signal scene_changed
+signal will_change
+signal _ready_to_change
 
 const VIDEO_PLAYER: String = "res://scenes/interfaces/video_player.tscn"
 

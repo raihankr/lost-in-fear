@@ -3,7 +3,7 @@ extends Area2D
 @export_file var connected_scene: String
 @export var id: String
 
-var dialogue = preload("res://dialogues/action_triggered.dialogue")
+var dialogue = preload("res://dialogues/globals.dialogue")
 
 func _on_body_entered(body: Node):
 	if not id.is_empty() and SaveData.data.door_locked.has(id):

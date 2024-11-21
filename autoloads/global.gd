@@ -2,6 +2,7 @@ extends Node
 
 signal inventory_selected(idx: Variant)
 signal inventory_changed(inventory: Array)
+signal item_added(item_name: String, position: Vector2)
 
 const ITEM_COMBINATION: Dictionary = {
 
@@ -22,11 +23,20 @@ func add_inventory(item: Array[String]):
 	inventory_changed.emit(inventory)
 
 func drop_inventory(idx: int):
+	var room_name: String = get_tree().current_scene.name
+	var item_name: String = inventory[idx]
+	var player_pos: Vector2 = get_tree().current_scene.player.global_position
+	
+	SaveData.data.items[room_name].append([item_name, player_pos])
+	item_added.emit(item_name, player_pos)
 	inventory.remove_at(idx)
 	inventory_changed.emit(inventory)
 
-func show_image_subview(texture: Texture, textture_data: Dictionary = {}):
+func show_image_subview(texture: Texture, texture_data: Dictionary = {}):
 	var subview: CanvasLayer = IMAGE_SUBVIEW.instantiate()
-	subview
-	get_tree().current_scene.add_child()
+	subview.find_child('Texture').texture = texture
+	if texture_data.size() > 0:
+		for prop in texture_data.keys():
+			texture[prop] = texture_data
+	get_tree().current_scene.add_child(subview)
 	

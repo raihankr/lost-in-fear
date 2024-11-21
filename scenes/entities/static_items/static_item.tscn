@@ -1,10 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://nyk8cklnxqrq"]
+[gd_scene load_steps=3 format=3 uid="uid://nyk8cklnxqrq"]
 
 [ext_resource type="Script" path="res://scripts/entities/static_items/static_item.gd" id="1_jyqg4"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_i0h3t"]
+
 [node name="StaticItem" type="Area2D"]
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("1_jyqg4")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Texture" type="Sprite2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_i0h3t")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

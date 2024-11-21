@@ -13,15 +13,27 @@ const NEW_GAME_TEMPLATE: Dictionary = {
 	},
 	'inventory': [],
 	'items': {
+		'outdoor': [],
 		'living_room': [
-			["res://scenes/entities/items/flashlight.tscn", Vector2(504, 408)]
+			["flashlight", Vector2(504, 408)]
 		],
-		'kitchen': [
-			
-		]
+		'kitchen': [],
+		'bathroom_1': [
+			['block_puzzle', Vector2(8, 32)]
+		],
+		'bedroom_1': [],
+		'play_room': [],
+		'corridor_1': [],
+		'storage_room': [],
+		'corridor_2': [],
+		'library': [],
+		'office': [],
+		'bedroom_2': [],
+		'bathroom_2': []
 	},
 	'events': {
 		'has_entered_house': false,
+		'has_seen_monika': false
 	},
 	'door_locked': {
 		'bedroom_1': true
@@ -36,7 +48,7 @@ func _ready():
 	autosave_timer.autostart = true
 	autosave_timer.wait_time = 180
 	autosave_timer.timeout.connect(save_data) # Autosave every 180 seconds
-	SceneManager.scene_changed.connect(save_data) # Autosave every scene change
+	SceneManager.will_change.connect(save_data) # Autosave every scene change
 	new_game()
 
 func _create_save_dir():
