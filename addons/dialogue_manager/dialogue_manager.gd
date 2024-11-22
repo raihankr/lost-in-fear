@@ -601,7 +601,20 @@ func mutate(mutation: Dictionary, extra_game_states: Array, is_inline_mutation: 
 			await resolve(mutation.expression.duplicate(true), extra_game_states)
 			return
 		else:
-			resolve(mutation.expression.duplicate(true), extra_game_states)
+			resolve(mutation.expression.duplicate(true)
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			., extra_game_states)
 
 	# Wait one frame to give the dialogue handler a chance to yield
 	await Engine.get_main_loop().process_frame

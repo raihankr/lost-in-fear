@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://lei8dm3snxsx"]
+[gd_scene load_steps=19 format=3 uid="uid://lei8dm3snxsx"]
 
 [ext_resource type="Script" path="res://autoloads/in_game_ui.gd" id="1_e4buu"]
 [ext_resource type="PackedScene" uid="uid://c5shebyloniit" path="res://scenes/interfaces/inventory_slot.tscn" id="2_n5s17"]
 [ext_resource type="Texture2D" uid="uid://b0wubecqqtlwl" path="res://assets/images/interfaces/in_game_ui.png" id="3_7uh16"]
 [ext_resource type="Script" path="res://scripts/interfaces/drop_button.gd" id="4_n70sf"]
 [ext_resource type="FontFile" uid="uid://bxi1ev5tfug74" path="res://assets/fonts/TwistyPixel.ttf" id="5_42j05"]
+[ext_resource type="Texture2D" uid="uid://pbpevpycqd1g" path="res://assets/images/item/key.png" id="6_xs0vv"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_flkpi"]
 device = -1
@@ -57,34 +58,44 @@ font = ExtResource("5_42j05")
 font_size = 30
 font_color = Color(0.116127, 0.116127, 0.116127, 1)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r5a1o"]
+texture = ExtResource("3_7uh16")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+region_rect = Rect2(32, 0, 32, 32)
+
+[sub_resource type="LabelSettings" id="LabelSettings_umcqb"]
+font_size = 14
+font_color = Color(0, 0, 0, 1)
+
 [node name="InGameUI" type="CanvasLayer"]
+layer = 50
 script = ExtResource("1_e4buu")
 
 [node name="InGameUI" type="Control" parent="."]
-z_index = 50
 layout_mode = 3
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 
 [node name="Inventory" type="HBoxContainer" parent="InGameUI"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 1
-anchors_preset = 13
+anchors_preset = 7
 anchor_left = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -196.0
-offset_top = -84.0
-offset_right = 1.0
-offset_bottom = -52.0
+offset_left = -197.0
+offset_top = -95.0
+offset_bottom = -63.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 scale = Vector2(2, 2)
 alignment = 1
 metadata/_edit_group_ = true
@@ -110,17 +121,17 @@ script = ExtResource("4_n70sf")
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -83.0
-offset_top = -123.0
-offset_right = 84.0
-offset_bottom = -95.0
+anchor_bottom = 1.0
+offset_left = -83.5
+offset_top = -130.0
+offset_right = 83.5
+offset_bottom = -102.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 theme_override_styles/normal = SubResource("StyleBoxTexture_vmefp")
 text = "Toast
 "
@@ -128,3 +139,53 @@ label_settings = SubResource("LabelSettings_oxk3i")
 horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="InGameUI/Toast"]
+
+[node name="ItemPopup" type="PanelContainer" parent="InGameUI"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -319.0
+offset_top = 35.0
+offset_right = -43.0
+offset_bottom = 79.0
+grow_horizontal = 0
+
+[node name="Panel" type="Panel" parent="InGameUI/ItemPopup"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_r5a1o")
+
+[node name="MarginContainer" type="MarginContainer" parent="InGameUI/ItemPopup/Panel"]
+layout_direction = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_right = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="InGameUI/ItemPopup/Panel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="PopupText" type="Label" parent="InGameUI/ItemPopup/Panel/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Kunci"
+label_settings = SubResource("LabelSettings_umcqb")
+
+[node name="PopupTexture" type="TextureRect" parent="InGameUI/ItemPopup/Panel/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("6_xs0vv")
+stretch_mode = 5
+
+[node name="Timer" type="Timer" parent="InGameUI/ItemPopup"]
+
+[connection signal="button_down" from="InGameUI/Inventory/DropButton" to="InGameUI/Inventory/DropButton" method="_on_button_down"]
+[connection signal="button_up" from="InGameUI/Inventory/DropButton" to="InGameUI/Inventory/DropButton" method="_on_button_up"]

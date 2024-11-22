@@ -15,9 +15,11 @@ const NEW_GAME_TEMPLATE: Dictionary = {
 	'items': {
 		'outdoor': [],
 		'living_room': [
-			["flashlight", Vector2(504, 408)]
+			['flashlight', Vector2(168, 128)]
 		],
-		'kitchen': [],
+		'kitchen': [
+			['grape_juice', Vector2(136, -40)]
+		],
 		'bathroom_1': [
 			['block_puzzle', Vector2(8, 32)]
 		],
@@ -33,7 +35,9 @@ const NEW_GAME_TEMPLATE: Dictionary = {
 	},
 	'events': {
 		'has_entered_house': false,
-		'has_seen_monika': false
+		'has_seen_monika': false,
+		'has_put_the_missing_block_puzzle': false,
+		'has_solved_block_puzzle': false,
 	},
 	'door_locked': {
 		'bedroom_1': true
@@ -48,7 +52,7 @@ func _ready():
 	autosave_timer.autostart = true
 	autosave_timer.wait_time = 180
 	autosave_timer.timeout.connect(save_data) # Autosave every 180 seconds
-	SceneManager.will_change.connect(save_data) # Autosave every scene change
+	SceneManager.scene_changed.connect(save_data) # Autosave every scene change
 	new_game()
 
 func _create_save_dir():
@@ -80,4 +84,5 @@ func load_and_store_data(name: String = save_name) -> void:
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		save_data()
+		await save_data()
+		get_tree().quit()

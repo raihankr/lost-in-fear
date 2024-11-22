@@ -51,7 +51,7 @@ func _on_file_dialog_file_selected(path):
 	scene_path = path
 
 func _on_load_last_save_button_pressed():
-	var save_data: Dictionary = SaveData.load_data('.default')
+	var save_data: Dictionary = SaveData.load_data()
 	cfg.set_value('save_data', 'data', save_data)
 	save_data_edit.text = cfg.encode_to_text()
 	scene_path = save_data.scene_path

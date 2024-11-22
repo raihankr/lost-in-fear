@@ -20,6 +20,7 @@ const WALK_SOUND = {
 	set(value):
 		walk_sound = value
 		$FootstepSound.stream = value
+
 @onready var joystick: TouchScreenButton = get_node_or_null('../MobileControls/Joystick') if OS.get_name() in ['Android', 'iOS'] else null
 @onready var animation: AnimatedSprite2D = %Animation
 @onready var vision: PointLight2D = %Vision
@@ -39,9 +40,10 @@ var vision_texture: Array[Variant] = [
 var music_area_array: Array[MusicArea] = []
 var state: Variant:
 	set(value):
+		print(value)
 		if value is Array:
 			state_machine.enter(value[0], value[1])
-		elif value is String:
+		elif value is String or value is StringName:
 			state_machine.enter(value)
 	get:
 		return state_machine.state.name

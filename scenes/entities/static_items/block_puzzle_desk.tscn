@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhhqfrjiyk6d4"]
+
+[ext_resource type="PackedScene" uid="uid://nyk8cklnxqrq" path="res://scenes/entities/static_items/static_item.tscn" id="1_pf6xx"]
+[ext_resource type="Texture2D" uid="uid://cbteveq4prxwh" path="res://assets/images/furniture/play_room_items.png" id="2_so10o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afeax"]
+atlas = ExtResource("2_so10o")
+region = Rect2(0, 112, 24, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bfp66"]
+size = Vector2(20, 31)
+
+[node name="StaticItem" instance=ExtResource("1_pf6xx")]
+
+[node name="Texture" parent="." index="0"]
+position = Vector2(12, -20)
+texture = SubResource("AtlasTexture_afeax")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(11, -17)
+shape = SubResource("RectangleShape2D_bfp66")

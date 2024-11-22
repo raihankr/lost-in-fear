@@ -1,7 +1,6 @@
 extends Node
 
 signal scene_changed
-signal will_change
 signal _ready_to_change
 
 const VIDEO_PLAYER: String = "res://scenes/interfaces/video_player.tscn"
@@ -25,6 +24,11 @@ func _transition_and_fetch_player(scene: Node, data: Dictionary = {}):
 		last_scene_name = 'Spawn'
 		var new_player: Player = preload('res://scenes/entities/player.tscn').instantiate()
 		player = new_player
+		if not last_data.player:
+			last_data.player = {}
+		last_data.player.world_position = SaveData.data.player.world_position
+		last_data.player.state = SaveData.data.player.state
+		last_data.player.visible = SaveData.data.player.visible
 
 func _handle_passed_data(scene: Node):
 	for prop in last_data.keys():

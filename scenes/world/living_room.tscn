@@ -147,13 +147,6 @@ position = Vector2(232, 304)
 [node name="Corridor" type="Marker2D" parent="EntranceMarkers" index="5"]
 position = Vector2(176, 264)
 
-[node name="Items" parent="." index="8"]
-y_sort_enabled = true
-position = Vector2(-336, -280)
-
-[node name="StaticItems" parent="." index="9"]
-y_sort_enabled = true
-
 [node name="Newspaper" parent="StaticItems" index="0" instance=ExtResource("11_5nhmo")]
 position = Vector2(128, 120)
 

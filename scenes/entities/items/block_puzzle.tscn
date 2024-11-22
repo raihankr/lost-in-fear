@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://dsgesnq5p3f2j"]
 
-[ext_resource type="PackedScene" uid="uid://bmhjbjoidveuv" path="res://scenes/entities/items/Item.tscn" id="1_kq2rr"]
+[ext_resource type="PackedScene" uid="uid://bmhjbjoidveuv" path="res://scenes/entities/items/item.tscn" id="1_kq2rr"]
 [ext_resource type="Texture2D" uid="uid://dvi84vx6clodj" path="res://assets/images/item/block-puzzle.png" id="2_t18k7"]
 
-[node name="Item" instance=ExtResource("1_kq2rr")]
+[node name="BlockPuzzle" instance=ExtResource("1_kq2rr")]
 item_name = "Balok Mainan"
 
 [node name="Texture" parent="." index="0"]

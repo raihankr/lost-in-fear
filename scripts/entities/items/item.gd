@@ -10,7 +10,7 @@ const OUTLINE_MATERIAL = preload("res://resources/materials/white_outline.tres")
 var globals_dialogue : Resource = preload('res://dialogues/globals.dialogue')
 
 func _save_to_inventory():
-	Global.add_inventory([item_name, texture.resource_path])
+	Global.add_inventory([scene_file_path.get_file().get_slice('.', 0), texture.resource_path, item_name])
 	queue_free()
 
 func _remove_from_world():

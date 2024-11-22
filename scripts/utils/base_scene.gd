@@ -8,6 +8,7 @@ const ITEMS_DIR: String = "res://scenes/entities/items/"
 @onready var follow_camera: Camera2D = $FollowCamera
 @onready var items_root: Node = $Items
 @onready var player: Player = self.get_node_or_null('Player')
+@onready var id: StringName = self.scene_file_path.get_file().get_slice('.', 0)
 
 var last_scene: String
 var items_save: Array
@@ -19,9 +20,11 @@ func _ready():
 func _setup():
 	SaveData.save.connect(store_save_data)
 	Global.item_added.connect(add_item)
-	if SaveData.data.items.has(name.to_snake_case()):
-		items_save = SaveData.data.items[name.to_snake_case()]
+	if SaveData.data.items.has(id):
+		items_save = SaveData.data.items[id]
+	
 	InGameUI.enable(true)
+	
 	last_scene = SceneManager.last_scene_name
 	if SceneManager.player:
 		if player:
@@ -31,7 +34,9 @@ func _setup():
 		add_child(player)
 	follow_camera.follow_node = player
 	
+	print(id)
 	for item in items_save:
+		print(item, ': ', items_save)
 		var item_node: Item = load(ITEMS_DIR + item[0] + '.tscn').instantiate()
 		item_node.position = item[1]
 		items_root.add_child(item_node)
