@@ -59,6 +59,7 @@ func _on_task_call_body_entered(body: Node) -> void:
 	follow_camera.make_current()
 	DialogueManager.show_dialogue_balloon(dialogue, 'call')
 	await DialogueManager.dialogue_ended
+	player.input_enabled = true
 	$TaskGoInside.enable()
 
 func _on_task_go_inside_body_entered(body: Node) -> void:
