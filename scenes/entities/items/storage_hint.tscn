@@ -6,4 +6,5 @@
 [node name="StorageHint" instance=ExtResource("1_r3803")]
 
 [node name="Texture" parent="." index="0"]
+scale = Vector2(0.727273, 0.727273)
 texture = ExtResource("2_gtiko")

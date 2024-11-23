@@ -1,5 +1,86 @@
-[gd_scene load_steps=2 format=3 uid="uid://o42nhik6nrtt"]
+[gd_scene load_steps=9 format=4 uid="uid://o42nhik6nrtt"]
 
 [ext_resource type="PackedScene" uid="uid://cm2f40rvqfd66" path="res://scenes/utils/base_scene.tscn" id="1_pjxkr"]
+[ext_resource type="TileSet" uid="uid://befa8e1hqfteb" path="res://resources/tilesets/house.tres" id="2_f8ec0"]
+[ext_resource type="TileSet" uid="uid://b4m7u4qm5jhrv" path="res://resources/tilesets/furniture.tres" id="3_j4rfv"]
+[ext_resource type="TileSet" uid="uid://c5een44ke5r5i" path="res://resources/tilesets/item.tres" id="4_skfb0"]
+[ext_resource type="PackedScene" uid="uid://dyhpmtx5irjvs" path="res://scenes/utils/scene_trigger.tscn" id="5_kf1pc"]
 
-[node name="BaseScene" instance=ExtResource("1_pjxkr")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pqcpc"]
+size = Vector2(32, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_daabm"]
+size = Vector2(16, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1a0g8"]
+size = Vector2(16, 8)
+
+[node name="Corridor" instance=ExtResource("1_pjxkr")]
+
+[node name="Corridor" type="Marker2D" parent="EntranceMarkers" index="0"]
+position = Vector2(-144, -48)
+
+[node name="Library" type="Marker2D" parent="EntranceMarkers" index="1"]
+position = Vector2(-56, 56)
+
+[node name="Bathroom" type="Marker2D" parent="EntranceMarkers" index="2"]
+position = Vector2(-56, 24)
+
+[node name="Bedroom" type="Marker2D" parent="EntranceMarkers" index="3"]
+position = Vector2(152, 24)
+
+[node name="Office" type="Marker2D" parent="EntranceMarkers" index="4"]
+position = Vector2(152, 56)
+
+[node name="Map" type="CanvasGroup" parent="." index="7"]
+y_sort_enabled = true
+
+[node name="Room" type="TileMapLayer" parent="Map" index="0"]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAD1//v/AAAFAAIAAAD2//v/AAAGAAIAAAD3//v/AAAGAAIAAAD4//v/AAAGAAIAAAD1//z/AAAFAAYAAAD2//z/AAAGAAYAAAD3//z/AAAGAAYAAAD4//z/AAAGAAYAAAD1//3/AAAFAAYAAAD2//3/AAAGAAYAAAD3//3/AAAGAAYAAAD4//3/AAAGAAYAAAD1//7/AAAFAAYAAAD2//7/AAAGAAYAAAD3//7/AAAGAAYAAAD4//7/AAAGAAYAAAD1////AAAFAAYAAAD2////AAAGAAYAAAD3////AAAGAAYAAAD4////AAAGAAYAAAD5//z/AAAGAAYAAAD6//z/AAAHAAYAAAD5//3/AAAGAAYAAAD6//3/AAAHAAYAAAD5//7/AAAGAAYAAAD6//7/AAAHAAYAAAD5////AAAGAAYAAAD6////AAAHAAYAAAD3/wAAAAAGAAYAAAD4/wAAAAAGAAYAAAD5/wAAAAAGAAYAAAD6/wAAAAADAAEAAAD3/wEAAAAGAAYAAAD4/wEAAAAGAAYAAAD5/wEAAAAGAAYAAAD6/wEAAAAGAAYAAAD5//v/AAAGAAIAAAD6//v/AAAHAAIAAAD2/wAAAAAGAAYAAAD2/wEAAAAGAAYAAAD1/wAAAAAFAAYAAAD1/wEAAAAFAAYAAAD1/wIAAAAFAAYAAAD2/wIAAAAGAAYAAAD3/wIAAAAGAAYAAAD4/wIAAAAGAAYAAAD5/wIAAAAGAAYAAAD6/wIAAAAGAAYAAAD7/wAAAAAGAAIAAAD8/wAAAgAAAAAAAAD9/wAAAAAGAAIAAAD+/wAAAAAGAAIAAAD//wAAAAAGAAIAAAAAAAAAAAAGAAIAAAABAAAAAAAGAAIAAAD7/wEAAAAGAAYAAAD8/wEAAAAGAAYAAAD9/wEAAAAGAAYAAAD+/wEAAAAGAAYAAAD//wEAAAAGAAYAAAAAAAEAAAAGAAYAAAABAAEAAAAGAAYAAAD7/wIAAAAGAAYAAAD8/wIAAAAGAAYAAAD9/wIAAAAGAAYAAAD+/wIAAAAGAAYAAAD//wIAAAAGAAYAAAAAAAIAAAAGAAYAAAABAAIAAAAGAAYAAAD5/wMAAAAGAAYAAAD6/wMAAAAGAAYAAAD7/wMAAAAGAAYAAAD8/wMAAAAGAAYAAAD9/wMAAAAGAAYAAAD+/wMAAAAGAAYAAAD//wMAAAAGAAYAAAAAAAMAAAAGAAYAAAABAAMAAAAGAAYAAAD5/wQAAAACAAgAAAD6/wQAAAACAAgAAAD7/wQAAAABAAkAAgD8/wQAAAAGAAYAAQD9/wQAAAADAAkAAgD+/wQAAAACAAgAAAD//wQAAAACAAgAAAAAAAQAAAACAAgAAAABAAQAAAACAAgAAAD1/wMAAAAFAAYAAAD2/wMAAAAGAAYAAAD3/wMAAAAGAAYAAAD4/wMAAAAGAAYAAAD1/wQAAAAAAAkAAAD2/wQAAAACAAgAAAD3/wQAAAACAAgAAAD4/wQAAAACAAgAAAACAAAAAAAGAAIAAAADAAAAAAAGAAIAAAACAAEAAAAGAAYAAAADAAEAAAAGAAYAAAACAAIAAAAGAAYAAAADAAIAAAAGAAYAAAACAAMAAAAGAAYAAAADAAMAAAAGAAYAAAACAAQAAAACAAgAAAADAAQAAAACAAgAAAAEAAAAAAAGAAIAAAAFAAAAAAAGAAIAAAAGAAAAAAAGAAIAAAAEAAEAAAAGAAYAAAAFAAEAAAAGAAYAAAAGAAEAAAAGAAYAAAAEAAIAAAAGAAYAAAAFAAIAAAAGAAYAAAAGAAIAAAAGAAYAAAAEAAMAAAAGAAYAAAAFAAMAAAAGAAYAAAAEAAQAAAACAAgAAAAFAAQAAAACAAgAAAAGAAQAAAACAAgAAAAHAAAAAAAGAAIAAAAIAAAAAAAGAAIAAAAJAAAAAgAAAAAAAAALAAAAAAAHAAIAAAAHAAEAAAAGAAYAAAAIAAEAAAAGAAYAAAAJAAEAAAAGAAYAAAAKAAEAAAAGAAYAAAALAAEAAAAHAAYAAAAHAAIAAAAGAAYAAAAIAAIAAAAGAAYAAAAJAAIAAAAGAAYAAAAKAAIAAAAGAAYAAAALAAIAAAAHAAYAAAAKAAMAAAAGAAYAAAALAAMAAAAHAAYAAAAHAAQAAAACAAgAAAAIAAQAAAABAAkAAgAJAAQAAAAGAAYAAQAKAAQAAAADAAkAAgALAAQAAAAEAAkAAAAKAAAAAAAGAAIAAAAIAAUAAAAAAAkAAgAJAAUAAAACAAgAAQAKAAUAAAAEAAkAAgAGAAMAAAAGAAYAAAAHAAMAAAAGAAYAAAAIAAMAAAAGAAYAAAAJAAMAAAAGAAYAAAD7/wUAAAAAAAkAAgD8/wUAAAACAAgAAQD9/wUAAAAEAAkAAgA=")
+tile_set = ExtResource("2_f8ec0")
+
+[node name="Furniture" type="TileMapLayer" parent="Map" index="1"]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAD+////DAAEAAAAAAAEAP//DAAAAAAAAAAHAAEAAgAAAAkAAAAHAAAAAgAAAAcAAAD2/wAACQACAAAAAAA=")
+tile_set = ExtResource("3_j4rfv")
+
+[node name="SmallItem" type="TileMapLayer" parent="Map" index="2"]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAACAP3/AQABAAEAAAAPAP3/AQAAAAEAAAAQAAAAAQAAAAYAAQAPAAEAAQAAAAQAAQA=")
+tile_set = ExtResource("4_skfb0")
+
+[node name="CorridorEntry" parent="Map" index="3" instance=ExtResource("5_kf1pc")]
+position = Vector2(-144, -8)
+connected_scene = "res://scenes/world/corridor_1.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/CorridorEntry" index="0"]
+shape = SubResource("RectangleShape2D_pqcpc")
+
+[node name="LibraryEntry" parent="Map" index="4" instance=ExtResource("5_kf1pc")]
+position = Vector2(-56, 72)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/LibraryEntry" index="0"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_daabm")
+
+[node name="BathroomEntry" parent="Map" index="5" instance=ExtResource("5_kf1pc")]
+position = Vector2(-56, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/BathroomEntry" index="0"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_1a0g8")
+
+[node name="BedroomEntry" parent="Map" index="6" instance=ExtResource("5_kf1pc")]
+position = Vector2(152, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/BedroomEntry" index="0"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_1a0g8")
+
+[node name="OfficeEntry" parent="Map" index="7" instance=ExtResource("5_kf1pc")]
+position = Vector2(152, 80)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/OfficeEntry" index="0"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_1a0g8")
