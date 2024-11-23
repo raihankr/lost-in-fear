@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=4 uid="uid://btybsoda3ih7x"]
+[gd_scene load_steps=8 format=4 uid="uid://btybsoda3ih7x"]
 
 [ext_resource type="PackedScene" uid="uid://cm2f40rvqfd66" path="res://scenes/utils/base_scene.tscn" id="1_yvm74"]
 [ext_resource type="PackedScene" uid="uid://crgbii6omcjwa" path="res://scenes/utils/dark_surrounding.tscn" id="2_r70af"]
 [ext_resource type="TileSet" uid="uid://befa8e1hqfteb" path="res://resources/tilesets/house.tres" id="3_6ha6e"]
 [ext_resource type="TileSet" uid="uid://b4m7u4qm5jhrv" path="res://resources/tilesets/furniture.tres" id="4_wryo8"]
 [ext_resource type="PackedScene" uid="uid://dyhpmtx5irjvs" path="res://scenes/utils/scene_trigger.tscn" id="5_hoyx1"]
+[ext_resource type="PackedScene" uid="uid://bhhqfrjiyk6d4" path="res://scenes/entities/static_items/block_puzzle_desk.tscn" id="6_vnfwi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o0bf6"]
 size = Vector2(32, 8)
@@ -28,6 +29,7 @@ tile_map_data = PackedByteArray("AAAOAAsAAAAFAAIAAAAPAAsAAAAGAAIAAAAQAAsAAAAGAAI
 tile_set = ExtResource("3_6ha6e")
 
 [node name="Furniture" type="TileMapLayer" parent="Map" index="1"]
+y_sort_enabled = true
 tile_map_data = PackedByteArray("AAAQAAoACgADAAoAAAARAAoACgAEAAIAAAASAAkACgADAAAAAAAWAAoACgADAAIAAAAWAA0ACgAAAAAAAAAVAA4ACgACAAUAAAAUABAACgADAAMAAAAWABAACgAFAAQAAAAPAA4ACgAAAAcAAAAQAA4ACgAAAAoAAAAPAA8ACgAAAAUAAAAPABEACgAFAAIAAAASABEACgAGAAQAAAASABAACgABAAUAAAA=")
 tile_set = ExtResource("4_wryo8")
 
@@ -38,3 +40,6 @@ connected_scene = "res://scenes/world/living_room.tscn"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/LivingRoomEntry" index="0"]
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_o0bf6")
+
+[node name="StaticItem" parent="StaticItems" index="0" instance=ExtResource("6_vnfwi")]
+position = Vector2(-80, 16)

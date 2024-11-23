@@ -1,13 +1,24 @@
 ~ arrived_at_house
+set player.head_rotation = 0.5 * PI
 Angga: Rumah ini gelap sekali.
 do close_door()
 Angga: Kenapa pintunya tiba-tiba menutup sendiri!?
 Angga: Aku harus mencari jalan keluar lain dari rumah ini.
 => END
-~ xxx
-Angga: Ada senter? Syukurlah...walau kelihatannya sudah tua, tapi ini masih bisa digunakan.
-
-Angga: Koran tua? Apa ini...'Misteri Pembunuhan di *****'? Judul yang sangat membuat ambigu.
+~ front_door_locked
+Angga: Pintu ini terkunci. Aku harus mencari jalan keluar lain dari rumah ini.
+=> END
+~ got_flashlight
+Angga: Ada senter? Syukurlah...
+Angga: Oke, setidaknya sekarang aku bisa melihat jalan.
+=> END
+~ found_newspaper
+Angga: Judul seperti ini memperburuk suasana..
+=> END
+~ see_monika
+set player.head_rotation = 1.5 * PI
 Angga: Hah?! Siapa itu?!
+=> END
+~ what
 Angga: [#silent] Ini semakin tidak masuk akal, kenapa semakin banyak suara-suara aneh?!
 => END

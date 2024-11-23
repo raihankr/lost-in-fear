@@ -2,6 +2,7 @@ extends Node
 
 signal _data_stored
 signal save
+signal loaded
 
 const NEW_GAME_TEMPLATE: Dictionary = {
 	'scene_path': "res://scenes/world/outdoor.tscn",
@@ -13,15 +14,32 @@ const NEW_GAME_TEMPLATE: Dictionary = {
 	},
 	'inventory': [],
 	'items': {
+		'outdoor': [],
 		'living_room': [
-			["res://scenes/entities/items/flashlight.tscn", Vector2(504, 408)]
+			['flashlight', Vector2(168, 128)]
 		],
 		'kitchen': [
-			
-		]
+			['grape_juice', Vector2(136, -40)]
+		],
+		'bathroom_1': [
+			['block_puzzle', Vector2(8, 32)]
+		],
+		'bedroom_1': [],
+		'play_room': [],
+		'corridor_1': [],
+		'storage_room': [],
+		'corridor_2': [],
+		'library': [],
+		'office': [],
+		'bedroom_2': [],
+		'bathroom_2': []
 	},
 	'events': {
 		'has_entered_house': false,
+		'has_seen_monika': false,
+		'has_put_the_missing_block_puzzle': false,
+		'has_solved_block_puzzle': false,
+		'has_entered_play_room': false,
 	},
 	'door_locked': {
 		'bedroom_1': true
@@ -65,8 +83,10 @@ func load_data(name: String = save_name) -> Dictionary:
 
 func load_and_store_data(name: String = save_name) -> void:
 	data = load_data(name)
+	loaded.emit()
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		save_data()
-		
+		if get_tree().current_scene is BaseScene:
+			await save_data()
+			get_tree().quit()

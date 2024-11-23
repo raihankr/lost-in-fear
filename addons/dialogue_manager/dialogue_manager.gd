@@ -927,6 +927,8 @@ func resolve(tokens: Array, extra_game_states: Array):
 					# value into the thing we are referencing from
 					caller["type"] = "value"
 					if Builtins.is_supported(caller.value):
+
+
 						caller["value"] = Builtins.resolve_property(caller.value, property)
 					else:
 						caller["value"] = caller.value.get(property)

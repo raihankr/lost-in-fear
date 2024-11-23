@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://rgp2c7xdv62f"]
 
-[ext_resource type="Texture2D" uid="uid://bnfns77rlmtmm" path="res://assets/images/light-circular.png" id="1_gxu0i"]
+[ext_resource type="Texture2D" uid="uid://bnfns77rlmtmm" path="res://assets/images/vfx/light-circular.png" id="1_gxu0i"]
 [ext_resource type="Script" path="res://scripts/events/arrived_at_house.gd" id="1_s6vns"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_s3ouo"]

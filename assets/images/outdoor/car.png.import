@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyc5obhrrjrnd"
-path="res://.godot/imported/top-down-indoor.jpg-210228c28453046d187f562b8cc91458.ctex"
+uid="uid://dele8q1v81e83"
+path="res://.godot/imported/car.png-e1db916dfc851675337971d409bf2dd4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/top-down-indoor.jpg"
-dest_files=["res://.godot/imported/top-down-indoor.jpg-210228c28453046d187f562b8cc91458.ctex"]
+source_file="res://assets/images/outdoor/car.png"
+dest_files=["res://.godot/imported/car.png-e1db916dfc851675337971d409bf2dd4.ctex"]
 
 [params]
 

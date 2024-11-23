@@ -27,6 +27,7 @@ func _ready():
 	await car_arrived
 	player.show()
 	await player.move_to($StartingPoint.global_position, 50, 'WalkPackage')
+	player.input_enabled = true
 	await DialogueManager.show_dialogue_balloon(dialogue, 'arrival')
 
 func _process(delta: float):

@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bwq84f4hwfbuo" path="res://assets/images/tree/tree3.png" id="10_ggtqt"]
 [ext_resource type="Texture2D" uid="uid://bojclgvvwjehl" path="res://assets/images/tree/tree4.png" id="11_e0kl7"]
 [ext_resource type="Texture2D" uid="uid://coswctm44vfxl" path="res://assets/images/outdoor/mailbox.png" id="12_26mu3"]
-[ext_resource type="Texture2D" uid="uid://dele8q1v81e83" path="res://assets/images/car.png" id="13_b0ebu"]
+[ext_resource type="Texture2D" uid="uid://dele8q1v81e83" path="res://assets/images/outdoor/car.png" id="13_b0ebu"]
 [ext_resource type="PackedScene" uid="uid://conc52ihmoy0b" path="res://scenes/utils/hotspot.tscn" id="14_imhac"]
 [ext_resource type="AudioStream" uid="uid://byqj7du8qmygi" path="res://assets/audios/car-running.mp3" id="15_bxybd"]
 [ext_resource type="Shader" path="res://shaders/vertical_vignette.gdshader" id="15_iwl4p"]
