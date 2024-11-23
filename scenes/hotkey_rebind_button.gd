@@ -23,6 +23,10 @@ func set_action_name() -> void:
 			label.text = "Move Left"
 		"move_right":
 			label.text = "Move Right"
+		"interact":
+			label.text = "Interact"
+		"pause":
+			label.text = "Pause"
 			
 func  set_text_for_key() -> void:
 	var action_events = InputMap.action_get_events(action_name)
