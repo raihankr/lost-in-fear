@@ -82,13 +82,23 @@ layout_mode = 2
 [node name="Seperator5" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Btn_Start" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Btn_NewGame" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.521569, 0, 0, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_6jj28")
 theme_override_font_sizes/font_size = 36
-text = "Start"
+text = "New Game"
+flat = true
+
+[node name="Btn_LoadGame" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.52549, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.99085, 0.945645, 0.745983, 1)
+theme_override_fonts/font = ExtResource("3_6jj28")
+theme_override_font_sizes/font_size = 36
+text = "Load Game"
 flat = true
 
 [node name="Btn_Options" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
@@ -99,17 +109,6 @@ theme_override_colors/font_outline_color = Color(0.99085, 0.945645, 0.745983, 1)
 theme_override_fonts/font = ExtResource("3_6jj28")
 theme_override_font_sizes/font_size = 36
 text = "Options"
-flat = true
-
-[node name="Btn_Credits" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.52549, 0, 0, 1)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0.99085, 0.945645, 0.745983, 1)
-theme_override_fonts/font = ExtResource("3_6jj28")
-theme_override_font_sizes/font_size = 36
-text = "Credits
-"
 flat = true
 
 [node name="Btn_Quit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
@@ -127,6 +126,7 @@ stream = SubResource("AudioStreamMP3_dyf5r")
 autoplay = true
 
 [node name="Qubodup-yd-darkShrineLoop-openGameArt" type="AudioStreamPlayer" parent="BackrgroundMusic"]
+autoplay = true
 
 [node name="MenuSelectionClick" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_xsja3")
@@ -135,11 +135,11 @@ stream = ExtResource("4_xsja3")
 visible = false
 layout_mode = 1
 
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Btn_Start" to="." method="_on_start_game_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Btn_Start" to="." method="btn_click"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Btn_Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Btn_NewGame" to="." method="btn_click"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Btn_NewGame" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Btn_LoadGame" to="." method="btn_click"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Btn_LoadGame" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Btn_Options" to="." method="btn_click"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Btn_Credits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Btn_Credits" to="." method="btn_click"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Btn_Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Btn_Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Btn_Quit" to="." method="btn_click"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Btn_Quit" to="." method="_on_quit_pressed"]

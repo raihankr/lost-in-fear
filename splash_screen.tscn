@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://df4aa5xnoj0od"]
+[gd_scene load_steps=7 format=3 uid="uid://ddngw6f07cbw1"]
 
 [ext_resource type="Script" path="res://splash_screen.gd" id="1_3wil8"]
 [ext_resource type="Texture2D" uid="uid://cursrkicpynpf" path="res://assets/images/Lost in Fear V.1.0.2png.png" id="2_rj8ab"]
