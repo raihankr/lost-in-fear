@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=4 uid="uid://o42nhik6nrtt"]
+[gd_scene load_steps=10 format=4 uid="uid://o42nhik6nrtt"]
 
 [ext_resource type="PackedScene" uid="uid://cm2f40rvqfd66" path="res://scenes/utils/base_scene.tscn" id="1_pjxkr"]
 [ext_resource type="TileSet" uid="uid://befa8e1hqfteb" path="res://resources/tilesets/house.tres" id="2_f8ec0"]
 [ext_resource type="TileSet" uid="uid://b4m7u4qm5jhrv" path="res://resources/tilesets/furniture.tres" id="3_j4rfv"]
 [ext_resource type="TileSet" uid="uid://c5een44ke5r5i" path="res://resources/tilesets/item.tres" id="4_skfb0"]
 [ext_resource type="PackedScene" uid="uid://dyhpmtx5irjvs" path="res://scenes/utils/scene_trigger.tscn" id="5_kf1pc"]
+[ext_resource type="PackedScene" uid="uid://crgbii6omcjwa" path="res://scenes/utils/dark_surrounding.tscn" id="6_qtvjb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pqcpc"]
 size = Vector2(32, 16)
@@ -59,6 +60,7 @@ shape = SubResource("RectangleShape2D_pqcpc")
 
 [node name="LibraryEntry" parent="Map" index="4" instance=ExtResource("5_kf1pc")]
 position = Vector2(-56, 72)
+connected_scene = "res://scenes/world/library.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/LibraryEntry" index="0"]
 position = Vector2(0, 4)
@@ -66,6 +68,7 @@ shape = SubResource("RectangleShape2D_daabm")
 
 [node name="BathroomEntry" parent="Map" index="5" instance=ExtResource("5_kf1pc")]
 position = Vector2(-56, 8)
+connected_scene = "res://scenes/world/bathroom_2.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/BathroomEntry" index="0"]
 position = Vector2(0, -4)
@@ -84,3 +87,5 @@ position = Vector2(152, 80)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/OfficeEntry" index="0"]
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_1a0g8")
+
+[node name="DarkSurrounding" parent="." index="8" instance=ExtResource("6_qtvjb")]

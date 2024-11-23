@@ -7,7 +7,10 @@
 texture = ExtResource("2_qmrht")
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(-4, 4)
+1:0/next_alternative_id = 2
 1:0/0 = 0
+1:0/1 = 1
+1:0/1/texture_origin = Vector2i(-4, 4)
 2:0/0 = 0
 3:0/0 = 0
 3:0/0/texture_origin = Vector2i(-4, 4)
