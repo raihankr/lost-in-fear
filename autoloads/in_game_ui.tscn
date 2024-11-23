@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c5shebyloniit" path="res://scenes/interfaces/inventory_slot.tscn" id="2_n5s17"]
 [ext_resource type="Texture2D" uid="uid://b0wubecqqtlwl" path="res://assets/images/interfaces/in_game_ui.png" id="3_7uh16"]
 [ext_resource type="Script" path="res://scripts/interfaces/drop_button.gd" id="4_n70sf"]
-[ext_resource type="FontFile" uid="uid://bxi1ev5tfug74" path="res://assets/fonts/TwistyPixel.ttf" id="5_42j05"]
+[ext_resource type="FontFile" uid="uid://bmuueyrplger6" path="res://assets/fonts/PixelOperator.ttf" id="5_a7tfm"]
 [ext_resource type="Texture2D" uid="uid://pbpevpycqd1g" path="res://assets/images/item/key.png" id="6_xs0vv"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_flkpi"]
@@ -54,8 +54,8 @@ expand_margin_right = 5.0
 expand_margin_bottom = 5.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_oxk3i"]
-font = ExtResource("5_42j05")
-font_size = 30
+font = ExtResource("5_a7tfm")
+font_size = 22
 font_color = Color(0.116127, 0.116127, 0.116127, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r5a1o"]
@@ -67,7 +67,8 @@ texture_margin_bottom = 5.0
 region_rect = Rect2(32, 0, 32, 32)
 
 [sub_resource type="LabelSettings" id="LabelSettings_umcqb"]
-font_size = 14
+font = ExtResource("5_a7tfm")
+font_size = 22
 font_color = Color(0, 0, 0, 1)
 
 [node name="InGameUI" type="CanvasLayer"]

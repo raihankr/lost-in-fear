@@ -207,5 +207,5 @@ position = Vector2(219.002, 79.0679)
 position = Vector2(17.9979, 0.932129)
 shape = SubResource("RectangleShape2D_hb5od")
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button" to="." method="close"]
 [connection signal="body_entered" from="CanvasGroup/Target" to="." method="_on_target_body_entered"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=4 uid="uid://btybsoda3ih7x"]
+[gd_scene load_steps=9 format=4 uid="uid://btybsoda3ih7x"]
 
 [ext_resource type="PackedScene" uid="uid://cm2f40rvqfd66" path="res://scenes/utils/base_scene.tscn" id="1_yvm74"]
+[ext_resource type="Script" path="res://scripts/world/play_room.gd" id="2_ijru6"]
 [ext_resource type="PackedScene" uid="uid://crgbii6omcjwa" path="res://scenes/utils/dark_surrounding.tscn" id="2_r70af"]
 [ext_resource type="TileSet" uid="uid://befa8e1hqfteb" path="res://resources/tilesets/house.tres" id="3_6ha6e"]
 [ext_resource type="TileSet" uid="uid://b4m7u4qm5jhrv" path="res://resources/tilesets/furniture.tres" id="4_wryo8"]
@@ -11,6 +12,7 @@
 size = Vector2(32, 8)
 
 [node name="PlayRoom" instance=ExtResource("1_yvm74")]
+script = ExtResource("2_ijru6")
 
 [node name="EntranceMarkers" parent="." index="3"]
 position = Vector2(-320, -216)

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/interfaces/balloon.gd" id="1_36de5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_reponses_menu.gd" id="3_72ixx"]
-[ext_resource type="FontFile" uid="uid://bxi1ev5tfug74" path="res://assets/fonts/TwistyPixel.ttf" id="3_yvbp1"]
+[ext_resource type="FontFile" uid="uid://bmuueyrplger6" path="res://assets/fonts/PixelOperator.ttf" id="3_s20o2"]
 [ext_resource type="Shader" path="res://shaders/circular_vignette.gdshader" id="4_6hb35"]
 [ext_resource type="AudioStream" uid="uid://t4uu8verbiip" path="res://assets/audios/typing.mp3" id="5_ayith"]
 
@@ -100,8 +100,8 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [sub_resource type="Theme" id="Theme_qq3yp"]
-default_font = ExtResource("3_yvbp1")
-default_font_size = 36
+default_font = ExtResource("3_s20o2")
+default_font_size = 22
 Button/styles/disabled = SubResource("StyleBoxFlat_spyqn")
 Button/styles/focus = SubResource("StyleBoxFlat_ri4m3")
 Button/styles/hover = SubResource("StyleBoxFlat_e0njw")
