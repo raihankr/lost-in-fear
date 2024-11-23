@@ -753,11 +753,9 @@ texture_scale = 1.2
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
+position = Vector2(0, -13)
 sprite_frames = SubResource("SpriteFrames_fnvgg")
-animation = &"walk_back_flashlight"
 autoplay = "default"
-centered = false
-offset = Vector2(-8, -32)
 
 [node name="StateMachine" type="Node" parent="."]
 unique_name_in_owner = true
