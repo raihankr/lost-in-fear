@@ -9,10 +9,11 @@ extends Control
 @onready var Margin_Container = $MarginContainer as MarginContainer
 
 func _ready():
+	var save_dir: DirAccess = DirAccess.open('user://')
+	if not save_dir.file_exists('savedata/%s.dat' % SaveData.save_name):
+		Btn_LoadGame.disabled = true
 	InGameUI.enable(false)
 	handle_connecting_signals()
-	
-	Btn_LoadGame.disabled
 	
 func on_option_pressed() -> void:
 	Margin_Container.visible = false
@@ -48,12 +49,8 @@ func handle_connecting_signals() -> void:
 		Btn_LoadGame.button_down.connect(on_load_pressed)
 		
 func on_load_pressed() -> void:
-	var loaded_data = SaveData.load_game()
-	if loaded_data.empty():
-		print("No save data found!")
-		return
-		
-	run_game(loaded_data["scene path"], loaded_data)
+	SaveData.load_and_store_data()
+	run_game(SaveData.data.scene_path, SaveData.data)
 		
 func btn_click():
 	$MenuSelectionClick.play()
