@@ -20,6 +20,7 @@ func _ready():
 func _setup():
 	SaveData.save.connect(store_save_data)
 	Global.item_added.connect(add_item)
+	
 	if SaveData.data.items.has(id):
 		items_save = SaveData.data.items[id]
 	
@@ -34,14 +35,14 @@ func _setup():
 		add_child(player)
 	follow_camera.follow_node = player
 	
-	print(id)
 	for item in items_save:
-		print(item, ': ', items_save)
 		var item_node: Item = load(ITEMS_DIR + item[0] + '.tscn').instantiate()
 		item_node.position = item[1]
 		items_root.add_child(item_node)
 	
 	SceneManager._handle_passed_data(self)
+	
+	SceneManager.scene_changed.emit()
 
 func _fade_in():
 	transition.play_backwards('Fade')

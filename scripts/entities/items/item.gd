@@ -21,7 +21,6 @@ func pick_up(save_to_inventory: bool = true) -> void:
 	if Global.inventory.size() < 3:
 		if save_to_inventory:
 			_save_to_inventory()
-			InGameUI.show_toast(item_name.capitalize())
 		_remove_from_world()
 	else:
 		DialogueManager.show_dialogue_balloon(globals_dialogue , 'inventory_full')

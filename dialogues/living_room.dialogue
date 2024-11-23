@@ -9,10 +9,11 @@ Angga: Aku harus mencari jalan keluar lain dari rumah ini.
 Angga: Pintu ini terkunci. Aku harus mencari jalan keluar lain dari rumah ini.
 => END
 ~ got_flashlight
-Angga: Ada senter? Syukurlah...walau kelihatannya sudah tua, tapi ini masih bisa digunakan.
+Angga: Ada senter? Syukurlah...
+Angga: Oke, setidaknya sekarang aku bisa melihat jalan.
 => END
 ~ found_newspaper
-Angga: Koran tua? Apa ini...'Misteri Pembunuhan di *****'? Judul yang sangat membuat ambigu.
+Angga: Judul seperti ini memperburuk suasana..
 => END
 ~ see_monika
 set player.head_rotation = 1.5 * PI

@@ -8,6 +8,7 @@ extends CanvasLayer
 @onready var item_popup_texture: TextureRect = %PopupTexture
 @onready var item_popup_timer: Timer = %ItemPopup/Timer
 
+
 func _ready():
 	Global.inventory_changed.connect(update_inventory)
 
@@ -25,7 +26,7 @@ func update_inventory(inventory: Array):
 			inventory_slots.get_child(idx).item_name = ''
 			inventory_slots.get_child(idx).texture_node.texture = null
 
-func show_toast(text: String, time_sec: int = 3):
+func show_toast(text: String, time_sec: int = 2):
 	toast.text = text
 	toast_timer.start(time_sec)
 	toast.show()
@@ -36,9 +37,9 @@ func show_toast(text: String, time_sec: int = 3):
 	toast.hide()
 	toast.modulate = Color.WHITE
 
-func popup_item(item: Item, time_sec: int = 3):
-	item_popup_text.text = item.item_name
-	item_popup_texture.texture = item.find_child('Texture').texture
+func notify(text: String, icon: Variant = null, time_sec: int = 2):
+	item_popup_text.text = text
+	item_popup_texture.texture = icon
 	item_popup_timer.start(time_sec)
 	item_popup.show()
 	await item_popup_timer.timeout

@@ -12,14 +12,21 @@ const IMAGE_SUBVIEW = preload("res://scenes/subviews/image_subview.tscn")
 var selected_inventory: Variant = null:
 	set(value):
 		selected_inventory = value
+		if value != null and inventory.size() > value:
+			InGameUI.show_toast(inventory[value][2])
 		inventory_selected.emit(value)
-var inventory: Array = SaveData.data.inventory
+var inventory: Array = []
+
+func _ready():
+	SaveData.loaded.connect(load_inventory)
+	SaveData.save.connect(save_inventory)
 
 func wait(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout
 
 func add_inventory(item: Array[String]) -> void:
 	inventory.append(item)
+	InGameUI.notify(item[2], load(item[1]))
 	inventory_changed.emit(inventory)
 
 func dump_inventory(idx: int) -> void:
@@ -36,13 +43,21 @@ func drop_inventory(idx: int) -> void:
 	dump_inventory(idx)
 
 func has_inventory(item_id: String) -> bool:
-	return bool(inventory.filter(func(item): item[0] == item_id).front())
+	return inventory.filter(func(item): return item[0] == item_id).size()
 
 func find_inventory(item_id: String) -> int:
 	for i in range(inventory.size()):
 		if inventory[i][0] == item_id:
 			return i
 	return -1
+
+func save_inventory() -> void:
+	SaveData.data.inventory = inventory
+	SaveData._data_stored.emit()
+
+func load_inventory() -> void:
+	inventory = SaveData.data.inventory
+	inventory_changed.emit(inventory)
 
 func show_image_subview(texture: Texture, texture_data: Dictionary = {}):
 	var subview: CanvasLayer = IMAGE_SUBVIEW.instantiate()
@@ -51,4 +66,3 @@ func show_image_subview(texture: Texture, texture_data: Dictionary = {}):
 		for prop in texture_data.keys():
 			texture[prop] = texture_data
 	get_tree().current_scene.add_child(subview)
-	

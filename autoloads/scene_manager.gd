@@ -38,7 +38,6 @@ func _handle_passed_data(scene: Node):
 
 func _switch_scene(from: Node, to: String):
 	from.get_tree().call_deferred('change_scene_to_file', to)
-	scene_changed.emit()
 
 func change_scene(from: Node, to: String, data: Dictionary = {}) -> void:
 	await _transition_and_fetch_player(from, data)

@@ -2,6 +2,7 @@ extends Node
 
 signal _data_stored
 signal save
+signal loaded
 
 const NEW_GAME_TEMPLATE: Dictionary = {
 	'scene_path': "res://scenes/world/outdoor.tscn",
@@ -38,6 +39,7 @@ const NEW_GAME_TEMPLATE: Dictionary = {
 		'has_seen_monika': false,
 		'has_put_the_missing_block_puzzle': false,
 		'has_solved_block_puzzle': false,
+		'has_entered_play_room': false,
 	},
 	'door_locked': {
 		'bedroom_1': true
@@ -81,8 +83,10 @@ func load_data(name: String = save_name) -> Dictionary:
 
 func load_and_store_data(name: String = save_name) -> void:
 	data = load_data(name)
+	loaded.emit()
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		await save_data()
-		get_tree().quit()
+		if get_tree().current_scene is BaseScene:
+			await save_data()
+			get_tree().quit()

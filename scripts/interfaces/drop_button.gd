@@ -8,10 +8,11 @@ func _drop_data(at_position: Vector2, data: Variant):
 
 func _pressed():
 	if Global.selected_inventory != null:
-		Global.drop_inventory(Global.selected_inventory)
+		if Global.inventory.size() > Global.selected_inventory:
+			Global.drop_inventory(Global.selected_inventory)
 
 func _on_button_down():
-	modulate = Color(0, 0, 0, .4)
+	modulate = Color(0.7, 0.7, 0.7, 1)
 
 func _on_button_up():
 	modulate = Color.WHITE

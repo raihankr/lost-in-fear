@@ -1,7 +1,6 @@
-[gd_scene load_steps=11 format=4 uid="uid://bdmrlhch2qfde"]
+[gd_scene load_steps=10 format=4 uid="uid://bdmrlhch2qfde"]
 
 [ext_resource type="Script" path="res://scripts/subviews/block_puzzle.gd" id="1_idqkl"]
-[ext_resource type="Script" path="res://scripts/subviews/block_puzzle_drop_handler.gd" id="2_dc4xa"]
 [ext_resource type="Texture2D" uid="uid://dvao6qkmp1lur" path="res://assets/images/block-puzzle.png" id="3_54cvb"]
 [ext_resource type="PackedScene" uid="uid://c02ech8ey6mbb" path="res://scenes/entities/block_pieces/block_3x1.tscn" id="4_fgk4h"]
 [ext_resource type="PackedScene" uid="uid://buq6gdh6w7hb3" path="res://scenes/entities/block_pieces/block_2x1.tscn" id="5_ixrm1"]
@@ -110,9 +109,8 @@ metadata/_better_terrain = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hb5od"]
 size = Vector2(6, 16)
 
-[node name="Node2D" type="CanvasLayer"]
+[node name="BlockPuzzleSubview" type="CanvasLayer"]
 layer = 70
-follow_viewport_enabled = true
 script = ExtResource("1_idqkl")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -121,17 +119,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.843137)
-
-[node name="DropHandler" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 mouse_filter = 1
-script = ExtResource("2_dc4xa")
+color = Color(0, 0, 0, 0.843137)
 
 [node name="Button" type="Button" parent="."]
 anchors_preset = 1
@@ -206,6 +195,7 @@ scale = Vector2(-1, 1)
 move_axis = 1
 
 [node name="MainBlock" parent="CanvasGroup" groups=["main_block"] instance=ExtResource("5_ixrm1")]
+unique_name_in_owner = true
 modulate = Color(0.860301, 0.912601, 0, 1)
 position = Vector2(112, 80)
 

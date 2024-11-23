@@ -40,7 +40,6 @@ var vision_texture: Array[Variant] = [
 var music_area_array: Array[MusicArea] = []
 var state: Variant:
 	set(value):
-		print(value)
 		if value is Array:
 			state_machine.enter(value[0], value[1])
 		elif value is String or value is StringName:

@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bhhqfrjiyk6d4"]
+[gd_scene load_steps=6 format=3 uid="uid://bhhqfrjiyk6d4"]
 
 [ext_resource type="PackedScene" uid="uid://nyk8cklnxqrq" path="res://scenes/entities/static_items/static_item.tscn" id="1_pf6xx"]
+[ext_resource type="Script" path="res://scripts/entities/static_items/block_puzzle_desk.gd" id="2_8avor"]
 [ext_resource type="Texture2D" uid="uid://cbteveq4prxwh" path="res://assets/images/furniture/play_room_items.png" id="2_so10o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_afeax"]
@@ -11,6 +12,7 @@ region = Rect2(0, 112, 24, 40)
 size = Vector2(20, 31)
 
 [node name="StaticItem" instance=ExtResource("1_pf6xx")]
+script = ExtResource("2_8avor")
 
 [node name="Texture" parent="." index="0"]
 position = Vector2(12, -20)
