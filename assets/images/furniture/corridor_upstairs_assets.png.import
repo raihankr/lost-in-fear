@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnfns77rlmtmm"
-path="res://.godot/imported/light-circular.png-ca8d1b7eb281a8a877ca17976a0fd8e9.ctex"
+uid="uid://dal6mjqwunr8x"
+path="res://.godot/imported/corridor_upstairs_assets.png-ca67cc1af617474959730c0e0baa20ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/light-circular.png"
-dest_files=["res://.godot/imported/light-circular.png-ca8d1b7eb281a8a877ca17976a0fd8e9.ctex"]
+source_file="res://assets/images/furniture/corridor_upstairs_assets.png"
+dest_files=["res://.godot/imported/corridor_upstairs_assets.png-ca67cc1af617474959730c0e0baa20ec.ctex"]
 
 [params]
 

@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bfrqu7jfrejti" path="res://assets/images/room/window_light_ver1.png" id="7_3dxyk"]
 [ext_resource type="PackedScene" uid="uid://crgbii6omcjwa" path="res://scenes/utils/dark_surrounding.tscn" id="7_byxc2"]
 [ext_resource type="PackedScene" uid="uid://dyhpmtx5irjvs" path="res://scenes/utils/scene_trigger.tscn" id="8_ee8x5"]
-[ext_resource type="PackedScene" uid="uid://rgp2c7xdv62f" path="res://scenes/events/arrived_at_house.tscn" id="9_ijxch"]
+[ext_resource type="PackedScene" uid="uid://c0aoevngqdlws" path="res://scenes/entities/static_items/newspaper.tscn" id="11_5nhmo"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4x3k3"]
 
@@ -147,9 +147,7 @@ position = Vector2(232, 304)
 [node name="Corridor" type="Marker2D" parent="EntranceMarkers" index="5"]
 position = Vector2(176, 264)
 
-[node name="ArrivedAtHouse" parent="." index="8" instance=ExtResource("9_ijxch")]
-
-[node name="Items" parent="." index="9"]
-position = Vector2(-336, -280)
+[node name="Newspaper" parent="StaticItems" index="0" instance=ExtResource("11_5nhmo")]
+position = Vector2(128, 120)
 
 [connection signal="body_entered" from="Map/Doorway" to="." method="_on_doorway_body_entered"]

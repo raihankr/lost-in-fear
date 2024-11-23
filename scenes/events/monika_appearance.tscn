@@ -1,0 +1,252 @@
+[gd_scene load_steps=21 format=3 uid="uid://f3cpld87qppb"]
+
+[ext_resource type="Script" path="res://scripts/events/monika_appearance.gd" id="1_k13mn"]
+[ext_resource type="Texture2D" uid="uid://b7m5n5xbbw7xd" path="res://assets/images/mobs/monika.png" id="2_oxlrk"]
+
+[sub_resource type="Animation" id="Animation_jlv1y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Monika:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(24, -56)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Monika:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"walk_front"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Monika:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_bke6x"]
+resource_name = "WalkAway"
+length = 7.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Monika:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 2.1, 3.1, 3.6, 3.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(24, -56), Vector2(24, -56), Vector2(-72, -56), Vector2(-72, 8), Vector2(-104, 8), Vector2(-104, 32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Monika:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"walk_front"]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Monika")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 2.1, 3.1, 3.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [&"walk_side", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"walk_front", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"walk_side", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"walk_front", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Monika:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(3.9, 4.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pdgdu"]
+_data = {
+"RESET": SubResource("Animation_jlv1y"),
+"WalkAway": SubResource("Animation_bke6x")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2uokd"]
+atlas = ExtResource("2_oxlrk")
+region = Rect2(16, 0, 16, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12sk3"]
+atlas = ExtResource("2_oxlrk")
+region = Rect2(32, 0, 16, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhutv"]
+atlas = ExtResource("2_oxlrk")
+region = Rect2(32, 37, 16, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjpgq"]
+atlas = ExtResource("2_oxlrk")
+region = Rect2(32, 74, 16, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3keqb"]
+atlas = ExtResource("2_oxlrk")
+region = Rect2(32, 111, 16, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l2af8"]
+atlas = ExtResource("2_oxlrk")
+region = Rect2(16, 0, 16, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_od7v4"]
+atlas = ExtResource("2_oxlrk")
+region = Rect2(16, 37, 16, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkldd"]
+atlas = ExtResource("2_oxlrk")
+region = Rect2(16, 74, 16, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1p3p8"]
+atlas = ExtResource("2_oxlrk")
+region = Rect2(16, 111, 16, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28qhb"]
+atlas = ExtResource("2_oxlrk")
+region = Rect2(0, 0, 16, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvqi7"]
+atlas = ExtResource("2_oxlrk")
+region = Rect2(0, 37, 16, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j62po"]
+atlas = ExtResource("2_oxlrk")
+region = Rect2(0, 74, 16, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wawyw"]
+atlas = ExtResource("2_oxlrk")
+region = Rect2(0, 111, 16, 37)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_alna7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2uokd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12sk3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhutv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hjpgq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3keqb")
+}],
+"loop": true,
+"name": &"walk_back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l2af8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_od7v4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkldd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1p3p8")
+}],
+"loop": true,
+"name": &"walk_front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28qhb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvqi7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j62po")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wawyw")
+}],
+"loop": true,
+"name": &"walk_side",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebilk"]
+size = Vector2(50, 20)
+
+[node name="MonikaAppearance" type="Node2D"]
+script = ExtResource("1_k13mn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_pdgdu")
+}
+
+[node name="Monika" type="AnimatedSprite2D" parent="."]
+position = Vector2(24, -56)
+sprite_frames = SubResource("SpriteFrames_alna7")
+animation = &"walk_front"
+
+[node name="Trigger" type="Area2D" parent="."]
+position = Vector2(16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger"]
+position = Vector2(15, 0)
+shape = SubResource("RectangleShape2D_ebilk")
+
+[connection signal="body_entered" from="Trigger" to="." method="_on_trigger_body_entered"]

@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://3e04ua3x5jpm"]
+
+[ext_resource type="Script" path="res://scripts/subviews/image_subview.gd" id="1_ucwre"]
+[ext_resource type="FontFile" uid="uid://bxi1ev5tfug74" path="res://assets/fonts/TwistyPixel.ttf" id="3_550x1"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_bjm3o"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="InputEventKey" id="InputEventKey_3abad"]
+device = -1
+keycode = 32
+unicode = 32
+
+[sub_resource type="InputEventKey" id="InputEventKey_v3bhx"]
+device = -1
+keycode = 69
+unicode = 101
+
+[sub_resource type="InputEventKey" id="InputEventKey_0j7ye"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_fvokq"]
+events = [SubResource("InputEventKey_bjm3o"), SubResource("InputEventKey_3abad"), SubResource("InputEventKey_v3bhx"), SubResource("InputEventKey_0j7ye")]
+
+[node name="Subview" type="CanvasLayer"]
+layer = 70
+script = ExtResource("1_ucwre")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.913725)
+
+[node name="CloseButton" type="Button" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -78.0
+offset_right = -31.0
+offset_bottom = 83.5
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("3_550x1")
+theme_override_font_sizes/font_size = 56
+shortcut = SubResource("Shortcut_fvokq")
+text = "×"
+flat = true
+
+[node name="Texture" type="TextureRect" parent="."]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="pressed" from="ColorRect/CloseButton" to="." method="_on_close_button_pressed"]

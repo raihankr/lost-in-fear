@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyc5obhrrjrnd"
-path="res://.godot/imported/top-down-indoor.jpg-210228c28453046d187f562b8cc91458.ctex"
+uid="uid://bqb8d0i6pru5a"
+path="res://.godot/imported/stair.png-e1df7ac075681d2ec617b922ec9438dc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/top-down-indoor.jpg"
-dest_files=["res://.godot/imported/top-down-indoor.jpg-210228c28453046d187f562b8cc91458.ctex"]
+source_file="res://assets/images/furniture/stair.png"
+dest_files=["res://.godot/imported/stair.png-e1df7ac075681d2ec617b922ec9438dc.ctex"]
 
 [params]
 
