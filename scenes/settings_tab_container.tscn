@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0o4iadr0getn"]
+[gd_scene load_steps=7 format=3 uid="uid://b0o4iadr0getn"]
 
 [ext_resource type="PackedScene" uid="uid://c1mri80u2tvlg" path="res://scenes/window_mode_button.tscn" id="1_2xmou"]
 [ext_resource type="PackedScene" uid="uid://cdsn0h15546at" path="res://scenes/hotkey_rebind_button.tscn" id="1_jomij"]
 [ext_resource type="PackedScene" uid="uid://bdnr2b0jurg4n" path="res://scenes/resolution_mode_button.tscn" id="2_h4uc3"]
+[ext_resource type="PackedScene" uid="uid://b36aaahlk53sh" path="res://audio_slider_settings.tscn" id="4_2pa5c"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dwdun"]
 
@@ -13,22 +14,27 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = 16.0
+offset_right = -64.0
+offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 100.0
-offset_top = 120.0
-offset_right = -100.0
-offset_bottom = -100.0
+offset_left = 88.0
+offset_top = 88.0
+offset_right = -88.0
+offset_bottom = -112.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(776, 451)
 tab_alignment = 1
-current_tab = 1
+current_tab = 2
 
 [node name="Graphics" type="TabBar" parent="TabContainer"]
 visible = false
@@ -72,6 +78,7 @@ theme_override_constants/separation = 5
 theme_override_styles/separator = SubResource("StyleBoxEmpty_dwdun")
 
 [node name="Control" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -120,3 +127,48 @@ action_name = "move_left"
 layout_mode = 2
 theme_override_constants/separation = 4
 theme_override_styles/separator = SubResource("StyleBoxEmpty_a4ki1")
+
+[node name="Sound" type="TabBar" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Sound"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -7.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Sound/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Sound/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 6
+theme_override_constants/separation = 68
+
+[node name="HSeparator2" type="HSeparator" parent="TabContainer/Sound/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+theme_override_styles/separator = SubResource("StyleBoxEmpty_dwdun")
+
+[node name="Audio_Slider_Settings" parent="TabContainer/Sound/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("4_2pa5c")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Audio_Slider_Settings2" parent="TabContainer/Sound/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("4_2pa5c")]
+layout_mode = 2
+bus_name = "Music"
+
+[node name="Audio_Slider_Settings3" parent="TabContainer/Sound/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("4_2pa5c")]
+layout_mode = 2
+bus_name = "SFX"
+
+[node name="HSeparator" type="HSeparator" parent="TabContainer/Sound/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+theme_override_styles/separator = SubResource("StyleBoxEmpty_dwdun")

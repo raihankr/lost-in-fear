@@ -69,3 +69,4 @@ func load_and_store_data(name: String = save_name) -> void:
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		save_data()
+		
