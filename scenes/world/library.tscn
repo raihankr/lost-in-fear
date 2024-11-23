@@ -34,7 +34,7 @@ tile_map_data = PackedByteArray("AAAAAPz/AQABAAMAAAD+//f/AQAAAAMAAAA=")
 tile_set = ExtResource("4_y1hgm")
 
 [node name="PointLight2D" type="PointLight2D" parent="Map" index="3"]
-position = Vector2(8, 0)
+position = Vector2(8, -8)
 energy = 4.0
 range_item_cull_mask = 3
 texture = ExtResource("6_sh88v")

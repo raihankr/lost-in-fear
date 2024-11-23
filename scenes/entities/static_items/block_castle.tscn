@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://beun0cpa6o8od"]
+
+[ext_resource type="PackedScene" uid="uid://nyk8cklnxqrq" path="res://scenes/entities/static_items/static_item.tscn" id="1_fjted"]
+[ext_resource type="Texture2D" uid="uid://b1eyhnmi6hena" path="res://assets/images/furniture/block_castle.png" id="2_f56s8"]
+
+[node name="StaticItem" instance=ExtResource("1_fjted")]
+
+[node name="Texture" parent="." index="0"]
+texture = ExtResource("2_f56s8")
