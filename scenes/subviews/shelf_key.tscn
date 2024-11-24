@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6idgvlvkyp01"]
+
+[ext_resource type="PackedScene" uid="uid://3e04ua3x5jpm" path="res://scenes/subviews/image_subview.tscn" id="1_wepg3"]
+[ext_resource type="Texture2D" uid="uid://dbddxq4d4rwns" path="res://assets/images/subviews/shelf.png" id="2_h6liy"]
+
+[node name="Subview" instance=ExtResource("1_wepg3")]
+
+[node name="Texture" parent="." index="1"]
+texture = ExtResource("2_h6liy")
