@@ -19,7 +19,7 @@ size = Vector2(16, 8)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1a0g8"]
 size = Vector2(16, 8)
 
-[node name="Corridor" instance=ExtResource("1_pjxkr")]
+[node name="Corridor2" instance=ExtResource("1_pjxkr")]
 
 [node name="Corridor" type="Marker2D" parent="EntranceMarkers" index="0"]
 position = Vector2(-144, -48)
