@@ -2,6 +2,7 @@ extends Node
 
 signal _data_stored
 signal save
+signal saved
 signal loaded
 
 const NEW_GAME_TEMPLATE: Dictionary = {
@@ -76,13 +77,16 @@ func new_game():
 	data = NEW_GAME_TEMPLATE.duplicate(true)
 	
 func save_data(name: String = save_name) -> void:
-	save.emit()
-	for saving_process in save.get_connections():
+	var n_process: int = save.get_connections().size()
+	for i in range(n_process):
+		if i == 0:
+			save.emit()
 		await _data_stored
 	_create_save_dir()
 	var file: FileAccess = FileAccess.open('user://savedata/%s.dat' % name, FileAccess.WRITE)
 	file.store_var(data)
 	file.close()
+	saved.emit()
 
 func load_data(name: String = save_name) -> Dictionary:
 	_create_save_dir()
@@ -99,5 +103,5 @@ func load_and_store_data(name: String = save_name) -> void:
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		if get_tree().current_scene is BaseScene:
-			await save_data()
+			save_data()
 		get_tree().quit()

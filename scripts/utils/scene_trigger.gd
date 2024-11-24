@@ -16,6 +16,7 @@ func _on_body_entered(body: Node):
 				get_tree().current_scene.add_child(padlock)
 				await padlock.completed
 				SaveData.data.door_locked[id] = false
+				await DialogueManager.show_dialogue_balloon(dialogue, 'door_locked', [owner.player])
 			elif key and Global.has_inventory(key):
 				SaveData.data.door_locked[id] = false
 				Global.dump_inventory(Global.find_inventory(key))

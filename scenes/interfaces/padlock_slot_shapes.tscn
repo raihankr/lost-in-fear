@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://hmt81pnep3v7"]
+
+[ext_resource type="PackedScene" uid="uid://dkwg2a3rura6p" path="res://scenes/interfaces/padlock_slot.tscn" id="1_siskw"]
+
+[node name="PadlockSlot" instance=ExtResource("1_siskw")]
+
+[node name="TextureRect" type="TextureRect" parent="." index="1"]
+layout_mode = 2

@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhn1loo1rep3e"]
+
+[ext_resource type="PackedScene" uid="uid://vvs6387ylf6v" path="res://scenes/subviews/padlock.tscn" id="1_ivhyn"]
+[ext_resource type="Texture2D" uid="uid://r5alhhej5b03" path="res://assets/images/subviews/padlock_shape.png" id="2_pemej"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_itqle"]
+atlas = ExtResource("2_pemej")
+region = Rect2(3, 0, 62, 67)
+
+[node name="Padlock" instance=ExtResource("1_ivhyn")]
+
+[node name="Texture" parent="." index="1"]
+texture = SubResource("AtlasTexture_itqle")

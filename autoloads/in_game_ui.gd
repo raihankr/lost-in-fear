@@ -8,9 +8,13 @@ extends CanvasLayer
 @onready var item_popup_texture: TextureRect = %PopupTexture
 @onready var item_popup_timer: Timer = %ItemPopup/Timer
 
-
 func _ready():
 	Global.inventory_changed.connect(update_inventory)
+
+func _process(delta: float):
+	if Input.is_action_just_pressed('pause') and get_tree().current_scene.player.input_enabled and not get_tree().paused:
+		get_tree().paused = true
+		$PauseScreen.show()
 
 func enable(enable: bool, show_inventory: bool = true):
 	visible = enable

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ccf0knbfesl8"]
+[gd_scene load_steps=7 format=3 uid="uid://h31bbt8d06ou"]
 
 [ext_resource type="Script" path="res://scripts/interfaces/pause_screen.gd" id="1_lso35"]
 [ext_resource type="FontFile" uid="uid://b6avu6ubekbr7" path="res://assets/fonts/N8ghtmare.ttf" id="1_m20d7"]
@@ -17,6 +17,7 @@ border_width_bottom = 10
 border_color = Color(0, 0, 0, 1)
 
 [node name="PauseScreen" type="CanvasLayer"]
+process_mode = 3
 layer = 110
 script = ExtResource("1_lso35")
 
@@ -102,8 +103,11 @@ stream = ExtResource("3_f68t8")
 [node name="Options_Menu" parent="." instance=ExtResource("4_hbab6")]
 visible = false
 
+[connection signal="pressed" from="PauseMenuContainer/PanelContainer/MarginContainer/Rows/BtnResume" to="." method="on_resume_pressed"]
 [connection signal="pressed" from="PauseMenuContainer/PanelContainer/MarginContainer/Rows/BtnResume" to="." method="btn_click"]
+[connection signal="pressed" from="PauseMenuContainer/PanelContainer/MarginContainer/Rows/BtnOptions" to="." method="on_options_pressed"]
 [connection signal="pressed" from="PauseMenuContainer/PanelContainer/MarginContainer/Rows/BtnOptions" to="." method="btn_click"]
+[connection signal="pressed" from="PauseMenuContainer/PanelContainer/MarginContainer/Rows/BtnExit" to="." method="on_exit_pressed"]
 [connection signal="pressed" from="PauseMenuContainer/PanelContainer/MarginContainer/Rows/BtnExit" to="." method="btn_click"]
 [connection signal="pressed" from="Options_Menu/MarginContainer/VBoxContainer/Btn_Exit" to="." method="_on_btn_exit_pressed"]
 

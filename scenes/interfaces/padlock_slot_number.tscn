@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://coibajos27v37"]
 
 [ext_resource type="PackedScene" uid="uid://dkwg2a3rura6p" path="res://scenes/interfaces/padlock_slot.tscn" id="1_jephg"]
-[ext_resource type="Script" path="res://padlock_slot_number.gd" id="2_vwf16"]
+[ext_resource type="Script" path="res://scripts/interfaces/padlock_slot_number.gd" id="2_vwf16"]
 [ext_resource type="Texture2D" uid="uid://bvt8ritpv42n0" path="res://assets/images/subviews/padlock.png" id="3_86htn"]
 [ext_resource type="FontFile" uid="uid://bmuueyrplger6" path="res://assets/fonts/PixelOperator.ttf" id="3_dc4xt"]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dx8jtw1q5xin2"
-path="res://.godot/imported/padlock_bedroom.png-0bc99d35f2a7708b619d3febd0a44b17.ctex"
+uid="uid://r5alhhej5b03"
+path="res://.godot/imported/padlock_shape.png-57cc6c6101d7f74948042a6072634174.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/subviews/padlock_bedroom.png"
-dest_files=["res://.godot/imported/padlock_bedroom.png-0bc99d35f2a7708b619d3febd0a44b17.ctex"]
+source_file="res://assets/images/subviews/padlock_shape.png"
+dest_files=["res://.godot/imported/padlock_shape.png-57cc6c6101d7f74948042a6072634174.ctex"]
 
 [params]
 
