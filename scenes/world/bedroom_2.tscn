@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://bk8pbb33rphrm"]
+[gd_scene load_steps=11 format=4 uid="uid://bk8pbb33rphrm"]
 
 [ext_resource type="PackedScene" uid="uid://cm2f40rvqfd66" path="res://scenes/utils/base_scene.tscn" id="1_plxke"]
 [ext_resource type="TileSet" uid="uid://befa8e1hqfteb" path="res://resources/tilesets/house.tres" id="2_c47s4"]
+[ext_resource type="PackedScene" uid="uid://nyk8cklnxqrq" path="res://scenes/entities/static_items/static_item.tscn" id="2_mex00"]
 [ext_resource type="TileSet" uid="uid://b4m7u4qm5jhrv" path="res://resources/tilesets/furniture.tres" id="3_ouyfe"]
+[ext_resource type="Texture2D" uid="uid://bbtpe0cijuwvr" path="res://assets/images/subviews/boneka.png" id="3_unts4"]
+[ext_resource type="Texture2D" uid="uid://dmqtanepobyuw" path="res://assets/images/item/bonekaa_topdown.png" id="4_a31a3"]
 [ext_resource type="TileSet" uid="uid://c5een44ke5r5i" path="res://resources/tilesets/item.tres" id="4_bnw6n"]
 [ext_resource type="PackedScene" uid="uid://dyhpmtx5irjvs" path="res://scenes/utils/scene_trigger.tscn" id="5_2vmyb"]
 [ext_resource type="PackedScene" uid="uid://crgbii6omcjwa" path="res://scenes/utils/dark_surrounding.tscn" id="6_o4qmv"]
@@ -14,6 +17,18 @@ size = Vector2(16, 8)
 
 [node name="Corridor" type="Marker2D" parent="EntranceMarkers" index="0"]
 position = Vector2(8, 56)
+
+[node name="doll" parent="StaticItems" index="0" instance=ExtResource("2_mex00")]
+z_index = 1
+position = Vector2(-56, -48)
+subview_image = ExtResource("3_unts4")
+
+[node name="Texture" parent="StaticItems/doll" index="0"]
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("4_a31a3")
+
+[node name="CollisionShape2D" parent="StaticItems/doll" index="1"]
+scale = Vector2(3, 3)
 
 [node name="CanvasGroup" type="CanvasGroup" parent="." index="7"]
 y_sort_enabled = true
@@ -40,3 +55,5 @@ position = Vector2(8, 76)
 shape = SubResource("RectangleShape2D_fckly")
 
 [node name="DarkSurrounding" parent="." index="8" instance=ExtResource("6_o4qmv")]
+
+[editable path="StaticItems/doll"]
