@@ -2,6 +2,7 @@ extends Area2D
 
 @export_file var connected_scene: String
 @export var id: String
+@export var key: String
 
 var dialogue = preload("res://dialogues/globals.dialogue")
 

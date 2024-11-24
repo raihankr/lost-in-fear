@@ -1,5 +1,6 @@
 extends "res://scripts/subviews/image_subview.gd"
 
-@export var text: String = '':
-	set(value):
-		text = value
+@export var text: String = ''
+
+func _ready():
+	%Text.text = text
