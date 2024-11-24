@@ -1,13 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhn1loo1rep3e"]
+[gd_scene load_steps=5 format=3 uid="uid://bhn1loo1rep3e"]
 
 [ext_resource type="PackedScene" uid="uid://vvs6387ylf6v" path="res://scenes/subviews/padlock.tscn" id="1_ivhyn"]
 [ext_resource type="Texture2D" uid="uid://r5alhhej5b03" path="res://assets/images/subviews/padlock_shape.png" id="2_pemej"]
+[ext_resource type="PackedScene" uid="uid://hmt81pnep3v7" path="res://scenes/interfaces/padlock_slot_shapes.tscn" id="3_vo3b4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_itqle"]
 atlas = ExtResource("2_pemej")
 region = Rect2(3, 0, 62, 67)
 
 [node name="Padlock" instance=ExtResource("1_ivhyn")]
+pin = Array[int]([4, 1, 3])
 
 [node name="Texture" parent="." index="1"]
 texture = SubResource("AtlasTexture_itqle")
+
+[node name="Padlocks" parent="." index="3"]
+offset_left = -220.0
+offset_top = -122.0
+offset_right = 221.0
+offset_bottom = 232.0
+theme_override_constants/separation = 48
+
+[node name="PadlockSlot" parent="Padlocks" index="0" instance=ExtResource("3_vo3b4")]
+layout_mode = 2
+
+[node name="PadlockSlot2" parent="Padlocks" index="1" instance=ExtResource("3_vo3b4")]
+layout_mode = 2
+
+[node name="PadlockSlot3" parent="Padlocks" index="2" instance=ExtResource("3_vo3b4")]
+layout_mode = 2

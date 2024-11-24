@@ -1,4 +1,4 @@
-extends "res://scripts/interfaces/padlock_slot.gd"
+extends PadlockSlot
 
 @onready var display: Label = $Display
 
