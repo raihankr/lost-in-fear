@@ -1,6 +1,7 @@
 extends StaticItem
 
-@export var text: String = ''
+
+@export_multiline var text: String = ''
 
 func _ready():
 	subview_scene = preload("res://scenes/subviews/note_subview.tscn")
