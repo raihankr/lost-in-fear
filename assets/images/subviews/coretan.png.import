@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmqtanepobyuw"
-path="res://.godot/imported/bonekaa_topdown.png-c8c269159774d4e3482dc8ea27e041de.ctex"
+uid="uid://bksjeeojr6lkw"
+path="res://.godot/imported/coretan.png-c3236856628af40e56c843c0b7454d0e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/item/bonekaa_topdown.png"
-dest_files=["res://.godot/imported/bonekaa_topdown.png-c8c269159774d4e3482dc8ea27e041de.ctex"]
+source_file="res://assets/images/subviews/coretan.png"
+dest_files=["res://.godot/imported/coretan.png-c3236856628af40e56c843c0b7454d0e.ctex"]
 
 [params]
 
