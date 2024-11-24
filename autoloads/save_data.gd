@@ -40,6 +40,7 @@ const NEW_GAME_TEMPLATE: Dictionary = {
 		'has_put_the_missing_block_puzzle': false,
 		'has_solved_block_puzzle': false,
 		'has_entered_play_room': false,
+		'has_seen_kids_bedroom': false,
 	},
 	'door_locked': {
 		'bedroom_1': true
@@ -77,8 +78,9 @@ func save_data(name: String = save_name) -> void:
 func load_data(name: String = save_name) -> Dictionary:
 	_create_save_dir()
 	var file: FileAccess = FileAccess.open('user://savedata/%s.dat' % name, FileAccess.READ)
-	var _data  = file.get_var()
+	var _data: Dictionary = file.get_var()
 	file.close()
+	_data.events.merge(NEW_GAME_TEMPLATE.events)
 	return _data
 
 func load_and_store_data(name: String = save_name) -> void:
@@ -89,4 +91,4 @@ func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		if get_tree().current_scene is BaseScene:
 			await save_data()
-			get_tree().quit()
+		get_tree().quit()

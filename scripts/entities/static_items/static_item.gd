@@ -2,7 +2,8 @@ class_name StaticItem extends Area2D
 
 const OUTLINE_MATERIAL = preload("res://resources/materials/white_outline.tres")
 
-@export var subview: Texture = null
+@export var subview_image: Texture = null
+@export var subview_scene: PackedScene = null
 @export var dialogue: DialogueResource = null
 @export var dialogue_title: String = ''
 
@@ -11,8 +12,10 @@ const OUTLINE_MATERIAL = preload("res://resources/materials/white_outline.tres")
 var subview_data: Dictionary = {}
 
 func interact():
-	if subview:
-		Global.show_image_subview(subview, subview_data)
+	if subview_scene:
+		get_tree().current_scene.add_child(subview_scene.instantiate())
+	elif subview_image:
+		Global.show_image_subview(subview_image, subview_data)
 	if dialogue:
 		DialogueManager.show_dialogue_balloon(dialogue, dialogue_title)
 

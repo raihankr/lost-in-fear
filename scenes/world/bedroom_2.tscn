@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://dj801ayq7u8pg"]
+[gd_scene load_steps=8 format=4 uid="uid://bk8pbb33rphrm"]
 
 [ext_resource type="PackedScene" uid="uid://cm2f40rvqfd66" path="res://scenes/utils/base_scene.tscn" id="1_plxke"]
 [ext_resource type="TileSet" uid="uid://befa8e1hqfteb" path="res://resources/tilesets/house.tres" id="2_c47s4"]
@@ -25,7 +25,7 @@ tile_set = ExtResource("2_c47s4")
 
 [node name="Furniture" type="TileMapLayer" parent="CanvasGroup" index="1"]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAEAP7/BAAGAAMAAAD7//7/BAAGAAMAAAD6//3/AAAGAAcAAAAGAP3/AAAGAAcAAAD9//3/AgAAAAkAAAD9//z/AgAAAAcAAAACAP3/AgAAAAkAAAACAPz/AgAAAAcAAAD//wAAAAAKAAIAAAD6/wMAAAAJAAQAAAAGAAIAAAAJAAQAAQAAAPv/DAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAEAP7/BAAGAAMAAAD7//7/BAAGAAMAAAD6//3/AAAGAAcAAAAGAP3/AAAGAAcAAAD9//3/AgAAAAkAAAD9//z/AgAAAAcAAAACAP3/AgAAAAkAAAACAPz/AgAAAAcAAAD//wAAAAAKAAIAAAAAAPv/DAAAAAAAAAD6/wMAAAAJAAQAAAAGAAMAAAAJAAQAAQA=")
 tile_set = ExtResource("3_ouyfe")
 
 [node name="Item" type="TileMapLayer" parent="CanvasGroup" index="2"]

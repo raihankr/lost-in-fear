@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dby76s8s0a6la"]
+
+[ext_resource type="PackedScene" uid="uid://bmhjbjoidveuv" path="res://scenes/entities/items/item.tscn" id="1_44612"]
+[ext_resource type="Texture2D" uid="uid://bxij0u561tu8n" path="res://assets/images/item/door-handle.png" id="2_mtvwu"]
+
+[node name="DoorHandle" instance=ExtResource("1_44612")]
+item_name = "Gagang Pintu"
+
+[node name="Texture" parent="." index="0"]
+scale = Vector2(0.454545, 0.454545)
+texture = ExtResource("2_mtvwu")

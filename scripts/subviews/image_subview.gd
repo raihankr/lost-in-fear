@@ -8,4 +8,5 @@ func _ready():
 
 func _on_close_button_pressed():
 	get_tree().current_scene.player.input_enabled = true
+	Global.subview_closed.emit()
 	queue_free()

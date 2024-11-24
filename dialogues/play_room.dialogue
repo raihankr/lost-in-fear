@@ -11,3 +11,6 @@ Angga: Sudah selesai... ini dia, akhirnya!
 ~ puzzle_had_completed
 Angga: Aku sudah menyelesaikan puzzle ini.
 => END
+~ block_castle
+if SaveData.data.events.has_seen_kids_bedroom
+	Angga: Bentuk-bentuk balok ini rasanya tidak asing...

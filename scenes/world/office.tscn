@@ -37,10 +37,10 @@ y_sort_enabled = true
 tile_map_data = PackedByteArray("AADx//n/AQAAAAEAAAD0//n/AQABAAEAAAA=")
 tile_set = ExtResource("5_en6vd")
 
-[node name="SceneTrigger" parent="Map" index="3" instance=ExtResource("6_5k6h5")]
+[node name="CorridorEntry" parent="Map" index="3" instance=ExtResource("6_5k6h5")]
 connected_scene = "res://scenes/world/corridor_2.tscn"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/SceneTrigger" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/CorridorEntry" index="0"]
 position = Vector2(-24, -28)
 shape = SubResource("RectangleShape2D_s86xb")
 

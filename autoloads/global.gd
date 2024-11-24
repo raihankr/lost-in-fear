@@ -3,19 +3,27 @@ extends Node
 signal inventory_selected(idx: Variant)
 signal inventory_changed(inventory: Array)
 signal item_added(item_name: String, position: Vector2)
+signal subview_closed
 
 const ITEM_COMBINATION: Dictionary = {
 
 }
 const IMAGE_SUBVIEW: PackedScene = preload("res://scenes/subviews/image_subview.tscn")
 const VIDEO_PLAYER: PackedScene = preload('res://scenes/interfaces/video_player.tscn')
+const ITEM_CLOSEUPS: String = "res://assets/images/item_closeups/"
 
 var selected_inventory: Variant = null:
 	set(value):
 		selected_inventory = value
 		if value != null and inventory.size() > value:
 			InGameUI.show_toast(inventory[value][2])
-		inventory_selected.emit(value)
+			
+			var closeups_dir: DirAccess = DirAccess.open(ITEM_CLOSEUPS)
+			var closeup_file: String = inventory[value][0] + '.png'
+			if closeups_dir.file_exists(closeup_file):
+				show_image_subview(load(ITEM_CLOSEUPS + closeup_file))
+				return
+		inventory_selected.emit(selected_inventory)
 var inventory: Array = []
 
 func _ready():

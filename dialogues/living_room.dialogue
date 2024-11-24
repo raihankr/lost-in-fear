@@ -3,7 +3,10 @@ set player.head_rotation = 0.5 * PI
 Angga: Rumah ini gelap sekali.
 do close_door()
 Angga: Kenapa pintunya tiba-tiba menutup sendiri!?
-Angga: Aku harus mencari jalan keluar lain dari rumah ini.
+set player.head_rotation = 1.5 * PI
+Angga: Dengan kondisi seperti ini, rumah ini sepertinya tidak mungkin dihuni lagi... Tampaknya aku salah alamat.
+set player.head_rotation = 0.5 * PI
+Angga: Aku harus keluar dari rumah ini.
 => END
 ~ front_door_locked
 Angga: Pintu ini terkunci. Aku harus mencari jalan keluar lain dari rumah ini.
