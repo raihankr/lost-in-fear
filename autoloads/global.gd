@@ -68,12 +68,12 @@ func load_inventory() -> void:
 	inventory = SaveData.data.inventory
 	inventory_changed.emit(inventory)
 
-func show_image_subview(texture: Texture, texture_data: Dictionary = {}):
+func show_image_subview(texture: Texture, subview_data: Dictionary = {}, texture_data: Dictionary = {}):
 	var subview: CanvasLayer = IMAGE_SUBVIEW.instantiate()
 	subview.find_child('Texture').texture = texture
 	if texture_data.size() > 0:
 		for prop in texture_data.keys():
-			texture[prop] = texture_data
+			texture[prop] = texture_data[prop]
 	get_tree().current_scene.add_child(subview)
 
 func show_video(video: VideoStream, root: CanvasLayer, free_on_finished: bool = true) -> VideoStreamPlayer:
