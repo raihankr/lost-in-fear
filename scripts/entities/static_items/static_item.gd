@@ -9,13 +9,11 @@ const OUTLINE_MATERIAL = preload("res://resources/materials/white_outline.tres")
 
 @onready var texture_node: Sprite2D = $Texture
 
-var subview_data: Dictionary = {}
-
 func interact():
 	if subview_scene:
 		get_tree().current_scene.add_child(subview_scene.instantiate())
 	elif subview_image:
-		Global.show_image_subview(subview_image, subview_data)
+		Global.show_image_subview(subview_image)
 	if dialogue:
 		DialogueManager.show_dialogue_balloon(dialogue, dialogue_title)
 
