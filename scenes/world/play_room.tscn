@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://btybsoda3ih7x"]
+[gd_scene load_steps=11 format=4 uid="uid://btybsoda3ih7x"]
 
 [ext_resource type="PackedScene" uid="uid://cm2f40rvqfd66" path="res://scenes/utils/base_scene.tscn" id="1_yvm74"]
 [ext_resource type="Script" path="res://scripts/world/play_room.gd" id="2_ijru6"]
@@ -7,6 +7,8 @@
 [ext_resource type="TileSet" uid="uid://b4m7u4qm5jhrv" path="res://resources/tilesets/furniture.tres" id="4_wryo8"]
 [ext_resource type="PackedScene" uid="uid://dyhpmtx5irjvs" path="res://scenes/utils/scene_trigger.tscn" id="5_hoyx1"]
 [ext_resource type="PackedScene" uid="uid://bhhqfrjiyk6d4" path="res://scenes/entities/static_items/block_puzzle_desk.tscn" id="6_vnfwi"]
+[ext_resource type="PackedScene" uid="uid://nyk8cklnxqrq" path="res://scenes/entities/static_items/static_item.tscn" id="8_veetf"]
+[ext_resource type="Texture2D" uid="uid://b1eyhnmi6hena" path="res://assets/images/furniture/block_castle.png" id="9_22rdj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o0bf6"]
 size = Vector2(32, 8)
@@ -43,5 +45,14 @@ connected_scene = "res://scenes/world/living_room.tscn"
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_o0bf6")
 
-[node name="StaticItem" parent="StaticItems" index="0" instance=ExtResource("6_vnfwi")]
+[node name="BlockPuzzleDesk" parent="StaticItems" index="0" instance=ExtResource("6_vnfwi")]
 position = Vector2(-80, 16)
+
+[node name="BlockCastle" parent="StaticItems" index="1" instance=ExtResource("8_veetf")]
+position = Vector2(40, 32)
+
+[node name="Texture" parent="StaticItems/BlockCastle" index="0"]
+scale = Vector2(0.666667, 0.666667)
+texture = ExtResource("9_22rdj")
+
+[editable path="StaticItems/BlockCastle"]

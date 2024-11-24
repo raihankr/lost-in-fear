@@ -7,7 +7,8 @@ signal item_added(item_name: String, position: Vector2)
 const ITEM_COMBINATION: Dictionary = {
 
 }
-const IMAGE_SUBVIEW = preload("res://scenes/subviews/image_subview.tscn")
+const IMAGE_SUBVIEW: PackedScene = preload("res://scenes/subviews/image_subview.tscn")
+const VIDEO_PLAYER: PackedScene = preload('res://scenes/interfaces/video_player.tscn')
 
 var selected_inventory: Variant = null:
 	set(value):
@@ -66,3 +67,12 @@ func show_image_subview(texture: Texture, texture_data: Dictionary = {}):
 		for prop in texture_data.keys():
 			texture[prop] = texture_data
 	get_tree().current_scene.add_child(subview)
+
+func show_video(video: VideoStream, root: CanvasLayer, free_on_finished: bool = true) -> VideoStreamPlayer:
+	var video_player: VideoStreamPlayer = VIDEO_PLAYER.instantiate()
+	video_player.free_on_finished = free_on_finished
+	video_player.stream = video
+	root.add_child(video_player)
+	video_player.play()
+	await video_player.finished
+	return video_player

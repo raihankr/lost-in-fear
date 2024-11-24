@@ -9,10 +9,12 @@ signal car_arrived
 @onready var animation: AnimationPlayer  = $AnimationPlayer
 
 var living_room: String = 'res://scenes/world/living_room.tscn'
+var video_path: String = "res://assets/videos/open_door.ogv"
 var dialogue: Resource = preload("res://dialogues/outdoor.dialogue")
 var car_prepare_to_stop: bool = false
 
 func _ready():
+	ResourceLoader.load_threaded_request(video_path)
 	set_process(false)
 	await super._setup()
 	InGameUI.enable(true, false)
@@ -31,7 +33,10 @@ func _ready():
 	await DialogueManager.show_dialogue_balloon(dialogue, 'arrival')
 
 func _process(delta: float):
-	if Input.is_key_pressed(KEY_ESCAPE) and OS.is_debug_build():
+	if animation.is_playing() and Input.is_action_just_pressed('skip_dialogue'):
+		animation.stop(false)
+		animation.animation_finished.emit()
+	elif Input.is_key_pressed(KEY_ESCAPE) and OS.is_debug_build():
 		set_process(false)
 		next_scene()
 	move_car(delta)
@@ -66,6 +71,8 @@ func _on_task_go_inside_body_entered(body: Node) -> void:
 	player.head_rotation = 1.5 * PI
 	DialogueManager.show_dialogue_balloon(dialogue, 'going_inside')
 	await DialogueManager.dialogue_ended
+	var video: VideoStream = ResourceLoader.load_threaded_get(video_path)
+	await Global.show_video(video, $ContainerFront, false)
 	next_scene()
 
 func next_scene() -> void:
