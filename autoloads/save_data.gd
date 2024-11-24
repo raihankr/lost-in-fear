@@ -26,7 +26,9 @@ const NEW_GAME_TEMPLATE: Dictionary = {
 		],
 		'bedroom_1': [],
 		'play_room': [],
-		'corridor_1': [],
+		'corridor_1': [
+			['door_handle', Vector2(16, -48)]
+		],
 		'storage_room': [],
 		'corridor_2': [],
 		'library': [],
@@ -41,9 +43,16 @@ const NEW_GAME_TEMPLATE: Dictionary = {
 		'has_solved_block_puzzle': false,
 		'has_entered_play_room': false,
 		'has_seen_kids_bedroom': false,
+		'has_got_bedroom_key': false,
+		'has_got_corridor_key': false,
 	},
 	'door_locked': {
-		'bedroom_1': true
+		'bedroom_1': true,
+		'bedroom_2': true,
+		'corridor_1': true,
+		'storage_room': true,
+		'library': true,
+		'office': true,
 	}
 }
 

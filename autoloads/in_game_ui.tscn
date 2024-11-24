@@ -141,10 +141,13 @@ horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="InGameUI/Toast"]
 
-[node name="ItemPopup" type="PanelContainer" parent="InGameUI"]
+[node name="CanvasLayer" type="CanvasLayer" parent="InGameUI"]
+layer = 80
+
+[node name="ItemPopup" type="PanelContainer" parent="InGameUI/CanvasLayer"]
 unique_name_in_owner = true
 visible = false
-layout_mode = 1
+z_as_relative = false
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -154,11 +157,11 @@ offset_right = -43.0
 offset_bottom = 79.0
 grow_horizontal = 0
 
-[node name="Panel" type="Panel" parent="InGameUI/ItemPopup"]
+[node name="Panel" type="Panel" parent="InGameUI/CanvasLayer/ItemPopup"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_r5a1o")
 
-[node name="MarginContainer" type="MarginContainer" parent="InGameUI/ItemPopup/Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="InGameUI/CanvasLayer/ItemPopup/Panel"]
 layout_direction = 3
 layout_mode = 1
 anchors_preset = 15
@@ -169,24 +172,24 @@ grow_vertical = 2
 theme_override_constants/margin_left = 6
 theme_override_constants/margin_right = 6
 
-[node name="HBoxContainer" type="HBoxContainer" parent="InGameUI/ItemPopup/Panel/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="InGameUI/CanvasLayer/ItemPopup/Panel/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="PopupText" type="Label" parent="InGameUI/ItemPopup/Panel/MarginContainer/HBoxContainer"]
+[node name="PopupText" type="Label" parent="InGameUI/CanvasLayer/ItemPopup/Panel/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 10
 text = "Kunci"
 label_settings = SubResource("LabelSettings_umcqb")
 
-[node name="PopupTexture" type="TextureRect" parent="InGameUI/ItemPopup/Panel/MarginContainer/HBoxContainer"]
+[node name="PopupTexture" type="TextureRect" parent="InGameUI/CanvasLayer/ItemPopup/Panel/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("6_xs0vv")
 stretch_mode = 5
 
-[node name="Timer" type="Timer" parent="InGameUI/ItemPopup"]
+[node name="Timer" type="Timer" parent="InGameUI/CanvasLayer/ItemPopup"]
 
 [connection signal="button_down" from="InGameUI/Inventory/DropButton" to="InGameUI/Inventory/DropButton" method="_on_button_down"]
 [connection signal="button_up" from="InGameUI/Inventory/DropButton" to="InGameUI/Inventory/DropButton" method="_on_button_up"]

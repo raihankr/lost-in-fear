@@ -1,6 +1,9 @@
 ~ door_locked
 Angga: Pintu ini terkunci.
 => END
+~ missing_handle
+Angga: Gagang pintunya hilang
+=> END
 ~ inventory_full
 Angga: Sepertinya aku tidak bisa membawa lebih banyak barang lagi. Aku harus menyimpannnya sebagian.
 => END
