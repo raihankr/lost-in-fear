@@ -10,7 +10,7 @@
 [ext_resource type="TileSet" uid="uid://c5een44ke5r5i" path="res://resources/tilesets/item.tres" id="4_y1hgm"]
 [ext_resource type="Texture2D" uid="uid://c33jwcirmc2oy" path="res://assets/images/subviews/book_shelf2.png" id="5_6khit"]
 [ext_resource type="Texture2D" uid="uid://bo0tdj7chk1hi" path="res://assets/images/subviews/book_shelf4.png" id="6_5rodf"]
-[ext_resource type="PackedScene" uid="uid://duq7pw2lu0ukg" path="res://scenes/subviews/shelf.tscn" id="6_aahcq"]
+[ext_resource type="PackedScene" path="res://scenes/subviews/shelf.tscn" id="6_aahcq"]
 [ext_resource type="Texture2D" uid="uid://c1nf28ou601cn" path="res://assets/images/room/library_light.png" id="6_sh88v"]
 [ext_resource type="PackedScene" uid="uid://dyhpmtx5irjvs" path="res://scenes/utils/scene_trigger.tscn" id="7_871kx"]
 
