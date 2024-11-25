@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://n5pcpjk15cw4"]
+
+[ext_resource type="PackedScene" uid="uid://bmhjbjoidveuv" path="res://scenes/entities/items/item.tscn" id="1_lei4c"]
+[ext_resource type="Texture2D" uid="uid://dww6q77k7e5d8" path="res://assets/images/item/book.png" id="2_lese0"]
+
+[node name="Book" instance=ExtResource("1_lei4c")]
+item_name = "Buku"
+
+[node name="Texture" parent="." index="0"]
+scale = Vector2(0.727273, 0.727273)
+texture = ExtResource("2_lese0")

@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://duq7pw2lu0ukg"]
+
+[ext_resource type="PackedScene" uid="uid://3e04ua3x5jpm" path="res://scenes/subviews/image_subview.tscn" id="1_csfvx"]
+[ext_resource type="Texture2D" uid="uid://cgyr0wf5cju4s" path="res://assets/images/subviews/book_shelf3.png" id="2_toi64"]
+[ext_resource type="PackedScene" uid="uid://ct1bnavudyt6i" path="res://scenes/entities/touch_item.tscn" id="3_rjeek"]
+[ext_resource type="Texture2D" uid="uid://b5w0npy0vvo6s" path="res://assets/images/touch_items/book_interact.png" id="4_3xocm"]
+
+[node name="Subview" instance=ExtResource("1_csfvx")]
+
+[node name="Texture" parent="." index="1"]
+texture = ExtResource("2_toi64")
+
+[node name="TouchItem" parent="." index="3" instance=ExtResource("3_rjeek")]
+offset_left = 268.0
+offset_top = -257.0
+offset_right = 428.0
+offset_bottom = 93.0
+texture_normal = ExtResource("4_3xocm")
+item_id = "book"
+item_icon = "res://assets/images/item/book.png"
+item_name = "Buku"
+event_name = "has_got_book"

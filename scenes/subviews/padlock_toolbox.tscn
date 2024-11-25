@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bv00t7k51bsvv"]
+
+[ext_resource type="PackedScene" uid="uid://vvs6387ylf6v" path="res://scenes/subviews/padlock.tscn" id="1_icvot"]
+
+[node name="Padlock" instance=ExtResource("1_icvot")]
+pin = Array[int]([5, 0, 5])

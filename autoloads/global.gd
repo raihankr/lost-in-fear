@@ -5,13 +5,35 @@ signal inventory_changed(inventory: Array)
 signal item_added(item_name: String, position: Vector2)
 signal subview_closed
 
+const ITEMS = {
+	'brush_grape_juice': ['brush_grape_juice', "res://assets/images/item/brush_grape_juice.png", 'Kuas & Jus Anggur'],
+	'revealed_office_hint': ['revealed_office_hint', "res://assets/images/item/written-note.png", 'Catatan']
+}
 const ITEM_COMBINATION: Dictionary = {
-
+	'grape_juice': {
+		'brush': ITEMS.brush_grape_juice
+	},
+	'brush': {
+		'grape_juice': ITEMS.brush_grape_juice
+	},
+	'brush_grape_juice': {
+		'invisible_office_hint': ITEMS.revealed_office_hint
+	},
+	'invisible_office_hint': {
+		'brush_grape_juice': ITEMS.revealed_office_hint
+	}
 }
 const IMAGE_SUBVIEW: PackedScene = preload("res://scenes/subviews/image_subview.tscn")
 const VIDEO_PLAYER: PackedScene = preload('res://scenes/interfaces/video_player.tscn')
 const ITEM_CLOSEUPS: String = "res://assets/images/item_closeups/"
 
+var subview_visible: bool = false:
+	set(value):
+		if value:
+			subview_visible = value
+		else:
+			await Global.wait(1)
+			subview_visible = value
 var selected_inventory: Variant = null:
 	set(value):
 		selected_inventory = value
@@ -33,7 +55,7 @@ func _ready():
 func wait(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout
 
-func add_inventory(item: Array[String]) -> void:
+func add_inventory(item: Array) -> void:
 	inventory.append(item)
 	InGameUI.notify(item[2], load(item[1]))
 	inventory_changed.emit(inventory)

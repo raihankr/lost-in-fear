@@ -3,7 +3,6 @@ class_name PadlockSubview extends "res://scripts/subviews/image_subview.gd"
 signal completed
 
 @export var pin: Array[int] = [0, 0, 0]
-
 @export var current_digits: Array[int] = [0, 0, 0]
 
 func _ready():

@@ -30,7 +30,9 @@ func _ready():
 	player.show()
 	await player.move_to($StartingPoint.global_position, 50, 'WalkPackage')
 	player.input_enabled = true
-	await DialogueManager.show_dialogue_balloon(dialogue, 'arrival')
+	DialogueManager.show_dialogue_balloon(dialogue, 'arrival')
+	await DialogueManager.dialogue_ended
+	Global.show_image_subview(preload("res://assets/images/interfaces/instruksi_1.png"))
 
 func _process(delta: float):
 	if animation.is_playing() and Input.is_action_just_pressed('skip_dialogue'):

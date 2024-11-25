@@ -20,21 +20,26 @@ const NEW_GAME_TEMPLATE: Dictionary = {
 			['flashlight', Vector2(168, 128)]
 		],
 		'kitchen': [
-			['grape_juice', Vector2(136, -40)]
+			['grape_juice', Vector2(136, -40)],
+			["invisible_office_hint", Vector2(-104, -24)]
 		],
 		'bathroom_1': [
 			['block_puzzle', Vector2(8, 32)]
 		],
 		'bedroom_1': [],
 		'play_room': [],
-		'corridor_1': [
-			['door_handle', Vector2(16, -48)]
+		'corridor_1': [],
+		'storage_room': [
+			['book_hint', Vector2(-16, 32)]
 		],
-		'storage_room': [],
-		'corridor_2': [],
+		'corridor_2': [
+			['door_handle', Vector2(168, 40)]
+		],
 		'library': [],
 		'office': [],
-		'bedroom_2': [],
+		'bedroom_2': [
+			['brush', Vector2(-72, 56)]
+		],
 		'bathroom_2': []
 	},
 	'events': {
@@ -46,6 +51,8 @@ const NEW_GAME_TEMPLATE: Dictionary = {
 		'has_seen_kids_bedroom': false,
 		'has_got_bedroom_key': false,
 		'has_got_corridor_key': false,
+		'has_seen_evan': false,
+		'has_got_book': false,
 	},
 	'door_locked': {
 		'bedroom_1': true,

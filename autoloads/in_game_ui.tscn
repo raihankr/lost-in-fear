@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://lei8dm3snxsx"]
+[gd_scene load_steps=22 format=3 uid="uid://lei8dm3snxsx"]
 
 [ext_resource type="Script" path="res://autoloads/in_game_ui.gd" id="1_e4buu"]
 [ext_resource type="PackedScene" uid="uid://c5shebyloniit" path="res://scenes/interfaces/inventory_slot.tscn" id="2_n5s17"]
@@ -31,6 +31,14 @@ unicode = 51
 
 [sub_resource type="Shortcut" id="Shortcut_0vppe"]
 events = [SubResource("InputEventKey_vg71u")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_sklca"]
+device = -1
+keycode = 70
+unicode = 102
+
+[sub_resource type="Shortcut" id="Shortcut_7wxjw"]
+events = [SubResource("InputEventKey_sklca")]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tiodt"]
 atlas = ExtResource("3_7uh16")
@@ -73,6 +81,7 @@ font_size = 22
 font_color = Color(0, 0, 0, 1)
 
 [node name="InGameUI" type="CanvasLayer"]
+process_mode = 3
 layer = 50
 script = ExtResource("1_e4buu")
 
@@ -116,6 +125,7 @@ shortcut = SubResource("Shortcut_0vppe")
 
 [node name="DropButton" type="TextureButton" parent="InGameUI/Inventory"]
 layout_mode = 2
+shortcut = SubResource("Shortcut_7wxjw")
 texture_normal = SubResource("AtlasTexture_tiodt")
 script = ExtResource("4_n70sf")
 

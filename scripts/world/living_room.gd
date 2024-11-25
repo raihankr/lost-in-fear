@@ -10,6 +10,8 @@ func _ready(setup_func: Callable = func(): pass):
 	await super._setup()
 	just_got_flashlight.connect(start_monika_appearance)
 	if not SaveData.data.events.has_entered_house:
+		Global.show_image_subview(preload("res://assets/images/interfaces/instruksi_2_rev.png"))
+		await Global.subview_closed
 		self.add_child(arrived_at_house.instantiate())
 	else:
 		await super._fade_in()

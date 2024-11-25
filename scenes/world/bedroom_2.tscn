@@ -45,14 +45,16 @@ position = Vector2(8, 76)
 shape = SubResource("RectangleShape2D_fckly")
 
 [node name="Doll" parent="StaticItems" index="0" instance=ExtResource("2_mex00")]
-position = Vector2(-56, -48)
+position = Vector2(-56, -16)
 subview_image = ExtResource("3_unts4")
 
 [node name="Texture" parent="StaticItems/Doll" index="0"]
+position = Vector2(-2.4, -28.4)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("4_aopdk")
 
 [node name="CollisionShape2D" parent="StaticItems/Doll" index="1"]
+position = Vector2(-2.4, -28.4)
 scale = Vector2(3, 3)
 
 [node name="drawing" parent="StaticItems" index="1" instance=ExtResource("2_mex00")]

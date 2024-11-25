@@ -164,7 +164,6 @@ _data = {
 }
 
 [node name="Outdoor" instance=ExtResource("1_55dy1")]
-y_sort_enabled = true
 script = ExtResource("2_gcws6")
 
 [node name="InvisibleWall" type="StaticBody2D" parent="." index="2"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://o42nhik6nrtt"]
+[gd_scene load_steps=15 format=4 uid="uid://o42nhik6nrtt"]
 
 [ext_resource type="PackedScene" uid="uid://cm2f40rvqfd66" path="res://scenes/utils/base_scene.tscn" id="1_pjxkr"]
 [ext_resource type="TileSet" uid="uid://befa8e1hqfteb" path="res://resources/tilesets/house.tres" id="2_f8ec0"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://cfqtcln25utjk" path="res://scenes/entities/static_items/dynamic_note.tscn" id="4_wrmrx"]
 [ext_resource type="PackedScene" uid="uid://dyhpmtx5irjvs" path="res://scenes/utils/scene_trigger.tscn" id="5_kf1pc"]
 [ext_resource type="PackedScene" uid="uid://crgbii6omcjwa" path="res://scenes/utils/dark_surrounding.tscn" id="6_qtvjb"]
+[ext_resource type="PackedScene" uid="uid://bhn1loo1rep3e" path="res://scenes/subviews/padlock_bedroom.tscn" id="9_ygusy"]
+[ext_resource type="PackedScene" uid="uid://cofh3k12emodh" path="res://scenes/subviews/padlock_office.tscn" id="10_ioc3a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pqcpc"]
 size = Vector2(32, 16)
@@ -19,7 +21,7 @@ size = Vector2(16, 8)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1a0g8"]
 size = Vector2(16, 8)
 
-[node name="Corridor2" instance=ExtResource("1_pjxkr")]
+[node name="Corridor" instance=ExtResource("1_pjxkr")]
 
 [node name="Corridor" type="Marker2D" parent="EntranceMarkers" index="0"]
 position = Vector2(-144, -48)
@@ -89,6 +91,10 @@ shape = SubResource("RectangleShape2D_pqcpc")
 [node name="LibraryEntry" parent="Map" index="4" instance=ExtResource("5_kf1pc")]
 position = Vector2(-56, 72)
 connected_scene = "res://scenes/world/library.tscn"
+room_name = "Perpustakaan"
+id = "library"
+key = "door_handle"
+dialogue_locked = "missing_handle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/LibraryEntry" index="0"]
 position = Vector2(0, 4)
@@ -105,6 +111,8 @@ shape = SubResource("RectangleShape2D_1a0g8")
 [node name="BedroomEntry" parent="Map" index="6" instance=ExtResource("5_kf1pc")]
 position = Vector2(152, 8)
 connected_scene = "res://scenes/world/bedroom_2.tscn"
+id = "bedroom_2"
+padlock_scene = ExtResource("9_ygusy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/BedroomEntry" index="0"]
 position = Vector2(0, -4)
@@ -113,6 +121,8 @@ shape = SubResource("RectangleShape2D_1a0g8")
 [node name="OfficeEntry" parent="Map" index="7" instance=ExtResource("5_kf1pc")]
 position = Vector2(152, 80)
 connected_scene = "res://scenes/world/office.tscn"
+id = "office"
+padlock_scene = ExtResource("10_ioc3a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/OfficeEntry" index="0"]
 position = Vector2(0, -4)

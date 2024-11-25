@@ -3,10 +3,6 @@
 [ext_resource type="Script" path="res://scripts/subviews/image_subview.gd" id="1_ucwre"]
 [ext_resource type="FontFile" uid="uid://bxi1ev5tfug74" path="res://assets/fonts/TwistyPixel.ttf" id="3_550x1"]
 
-[sub_resource type="InputEventKey" id="InputEventKey_bjm3o"]
-device = -1
-keycode = 4194305
-
 [sub_resource type="InputEventKey" id="InputEventKey_3abad"]
 device = -1
 keycode = 32
@@ -16,8 +12,12 @@ unicode = 32
 device = -1
 keycode = 4194309
 
+[sub_resource type="InputEventKey" id="InputEventKey_uqctl"]
+device = -1
+keycode = 4194305
+
 [sub_resource type="Shortcut" id="Shortcut_fvokq"]
-events = [SubResource("InputEventKey_bjm3o"), SubResource("InputEventKey_3abad"), SubResource("InputEventKey_0j7ye")]
+events = [SubResource("InputEventKey_3abad"), SubResource("InputEventKey_0j7ye"), SubResource("InputEventKey_uqctl")]
 
 [node name="Subview" type="CanvasLayer"]
 layer = 70
