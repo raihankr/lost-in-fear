@@ -1,41 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://boylwcgu7vk8g"]
+[gd_scene load_steps=7 format=3 uid="uid://dnbrmfkwyp44"]
 
+[ext_resource type="Script" path="res://scenes/subviews/epilog.gd" id="1_gwyoh"]
 [ext_resource type="FontFile" uid="uid://bmuueyrplger6" path="res://assets/fonts/PixelOperator.ttf" id="1_juhsn"]
 [ext_resource type="Script" path="res://scenes/world/animation_player.gd" id="2_yino8"]
-
-[sub_resource type="Animation" id="Animation_372up"]
-resource_name = "show"
-length = 5.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Label:text")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.3, 2.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": ["Tepat di pinggiran kota, terdapat sebuah rumah tua yang telah lama kosong. 
-umah itu tampak terbengkalai, dengan halaman yang kumuh dan jendela yang rusak. 
-Tidak ada tanda bahwa rumah tersebut berpenghuni. 
-", "Suatu hari, seorang kurir bernama Angga datang untuk mengantarkan paket ke rumah tersebut.
-Tanpa mengetahui apa yang nantinya akan terjadi padanya, ia melangkah
-menuju rumah tua itu dan mendapatkan suatu yang tak terduga.", " 
-Apa yang ada didalam rumah tersebut, dan bagaimana kelanjutannya?"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Label:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.266667, 0.9, 1.3, 1.7, 2.1, 2.5, 2.9, 3.5, 3.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_jxs5w"]
 length = 0.001
@@ -67,6 +34,40 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_372up"]
+resource_name = "show"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.3, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": ["Tepat di pinggiran kota, terdapat sebuah rumah tua yang telah lama kosong. 
+rumah itu tampak terbengkalai, dengan halaman yang kumuh dan jendela yang rusak. 
+Tidak ada tanda bahwa rumah tersebut berpenghuni. 
+", "Suatu hari, seorang kurir bernama Angga datang untuk mengantarkan paket ke rumah tersebut.
+Tanpa mengetahui apa yang nantinya akan terjadi padanya, ia melangkah
+menuju rumah tua itu dan mendapatkan suatu yang tak terduga.", " 
+Apa yang ada didalam rumah tersebut, dan bagaimana kelanjutannya?"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.9, 1.3, 1.7, 2.1, 2.5, 2.9, 3.5, 3.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mk6ev"]
 _data = {
 "RESET": SubResource("Animation_jxs5w"),
@@ -74,6 +75,16 @@ _data = {
 }
 
 [node name="Prolog" type="CanvasLayer"]
+layer = 90
+script = ExtResource("1_gwyoh")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="."]
 offset_left = 155.0

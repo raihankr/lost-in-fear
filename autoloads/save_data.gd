@@ -54,6 +54,7 @@ const NEW_GAME_TEMPLATE: Dictionary = {
 		'has_seen_evan': false,
 		'has_got_book': false,
 		'has_opened_toolbox': false,
+		'has_opened_window_seal': false,
 	},
 	'door_locked': {
 		'bedroom_1': true,

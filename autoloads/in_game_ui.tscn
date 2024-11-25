@@ -9,42 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://6onope3m1r2f" path="res://scenes/interfaces/mobile_controls.tscn" id="7_5xn04"]
 [ext_resource type="PackedScene" uid="uid://h31bbt8d06ou" path="res://scenes/interfaces/pause_screen.tscn" id="7_8bg7x"]
 
-[sub_resource type="InputEventKey" id="InputEventKey_flkpi"]
-device = -1
-keycode = 49
-unicode = 49
-
-[sub_resource type="Shortcut" id="Shortcut_uhjri"]
-events = [SubResource("InputEventKey_flkpi")]
-
-[sub_resource type="InputEventKey" id="InputEventKey_uvdxi"]
-device = -1
-keycode = 50
-unicode = 50
-
-[sub_resource type="Shortcut" id="Shortcut_54ldt"]
-events = [SubResource("InputEventKey_uvdxi")]
-
-[sub_resource type="InputEventKey" id="InputEventKey_vg71u"]
-device = -1
-keycode = 51
-unicode = 51
-
-[sub_resource type="Shortcut" id="Shortcut_0vppe"]
-events = [SubResource("InputEventKey_vg71u")]
-
-[sub_resource type="InputEventKey" id="InputEventKey_sklca"]
-device = -1
-keycode = 70
-unicode = 102
-
-[sub_resource type="Shortcut" id="Shortcut_7wxjw"]
-events = [SubResource("InputEventKey_sklca")]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tiodt"]
-atlas = ExtResource("3_7uh16")
-region = Rect2(0, 64, 32, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_jdeaj"]
 atlas = ExtResource("3_7uh16")
 region = Rect2(32, 0, 32, 32)
@@ -81,6 +45,42 @@ font = ExtResource("5_a7tfm")
 font_size = 22
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="InputEventKey" id="InputEventKey_flkpi"]
+device = -1
+keycode = 49
+unicode = 49
+
+[sub_resource type="Shortcut" id="Shortcut_uhjri"]
+events = [SubResource("InputEventKey_flkpi")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_uvdxi"]
+device = -1
+keycode = 50
+unicode = 50
+
+[sub_resource type="Shortcut" id="Shortcut_54ldt"]
+events = [SubResource("InputEventKey_uvdxi")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_vg71u"]
+device = -1
+keycode = 51
+unicode = 51
+
+[sub_resource type="Shortcut" id="Shortcut_0vppe"]
+events = [SubResource("InputEventKey_vg71u")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_sklca"]
+device = -1
+keycode = 70
+unicode = 102
+
+[sub_resource type="Shortcut" id="Shortcut_7wxjw"]
+events = [SubResource("InputEventKey_sklca")]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tiodt"]
+atlas = ExtResource("3_7uh16")
+region = Rect2(0, 64, 32, 32)
+
 [node name="InGameUI" type="CanvasLayer"]
 process_mode = 3
 layer = 50
@@ -93,42 +93,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Inventory" type="HBoxContainer" parent="InGameUI"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -197.0
-offset_top = -95.0
-offset_bottom = -63.0
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(2, 2)
-alignment = 1
-metadata/_edit_group_ = true
-
-[node name="Slot1" parent="InGameUI/Inventory" instance=ExtResource("2_n5s17")]
-layout_mode = 2
-shortcut = SubResource("Shortcut_uhjri")
-
-[node name="Slot2" parent="InGameUI/Inventory" instance=ExtResource("2_n5s17")]
-layout_mode = 2
-shortcut = SubResource("Shortcut_54ldt")
-
-[node name="Slot3" parent="InGameUI/Inventory" instance=ExtResource("2_n5s17")]
-layout_mode = 2
-shortcut = SubResource("Shortcut_0vppe")
-
-[node name="DropButton" type="TextureButton" parent="InGameUI/Inventory"]
-layout_mode = 2
-shortcut = SubResource("Shortcut_7wxjw")
-texture_normal = SubResource("AtlasTexture_tiodt")
-script = ExtResource("4_n70sf")
+mouse_filter = 1
 
 [node name="Toast" type="Label" parent="InGameUI"]
 unique_name_in_owner = true
@@ -155,10 +120,10 @@ horizontal_alignment = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="InGameUI"]
 layer = 80
+visible = false
 
 [node name="ItemPopup" type="PanelContainer" parent="InGameUI/CanvasLayer"]
 unique_name_in_owner = true
-visible = false
 z_as_relative = false
 anchors_preset = 1
 anchor_left = 1.0
@@ -203,10 +168,48 @@ stretch_mode = 5
 
 [node name="Timer" type="Timer" parent="InGameUI/CanvasLayer/ItemPopup"]
 
+[node name="Inventory" type="CanvasLayer" parent="InGameUI"]
+layer = 60
+
+[node name="Inventory" type="HBoxContainer" parent="InGameUI/Inventory"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -197.0
+offset_top = -95.0
+offset_bottom = -63.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
+alignment = 1
+metadata/_edit_group_ = true
+
+[node name="Slot1" parent="InGameUI/Inventory/Inventory" instance=ExtResource("2_n5s17")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_uhjri")
+
+[node name="Slot2" parent="InGameUI/Inventory/Inventory" instance=ExtResource("2_n5s17")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_54ldt")
+
+[node name="Slot3" parent="InGameUI/Inventory/Inventory" instance=ExtResource("2_n5s17")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_0vppe")
+
+[node name="DropButton" type="TextureButton" parent="InGameUI/Inventory/Inventory"]
+layout_mode = 2
+shortcut = SubResource("Shortcut_7wxjw")
+texture_normal = SubResource("AtlasTexture_tiodt")
+script = ExtResource("4_n70sf")
+
 [node name="MobileControls" parent="." instance=ExtResource("7_5xn04")]
 
 [node name="PauseScreen" parent="." instance=ExtResource("7_8bg7x")]
 visible = false
 
-[connection signal="button_down" from="InGameUI/Inventory/DropButton" to="InGameUI/Inventory/DropButton" method="_on_button_down"]
-[connection signal="button_up" from="InGameUI/Inventory/DropButton" to="InGameUI/Inventory/DropButton" method="_on_button_up"]
+[connection signal="button_down" from="InGameUI/Inventory/Inventory/DropButton" to="InGameUI/Inventory/Inventory/DropButton" method="_on_button_down"]
+[connection signal="button_up" from="InGameUI/Inventory/Inventory/DropButton" to="InGameUI/Inventory/Inventory/DropButton" method="_on_button_up"]

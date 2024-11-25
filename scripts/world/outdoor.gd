@@ -18,6 +18,10 @@ func _ready():
 	set_process(false)
 	await super._setup()
 	InGameUI.enable(true, false)
+	var prolog = preload('res://scenes/subviews/prolog.tscn').instantiate()
+	get_tree().current_scene.add_child(prolog)
+	await prolog.find_child('AnimationPlayer').animation_finished
+	prolog.queue_free()
 	player.world_position = 'Spawn'
 	player.hide()
 	await super._fade_in()

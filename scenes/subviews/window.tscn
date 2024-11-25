@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bfy5en2l7fqhw"]
+
+[ext_resource type="PackedScene" uid="uid://3e04ua3x5jpm" path="res://scenes/subviews/image_subview.tscn" id="1_wvdy7"]
+[ext_resource type="Script" path="res://scripts/subviews/window.gd" id="2_elmeo"]
+[ext_resource type="Texture2D" uid="uid://n70tdwmxm4it" path="res://assets/images/subviews/wall_break_closeup_before.png" id="3_q36pw"]
+[ext_resource type="Script" path="res://scenes/subviews/window_texture.gd" id="4_y2e4a"]
+
+[node name="Subview" instance=ExtResource("1_wvdy7")]
+layer = 55
+script = ExtResource("2_elmeo")
+
+[node name="Texture" parent="." index="1"]
+texture = ExtResource("3_q36pw")
+
+[node name="Control" type="Control" parent="." index="2"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_y2e4a")

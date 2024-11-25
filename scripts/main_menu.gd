@@ -12,7 +12,7 @@ func _ready():
 	var save_dir: DirAccess = DirAccess.open('user://')
 	if not save_dir.file_exists('savedata/%s.dat' % SaveData.save_name):
 		Btn_LoadGame.disabled = true
-	InGameUI.enable(false)
+	InGameUI.enable(false, false)
 	handle_connecting_signals()
 	
 func on_option_pressed() -> void:
