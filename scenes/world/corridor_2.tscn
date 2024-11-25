@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dyhpmtx5irjvs" path="res://scenes/utils/scene_trigger.tscn" id="5_kf1pc"]
 [ext_resource type="PackedScene" uid="uid://crgbii6omcjwa" path="res://scenes/utils/dark_surrounding.tscn" id="6_qtvjb"]
 [ext_resource type="PackedScene" uid="uid://bhn1loo1rep3e" path="res://scenes/subviews/padlock_bedroom.tscn" id="9_ygusy"]
-[ext_resource type="PackedScene" uid="uid://cofh3k12emodh" path="res://scenes/subviews/padlock_office.tscn" id="10_ioc3a"]
+[ext_resource type="PackedScene" path="res://scenes/subviews/padlock_office.tscn" id="10_ioc3a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pqcpc"]
 size = Vector2(32, 16)
