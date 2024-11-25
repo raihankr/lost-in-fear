@@ -53,6 +53,7 @@ const NEW_GAME_TEMPLATE: Dictionary = {
 		'has_got_corridor_key': false,
 		'has_seen_evan': false,
 		'has_got_book': false,
+		'has_opened_toolbox': false,
 	},
 	'door_locked': {
 		'bedroom_1': true,

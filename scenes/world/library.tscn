@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://b6vnrbtumv3ym"]
+[gd_scene load_steps=15 format=4 uid="uid://b6vnrbtumv3ym"]
 
 [ext_resource type="PackedScene" uid="uid://cm2f40rvqfd66" path="res://scenes/utils/base_scene.tscn" id="1_m48m5"]
 [ext_resource type="PackedScene" uid="uid://crgbii6omcjwa" path="res://scenes/utils/dark_surrounding.tscn" id="2_1q55g"]
@@ -10,6 +10,7 @@
 [ext_resource type="TileSet" uid="uid://c5een44ke5r5i" path="res://resources/tilesets/item.tres" id="4_y1hgm"]
 [ext_resource type="Texture2D" uid="uid://c33jwcirmc2oy" path="res://assets/images/subviews/book_shelf2.png" id="5_6khit"]
 [ext_resource type="Texture2D" uid="uid://bo0tdj7chk1hi" path="res://assets/images/subviews/book_shelf4.png" id="6_5rodf"]
+[ext_resource type="PackedScene" uid="uid://duq7pw2lu0ukg" path="res://scenes/subviews/shelf.tscn" id="6_aahcq"]
 [ext_resource type="Texture2D" uid="uid://c1nf28ou601cn" path="res://assets/images/room/library_light.png" id="6_sh88v"]
 [ext_resource type="PackedScene" uid="uid://dyhpmtx5irjvs" path="res://scenes/utils/scene_trigger.tscn" id="7_871kx"]
 
@@ -43,6 +44,7 @@ region_rect = Rect2(4, 6, 44, 55)
 
 [node name="Shelf3" parent="StaticItems" index="2" instance=ExtResource("2_8w6a3")]
 position = Vector2(-40, 45)
+subview_scene = ExtResource("6_aahcq")
 
 [node name="Texture" parent="StaticItems/Shelf3" index="0"]
 position = Vector2(-1, -27)

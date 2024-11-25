@@ -1,6 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://bv00t7k51bsvv"]
+[gd_scene load_steps=3 format=3 uid="uid://bv00t7k51bsvv"]
 
 [ext_resource type="PackedScene" uid="uid://vvs6387ylf6v" path="res://scenes/subviews/padlock.tscn" id="1_icvot"]
+[ext_resource type="PackedScene" uid="uid://coibajos27v37" path="res://scenes/interfaces/padlock_slot_number.tscn" id="3_3otec"]
 
 [node name="Padlock" instance=ExtResource("1_icvot")]
 pin = Array[int]([5, 0, 5])
+
+[node name="Padlocks" parent="." index="3"]
+offset_left = -180.0
+offset_top = -121.0
+offset_right = 174.0
+offset_bottom = 233.0
+
+[node name="PadlockSlot" parent="Padlocks" index="0" instance=ExtResource("3_3otec")]
+layout_mode = 2
+
+[node name="PadlockSlot2" parent="Padlocks" index="1" instance=ExtResource("3_3otec")]
+layout_mode = 2
+
+[node name="PadlockSlot3" parent="Padlocks" index="2" instance=ExtResource("3_3otec")]
+layout_mode = 2

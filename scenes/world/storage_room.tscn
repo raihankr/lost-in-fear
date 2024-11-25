@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://duuxixlwg0dpo"]
+[gd_scene load_steps=12 format=4 uid="uid://duuxixlwg0dpo"]
 
 [ext_resource type="PackedScene" uid="uid://cm2f40rvqfd66" path="res://scenes/utils/base_scene.tscn" id="1_sklyd"]
 [ext_resource type="TileSet" uid="uid://befa8e1hqfteb" path="res://resources/tilesets/house.tres" id="2_r1e1b"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://dyhpmtx5irjvs" path="res://scenes/utils/scene_trigger.tscn" id="5_b8jr2"]
 [ext_resource type="Texture2D" uid="uid://3donkqmxcgm5" path="res://assets/images/room/window_light_ver2.png" id="5_xnwac"]
 [ext_resource type="PackedScene" uid="uid://crgbii6omcjwa" path="res://scenes/utils/dark_surrounding.tscn" id="7_6ooij"]
+[ext_resource type="PackedScene" uid="uid://nyk8cklnxqrq" path="res://scenes/entities/static_items/static_item.tscn" id="8_05622"]
+[ext_resource type="Script" path="res://scripts/entities/static_items/toolbox.gd" id="9_pw4as"]
+[ext_resource type="Texture2D" uid="uid://b7bpcjh0v8os3" path="res://assets/images/furniture/storage_room_items.png" id="10_1b25y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oy5fj"]
 size = Vector2(16, 8)
@@ -54,3 +57,18 @@ position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_oy5fj")
 
 [node name="DarkSurrounding" parent="." index="6" instance=ExtResource("7_6ooij")]
+
+[node name="Toolbox" parent="StaticItems" index="0" instance=ExtResource("8_05622")]
+position = Vector2(-12, 0)
+script = ExtResource("9_pw4as")
+
+[node name="Texture" parent="StaticItems/Toolbox" index="0"]
+position = Vector2(0, -24)
+texture = ExtResource("10_1b25y")
+region_enabled = true
+region_rect = Rect2(31, 10, 18, 13)
+
+[node name="CollisionShape2D" parent="StaticItems/Toolbox" index="1"]
+position = Vector2(0, -24)
+
+[editable path="StaticItems/Toolbox"]
