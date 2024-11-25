@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://lei8dm3snxsx"]
+[gd_scene load_steps=23 format=3 uid="uid://lei8dm3snxsx"]
 
 [ext_resource type="Script" path="res://autoloads/in_game_ui.gd" id="1_e4buu"]
 [ext_resource type="PackedScene" uid="uid://c5shebyloniit" path="res://scenes/interfaces/inventory_slot.tscn" id="2_n5s17"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scripts/interfaces/drop_button.gd" id="4_n70sf"]
 [ext_resource type="FontFile" uid="uid://bmuueyrplger6" path="res://assets/fonts/PixelOperator.ttf" id="5_a7tfm"]
 [ext_resource type="Texture2D" uid="uid://pbpevpycqd1g" path="res://assets/images/item/key.png" id="6_xs0vv"]
+[ext_resource type="PackedScene" uid="uid://6onope3m1r2f" path="res://scenes/interfaces/mobile_controls.tscn" id="7_5xn04"]
 [ext_resource type="PackedScene" uid="uid://h31bbt8d06ou" path="res://scenes/interfaces/pause_screen.tscn" id="7_8bg7x"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_flkpi"]
@@ -201,6 +202,8 @@ texture = ExtResource("6_xs0vv")
 stretch_mode = 5
 
 [node name="Timer" type="Timer" parent="InGameUI/CanvasLayer/ItemPopup"]
+
+[node name="MobileControls" parent="." instance=ExtResource("7_5xn04")]
 
 [node name="PauseScreen" parent="." instance=ExtResource("7_8bg7x")]
 visible = false

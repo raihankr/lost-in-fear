@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://6onope3m1r2f"]
+[gd_scene load_steps=5 format=3 uid="uid://6onope3m1r2f"]
 
 [ext_resource type="PackedScene" uid="uid://dl24dvxq0nkvm" path="res://scenes/interfaces/joystick.tscn" id="1_o2kv0"]
 [ext_resource type="Script" path="res://scripts/interfaces/mobile_controls.gd" id="1_xkge1"]
+[ext_resource type="Texture2D" uid="uid://b0wubecqqtlwl" path="res://assets/images/interfaces/in_game_ui.png" id="3_ib2mx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eigkr"]
+atlas = ExtResource("3_ib2mx")
+region = Rect2(5, 37, 22, 21)
+margin = Rect2(0, 0, 0.025, 0)
 
 [node name="MobileControls" type="CanvasLayer"]
 script = ExtResource("1_xkge1")
@@ -10,3 +16,12 @@ script = ExtResource("1_xkge1")
 unique_name_in_owner = true
 position = Vector2(64, 352)
 scale = Vector2(4, 4)
+
+[node name="PauseButton" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(50, 0.137)
+offset_left = 17.0
+offset_top = 11.0
+offset_right = 85.0
+offset_bottom = 70.0
+texture_normal = SubResource("AtlasTexture_eigkr")
+stretch_mode = 4
