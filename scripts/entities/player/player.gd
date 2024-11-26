@@ -21,7 +21,7 @@ const WALK_SOUND = {
 		walk_sound = value
 		$FootstepSound.stream = value
 
-@onready var joystick: TouchScreenButton = get_node_or_null('../MobileControls/Joystick') if OS.get_name() in ['Android', 'iOS'] else null
+@onready var joystick: TouchScreenButton = InGameUI.get_node_or_null('MobileControls/Joystick') if OS.get_name() in ['Android', 'iOS'] else null
 @onready var animation: AnimatedSprite2D = %Animation
 @onready var vision: PointLight2D = %Vision
 @onready var state_machine: StateMachine = %StateMachine
@@ -63,6 +63,7 @@ func _process(delta):
 			'Android', 'iOS':
 				head_rotation = joystick.joystick_angle
 				speed = joystick.get_joystick_dir().length()
+				print(speed)
 			'Windows', 'macOS':
 				if Input.is_action_pressed('move_left'):
 					speed = 1

@@ -90,8 +90,9 @@ func load_inventory() -> void:
 	inventory = SaveData.data.inventory
 	inventory_changed.emit(inventory)
 
-func show_image_subview(texture: Texture, subview_data: Dictionary = {}, texture_data: Dictionary = {}):
+func show_image_subview(texture: Texture, touch_anywhere: bool = false, subview_data: Dictionary = {}, texture_data: Dictionary = {}):
 	var subview: CanvasLayer = IMAGE_SUBVIEW.instantiate()
+	subview.touch_anywhere_to_close = touch_anywhere
 	subview.find_child('Texture').texture = texture
 	if texture_data.size() > 0:
 		for prop in texture_data.keys():
