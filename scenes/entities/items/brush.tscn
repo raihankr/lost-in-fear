@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://djkb8oflgw8g"]
+
+[ext_resource type="PackedScene" uid="uid://bmhjbjoidveuv" path="res://scenes/entities/items/item.tscn" id="1_m4okw"]
+[ext_resource type="Texture2D" uid="uid://mqjo3k85eo8u" path="res://assets/images/item/brush.png" id="2_82pxu"]
+
+[node name="Brush" instance=ExtResource("1_m4okw")]
+item_name = "Kuas"
+
+[node name="Texture" parent="." index="0"]
+scale = Vector2(0.545455, 0.545455)
+texture = ExtResource("2_82pxu")

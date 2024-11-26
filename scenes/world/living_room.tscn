@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://cc51ll4dcyqfw"]
+[gd_scene load_steps=26 format=4 uid="uid://cc51ll4dcyqfw"]
 
 [ext_resource type="PackedScene" uid="uid://cm2f40rvqfd66" path="res://scenes/utils/base_scene.tscn" id="1_g05sf"]
 [ext_resource type="Script" path="res://scripts/world/living_room.gd" id="2_k4ibl"]
@@ -9,7 +9,14 @@
 [ext_resource type="Texture2D" uid="uid://bfrqu7jfrejti" path="res://assets/images/room/window_light_ver1.png" id="7_3dxyk"]
 [ext_resource type="PackedScene" uid="uid://crgbii6omcjwa" path="res://scenes/utils/dark_surrounding.tscn" id="7_byxc2"]
 [ext_resource type="PackedScene" uid="uid://dyhpmtx5irjvs" path="res://scenes/utils/scene_trigger.tscn" id="8_ee8x5"]
-[ext_resource type="PackedScene" uid="uid://c0aoevngqdlws" path="res://scenes/entities/static_items/newspaper.tscn" id="11_5nhmo"]
+[ext_resource type="PackedScene" uid="uid://nyk8cklnxqrq" path="res://scenes/entities/static_items/static_item.tscn" id="11_7k5lm"]
+[ext_resource type="PackedScene" uid="uid://c6idgvlvkyp01" path="res://scenes/subviews/shelf_key.tscn" id="12_hghpa"]
+[ext_resource type="Texture2D" uid="uid://d3u51eoj1rl2e" path="res://assets/images/subviews/newspaper.png" id="13_jac1m"]
+[ext_resource type="Texture2D" uid="uid://dasw1pqldmjn0" path="res://assets/images/furniture/furniture5.png" id="13_v1h7q"]
+[ext_resource type="Resource" uid="uid://kj5f17tulgih" path="res://dialogues/living_room.dialogue" id="14_b7w2k"]
+[ext_resource type="Texture2D" uid="uid://ct7kguiqf0qsh" path="res://assets/images/item/newspaper.png" id="14_ig3tm"]
+[ext_resource type="Texture2D" uid="uid://b70bjyqs5hl8u" path="res://assets/images/item/gift.png" id="16_55pyu"]
+[ext_resource type="Texture2D" uid="uid://bkdla1va37f4r" path="res://assets/images/subviews/gift.png" id="16_jtev2"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4x3k3"]
 
@@ -31,8 +38,11 @@ size = Vector2(8, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lnf8s"]
 size = Vector2(48, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2ttx"]
+atlas = ExtResource("13_v1h7q")
+region = Rect2(0, 18, 32, 30)
+
 [node name="LivingRoom" instance=ExtResource("1_g05sf")]
-y_sort_enabled = true
 script = ExtResource("2_k4ibl")
 
 [node name="Map" type="CanvasGroup" parent="." index="3"]
@@ -49,7 +59,7 @@ tile_set = ExtResource("3_xuw80")
 y_sort_enabled = true
 material = SubResource("CanvasItemMaterial_4x3k3")
 position = Vector2(200, 248)
-tile_map_data = PackedByteArray("AAALAA0AAAACAAAAABAPAAoAAAAKAAQAAAAUAAYAAAAGAAcAAAAQAAYAAAAFAAoAAAAOAAYAAAAJAAoAAAAJAAkAAAAJAAQAAAAJAAoAAAADAAcAAAARAAoAAAACAAMAAAAEAPz/AAAEAAcAAAAAAPz/BAAAAAAAAAD+//z/BgAAAAEAAAD/////AAALAAcAAAAAAP//BgAAAAMAAAD+/wMABgADAAEAAAAAAAMAAgALAAAAAAAIAPv/BgAAAAAAAAAGAPv/AAACAAcAAAAGAPn/AAAGAAcAAAAKAPn/AAAAAAAAAAAAAAAAAAABAAoAAAALAP7/AAAJAAQAABAFAAMAAAACAAcAABAQAAoAAAAAAAYAAAAQAAkAAAAAAAUAAAAQAAgAAAAAAAQAAAARAAgAAAABAAQAAAARAAkAAAABAAUAAAASAAoAAAAKAAQAAQAUAAoAAAAAAAwAAgA=")
+tile_map_data = PackedByteArray("AAALAA0AAAACAAAAABAPAAoAAAAKAAQAAAAUAAYAAAAGAAcAAAAQAAYAAAAFAAoAAAAOAAYAAAAJAAoAAAARAAoAAAACAAMAAAAEAPz/AAAEAAcAAAAAAPz/BAAAAAAAAAD+//z/BgAAAAEAAAD/////AAALAAcAAAAAAP//BgAAAAMAAAD+/wMABgADAAEAAAAAAAMAAgALAAAAAAAIAPv/BgAAAAAAAAAGAPv/AAACAAcAAAAGAPn/AAAGAAcAAAAKAPn/AAAAAAAAAAAAAAAAAAABAAoAAAALAP7/AAAJAAQAABAFAAMAAAACAAcAABAQAAoAAAAAAAYAAAAQAAkAAAAAAAUAAAAQAAgAAAAAAAQAAAARAAgAAAABAAQAAAARAAkAAAABAAUAAAASAAoAAAAKAAQAAQAUAAoAAAAAAAwAAgAJAAoAAAADAAcAAAAJAAkAAAAJAAQAAAA=")
 tile_set = ExtResource("4_lh7od")
 
 [node name="SmallItem" type="TileMapLayer" parent="Map" index="2"]
@@ -68,7 +78,9 @@ shape = SubResource("RectangleShape2D_077wk")
 [node name="BedroomEntry" parent="Map" index="4" instance=ExtResource("8_ee8x5")]
 position = Vector2(400, 168)
 connected_scene = "res://scenes/world/bedroom_1.tscn"
+room_name = "Kamar"
 id = "bedroom_1"
+key = "bedroom_key"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/BedroomEntry" index="0"]
 position = Vector2(4, 0)
@@ -94,6 +106,9 @@ shape = SubResource("RectangleShape2D_hei2r")
 [node name="CorridorEntry" parent="Map" index="7" instance=ExtResource("8_ee8x5")]
 position = Vector2(160, 264)
 connected_scene = "res://scenes/world/corridor_1.tscn"
+room_name = "Koridor"
+id = "corridor_1"
+key = "corridor_key"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/CorridorEntry" index="0"]
 position = Vector2(-4, 0)
@@ -147,7 +162,37 @@ position = Vector2(232, 304)
 [node name="Corridor" type="Marker2D" parent="EntranceMarkers" index="5"]
 position = Vector2(176, 264)
 
-[node name="Newspaper" parent="StaticItems" index="0" instance=ExtResource("11_5nhmo")]
+[node name="ShelfKey" parent="StaticItems" index="0" instance=ExtResource("11_7k5lm")]
+position = Vector2(-152, -80)
+subview_scene = ExtResource("12_hghpa")
+
+[node name="Texture" parent="StaticItems/ShelfKey" index="0"]
+position = Vector2(0, -16)
+texture = SubResource("AtlasTexture_j2ttx")
+region_rect = Rect2(0, 16, 32, 32)
+
+[node name="CollisionShape2D" parent="StaticItems/ShelfKey" index="1"]
+position = Vector2(0, -16)
+
+[node name="Newspaper" parent="StaticItems" index="1" instance=ExtResource("11_7k5lm")]
 position = Vector2(128, 120)
+subview_image = ExtResource("13_jac1m")
+dialogue = ExtResource("14_b7w2k")
+dialogue_title = "found_newspaper"
+
+[node name="Texture" parent="StaticItems/Newspaper" index="0"]
+texture = ExtResource("14_ig3tm")
+
+[node name="Gift" parent="StaticItems" index="2" instance=ExtResource("11_7k5lm")]
+position = Vector2(-103.634, -59.8788)
+subview_image = ExtResource("16_jtev2")
+
+[node name="Texture" parent="StaticItems/Gift" index="0"]
+scale = Vector2(0.704235, 0.704235)
+texture = ExtResource("16_55pyu")
 
 [connection signal="body_entered" from="Map/Doorway" to="." method="_on_doorway_body_entered"]
+
+[editable path="StaticItems/ShelfKey"]
+[editable path="StaticItems/Newspaper"]
+[editable path="StaticItems/Gift"]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cw3ei7nx407gd"]
+
+[ext_resource type="PackedScene" uid="uid://bmhjbjoidveuv" path="res://scenes/entities/items/item.tscn" id="1_scrxg"]
+[ext_resource type="Texture2D" uid="uid://b166p1lqtuxco" path="res://assets/images/item/brush_grape_juice.png" id="2_7pfq6"]
+
+[node name="Item" instance=ExtResource("1_scrxg")]
+item_name = "Kuas & Jus Anggur"
+
+[node name="Texture" parent="." index="0"]
+scale = Vector2(0.454545, 0.454545)
+texture = ExtResource("2_7pfq6")

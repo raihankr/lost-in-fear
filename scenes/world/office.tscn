@@ -1,12 +1,76 @@
-[gd_scene load_steps=6 format=4 uid="uid://b0132agfeoq0o"]
+[gd_scene load_steps=20 format=4 uid="uid://b0132agfeoq0o"]
 
 [ext_resource type="PackedScene" uid="uid://cm2f40rvqfd66" path="res://scenes/utils/base_scene.tscn" id="1_1jxrr"]
 [ext_resource type="PackedScene" uid="uid://crgbii6omcjwa" path="res://scenes/utils/dark_surrounding.tscn" id="2_3a2rx"]
+[ext_resource type="PackedScene" uid="uid://cfqtcln25utjk" path="res://scenes/entities/static_items/dynamic_note.tscn" id="2_4l1jp"]
+[ext_resource type="PackedScene" uid="uid://nyk8cklnxqrq" path="res://scenes/entities/static_items/static_item.tscn" id="2_xkv6j"]
+[ext_resource type="Texture2D" uid="uid://tnwx8xtuqsdn" path="res://assets/images/subviews/wedding_photo.png" id="3_2eaw7"]
+[ext_resource type="Texture2D" uid="uid://clrwqrj3epxp1" path="res://assets/images/item/foto_topdownpng.png" id="3_h1p18"]
 [ext_resource type="TileSet" uid="uid://befa8e1hqfteb" path="res://resources/tilesets/house.tres" id="3_hd6r8"]
 [ext_resource type="TileSet" uid="uid://b4m7u4qm5jhrv" path="res://resources/tilesets/furniture.tres" id="4_mn8b4"]
 [ext_resource type="TileSet" uid="uid://c5een44ke5r5i" path="res://resources/tilesets/item.tres" id="5_en6vd"]
+[ext_resource type="Texture2D" uid="uid://byrs64ayevn3x" path="res://assets/images/item/lawyerscard.png" id="6_2foyj"]
+[ext_resource type="PackedScene" uid="uid://dyhpmtx5irjvs" path="res://scenes/utils/scene_trigger.tscn" id="6_5k6h5"]
+[ext_resource type="Texture2D" uid="uid://d0ldbrsc3duex" path="res://assets/images/subviews/lawyerscard.png" id="6_e1iue"]
+[ext_resource type="Texture2D" uid="uid://b1er0gg53r2l0" path="res://assets/images/room/light_office_1.png" id="7_k07bk"]
+[ext_resource type="Texture2D" uid="uid://cj8xd0hvddob1" path="res://assets/images/subviews/windows_closeup_1.png" id="8_gbpca"]
+[ext_resource type="Texture2D" uid="uid://cvhetnbbi15ju" path="res://assets/images/room/light_office_2.png" id="8_sem1n"]
+[ext_resource type="Resource" uid="uid://r87csnqg6i2s" path="res://dialogues/office.dialogue" id="9_0wg6u"]
+[ext_resource type="Texture2D" uid="uid://bo4iylxmldapt" path="res://assets/images/item/window_trigger.png" id="10_3xgaj"]
+[ext_resource type="PackedScene" uid="uid://bfy5en2l7fqhw" path="res://scenes/subviews/window.tscn" id="11_ff3y8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s86xb"]
+size = Vector2(16, 8)
 
 [node name="Office" instance=ExtResource("1_1jxrr")]
+
+[node name="Corridor" type="Marker2D" parent="EntranceMarkers" index="0"]
+position = Vector2(-24, -11)
+
+[node name="Weddingphoto" parent="StaticItems" index="0" instance=ExtResource("2_xkv6j")]
+z_index = 1
+position = Vector2(-24, 40)
+subview_image = ExtResource("3_2eaw7")
+
+[node name="Texture" parent="StaticItems/Weddingphoto" index="0"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_h1p18")
+
+[node name="CollisionShape2D" parent="StaticItems/Weddingphoto" index="1"]
+scale = Vector2(0.7, 0.7)
+
+[node name="DynamicNote" parent="StaticItems" index="1" instance=ExtResource("2_4l1jp")]
+position = Vector2(72, 56)
+text = "Untuk Mia dan Monika,
+
+Ayah minta maaf sudah terlalu sibuk. Sekarang Ayah berhenti jadi pengacara dan akan jadi pengajar. Kita akan pindah ke kota sebelah, ke rumah yang lebih kecil dan nyaman, supaya kita bisa mulai hidup baru, lebih banyak waktu bersama.
+
+-Ayah.
+"
+
+[node name="lawyerscard" parent="StaticItems" index="2" instance=ExtResource("2_xkv6j")]
+position = Vector2(-88, 8)
+subview_image = ExtResource("6_e1iue")
+
+[node name="Texture" parent="StaticItems/lawyerscard" index="0"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_2foyj")
+
+[node name="WindowLocked" parent="StaticItems" index="3" instance=ExtResource("2_xkv6j")]
+position = Vector2(-84, 93)
+subview_image = ExtResource("8_gbpca")
+dialogue = ExtResource("9_0wg6u")
+dialogue_title = "locked_window"
+
+[node name="Texture" parent="StaticItems/WindowLocked" index="0"]
+texture = ExtResource("10_3xgaj")
+
+[node name="WindowLocked2" parent="StaticItems" index="4" instance=ExtResource("2_xkv6j")]
+position = Vector2(30, 93)
+subview_scene = ExtResource("11_ff3y8")
+
+[node name="Texture" parent="StaticItems/WindowLocked2" index="0"]
+texture = ExtResource("10_3xgaj")
 
 [node name="DarkSurrounding" parent="." index="7" instance=ExtResource("2_3a2rx")]
 
@@ -20,10 +84,32 @@ tile_set = ExtResource("3_hd6r8")
 
 [node name="Furniture" type="TileMapLayer" parent="Map" index="1"]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAD4////BQAAAAMAAAD8////BQAGAAEAAAD8//3/BQAAAAAAAAD/////BQACAAAAAAACAP//BQACAAAAAAADAAAABQAEAAgAAAACAAAABQABAAIAAAAEAAEABQACAAkAAAAEAAIABQACAAoAAAD8/wQABQAAAAwAAAD9/wMABQAAAAYAAAD+/wQABQAAAAkAAAA=")
+tile_map_data = PackedByteArray("AAD4////BQAAAAMAAAD8////BQAGAAEAAAD8//3/BQAAAAAAAAD/////BQACAAAAAAACAP//BQACAAAAAAADAAAABQAEAAgAAAACAAAABQABAAIAAAAEAAEABQACAAkAAAAEAAIABQACAAoAAAD8/wQABQAAAAwAAAD9/wMABQAAAAYAAAD+/wQABQAAAAkAAAD4/wQABQAFAAMAAAD4/wUABQAFAAEAAAAAAPz/BQAHAAMAAAA=")
 tile_set = ExtResource("4_mn8b4")
 
 [node name="SmallItem" type="TileMapLayer" parent="Map" index="2"]
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AADx//n/AQAAAAEAAAD0//n/AQABAAEAAAA=")
 tile_set = ExtResource("5_en6vd")
+
+[node name="CorridorEntry" parent="Map" index="3" instance=ExtResource("6_5k6h5")]
+connected_scene = "res://scenes/world/corridor_2.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/CorridorEntry" index="0"]
+position = Vector2(-24, -28)
+shape = SubResource("RectangleShape2D_s86xb")
+
+[node name="PointLight2D" type="PointLight2D" parent="." index="9"]
+position = Vector2(-18, 11)
+energy = 4.0
+texture = ExtResource("7_k07bk")
+
+[node name="PointLight2D2" type="PointLight2D" parent="." index="10"]
+position = Vector2(-32, 16)
+energy = 5.0
+texture = ExtResource("8_sem1n")
+
+[editable path="StaticItems/Weddingphoto"]
+[editable path="StaticItems/lawyerscard"]
+[editable path="StaticItems/WindowLocked"]
+[editable path="StaticItems/WindowLocked2"]

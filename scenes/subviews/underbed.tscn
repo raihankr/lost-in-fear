@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cq2pl6vi4gpto"]
+
+[ext_resource type="PackedScene" uid="uid://3e04ua3x5jpm" path="res://scenes/subviews/image_subview.tscn" id="1_ioas8"]
+[ext_resource type="Texture2D" uid="uid://cldakpv7yccwa" path="res://assets/images/subviews/underbed.png" id="2_m4uep"]
+[ext_resource type="PackedScene" uid="uid://ct1bnavudyt6i" path="res://scenes/entities/touch_item.tscn" id="3_hgv5b"]
+[ext_resource type="Texture2D" uid="uid://pres747qqo37" path="res://assets/images/touch_items/underbed_key.png" id="4_00yxd"]
+
+[node name="Subview" instance=ExtResource("1_ioas8")]
+
+[node name="Texture" parent="." index="1"]
+texture = ExtResource("2_m4uep")
+
+[node name="TouchItem" parent="Texture" index="0" instance=ExtResource("3_hgv5b")]
+layout_mode = 1
+offset_left = -23.0
+offset_top = 149.0
+offset_right = 96.0
+offset_bottom = 222.0
+texture_normal = ExtResource("4_00yxd")
+item_id = "corridor_key"
+item_icon = "res://assets/images/item/key.png"
+item_name = "Kunci Koridor"
+event_name = "has_got_corridor_key"

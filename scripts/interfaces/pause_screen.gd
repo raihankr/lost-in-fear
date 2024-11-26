@@ -7,12 +7,7 @@ extends CanvasLayer
 @onready var options_menu: Control = $Options_Menu
 
 func _ready():
-	BtnResume.pressed.connect(on_resume_pressed)
-	BtnOptions.pressed.connect(on_options_pressed)
-	BtnExit.pressed.connect(on_exit_pressed)
-	
 	options_menu.z_index = 10
-	add_child(options_menu)
 	
 func toggle_pause_menu():
 	if visible:
@@ -24,16 +19,17 @@ func toggle_pause_menu():
 		
 func on_resume_pressed():
 	toggle_pause_menu()
-	
+
 func on_options_pressed():
 	options_menu.show()
-	
-func on_exit_pressed():
-	pass
-	
-func btn_click():
-	$MenuSelectionClick	.play()
 
+func on_exit_pressed():
+	SaveData.save_data()
+	get_tree().change_scene_to_file('res://main.tscn')
+	toggle_pause_menu()
+
+func btn_click():
+	$MenuSelectionClick.play()
 
 func _on_btn_exit_pressed() -> void:
 	options_menu.hide()

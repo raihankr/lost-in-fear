@@ -1,0 +1,114 @@
+[gd_scene load_steps=7 format=3 uid="uid://h31bbt8d06ou"]
+
+[ext_resource type="Script" path="res://scripts/interfaces/pause_screen.gd" id="1_lso35"]
+[ext_resource type="FontFile" uid="uid://b6avu6ubekbr7" path="res://assets/fonts/N8ghtmare.ttf" id="1_m20d7"]
+[ext_resource type="AudioStream" uid="uid://cl0bw4hpuo4kj" path="res://assets/audios/Menu Selection Click.wav" id="3_f68t8"]
+[ext_resource type="PackedScene" uid="uid://cgtbmb7473klg" path="res://scenes/options_menu.tscn" id="4_hbab6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x0h55"]
+bg_color = Color(0.442036, 0.453908, 0.451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u4i04"]
+bg_color = Color(0.334122, 0.334122, 0.334122, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+
+[node name="PauseScreen" type="CanvasLayer"]
+process_mode = 3
+layer = 110
+script = ExtResource("1_lso35")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Overlay" type="PanelContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 450.0
+offset_top = 177.0
+offset_right = -452.0
+offset_bottom = -175.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.000833625
+theme_override_styles/panel = SubResource("StyleBoxFlat_x0h55")
+
+[node name="PauseMenuContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="PauseMenuContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_u4i04")
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseMenuContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Rows" type="VBoxContainer" parent="PauseMenuContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="PauseLabel" type="Label" parent="PauseMenuContainer/PanelContainer/MarginContainer/Rows"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_m20d7")
+theme_override_font_sizes/font_size = 55
+text = "Pause"
+
+[node name="HSeparator" type="HSeparator" parent="PauseMenuContainer/PanelContainer/MarginContainer/Rows"]
+layout_mode = 2
+
+[node name="BtnResume" type="Button" parent="PauseMenuContainer/PanelContainer/MarginContainer/Rows"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.900705, 0.900705, 0.900705, 1)
+text = "Resume"
+
+[node name="BtnOptions" type="Button" parent="PauseMenuContainer/PanelContainer/MarginContainer/Rows"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.900705, 0.900705, 0.900705, 1)
+text = "Options"
+
+[node name="BtnExit" type="Button" parent="PauseMenuContainer/PanelContainer/MarginContainer/Rows"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.900705, 0.900705, 0.900705, 1)
+text = "Exit"
+
+[node name="MenuSelectionClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_f68t8")
+
+[node name="Options_Menu" parent="." instance=ExtResource("4_hbab6")]
+visible = false
+
+[connection signal="pressed" from="PauseMenuContainer/PanelContainer/MarginContainer/Rows/BtnResume" to="." method="on_resume_pressed"]
+[connection signal="pressed" from="PauseMenuContainer/PanelContainer/MarginContainer/Rows/BtnResume" to="." method="btn_click"]
+[connection signal="pressed" from="PauseMenuContainer/PanelContainer/MarginContainer/Rows/BtnOptions" to="." method="on_options_pressed"]
+[connection signal="pressed" from="PauseMenuContainer/PanelContainer/MarginContainer/Rows/BtnOptions" to="." method="btn_click"]
+[connection signal="pressed" from="PauseMenuContainer/PanelContainer/MarginContainer/Rows/BtnExit" to="." method="on_exit_pressed"]
+[connection signal="pressed" from="PauseMenuContainer/PanelContainer/MarginContainer/Rows/BtnExit" to="." method="btn_click"]
+[connection signal="pressed" from="Options_Menu/MarginContainer/VBoxContainer/Btn_Exit" to="." method="_on_btn_exit_pressed"]
+
+[editable path="Options_Menu"]

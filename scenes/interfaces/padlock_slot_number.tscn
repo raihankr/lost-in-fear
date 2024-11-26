@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://coibajos27v37"]
+
+[ext_resource type="PackedScene" uid="uid://dkwg2a3rura6p" path="res://scenes/interfaces/padlock_slot.tscn" id="1_jephg"]
+[ext_resource type="Script" path="res://scripts/interfaces/padlock_slot_number.gd" id="2_vwf16"]
+[ext_resource type="Texture2D" uid="uid://bvt8ritpv42n0" path="res://assets/images/subviews/padlock.png" id="3_86htn"]
+[ext_resource type="FontFile" uid="uid://bmuueyrplger6" path="res://assets/fonts/PixelOperator.ttf" id="3_dc4xt"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x83cb"]
+texture = ExtResource("3_86htn")
+region_rect = Rect2(8, 23, 11, 18)
+
+[sub_resource type="LabelSettings" id="LabelSettings_00blh"]
+font = ExtResource("3_dc4xt")
+font_size = 124
+font_color = Color(0, 0, 0, 1)
+
+[node name="PadlockSlot" instance=ExtResource("1_jephg")]
+offset_left = -53.0
+offset_top = -160.0
+offset_right = 53.0
+offset_bottom = 160.0
+script = ExtResource("2_vwf16")
+
+[node name="UpBtn" parent="." index="0"]
+toggle_mode = true
+
+[node name="Display" type="Label" parent="." index="1"]
+custom_minimum_size = Vector2(0, 174)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_x83cb")
+label_settings = SubResource("LabelSettings_00blh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="value_changed" from="." to="." method="_on_value_changed"]
+[connection signal="pressed" from="UpBtn" to="." method="_on_up_btn_pressed"]

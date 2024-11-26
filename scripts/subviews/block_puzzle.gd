@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Subview
 
 @onready var target: Area2D = %Target
 @onready var main_block: CharacterBody2D = %MainBlock
@@ -22,7 +22,6 @@ func _ready():
 	else:
 		main_block.hide()
 		DialogueManager.show_dialogue_balloon(dialogue, 'uncomplete_puzzle')
-		SaveData.data.events.has_put_the_missing_block_puzzle = true
 
 func _on_target_body_entered(body: Node):
 	if body.is_in_group('main_block'):

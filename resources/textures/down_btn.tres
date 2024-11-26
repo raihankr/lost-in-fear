@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://b5ba4nx1jh0ee"]
+
+[ext_resource type="Texture2D" uid="uid://bvt8ritpv42n0" path="res://assets/images/subviews/padlock.png" id="1_kojao"]
+
+[resource]
+atlas = ExtResource("1_kojao")
+region = Rect2(100, 31, 9, 6)

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cq104now0ohng"]
+
+[ext_resource type="PackedScene" uid="uid://bw2sxt8kjl6ij" path="res://scenes/entities/items/key.tscn" id="1_ee1yi"]
+
+[node name="Key" instance=ExtResource("1_ee1yi")]
+item_name = "Kunci Kamar"
