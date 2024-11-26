@@ -135,11 +135,11 @@ stream = ExtResource("4_xsja3")
 visible = false
 layout_mode = 1
 
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Btn_NewGame" to="." method="btn_click"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Btn_NewGame" to="." method="_on_start_game_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Btn_LoadGame" to="." method="btn_click"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Btn_NewGame" to="." method="btn_click"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Btn_LoadGame" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Btn_Options" to="." method="btn_click"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Btn_LoadGame" to="." method="btn_click"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Btn_Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Btn_Quit" to="." method="btn_click"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Btn_Options" to="." method="btn_click"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Btn_Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Btn_Quit" to="." method="btn_click"]
