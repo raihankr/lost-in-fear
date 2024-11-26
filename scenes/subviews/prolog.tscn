@@ -48,7 +48,7 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": ["Tepat di pinggiran kota, terdapat sebuah rumah tua yang telah lama kosong. 
-rumah itu tampak terbengkalai, dengan halaman yang kumuh dan jendela yang rusak. 
+r	umah itu tampak terbengkalai, dengan halaman yang kumuh dan jendela yang rusak. 
 Tidak ada tanda bahwa rumah tersebut berpenghuni. 
 ", "Suatu hari, seorang kurir bernama Angga datang untuk mengantarkan paket ke rumah tersebut.
 Tanpa mengetahui apa yang nantinya akan terjadi padanya, ia melangkah
