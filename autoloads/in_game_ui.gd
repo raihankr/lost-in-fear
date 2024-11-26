@@ -18,6 +18,9 @@ func _shortcut_input(event: InputEvent):
 func enable(enable: bool, show_inventory: bool = true):
 	visible = enable
 	set_process(enable)
+	if is_instance_valid(MobileControls):
+		MobileControls.visible = enable
+		MobileControls.set_process(enable)
 	inventory_slots.visible = show_inventory
 
 func update_inventory(inventory: Array):
