@@ -40,6 +40,7 @@ _data = {
 }
 
 [node name="BaseScene" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_nm1ig")
 
 [node name="SceneTransition" type="AnimationPlayer" parent="."]
@@ -70,3 +71,7 @@ position_smoothing_enabled = true
 script = ExtResource("2_ygadf")
 
 [node name="Items" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="StaticItems" type="Node2D" parent="."]
+y_sort_enabled = true

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1xlbocr6wf0l"]
+
+[ext_resource type="PackedScene" uid="uid://bmhjbjoidveuv" path="res://scenes/entities/items/item.tscn" id="1_74spy"]
+[ext_resource type="Texture2D" uid="uid://b4usng3s3ob35" path="res://assets/images/item/pliers.png" id="2_01jqj"]
+
+[node name="Pliers" instance=ExtResource("1_74spy")]
+item_name = "Tang"
+
+[node name="Texture" parent="." index="0"]
+scale = Vector2(0.727273, 0.727273)
+texture = ExtResource("2_01jqj")

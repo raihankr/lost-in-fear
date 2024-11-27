@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkwg2a3rura6p"]
+
+[ext_resource type="Texture2D" uid="uid://bhkqqbtuvulgg" path="res://resources/textures/up_btn.tres" id="1_hedju"]
+[ext_resource type="Script" path="res://scripts/interfaces/padlock_slot.gd" id="1_n8u0i"]
+[ext_resource type="Texture2D" uid="uid://b5ba4nx1jh0ee" path="res://resources/textures/down_btn.tres" id="2_7f2rd"]
+
+[node name="PadlockSlot" type="VBoxContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -42.0
+offset_right = 36.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+script = ExtResource("1_n8u0i")
+value = 0
+min = 0
+
+[node name="UpBtn" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(106, 70)
+layout_mode = 2
+action_mode = 0
+texture_normal = ExtResource("1_hedju")
+stretch_mode = 5
+
+[node name="DownBtn" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(106, 70)
+layout_mode = 2
+action_mode = 0
+texture_normal = ExtResource("2_7f2rd")
+stretch_mode = 5
+
+[connection signal="pressed" from="UpBtn" to="." method="next_digit"]
+[connection signal="pressed" from="DownBtn" to="." method="previous_digit"]

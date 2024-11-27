@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://5a5nohfwyk80"]
+
+[ext_resource type="PackedScene" uid="uid://bmhjbjoidveuv" path="res://scenes/entities/items/item.tscn" id="1_r3803"]
+[ext_resource type="Texture2D" uid="uid://dw1kc8rer004o" path="res://assets/images/item/written-note.png" id="2_gtiko"]
+
+[node name="StorageHint" instance=ExtResource("1_r3803")]
+
+[node name="Texture" parent="." index="0"]
+scale = Vector2(0.727273, 0.727273)
+texture = ExtResource("2_gtiko")

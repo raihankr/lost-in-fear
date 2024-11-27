@@ -8,11 +8,13 @@ var animations: Array[String] = [
 	'walk_back'
 ]
 var idle: String = IDLE
+var vision_style: int = player.VisionStyle.NONE
 var target_position: Variant = null
 var initial_speed: int
 
 func enter(previous_state_path, data := {}):
 	initial_speed = player.move_speed
+	player.vision_style = vision_style
 	player.animation.play()
 	if data.has('target_position') and data.target_position is Vector2:
 		target_position = data.target_position

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bowtwo0uq0qlx"]
+
+[ext_resource type="PackedScene" uid="uid://bmhjbjoidveuv" path="res://scenes/entities/items/item.tscn" id="1_yvcpy"]
+[ext_resource type="Texture2D" uid="uid://so6tfxfd0neo" path="res://assets/images/item/rope.png" id="2_nq8dl"]
+
+[node name="Rope" instance=ExtResource("1_yvcpy")]
+item_name = "Tali"
+
+[node name="Texture" parent="." index="0"]
+scale = Vector2(0.909091, 0.909091)
+texture = ExtResource("2_nq8dl")

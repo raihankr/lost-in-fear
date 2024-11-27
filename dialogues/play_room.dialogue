@@ -1,0 +1,16 @@
+~ first_visit
+Angga: Ini... ruangan main anak-anak?
+=> END
+~ uncomplete_puzzle
+Angga: Puzzle-nya tidak lengkap.
+Angga: Ada satu bagian yang hilang. Sepertinya... ini bukan sekedar mainan biasa.
+=> END
+~ puzzle_completed
+Angga: Sudah selesai... ini dia, akhirnya!
+=> END
+~ puzzle_had_completed
+Angga: Aku sudah menyelesaikan puzzle ini.
+=> END
+~ block_castle
+if SaveData.data.events.has_seen_kids_bedroom
+	Angga: Bentuk-bentuk balok ini rasanya tidak asing...

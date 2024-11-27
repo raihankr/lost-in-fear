@@ -1,15 +1,14 @@
 [gd_scene load_steps=2 format=3 uid="uid://bsf8pmncbtxrw"]
 
-[ext_resource type="VideoStream" path="res://assets/videos/finalll (1).ogv" id="1_7igpw"]
+[ext_resource type="Script" path="res://scripts/interfaces/video_player.gd" id="1_tsnes"]
 
-[node name="VideoPlayer" type="VideoStreamPlayer"]
+[node name="Video" type="VideoStreamPlayer"]
+z_index = 80
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-stream = ExtResource("1_7igpw")
 autoplay = true
 expand = true
-loop = true
-buffering_msec = 1000
+script = ExtResource("1_tsnes")

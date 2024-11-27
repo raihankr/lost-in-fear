@@ -1,0 +1,101 @@
+[gd_scene load_steps=15 format=4 uid="uid://b6vnrbtumv3ym"]
+
+[ext_resource type="PackedScene" uid="uid://cm2f40rvqfd66" path="res://scenes/utils/base_scene.tscn" id="1_m48m5"]
+[ext_resource type="PackedScene" uid="uid://crgbii6omcjwa" path="res://scenes/utils/dark_surrounding.tscn" id="2_1q55g"]
+[ext_resource type="PackedScene" uid="uid://nyk8cklnxqrq" path="res://scenes/entities/static_items/static_item.tscn" id="2_8w6a3"]
+[ext_resource type="TileSet" uid="uid://befa8e1hqfteb" path="res://resources/tilesets/house.tres" id="2_fqfb8"]
+[ext_resource type="TileSet" uid="uid://b4m7u4qm5jhrv" path="res://resources/tilesets/furniture.tres" id="3_6q6uo"]
+[ext_resource type="Texture2D" uid="uid://d3bj1x7r3bhs2" path="res://assets/images/subviews/book_shelf1.png" id="3_wapgh"]
+[ext_resource type="Texture2D" uid="uid://dx12gn8utra5w" path="res://assets/images/furniture/library_asset.png" id="4_gcvpd"]
+[ext_resource type="TileSet" uid="uid://c5een44ke5r5i" path="res://resources/tilesets/item.tres" id="4_y1hgm"]
+[ext_resource type="Texture2D" uid="uid://c33jwcirmc2oy" path="res://assets/images/subviews/book_shelf2.png" id="5_6khit"]
+[ext_resource type="Texture2D" uid="uid://bo0tdj7chk1hi" path="res://assets/images/subviews/book_shelf4.png" id="6_5rodf"]
+[ext_resource type="PackedScene" path="res://scenes/subviews/shelf.tscn" id="6_aahcq"]
+[ext_resource type="Texture2D" uid="uid://c1nf28ou601cn" path="res://assets/images/room/library_light.png" id="6_sh88v"]
+[ext_resource type="PackedScene" uid="uid://dyhpmtx5irjvs" path="res://scenes/utils/scene_trigger.tscn" id="7_871kx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jx5d5"]
+size = Vector2(16, 8)
+
+[node name="Library" instance=ExtResource("1_m48m5")]
+
+[node name="Marker2D" type="Marker2D" parent="EntranceMarkers" index="0"]
+position = Vector2(72, -24)
+
+[node name="Shelf" parent="StaticItems" index="0" instance=ExtResource("2_8w6a3")]
+position = Vector2(2, -20)
+subview_image = ExtResource("3_wapgh")
+
+[node name="Texture" parent="StaticItems/Shelf" index="0"]
+position = Vector2(-1, -27)
+texture = ExtResource("4_gcvpd")
+region_enabled = true
+region_rect = Rect2(4, 6, 44, 55)
+
+[node name="Shelf2" parent="StaticItems" index="1" instance=ExtResource("2_8w6a3")]
+position = Vector2(2, 44)
+subview_image = ExtResource("5_6khit")
+
+[node name="Texture" parent="StaticItems/Shelf2" index="0"]
+position = Vector2(-1, -27)
+texture = ExtResource("4_gcvpd")
+region_enabled = true
+region_rect = Rect2(4, 6, 44, 55)
+
+[node name="Shelf3" parent="StaticItems" index="2" instance=ExtResource("2_8w6a3")]
+position = Vector2(-40, 45)
+subview_scene = ExtResource("6_aahcq")
+
+[node name="Texture" parent="StaticItems/Shelf3" index="0"]
+position = Vector2(-1, -27)
+texture = ExtResource("4_gcvpd")
+region_enabled = true
+region_rect = Rect2(50, 6, 44, 55)
+
+[node name="Shelf4" parent="StaticItems" index="3" instance=ExtResource("2_8w6a3")]
+position = Vector2(-40, -20)
+subview_image = ExtResource("6_5rodf")
+
+[node name="Texture" parent="StaticItems/Shelf4" index="0"]
+position = Vector2(-1, -27)
+texture = ExtResource("4_gcvpd")
+region_enabled = true
+region_rect = Rect2(50, 6, 44, 55)
+
+[node name="DarkSurrounding" parent="." index="7" instance=ExtResource("2_1q55g")]
+
+[node name="Map" type="CanvasGroup" parent="." index="8"]
+y_sort_enabled = true
+
+[node name="Room" type="TileMapLayer" parent="Map" index="0"]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAD8//3/AAAGAAIAAAD9//3/AAAGAAIAAAD+//3/AAAGAAIAAAD///3/AAAGAAIAAAAAAP3/AAAGAAIAAAABAP3/AAAGAAIAAAACAP3/AAAGAAIAAAD8//7/AAAGAAYAAAD9//7/AAAGAAYAAAD+//7/AAAGAAYAAAD///7/AAAGAAYAAAAAAP7/AAAGAAYAAAABAP7/AAAGAAYAAAACAP7/AAAGAAYAAAD8////AAAGAAYAAAD9////AAAGAAYAAAD+////AAAGAAYAAAD/////AAAGAAYAAAAAAP//AAAGAAYAAAABAP//AAAGAAYAAAACAP//AAAGAAYAAAD8/wAAAAAGAAYAAAD9/wAAAAAGAAYAAAD+/wAAAAAGAAYAAAD//wAAAAAGAAYAAAAAAAAAAAAGAAYAAAABAAAAAAAGAAYAAAACAAAAAAAGAAYAAAD7//3/AAAFAAIAAAADAP3/AAAGAAIAAAAEAP3/AgAAAAAAAAD7//7/AAAFAAYAAAADAP7/AAAGAAYAAAAEAP7/AAAGAAYAAAD7////AAAFAAYAAAADAP//AAAGAAYAAAAEAP//AAAGAAYAAAD7/wAAAAAFAAYAAAADAAAAAAAGAAYAAAAEAAAAAAAGAAYAAAD7/wEAAAAFAAYAAAD8/wEAAAAGAAYAAAD9/wEAAAAGAAYAAAD+/wEAAAAGAAYAAAD//wEAAAAGAAYAAAAAAAEAAAAGAAYAAAABAAEAAAAGAAYAAAACAAEAAAAGAAYAAAADAAEAAAAGAAYAAAAEAAEAAAAGAAYAAAD7/wIAAAAFAAYAAAD8/wIAAAAGAAYAAAD9/wIAAAAGAAYAAAD+/wIAAAAGAAYAAAD//wIAAAAGAAYAAAAAAAIAAAAGAAYAAAABAAIAAAAGAAYAAAACAAIAAAAGAAYAAAADAAIAAAAGAAYAAAAEAAIAAAAGAAYAAAD7/wMAAAAFAAYAAAD8/wMAAAAGAAYAAAD9/wMAAAAGAAYAAAD+/wMAAAAGAAYAAAD//wMAAAAGAAYAAAAAAAMAAAAGAAYAAAABAAMAAAAGAAYAAAACAAMAAAAGAAYAAAADAAMAAAAGAAYAAAAEAAMAAAAGAAYAAAAFAP3/AAAGAAIAAAAGAP3/AAAHAAIAAAAFAP7/AAAGAAYAAAAGAP7/AAAHAAYAAAAFAP//AAAGAAYAAAAGAP//AAAHAAYAAAAFAAAAAAAGAAYAAAAGAAAAAAAHAAYAAAAFAAEAAAAGAAYAAAAGAAEAAAAHAAYAAAAFAAIAAAAGAAYAAAAGAAIAAAAHAAYAAAAFAAMAAAAGAAYAAAAGAAMAAAAHAAYAAAADAAQAAAAGAAYAAAAEAAQAAAAGAAYAAAAFAAQAAAAGAAYAAAAGAAQAAAAHAAYAAAD7/wQAAAAFAAYAAAD8/wQAAAAGAAYAAAD9/wQAAAAGAAYAAAD+/wQAAAAGAAYAAAD//wQAAAAGAAYAAAAAAAQAAAAGAAYAAAABAAQAAAAGAAYAAAACAAQAAAAGAAYAAAD8/wUAAAACAAgAAAD9/wUAAAACAAgAAAD+/wUAAAACAAgAAAD//wUAAAACAAgAAAAAAAUAAAACAAgAAAABAAUAAAACAAgAAAACAAUAAAACAAgAAAADAAUAAAACAAgAAAAEAAUAAAACAAgAAAD7/wUAAAAAAAkAAAAFAAUAAAACAAgAAAAGAAUAAAAEAAkAAAA=")
+tile_set = ExtResource("2_fqfb8")
+
+[node name="Furniture" type="TileMapLayer" parent="Map" index="1"]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAD8//7/DgADAAAAAAD///7/DgAAAAAAAAD//wIADgAAAAAAAAD8/wIADgADAAAAAAACAP7/DgAHAAEAAAAFAP7/DgAJAAEAAAAEAAIADgAIAAMAAAAEAAEADgAHAAMAAAAEAAQADgAGAAIAAAAFAAQADgAGAAEAAAA=")
+tile_set = ExtResource("3_6q6uo")
+
+[node name="SmallItem" type="TileMapLayer" parent="Map" index="2"]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAAAAPz/AQABAAMAAAD+//f/AQAAAAMAAAA=")
+tile_set = ExtResource("4_y1hgm")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map" index="3"]
+position = Vector2(8, -8)
+energy = 4.0
+range_item_cull_mask = 3
+texture = ExtResource("6_sh88v")
+
+[node name="CorridorEntry" parent="Map" index="4" instance=ExtResource("7_871kx")]
+connected_scene = "res://scenes/world/corridor_2.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/CorridorEntry" index="0"]
+position = Vector2(72, -44)
+shape = SubResource("RectangleShape2D_jx5d5")
+
+[editable path="StaticItems/Shelf"]
+[editable path="StaticItems/Shelf2"]
+[editable path="StaticItems/Shelf3"]
+[editable path="StaticItems/Shelf4"]

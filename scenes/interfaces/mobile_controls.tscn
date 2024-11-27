@@ -1,12 +1,54 @@
-[gd_scene load_steps=3 format=3 uid="uid://6onope3m1r2f"]
+[gd_scene load_steps=6 format=3 uid="uid://6onope3m1r2f"]
 
 [ext_resource type="PackedScene" uid="uid://dl24dvxq0nkvm" path="res://scenes/interfaces/joystick.tscn" id="1_o2kv0"]
 [ext_resource type="Script" path="res://scripts/interfaces/mobile_controls.gd" id="1_xkge1"]
+[ext_resource type="Texture2D" uid="uid://b0wubecqqtlwl" path="res://assets/images/interfaces/in_game_ui.png" id="3_ib2mx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eigkr"]
+atlas = ExtResource("3_ib2mx")
+region = Rect2(5, 37, 22, 21)
+margin = Rect2(0, 0, 0.025, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2dpn"]
+atlas = ExtResource("3_ib2mx")
+region = Rect2(32, 64, 31, 31)
 
 [node name="MobileControls" type="CanvasLayer"]
+process_priority = -1
+visible = false
 script = ExtResource("1_xkge1")
 
 [node name="Joystick" parent="." instance=ExtResource("1_o2kv0")]
 unique_name_in_owner = true
 position = Vector2(64, 352)
 scale = Vector2(4, 4)
+
+[node name="PauseButton" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(50, 0.137)
+offset_left = 17.0
+offset_top = 11.0
+offset_right = 85.0
+offset_bottom = 70.0
+texture_normal = SubResource("AtlasTexture_eigkr")
+stretch_mode = 4
+
+[node name="InteractButton" type="TextureButton" parent="."]
+modulate = Color(1, 1, 1, 0.6)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -187.0
+offset_top = -210.0
+offset_right = -88.0
+offset_bottom = -124.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = SubResource("AtlasTexture_b2dpn")
+stretch_mode = 5
+
+[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="button_down" from="InteractButton" to="." method="_on_interact_button_button_down"]
+[connection signal="button_up" from="InteractButton" to="." method="_on_interact_button_button_up"]
+[connection signal="pressed" from="InteractButton" to="." method="_on_interact_button_pressed"]

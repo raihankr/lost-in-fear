@@ -34,7 +34,7 @@ tile_set = ExtResource("2_gsdvx")
 [node name="Furniture" type="TileMapLayer" parent="Map" index="1"]
 y_sort_enabled = true
 position = Vector2(-176, -88)
-tile_map_data = PackedByteArray("AAATAAwAAwADAAUAAAATAAkAAgAHAAcAAAATAAoAAwAAAAEAAAARAAkAAgAIAA8AAAASAAkAAgAKAA8AAAAQAAwAAwAAAAUAAAAUAA4AAwACAAEAAQA=")
+tile_map_data = PackedByteArray("AAATAAkAAgAHAAcAAAATAAoAAwAAAAEAAAARAAkAAgAIAA8AAAASAAkAAgAKAA8AAAAQAAwAAwAAAAUAAAAUAA4AAwACAAEAAQATAAsAAwADAAUAAAA=")
 tile_set = ExtResource("3_bbnyr")
 
 [node name="SmallItem" type="TileMapLayer" parent="Map" index="2"]

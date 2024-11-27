@@ -1,0 +1,52 @@
+[gd_scene load_steps=11 format=4 uid="uid://cb422qa4fnmm0"]
+
+[ext_resource type="PackedScene" uid="uid://cm2f40rvqfd66" path="res://scenes/utils/base_scene.tscn" id="1_vdno7"]
+[ext_resource type="TileSet" uid="uid://befa8e1hqfteb" path="res://resources/tilesets/house.tres" id="2_iu1ic"]
+[ext_resource type="Script" path="res://scripts/world/bathroom_2.gd" id="2_mfglp"]
+[ext_resource type="PackedScene" uid="uid://cfqtcln25utjk" path="res://scenes/entities/static_items/dynamic_note.tscn" id="2_mg5rx"]
+[ext_resource type="TileSet" uid="uid://b4m7u4qm5jhrv" path="res://resources/tilesets/furniture.tres" id="3_cnvj5"]
+[ext_resource type="TileSet" uid="uid://c5een44ke5r5i" path="res://resources/tilesets/item.tres" id="4_a1qnx"]
+[ext_resource type="Script" path="res://scripts/entities/static_items/evans_note.gd" id="4_j6ewe"]
+[ext_resource type="PackedScene" uid="uid://dyhpmtx5irjvs" path="res://scenes/utils/scene_trigger.tscn" id="5_jckiu"]
+[ext_resource type="PackedScene" uid="uid://crgbii6omcjwa" path="res://scenes/utils/dark_surrounding.tscn" id="6_n6w2q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6j30f"]
+size = Vector2(16, 8)
+
+[node name="Bathroom" instance=ExtResource("1_vdno7")]
+script = ExtResource("2_mfglp")
+
+[node name="Corridor" type="Marker2D" parent="EntranceMarkers" index="0"]
+position = Vector2(8, 24)
+
+[node name="EvansNote" parent="StaticItems" index="0" instance=ExtResource("2_mg5rx")]
+position = Vector2(16, -22)
+script = ExtResource("4_j6ewe")
+text = "Semuanya salahku... Mungkin, kalau aku lebih memilih banyak berdiam di rumah, semuanya akan berbeda. Terkadang, aku mendengar suaramu, dari sudut rumah ini, memanggilku terus menerus. Aku tahu ini tak mungkin, tapi aku mendengarnya, dan aku tak bisa mengusir rasa bersalah ini. Aku habiskan banyak waktu hanya untuk bekerja, tak pernah cukup melihatmu ataupun Mia dan Monika. Tak pernah cukup ada untuk kalian. Aku merasa seharusnya aku yang pergi, bukan dirimu.\" \"Mia dan Monika... mereka kehilangan ibunya, dan aku telah gagal menjadi ayah yang baik untuk mereka. Aku tahu aku harus memperbaiki semua ini, tapi apa yang bisa aku lakukan tanpamu? "
+
+[node name="Map" type="CanvasGroup" parent="." index="7"]
+y_sort_enabled = true
+
+[node name="Room" type="TileMapLayer" parent="Map" index="0"]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAD9//3/AQAFAAIAAAD+//3/AQAGAAIAAAD///3/AQAGAAIAAAAAAP3/AQAGAAIAAAABAP3/AQAGAAIAAAD9//7/AQAFAAYAAAD+//7/AQAGAAYAAAD///7/AQAGAAYAAAAAAP7/AQAGAAYAAAABAP7/AQAGAAYAAAD9////AQAFAAYAAAD+////AQAGAAYAAAD/////AQAGAAYAAAAAAP//AQAGAAYAAAABAP//AQAGAAYAAAD9/wAAAQAFAAYAAAD+/wAAAQAGAAYAAAD//wAAAQAGAAYAAAAAAAAAAQAGAAYAAAABAAAAAQAGAAYAAAD9/wEAAQAFAAYAAAD+/wEAAQAGAAYAAAD//wEAAQAGAAYAAAAAAAEAAQAGAAYAAAABAAEAAQAGAAYAAAD9/wIAAQAAAAkAAAD+/wIAAQACAAgAAAD//wIAAQABAAkAAgAAAAIAAQAGAAYAAQABAAIAAQADAAkAAgACAP3/AQAGAAIAAAADAP3/AQAGAAIAAAACAP7/AQAGAAYAAAADAP7/AQAGAAYAAAACAP//AQAGAAYAAAADAP//AQAGAAYAAAACAAAAAQAGAAYAAAADAAAAAQAGAAYAAAACAAEAAQAGAAYAAAADAAEAAQAGAAYAAAACAAIAAQACAAgAAAADAAIAAQACAAgAAAAEAP3/AQAHAAIAAAAEAP7/AQAHAAYAAAAEAP//AQAHAAYAAAAEAAAAAQAHAAYAAAAEAAEAAQAHAAYAAAAEAAIAAQAEAAkAAAD//wMAAQAAAAkAAgAAAAMAAQACAAgAAQABAAMAAQAEAAkAAgA=")
+tile_set = ExtResource("2_iu1ic")
+
+[node name="Furniture" type="TileMapLayer" parent="Map" index="1"]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAACAP//DQAAAAAAAAAAAAEAAAAIAAIAAAD+//7/AAAIABAAAAAAAP3/AwADAAUAAAAAAPz/AwAAAAEAAAD+//v/AgAIAA8AAAD///v/AgAKAA8AAAA=")
+tile_set = ExtResource("3_cnvj5")
+
+[node name="SmallItem" type="TileMapLayer" parent="Map" index="2"]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAD+//v/AQABAAAAAQD8//f/AQAEAAAAAAAGAPn/AQAAAAAAAAAEAPn/AQAGAAAAAAA=")
+tile_set = ExtResource("4_a1qnx")
+
+[node name="CorridorEntry" parent="Map" index="3" instance=ExtResource("5_jckiu")]
+connected_scene = "res://scenes/world/corridor_2.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/CorridorEntry" index="0"]
+position = Vector2(8, 44)
+shape = SubResource("RectangleShape2D_6j30f")
+
+[node name="DarkSurrounding" parent="." index="8" instance=ExtResource("6_n6w2q")]

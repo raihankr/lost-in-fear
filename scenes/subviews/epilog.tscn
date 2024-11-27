@@ -1,0 +1,128 @@
+[gd_scene load_steps=8 format=3 uid="uid://dm7lidinxrows"]
+
+[ext_resource type="Script" path="res://scenes/subviews/epilog.gd" id="1_o51gm"]
+[ext_resource type="Texture2D" uid="uid://y5tclijumkhc" path="res://assets/images/subviews/ending_ver1.png" id="1_omtbi"]
+[ext_resource type="FontFile" uid="uid://bmuueyrplger6" path="res://assets/fonts/PixelOperator.ttf" id="2_kqh8f"]
+[ext_resource type="Script" path="res://scenes/subviews/animation_player.gd" id="2_nn11d"]
+
+[sub_resource type="Animation" id="Animation_1hl7u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RichTextLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RichTextLabel:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["[center]Angga ditemukan dalam kondisi kebingungan setelah melaporkan kejadian misterius di sebuah rumah kosong di kawasan pinggiran kota. Ia mengaku mengalami serangkaian peristiwa menyeramkan selama berada di dalam rumah tersebut, termasuk melihat seorang anak kecil berlari, suara-suara aneh, dan banyaknya penampakan hantu dari dalam rumah tersebut.
+"]
+}
+
+[sub_resource type="Animation" id="Animation_wp2cw"]
+resource_name = "show"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.533333, 1.33333, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RichTextLabel:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.23333, 3.96667, 5.93333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": ["[center]Angga ditemukan dalam kondisi kebingungan setelah melaporkan kejadian misterius di sebuah rumah kosong di kawasan pinggiran kota. Ia mengaku mengalami serangkaian peristiwa menyeramkan selama berada di dalam rumah tersebut, termasuk melihat seorang anak kecil berlari, suara-suara aneh, dan banyaknya penampakan hantu dari dalam rumah tersebut.
+", "[center]Polisi yang menyelidiki tempat kejadian menyatakan tidak menemukan bukti adanya aktivitas mencurigakan. Rumah itu diketahui telah lama kosong setelah ditinggalkan oleh pemiliknya, Evans, seorang pengajar yang kini tinggal bersama kedua anaknya di kota lain. ", "[center]Hasil pemeriksaan lebih lanjut menunjukkan Angga didiagnosis mengidap skizofrenia paranoid. Kondisinya memengaruhi persepsi dan pikirannya sehingga menciptakan pengalaman yang seolah benar-benar dirasakan oleh dirinya. Dokter menyebutkan halusinasi tersebut kemungkinan dipicu oleh kelelahan dan stres yang dialami Angga.
+"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RichTextLabel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.8, 2.23333, 3.5, 3.93333, 4.36667, 5.5, 5.93333, 6.3, 7.5, 7.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oras0"]
+_data = {
+"RESET": SubResource("Animation_1hl7u"),
+"show": SubResource("Animation_wp2cw")
+}
+
+[node name="Epilog" type="CanvasLayer"]
+layer = 90
+script = ExtResource("1_o51gm")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(578, 328)
+texture = ExtResource("1_omtbi")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 133.0
+offset_top = 264.0
+offset_right = 1047.0
+offset_bottom = 368.0
+theme_override_fonts/normal_font = ExtResource("2_kqh8f")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]Angga ditemukan dalam kondisi kebingungan setelah melaporkan kejadian misterius di sebuah rumah kosong di kawasan pinggiran kota. Ia mengaku mengalami serangkaian peristiwa menyeramkan selama berada di dalam rumah tersebut, termasuk melihat seorang anak kecil berlari, suara-suara aneh, dan banyaknya penampakan hantu dari dalam rumah tersebut.
+"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_oras0")
+}
+speed_scale = 0.2
+script = ExtResource("2_nn11d")

@@ -20,7 +20,8 @@ const WALK_SOUND = {
 	set(value):
 		walk_sound = value
 		$FootstepSound.stream = value
-@onready var joystick: TouchScreenButton = get_node_or_null('../MobileControls/Joystick') if OS.get_name() in ['Android', 'iOS'] else null
+
+@onready var joystick: TouchScreenButton = InGameUI.get_node_or_null('MobileControls/Joystick') if OS.get_name() in ['Android', 'iOS'] else null
 @onready var animation: AnimatedSprite2D = %Animation
 @onready var vision: PointLight2D = %Vision
 @onready var state_machine: StateMachine = %StateMachine
@@ -33,15 +34,15 @@ var rotation_state: Rotation = Rotation.FRONT
 var horizontal_heading: Direction = Direction.LEFT
 var vision_texture: Array[Variant] = [
 	null,
-	preload("res://assets/images/light-circular.png"),
-	preload('res://assets/images/light-cone.png')
+	preload("res://assets/images/vfx/light-circular.png"),
+	preload('res://assets/images/vfx/light-cone.png')
 ]
 var music_area_array: Array[MusicArea] = []
 var state: Variant:
 	set(value):
 		if value is Array:
 			state_machine.enter(value[0], value[1])
-		elif value is String:
+		elif value is String or value is StringName:
 			state_machine.enter(value)
 	get:
 		return state_machine.state.name
@@ -62,6 +63,7 @@ func _process(delta):
 			'Android', 'iOS':
 				head_rotation = joystick.joystick_angle
 				speed = joystick.get_joystick_dir().length()
+				print(speed)
 			'Windows', 'macOS':
 				if Input.is_action_pressed('move_left'):
 					speed = 1
@@ -85,11 +87,14 @@ func _process(delta):
 					head_rotation = .5 * PI
 		#endregion
 		
-		if Input.is_action_just_pressed("interact"):
+		if Input.is_action_just_pressed("interact", true):
 			var ov_areas: Array[Area2D] = %ActionArea.get_overlapping_areas()
 			if ov_areas.size() > 0:
-				if ov_areas.front() is Item:
-					(ov_areas.front() as Item).pick_up()
+				var closest_item: Area2D = ov_areas.front()
+				if closest_item is Item:
+					closest_item.pick_up()
+				elif closest_item is StaticItem:
+					closest_item.interact()
 
 func _on_rotated(value: float) -> void:
 	head_rotation = value

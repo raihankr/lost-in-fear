@@ -9,13 +9,19 @@ signal car_arrived
 @onready var animation: AnimationPlayer  = $AnimationPlayer
 
 var living_room: String = 'res://scenes/world/living_room.tscn'
+var video_path: String = "res://assets/videos/open_door.ogv"
 var dialogue: Resource = preload("res://dialogues/outdoor.dialogue")
 var car_prepare_to_stop: bool = false
 
 func _ready():
+	ResourceLoader.load_threaded_request(video_path)
 	set_process(false)
 	await super._setup()
 	InGameUI.enable(true, false)
+	var prolog = preload('res://scenes/subviews/prolog.tscn').instantiate()
+	get_tree().current_scene.add_child(prolog)
+	await prolog.find_child('AnimationPlayer').animation_finished
+	prolog.queue_free()
 	player.world_position = 'Spawn'
 	player.hide()
 	await super._fade_in()
@@ -27,10 +33,16 @@ func _ready():
 	await car_arrived
 	player.show()
 	await player.move_to($StartingPoint.global_position, 50, 'WalkPackage')
-	await DialogueManager.show_dialogue_balloon(dialogue, 'arrival')
+	player.input_enabled = true
+	DialogueManager.show_dialogue_balloon(dialogue, 'arrival')
+	await DialogueManager.dialogue_ended
+	Global.show_image_subview(preload("res://assets/images/interfaces/instruksi_1.png"))
 
 func _process(delta: float):
-	if Input.is_key_pressed(KEY_ESCAPE) and OS.is_debug_build():
+	if animation.is_playing() and Input.is_action_just_pressed('skip_dialogue'):
+		animation.stop(false)
+		animation.animation_finished.emit()
+	elif Input.is_key_pressed(KEY_ESCAPE) and OS.is_debug_build():
 		set_process(false)
 		next_scene()
 	move_car(delta)
@@ -58,12 +70,15 @@ func _on_task_call_body_entered(body: Node) -> void:
 	follow_camera.make_current()
 	DialogueManager.show_dialogue_balloon(dialogue, 'call')
 	await DialogueManager.dialogue_ended
+	player.input_enabled = true
 	$TaskGoInside.enable()
 
 func _on_task_go_inside_body_entered(body: Node) -> void:
 	player.head_rotation = 1.5 * PI
 	DialogueManager.show_dialogue_balloon(dialogue, 'going_inside')
 	await DialogueManager.dialogue_ended
+	var video: VideoStream = ResourceLoader.load_threaded_get(video_path)
+	await Global.show_video(video, $ContainerFront, false)
 	next_scene()
 
 func next_scene() -> void:
